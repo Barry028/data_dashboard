@@ -1,0 +1,70 @@
+{
+  "name": "data_dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "@animxyz/core": "^0.6.6",
+    "@babel/core": "^7.17.8",
+    "chartist-plugin-legend": "^0.6.2",
+    "chartist-plugin-pointlabels": "^0.0.6",
+    "chartist-plugin-tooltips": "^0.0.17",
+    "chartist-plugin-tooltips-updated": "^0.1.4",
+    "dart-sass": "^1.25.0",
+    "echarts": "^5.3.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-consolidate": "^0.2.0",
+    "gulp-iconfont": "^11.0.1",
+    "gulp-iconfont-css": "^3.0.0",
+    "gulp-iconfont-css-and-template": "^1.0.31",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sequence": "^1.0.0",
+    "hamburgers": "^1.2.1",
+    "hammerjs": "^2.0.8",
+    "imagemin-jpegtran": "^7.0.0",
+    "intersection-observer": "^0.12.2",
+    "postcss": "^8.4.12",
+    "postcss-cli": "^9.1.0"
+  },
+  "devDependencies": {
+    "async": "^3.2.3",
+    "autoprefixer": "^10.4.4",
+    "cssnano": "^5.1.5",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-cache": "^1.1.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-dart-sass": "^1.0.2",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-nodemon": "^2.5.0",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-svgo": "^2.2.1",
+    "gulp-uglify": "^3.0.2",
+    "gulp-webp": "^4.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-pngquant": "^9.0.2",
+    "node-sass": "^7.0.1",
+    "node-sass-tilde-importer": "^1.0.2",
+    "sass": "^1.49.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/Barry028/data_dashboard.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Barry028/data_dashboard/issues"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

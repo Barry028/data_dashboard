@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,maximum-scale=1.0,user-scalable=no">
+  <meta charset="UTF-8">
+  <title>勞動力發展署 - 職業訓練視覺化分析平台</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <!-- Animate  -->
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <!-- iCon  -->
+  <link rel="stylesheet" type="text/css" href="vendor/iCons/turbo_icon_blur-v1.0/style.css">
+  <!-- CSS  -->
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <!-- Vendor -->
+  <!--[if lte IE 9]>
+        <script src="vender/IE_Supports/html5shiv/dist/html5shiv.min.js"></script>
+        <script src="vender/IE_Supports/respond/dest/respond.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.jquery.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.prototype.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.yui3.min.js"></script>
+    <![endif]-->
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'ufg8zbw',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="backend-header" id="Header">
+    <div class="container-fluid">
+      <div class="header-group">
+        <div class="header-group-lt">
+          <a href="index_v1.html" class="header-logo">
+            <img src="img/logo.svg" title="勞動力發展署" alt="職業訓練視覺化分析平台" class="logo-img">
+          </a>
+        </div>
+        <div class="header-group-rt">
+          <ul class="header-tools">
+            <li class="header-tools-item">
+              <time class="current-clock">
+                <div class="current-clock--heading">
+                  現在時間
+                </div>
+                <div class="clock-group light--clock" id="current_clock">
+                  <div class="flip-card down">
+                    <div class="digital front number0"></div>
+                    <div class="digital back number1"></div>
+                  </div>
+                  <div class="flip-card down">
+                    <div class="digital front number0"></div>
+                    <div class="digital back number1"></div>
+                  </div>
+                  <em>:</em>
+                  <div class="flip-card down">
+                    <div class="digital front number0"></div>
+                    <div class="digital back number1"></div>
+                  </div>
+                  <div class="flip-card down">
+                    <div class="digital front number0"></div>
+                    <div class="digital back number1"></div>
+                  </div>
+                  <em>:</em>
+                  <div class="flip-card down">
+                    <div class="digital front number0"></div>
+                    <div class="digital back number1"></div>
+                  </div>
+                  <div class="flip-card down">
+                    <div class="digital front number0"></div>
+                    <div class="digital back number1"></div>
+                  </div>
+                </div>
+              </time>
+            </li>
+            <li class="header-tools-item">
+              <time class="t-calendar-date" id="current_date">
+                <dl>
+                  <dt>
+                    <strong id="month" class="t-month"></strong>
+                  </dt>
+                  <dd>
+                    <span id="date" class="t-date"></span>
+                    <span id="day" class="t-day"></span>
+                  </dd>
+                </dl>
+              </time>
+            </li>
+            <li class="header-tools-item">
+              <div class="dropdown dropdown-user-menu" data-toggle="tooltip" data-placement="left" title="勞動力發展署 訓練發展組 歐陽光亮">
+                <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="avatar-container">
+                    <div class="avatar-img" data-bg-img-src="dist/img/3d_avatars/3d-male-001.webp"></div>
+                  </div>
+                  <div class="user-description">
+                    <div class="user-description-unit">勞動力發展署</div>
+                    <div class="user-description-txts">訓練發展組 歐陽光亮</div>
+                  </div>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-lock-1 dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">密碼變更</font>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-profile dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">個人資料</font>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-logout dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">登出系統</font>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- SIDE MEUN -->
+  <aside class="side-bar-menu" id="SideBar">
+    <h2 class="side-main-title">
+      <span>功能選單</span>
+      <big>MEUN</big>
+      <input id="BurGerMenu" type="checkbox" class="toggle-input">
+      <label id="BurGer" for="BurGerMenu" class="toggle-menu">
+        <span></span>
+      </label>
+    </h2>
+    <nav class="side-main-menu">
+      <ul class="js-scrollbar">
+        <li class="side-main-list-item active">
+          <a class="side-main-list-link" href="membercenter.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首　　頁</span>
+          </a>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-square" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>互動服務管理</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>互動服務</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>互動服務</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>互動服務</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>互動服務</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-civic-cvc" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>營運指標</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="map.html">
+                <span>用地圖看統計</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>本年度目標</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>統計圖表</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-lamp-charge" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>主題分析探勘</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="themes_data.html">
+                <span>參訓學員訓後成效分析</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>在職學員成效分析</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>青年學員成效分析</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-folder-favorite" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>我的收藏</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>我的收藏</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" class="side-sub-menu-link" href="javascript:;">
+                <span>我的收藏</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>我的收藏</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>我的收藏Ｘ</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-setting-2" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>系統管理</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>帳號維護</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>權限管理</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>參數設定</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>資料介接情形</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>稽核紀錄</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="main-content" id="MainContent">
+    <div class="backend-page-content">
+      <div class="backend-page-header backend-page-header-innder">
+        <div class="mask mask_datas"></div>
+        <div class="lottie lottie-bg" data-animation-path="https://assets7.lottiefiles.com/packages/lf20_qwATcU.json" data-anim-loop="true" data-name="cahrt1"></div>
+        <div class="backend-page-header-cnt">
+          <ul class="backend-page-breadcrumbs">
+            <li class="backend-page-breadcrumbs-item">
+              <a href="javascript:;">首頁</a>
+            </li>
+            <li class="backend-page-breadcrumbs-item">
+              營運指標
+            </li>
+            <li class="backend-page-breadcrumbs-item">
+              用地圖看統計
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="backend-page-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="dashboard-card dashboard-map-card">
+                <div class="map-main-cnt">
+                  <div class="lt-more-cnt">
+                    <h3 class="heading-v1">
+                      <span>其他查詢條件</span>
+                      <div class="icon-bk">
+                        <i class="nre-add-square" id="lt_more"></i>
+                      </div>
+                    </h3>
+                    <div class="lt-more-accordions">
+                      <!-- 分署別 -->
+                      <h4 class="accordions">
+                        <span>分署別</span>
+                        <i class="tu-chevron-right"></i>
+                      </h4>
+                      <ul class="accordions-cnt">
+                        <li>
+                          <input class="chk-inp" name="office" id="a1" type="checkbox">
+                          <label class="chk-lab" for="a1">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>北基宜花金馬分署</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="office" id="a2" type="checkbox">
+                          <label class="chk-lab" for="a2">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>桃竹苗分署</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="office" id="a3" type="checkbox">
+                          <label class="chk-lab" for="a3">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>中彰投分署</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="office" id="a4" type="checkbox">
+                          <label class="chk-lab" for="a4">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>雲嘉南分署</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="office" id="a5" type="checkbox">
+                          <label class="chk-lab" for="a5">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>高屏澎東分署</font>
+                          </label>
+                        </li>
+                      </ul>
+                      <!-- 開班數 -->
+                      <h4 class="accordions">
+                        <span>開班數</span>
+                        <i class="tu-chevron-right"></i>
+                      </h4>
+                      <ul class="accordions-cnt">
+                        <li>
+                          <input class="chk-inp" name="office" id="a1" type="checkbox">
+                          <label class="chk-lab" for="a1">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>自辦職前</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="office" id="a2" type="checkbox">
+                          <label class="chk-lab" for="a2">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>自辦在職</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="office" id="a3" type="checkbox">
+                          <label class="chk-lab" for="a3">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>委外職前</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="office" id="a4" type="checkbox">
+                          <label class="chk-lab" for="a4">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>產業人才投資方案</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="office" id="a5" type="checkbox">
+                          <label class="chk-lab" for="a5">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>青年計畫</font>
+                          </label>
+                        </li>
+                      </ul>
+                      <!-- 訓練單位數 -->
+                      <h4 class="accordions">
+                        <span>訓練單位數</span>
+                        <i class="tu-chevron-right"></i>
+                      </h4>
+                      <ul class="accordions-cnt">
+                        <li>
+                          <input class="chk-inp" name="office" id="a3" type="checkbox">
+                          <label class="chk-lab" for="a3">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>委外職前</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="office" id="a4" type="checkbox">
+                          <label class="chk-lab" for="a4">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>產業人才投資方案</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="office" id="a5" type="checkbox">
+                          <label class="chk-lab" for="a5">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>青年計畫</font>
+                          </label>
+                        </li>
+                      </ul>
+                      <!-- 學員數 -->
+                      <h4 class="accordions">
+                        <span>學員數</span>
+                        <i class="tu-chevron-right"></i>
+                      </h4>
+                      <ul class="accordions-cnt">
+                        <li>
+                          <input class="chk-inp" name="office" id="a1" type="checkbox">
+                          <label class="chk-lab" for="a1">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>自辦職前</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="office" id="a2" type="checkbox">
+                          <label class="chk-lab" for="a2">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>自辦在職</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="office" id="a3" type="checkbox">
+                          <label class="chk-lab" for="a3">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>委外職前</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="office" id="a4" type="checkbox">
+                          <label class="chk-lab" for="a4">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>產業人才投資方案</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="office" id="a5" type="checkbox">
+                          <label class="chk-lab" for="a5">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>青年計畫</font>
+                          </label>
+                        </li>
+                      </ul>
+                      <!-- 上課地點 -->
+                      <h4 class="accordions">
+                        <span>上課地點</span>
+                        <i class="tu-chevron-right"></i>
+                      </h4>
+                      <ul class="accordions-cnt areas">
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_1" type="checkbox" value="1">
+                          <label class="chk-lab" for="Form_CTID_SHOW_1">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>臺北市</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_2" type="checkbox" value="2">
+                          <label class="chk-lab" for="Form_CTID_SHOW_2">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>基隆市</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_3" type="checkbox" value="3">
+                          <label class="chk-lab" for="Form_CTID_SHOW_3">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>新北市</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_4" type="checkbox" value="4">
+                          <label class="chk-lab" for="Form_CTID_SHOW_4">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>宜蘭縣</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_5" type="checkbox" value="5">
+                          <label class="chk-lab" for="Form_CTID_SHOW_5">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>新竹市</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_6" type="checkbox" value="6">
+                          <label class="chk-lab" for="Form_CTID_SHOW_6">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>新竹縣</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_7" type="checkbox" value="7">
+                          <label class="chk-lab" for="Form_CTID_SHOW_7">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>桃園市</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_8" type="checkbox" value="8">
+                          <label class="chk-lab" for="Form_CTID_SHOW_8">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>台中市</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_9" type="checkbox" value="9">
+                          <label class="chk-lab" for="Form_CTID_SHOW_9">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>彰化縣</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_10" type="checkbox" value="10">
+                          <label class="chk-lab" for="Form_CTID_SHOW_10">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>南投縣</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_11" type="checkbox" value="11">
+                          <label class="chk-lab" for="Form_CTID_SHOW_11">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>嘉義市</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_12" type="checkbox" value="12">
+                          <label class="chk-lab" for="Form_CTID_SHOW_12">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>嘉義縣</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_13" type="checkbox" value="13">
+                          <label class="chk-lab" for="Form_CTID_SHOW_13">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>雲林縣</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_14" type="checkbox" value="14">
+                          <label class="chk-lab" for="Form_CTID_SHOW_14">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>台南市</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_15" type="checkbox" value="15">
+                          <label class="chk-lab" for="Form_CTID_SHOW_15">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>高雄市</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_16" type="checkbox" value="16">
+                          <label class="chk-lab" for="Form_CTID_SHOW_16">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>澎湖縣</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_17" type="checkbox" value="17">
+                          <label class="chk-lab" for="Form_CTID_SHOW_17">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>屏東縣</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_18" type="checkbox" value="18">
+                          <label class="chk-lab" for="Form_CTID_SHOW_18">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>台東縣</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_19" type="checkbox" value="19">
+                          <label class="chk-lab" for="Form_CTID_SHOW_19">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>花蓮縣</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_20" type="checkbox" value="20">
+                          <label class="chk-lab" for="Form_CTID_SHOW_4">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>金門縣</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_21" type="checkbox" value="21">
+                          <label class="chk-lab" for="Form_CTID_SHOW_21">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>連江縣</font>
+                          </label>
+                        </li>
+                        <li>
+                          <input class="chk-inp" name="Form.CTID_SHOW" id="Form_CTID_SHOW_22" type="checkbox" value="22">
+                          <label class="chk-lab" for="Form_CTID_SHOW_22">
+                            <i class="box" aria-hidden="true"></i>
+                            <font>其他</font>
+                          </label>
+                        </li>
+                      </ul>
+                      <!-- 開訓日期區間 -->
+                      <h4 class="accordions">
+                        <span>開訓日期區間</span>
+                        <i class="tu-chevron-right"></i>
+                      </h4>
+                      <ul class="accordions-cnt">
+                        <div class="form-inline-control input-daterange" id="ActivityDatepicker">
+                          <div class="range-box">
+                            <div class="date date-group">
+                              <input id="StartDate" type="text" class="t-form-control start-date" name="start" placeholder="YYY/MM/DD" data-mask="999/99/99">
+                              <label class="btn btn--secondary open-datepicker" for="StartDate">
+                                <i class="tu-calendar " aria-hidden="true"></i>
+                              </label>
+                            </div>
+                          </div>
+                          <font>～</font>
+                          <div class="range-box">
+                            <div class="date date-group">
+                              <input id="EndDate" type="text" class="t-form-control end-date" name="end" placeholder="YYY/MM/DD" data-mask="999/99/99" />
+                              <label class="btn btn--secondary open-datepicker" for="EndDate">
+                                <i class="tu-calendar" aria-hidden="true"></i>
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </ul>
+                      <div class="search-bt-bk">
+                        <button type="button" class="btn btn--primary btn--icon btn--block" title="查詢其他條件">
+                          <font>查詢條件</font>
+                          <i class="tu-search1" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ct-map-cnt">
+                    <div class="map-table hidden" id="">
+                      <table id="tb_data" class="area-table">
+                        <thead>
+                          <tr>
+                            <th>縣市別</th>
+                            <th>病例數</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td class="color">台北市</td>
+                            <td>117</td>
+                          </tr>
+                          <tr>
+                            <td class="color">新北市</td>
+                            <td>91</td>
+                          </tr>
+                          <tr>
+                            <td class="color">桃園市</td>
+                            <td>53</td>
+                          </tr>
+                          <tr>
+                            <td class="color">高雄市</td>
+                            <td>49</td>
+                          </tr>
+                          <tr>
+                            <td class="color">台中市</td>
+                            <td>40</td>
+                          </tr>
+                          <tr>
+                            <td class="color">彰化縣</td>
+                            <td>19</td>
+                          </tr>
+                          <tr>
+                            <td class="color">台南市</td>
+                            <td>16</td>
+                          </tr>
+                          <tr>
+                            <td class="color" name="tw-pt">屏東縣</td>
+                            <td>188</td>
+                          </tr>
+                          <tr>
+                            <td class="color">新竹市</td>
+                            <td>11</td>
+                          </tr>
+                          <tr>
+                            <td class="color">基隆市</td>
+                            <td>7</td>
+                          </tr>
+                          <tr>
+                            <td class="color">新竹縣</td>
+                            <td>7</td>
+                          </tr>
+                          <tr>
+                            <td class="color">雲林縣</td>
+                            <td>6</td>
+                          </tr>
+                          <tr>
+                            <td class="color">嘉義市</td>
+                            <td>4</td>
+                          </tr>
+                          <tr>
+                            <td class="color">苗栗縣</td>
+                            <td>3</td>
+                          </tr>
+                          <tr>
+                            <td class="color">宜蘭縣</td>
+                            <td>2</td>
+                          </tr>
+                          <tr>
+                            <td class="color">南投縣</td>
+                            <td>2</td>
+                          </tr>
+                          <tr>
+                            <td class="color">嘉義縣</td>
+                            <td>2</td>
+                          </tr>
+                          <tr>
+                            <td class="color">澎湖縣</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td class="color">金門縣</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td class="color">台東縣</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td class="color">花蓮縣</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td class="color">連江縣</td>
+                            <td>0</td>
+                          </tr>
+                        </tbody>
+                        <tfoot class="tfoot">
+                          <tr>
+                            <td class="color">共計</td>
+                            <td class="color">441</td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                    <figure class="highcharts-figure">
+                      <div id="map-chart"></div>
+                      <p class="highcharts-description">
+                      </p>
+                    </figure>
+                    <div id="map_container">
+                      <div class="loading">
+                        <i class="icon-spinner icon-spin icon-large"></i>
+                        <!-- Loading data from Google Spreadsheets... -->
+                      </div>
+                    </div>
+                  </div>
+                  <div class="rt-result-cnt">
+                    <h3 class="heading-v1">
+                      <!-- <span>附近共有 <big>66</big> 堂課程</span> -->
+                      <span>課程列表</span>
+                    </h3>
+                    <div class="rt-course-card-list js-scrollbar">
+                      <figure class="rt-course-card">
+                        <a href="javascript:;" class="title">
+                          ERP軟體應用師(SAP Business One 雲服務)(週六日)第02期
+                        </a>
+                        <div class="favbtn">
+                          <input type="checkbox" name="rating1" id="rating2">
+                          <label for="rating2" class="fa fa-star"></label>
+                        </div>
+                        <figcaption>
+                          <div class="agency">勞動力發展署桃竹苗分署</div>
+                          <div class="address">台北市 松山區 復興北路1號</div>
+                        </figcaption>
+                        <div class="date-row">
+                          <dl>
+                            <dt>報名期間</dt>
+                            <dd>110/01/10 — 110/05/02</dd>
+                          </dl>
+                          <dl>
+                            <dt>開課期間</dt>
+                            <dd>110/07/31 — 110/09/04</dd>
+                          </dl>
+                        </div>
+                      </figure>
+                      <figure class="rt-course-card">
+                        <a href="javascript:;" class="title">
+                          ERP軟體應用師(SAP Business One 雲服務)(週六日)第02期
+                        </a>
+                        <div class="favbtn">
+                          <input type="checkbox" name="rating1" id="rating2">
+                          <label for="rating2" class="fa fa-star"></label>
+                        </div>
+                        <figcaption>
+                          <div class="agency">勞動力發展署桃竹苗分署</div>
+                          <div class="address">台北市 松山區 復興北路1號</div>
+                        </figcaption>
+                        <div class="date-row">
+                          <dl>
+                            <dt>報名期間</dt>
+                            <dd>110/01/10 — 110/05/02</dd>
+                          </dl>
+                          <dl>
+                            <dt>開課期間</dt>
+                            <dd>110/07/31 — 110/09/04</dd>
+                          </dl>
+                        </div>
+                      </figure>
+                      <figure class="rt-course-card">
+                        <a href="javascript:;" class="title">
+                          ERP軟體應用師(SAP Business One 雲服務)(週六日)第02期
+                        </a>
+                        <div class="favbtn">
+                          <input type="checkbox" name="rating1" id="rating2">
+                          <label for="rating2" class="fa fa-star"></label>
+                        </div>
+                        <figcaption>
+                          <div class="agency">勞動力發展署桃竹苗分署</div>
+                          <div class="address">台北市 松山區 復興北路1號</div>
+                        </figcaption>
+                        <div class="date-row">
+                          <dl>
+                            <dt>報名期間</dt>
+                            <dd>110/01/10 — 110/05/02</dd>
+                          </dl>
+                          <dl>
+                            <dt>開課期間</dt>
+                            <dd>110/07/31 — 110/09/04</dd>
+                          </dl>
+                        </div>
+                      </figure>
+                      <figure class="rt-course-card">
+                        <a href="javascript:;" class="title">
+                          ERP軟體應用師(SAP Business One 雲服務)(週六日)第02期
+                        </a>
+                        <div class="favbtn">
+                          <input type="checkbox" name="rating1" id="rating2">
+                          <label for="rating2" class="fa fa-star"></label>
+                        </div>
+                        <figcaption>
+                          <div class="agency">勞動力發展署桃竹苗分署</div>
+                          <div class="address">台北市 松山區 復興北路1號</div>
+                        </figcaption>
+                        <div class="date-row">
+                          <dl>
+                            <dt>報名期間</dt>
+                            <dd>110/01/10 — 110/05/02</dd>
+                          </dl>
+                          <dl>
+                            <dt>開課期間</dt>
+                            <dd>110/07/31 — 110/09/04</dd>
+                          </dl>
+                        </div>
+                      </figure>
+                      <figure class="rt-course-card">
+                        <a href="javascript:;" class="title">
+                          ERP軟體應用師(SAP Business One 雲服務)(週六日)第02期
+                        </a>
+                        <div class="favbtn">
+                          <input type="checkbox" name="rating1" id="rating2">
+                          <label for="rating2" class="fa fa-star"></label>
+                        </div>
+                        <figcaption>
+                          <div class="agency">勞動力發展署桃竹苗分署</div>
+                          <div class="address">台北市 松山區 復興北路1號</div>
+                        </figcaption>
+                        <div class="date-row">
+                          <dl>
+                            <dt>報名期間</dt>
+                            <dd>110/01/10 — 110/05/02</dd>
+                          </dl>
+                          <dl>
+                            <dt>開課期間</dt>
+                            <dd>110/07/31 — 110/09/04</dd>
+                          </dl>
+                        </div>
+                      </figure>
+                      <figure class="rt-course-card">
+                        <a href="javascript:;" class="title">
+                          ERP軟體應用師(SAP Business One 雲服務)(週六日)第02期
+                        </a>
+                        <div class="favbtn">
+                          <input type="checkbox" name="rating1" id="rating2">
+                          <label for="rating2" class="fa fa-star"></label>
+                        </div>
+                        <figcaption>
+                          <div class="agency">勞動力發展署桃竹苗分署</div>
+                          <div class="address">台北市 松山區 復興北路1號</div>
+                        </figcaption>
+                        <div class="date-row">
+                          <dl>
+                            <dt>報名期間</dt>
+                            <dd>110/01/10 — 110/05/02</dd>
+                          </dl>
+                          <dl>
+                            <dt>開課期間</dt>
+                            <dd>110/07/31 — 110/09/04</dd>
+                          </dl>
+                        </div>
+                      </figure>
+                      <!--  <div class="not-found">
+                          <img src="images/Search.svg" alt="請先輸入查詢條件！">
+                          <strong>請先輸入查詢條件！</strong>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="backend-page-footer">
+      <div class="container-fluid">
+        <div class="brand-wda-logo w-32 h-32 in-bk-mid"></div>
+        <div class="in-bk-mid ml-8">
+          勞動力發展署版權所有 Wda Co., Ltd., wda All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </article>
+  <!-- <div id="loader">
+    <div class="loader-cnt">
+      <div id="lottie_load"></div>
+    </div>
+  </div> -->
+  <form action="" method="get" id="themes">
+    <input type="hidden" id="fontSizeClass">
+  </form>
+  <!-- JQuery -->
+  <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+  <!-- Charts -->
+  <!--     <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js"></script>
+    <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+    <script src="https://code.highcharts.com/maps/modules/data.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/data.js"></script>
+
+    <script src="https://code.highcharts.com/modules/marker-clusters.js"></script>
+    <script src="https://code.highcharts.com/modules/coloraxis.js"></script> -->
+  <!--     <script src="taiwan_maps.json"></script> -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/maps/modules/map.js"></script>
+  <script src="https://code.highcharts.com/maps/modules/data.js"></script>
+  <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+  <script src="map_test/farm-product-map.json"></script>
+  <!-- <script src="https://code.highcharts.com/mapdata/countries/us/us-all.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" rel="stylesheet" type="text/css">
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.theme.min.css">
+  <script src="vendor/bootstrap-datepicker-TW-master/bootstrap-datepicker-v1.9.0/js/moment.min.js"></script>
+  <script src="vendor/bootstrap-datepicker-TW-master/bootstrap-datepicker-v1.9.0/js/bootstrap-datepicker.js"></script>
+  <script src="vendor/bootstrap-datepicker-TW-master/bootstrap-datepicker-v1.9.0/locales/bootstrap-datepicker.zh-TW.min.js"></script>
+  <!-- Map -->
+  <script src="https://code.highcharts.com/maps/modules/map.js"></script>
+  <script src="json/taiwan.json"></script>
+  <!-- Bootstrap  -->
+  <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- appear -->
+  <script src="vendor/appear/appear.js"></script>
+  <!-- circles -->
+  <script src="vendor/circles-js/circles.min.js"></script>
+  <!-- chartist -->
+  <script src="vendor/chartist/chartist.min.js"></script>
+  <!-- mCustomScrollbar -->
+  <script src="vendor/malihu-scrollbar/jquery.mCustomScrollbar.js"></script>
+  <!-- Lottie -->
+  <script src="vendor/lottie-web/5.7.13/lottie.min.js"></script>
+  <!-- Loader -->
+  <!--<script src="vendor/pace-1.2.4/pace.min.js"></script>-->
+  <!-- Main.js -->
+  <script src="js/core.js"></script>
+  <!-- chartist -->
+  <script src="js/charts/Tu.chartist-area.js"></script>
+  <script src="js/charts/Tu.chartist-bar.js"></script>
+  <script src="js/charts/Tu.chartist-pie.js"></script>
+  <script src="js/charts/Tu.chartist-donut.js"></script>
+  <!-- circles -->
+  <script src="js/charts/Tu.circles.js"></script>
+  <!-- Counter -->
+  <script src="js/components/Tu.counter.js"></script>
+  <script src="js/components/Tu.dropdown.js"></script>
+  <script src="js/components/Tu.modal.js"></script>
+  <!-- Scrollbar Setting -->
+  <script src="js/components/TU.scrollbar.js"></script>
+  <script src="js/components/Tu.toggle.js"></script>
+  <!--   <script src="js/customChats.js"></script> -->
+  <style>
+    .ui-dialog-titlebar-close {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg id='x' transform='translate(-178 -989)'%3E%3Cg id='Group_209298' data-name='Group 209298' transform='translate(0 -36)'%3E%3Crect id='Rectangle_169497' data-name='Rectangle 169497' width='24' height='24' transform='translate(178 1025)' fill='%23fff'/%3E%3C/g%3E%3Cg id='x-2' data-name='x' transform='translate(178 989)'%3E%3Cline id='Line_2952' data-name='Line 2952' x1='12' y2='12' transform='translate(6 6)' fill='none' stroke='%23686c74' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3Cline id='Line_2953' data-name='Line 2953' x2='12' y2='12' transform='translate(6 6)' fill='none' stroke='%23686c74' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+      background-position: center;
+      background-size: 96%;
+      border:  none;
+      }
+      .ui-dialog .ui-dialog-content {
+        min-height: 24rem;
+      }
+
+    </style>
+  <!-- Main.js -->
+  <script type="text/javascript" src="js/main.js"></script>
+  <script>
+  function check_all(obj, cName) {
+    var checkboxs = document.getElementsByName(cName);
+    for (var i = 0; i < checkboxs.length; i++) {
+      checkboxs[i].checked = obj.checked;
+    }
+  }
+  $('h4.accordions').on('click', function() {
+    var $this = $(this);
+    $this.toggleClass('show');
+    $this.next('ul.accordions-cnt').slideToggle(200);
+  });
+  // 左側進階搜尋 監聽chart
+  $('.accordions-cnt input').each(function() {
+    var $this = $(this);
+    var name = $this.prop("name");
+    // CheckBox 值有改變的時候
+    $('input[name="' + name + '"]').change(function() {
+      var $this = $(this);
+      if ($this.attr('type') == 'checkbox') {
+
+        if ($this.is(':checked')) {
+
+          $this.parent('li')
+            .parent('ul')
+            .prev('.accordions')
+            .css('color', '#0B7285');
+
+        } else if ($this.prop("checked") == false) {
+
+          $this.parent('li')
+            .parent('ul')
+            .prev('.accordions')
+            .css('color', '#212529');
+
+        }
+      }
+
+    });
+    // 監聽 開訓期間日期
+    $('.datepicker-outline input').blur(function() {
+
+      var $this = $(this);
+
+      // 尋找 InPut Hidden 並判斷裡面的值
+      if ($('#dateStart').val() !== '' && $('#dateEnd').val() !== '') {
+
+        $this.parent('div')
+          .parent('li')
+          .parent('ul')
+          .prev('.accordions')
+          .css('color', '#0B7285');
+
+      } else {
+
+        $this.parent('div')
+          .parent('li')
+          .parent('ul')
+          .prev('.accordions')
+          .css('color', '#212529');
+
+      }
+    });
+  });
+
+  function accordionsOpen(Index) {
+    var side_item = $(".lt-more-cnt h4.accordions").eq(Index);
+    var sub_list = side_item.next(".accordions-cnt");
+
+    side_item.addClass("show");
+    sub_list.slideDown(200);
+  }
+  accordionsOpen(0);
+  </script>
+  <script>
+  // Load the data from a Google Spreadsheet
+  // https://docs.google.com/spreadsheets/d/14632VxDAT-TAL06ICnoLsV_JyvjEBXdVY-J34br5iXY/pubhtml
+  Highcharts.data({
+    googleAPIKey: 'AIzaSyDJP6nfQSxT-tRqPR6z_hyqBnn11LDskcU',
+    googleSpreadsheetKey: '1Bf49sR3qMM8NCgSomOLYA9WMDbQevBbxYRkxfp75yfQ',
+    // console.log();
+    // Custom handler for columns
+    parsed: function(columns) {
+      /**
+       * Event handler for clicking points. Use jQuery UI to pop up
+       * a pie chart showing the details for each state.
+       */
+      function pointClick() {
+        var row = this.options.row,
+          $div = $('<div><div></div></div>')
+          .dialog({
+            title: this.name,
+            width: '30rem',
+            height: 'auto',
+            // open: function() {
+            //     $('.ui-dialog-content').css('overflow', 'auto');
+            // }
+          });
+
+
+        window.chart = new Highcharts.Chart({
+          chart: {
+            renderTo: $div[0],
+            type: 'pie',
+            width: 290,
+            height: 340,
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+          },
+          title: {
+            text: null
+          },
+          plotOptions: {
+            pie: {
+              allowPointSelect: true,
+              cursor: 'pointer',
+              dataLabels: {
+                enabled: false
+              },
+              showInLegend: true
+            }
+          },
+          series: [{
+            name: 'Votes',
+            data: [{
+                name: '北投區',
+                y: parseInt(columns[3][row], 10)
+              }, {
+                name: '士林區',
+                y: parseInt(columns[4][row], 10)
+              },
+              {
+                name: '中山區',
+                y: parseInt(columns[5][row], 10)
+              },
+              {
+                name: '內湖區',
+                y: parseInt(columns[6][row], 10)
+              },
+              {
+                name: '大同區',
+                y: parseInt(columns[7][row], 10)
+              },
+              {
+                name: '萬華區',
+                y: parseInt(columns[8][row], 10)
+              },
+              {
+                name: '中正區',
+                y: parseInt(columns[9][row], 10)
+              },
+              {
+                name: '大安區',
+                y: parseInt(columns[10][row], 10)
+              },
+              {
+                name: '松山區',
+                y: parseInt(columns[11][row], 10)
+              },
+              {
+                name: '信義區',
+                y: parseInt(columns[12][row], 10)
+              },
+              {
+                name: '內湖區',
+                y: parseInt(columns[13][row], 10)
+              },
+              {
+                name: '文山區',
+                y: parseInt(columns[14][row], 10)
+              },
+            ],
+            dataLabels: {
+              format: '<b>{point.name}</b> {point.percentage:.1f}%'
+            }
+          }],
+
+        });
+
+        $('.ui-dialog-content').prepend('<div class="in-bk-mid" style="width: calc(100% - 260px);display: inline-block; vertical-align: top;"><img src="img/Map_of_TaipeiCity.svg" alt="" id="imgs"></div>');
+        $('.ui-dialog-content > .highcharts-container').css('width', '260px').wrap("<div class='in-bk-mid' style='display: inline-block; vertical-align: top;width: 260px'></div>");
+
+        // $('.ui-dialog-content').addClass('row').css('overflow-y', 'auto')
+      }
+
+      // Make the columns easier to read
+
+      var keys = columns[0],
+        names = columns[1],
+        percent = columns[2],
+        mapData = Highcharts.maps['countries/tw/tw-all'],
+        // Build the chart options
+        options = {
+          chart: {
+            type: 'map',
+            map: mapData,
+            renderTo: 'map_container',
+            // borderWidth: 1,
+            // height: 100 + '%',
+            height: '666',
+            backgroundColor: '#E3FAFC'
+          },
+
+          title: {
+            text: ''
+          },
+          subtitle: {
+            text: ''
+          },
+
+          legend: {
+            title: {
+              text: "課程數量",
+              style: {
+                color: (Highcharts.theme && Highcharts.theme.textColor) || "#1A202C"
+              }
+            },
+            align: "right",
+            verticalAlign: "bottom",
+            floating: true,
+            layout: "vertical",
+            valueDecimals: 0,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) ||
+              "rgba(255, 255, 255, 1)",
+            symbolRadius: 0,
+            symbolHeight: 14
+          },
+
+
+          mapNavigation: {
+            enabled: true,
+
+            buttonOptions: {
+              verticalAlign: "top",
+              color: '#fff',
+
+              theme: {
+                fill: '#1A202C',
+                'stroke-width': 1,
+                stroke: '#fff',
+                r: 4,
+                states: {
+                  hover: {
+                    fill: '#686C74',
+                  },
+                }
+              },
+              style: {
+                color: '#fff',
+              }
+            },
+            buttons: {
+              zoomIn: {
+                style: {
+                  "fontSize": "16px",
+                },
+                text: "＋",
+              },
+              zoomOut: {
+                style: {
+                  "fontSize": "16px",
+                },
+                text: "－",
+              }
+            }
+          },
+
+          colorAxis: {
+            tickPositions: [0, 1],
+            dataClasses: [{
+                to: 0,
+                color: "#FDF2C6"
+              },
+              {
+                from: 1,
+                to: 25,
+                color: "#FDECAA"
+              },
+              {
+                from: 26,
+                to: 50,
+                color: "#FCE58D"
+              },
+              {
+                from: 51,
+                to: 75,
+                color: "#FCDF71"
+              },
+              {
+                from: 76,
+                to: 100,
+                color: "#FBD955"
+              },
+              {
+                from: 101,
+                color: "#FBD238"
+              }
+            ]
+          },
+
+          plotOptions: {
+            map: {
+              cursor: "pointer",
+              states: {
+                hover: {
+                  color: "#ededed"
+                }
+              }
+            }
+          },
+
+          series: [{
+            mapData: mapData,
+            data: [],
+            joinBy: 'postal-code',
+            borderColor: "#fff",
+            dataLabels: {
+              enabled: true,
+              allowOverlap: true,
+              useHTML: true,
+              formatter: function() {
+                return '<div class="cluster custom-cluster"><span>' + this.point['value'] + '</span></div>' + this.point.properties['name'];
+              },
+              style: {
+                textTransform: 'uppercase',
+                fontSize: "12px",
+                color: "#1A202C"
+              }
+            },
+            point: {
+              events: {
+                click: pointClick
+              }
+            },
+            cursor: 'pointer'
+          }, {
+            name: 'Separators',
+            type: 'mapline',
+            showInLegend: false,
+            enableMouseTracking: false,
+          }, {
+            type: 'mappoint',
+            enableMouseTracking: true,
+            colorKey: 'clusterPointsAmount',
+            name: 'Cities',
+            data: []
+          }],
+          tooltip: {
+            enabled: true,
+            borderWidth: 1,
+            backgroundColor: "rgba(255,255,255,1)",
+            borderRadius: 8,
+            shadow: true,
+            // shape: 'callout',
+            shared: 'true',
+            padding: 10,
+            y: 30,
+            outside: true,
+            useHTML: true,
+            valueSuffix: "堂",
+            headerFormat: '<span style="text-align:center;font-size:.75rem;color:#A7AAAE;"> {point.key} </span>\
+                                            <br/>\
+                                          <span style="text-align:center;font-size:.75rem;color:#1A202C;">課程數量</span>',
+            pointFormat: '<span style="text-align:center;font-size:1rem;color:#66C4C5;"> {point.value} </span>',
+            style: {
+              color: '#fff',
+              zindex: '1000',
+            }
+          },
+        };
+
+      //     keys = keys.map(function(key) {
+      //         return key.toUpperCase();
+      // });
+      mapData.features.forEach(function(mapPoint) {
+        if (mapPoint.properties['postal-code']) {
+          var postalCode = mapPoint.properties['postal-code'],
+            i = $.inArray(postalCode, keys);
+          options.series[0].data.push(Highcharts.extend({
+            value: parseFloat(percent[i]),
+            name: names[i],
+            'postal-code': postalCode,
+            row: i
+          }, mapPoint));
+        }
+      });
+
+      // Initialize the chart
+      window.chart = Highcharts.Map(options);
+
+    },
+
+    error: function() {
+      $('#map_container').html('<div class="loading">' +
+        '<i class="icon-frown icon-large"></i> ' +
+        '<p>Error loading data from Google Spreadsheets</p>' +
+        '</div>');
+    }
+  });
+  </script>
+</body>
+
+</html>

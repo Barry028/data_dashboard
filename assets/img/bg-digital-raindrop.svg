@@ -1,0 +1,22 @@
+<svg width="104.077" height="96.03" viewBox="0 0 27.537 25.408" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="a" x1="321.51" x2="321.51" y1="51.189" y2="117.78" gradientTransform="translate(-269.36 -48.045)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity=".01" offset="0"/>
+      <stop stop-color="#2CD4D9" offset="1"/>
+    </linearGradient>
+    <linearGradient id="b" x1="295.62" x2="347.17" y1="128.56" y2="128.56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2CD4D9" stop-opacity=".01" offset="0"/>
+      <stop stop-color="#2CD4D9" stop-opacity=".5" offset=".58"/>
+      <stop stop-color="#2CD4D9" stop-opacity=".1" offset="1"/>
+    </linearGradient>
+    <linearGradient id="c" x1="269.21" x2="373.58" y1="144.15" y2="144.15" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2CD4D9" stop-opacity=".01" offset="0"/>
+      <stop stop-color="#2CD4D9" stop-opacity=".5" offset=".58"/>
+      <stop stop-color="#2CD4D9" stop-opacity=".1" offset="1"/>
+    </linearGradient>
+  </defs>
+  <path transform="scale(.26458)" d="M52.295 0L40.744 1.555v63.439h23.102V.308L52.295-.001z" fill="url(#a)" opacity=".5"/>
+  <path d="M16.89 17.196l-3.056 1.765-3.056-1.765 3.056-1.763z" fill="#2cd4d9"/>
+  <path d="M345.06 113.34l-23.667 13.985-23.658-13.985 23.658-13.974z" clip-rule="evenodd" fill="none" stroke="url(#b)" stroke-width="2" transform="translate(-71.268 -12.712) scale(.26458)"/>
+  <path d="M371.47 113.34l-50.078 29.578-50.067-29.578 50.067-29.567z" clip-rule="evenodd" fill="none" stroke="url(#c)" stroke-width="2" transform="translate(-71.268 -12.712) scale(.26458)"/>
+</svg>

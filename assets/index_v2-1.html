@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,maximum-scale=1.0,user-scalable=no">
+  <meta charset="UTF-8">
+  <title>勞動力發展署 - 職業訓練視覺化分析平台</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <!-- Animate  -->
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <!-- iCon  -->
+  <link rel="stylesheet" type="text/css" href="vendor/iCons/turbo_icon_blur-v1.0/style.css">
+  <!-- CSS  -->
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <!-- Loader -->
+  <script src="vendor/pace-1.2.4/pace.js"></script>
+  <!-- Vendor -->
+  <!--[if lte IE 9]>
+        <script src="vender/IE_Supports/html5shiv/dist/html5shiv.min.js"></script>
+        <script src="vender/IE_Supports/respond/dest/respond.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.jquery.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.prototype.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.yui3.min.js"></script>
+    <![endif]-->
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'ufg8zbw',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+</head>
+
+<body id="index">
+  <!-- HEADER -->
+  <header class="backend-header" id="Header">
+    <div class="container-fluid">
+      <div class="header-group">
+        <div class="header-group-lt">
+          <a href="index_v1.html" class="header-logo">
+            <img src="img/logo-primary.svg" title="勞動力發展署" alt="職業訓練視覺化分析平台" class="logo-img">
+          </a>
+        </div>
+        <div class="header-group-rt">
+          <ul class="header-tools">
+            <li class="header-tools-item">
+              <time id="current_time" class="current-time t-visibility-hidden">
+                <div class="calendar-inner">
+                  <div class="calendar-header">
+                    <font id="mon_ch"></font>
+                  </div>
+                  <div class="calendar-content">
+                    <font id="date"></font>
+                  </div>
+                </div>
+                <div class="clock-inner">
+                  <div class="clock-lt">
+                    <font id="mon" class="clock-month"></font>
+                    <font id="year" class="clock-year"></font>
+                    <font id="day" class="clock-day"></font>
+                  </div>
+                  <div class="clock-rt">
+                    <font id="hour" class="clock-hour"></font>
+                    <font id="min" class="clock-min"></font>
+                    <font id="sec" class="clock-sec"></font>
+                  </div>
+                </div>
+              </time>
+            </li>
+            <li class="header-tools-item">
+              <div class="dropdown dropdown-user-menu" data-toggle="tooltip" data-html="true" data-placement="left" title="勞動力發展署<br>訓練發展組 歐陽光亮">
+                <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="avatar-container">
+                    <div class="avatar-img" data-bg-img-src="dist/img/3d_avatars/3d-male-001.webp"></div>
+                  </div>
+                  <div class="user-description">
+                    <div class="user-description-unit">勞動力發展署</div>
+                    <div class="user-description-txts">訓練發展組 歐陽光亮</div>
+                  </div>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-lock-1 dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">密碼變更</font>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-profile dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">個人資料</font>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-logout dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">登出系統</font>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- SIDE MEUN -->
+  <aside class="side-bar-menu" id="SideBar">
+    <h2 class="side-main-title">
+      <font class="side-main-title-inner">功能選單</font>
+      <big>MEUN</big>
+      <input id="BurGerMenu" type="checkbox" class="toggle-input">
+      <label id="BurGer" for="BurGerMenu" class="toggle-menu">
+        <span></span>
+      </label>
+    </h2>
+    <nav class="side-main-menu">
+      <ul class="js-scrollbar">
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v1.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v1</span>
+            <label class="badge t-badge-secondary">v1</label>
+          </a>
+        </li>
+        <li class="side-main-list-item ">
+          <a class="side-main-list-link" href="index_v2.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v2</span>
+            <label class="badge t-badge-tertiary">v2</label>
+          </a>
+        </li>
+        <li class="side-main-list-item ">
+          <a class="side-main-list-link" href="index_v3.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v3</span>
+            <label class="badge t-badge-quaternary">v3</label>
+          </a>
+        </li>
+        <li class="side-main-list-item active">
+          <a class="side-main-list-link" href="index_v5.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v4</span>
+            <label class="badge t-badge-primary">v4</label>
+          </a>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-civic-cvc" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>營運指標</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item" data-sub="true">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>職前訓練指標</span>
+              </a>
+            </li>
+            <ul class="side-sub-menu ">
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(性別、年齡、學歷、身分別)">
+                <a class="side-sub-menu-link" href="employment_before_1.html">
+                  <span>產業別開課占比</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(報名、甄試、開訓、結訓、就業、結訓率、就業率)">
+                <a class="side-sub-menu-link" href="employment_employment_analysis_bg.html">
+                  <span>分署職訓執行情形</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(各計畫參訓人數、開課班數)">
+                <a class="side-sub-menu-link" href="employment_before_3.html">
+                  <span>職前計畫執行情形</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(產業別、地區別)">
+                <a class="side-sub-menu-link" href="employment_before_4.html">
+                  <span>熱門參訓職類分布趨勢</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(地區別、薪資級距)">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>前五強就業率職類別</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、職類別)">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>就業關聯性分析</span>
+                </a>
+              </li>
+            </ul>
+            <li class="side-sub-menu-item" data-sub="true">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>在職訓練指標</span>
+              </a>
+            </li>
+            <ul class="side-sub-menu">
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(縣市別、分署別)">
+                <a class="side-sub-menu-link" href="employment_pre_1.html">
+                  <span>產業別開課占比</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(性別、年齡、學歷、身分別)">
+                <a class="side-sub-menu-link" href="employment_pre_2.html">
+                  <span>參訓背景</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(級距別、分署別、縣市別))">
+                <a class="side-sub-menu-link" href="employment_pre_3.html">
+                  <span>參訓者薪資落點分布</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(一年度更新一次)">
+                <a class="side-sub-menu-link" href="employment_pre_4.html">
+                  <span>訓練單位屬性分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(投保公司行業別)">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>參訓者任職產業分布</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、縣市別、計畫別)">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>訓練單位屬性分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、縣市別、結訓率)">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>重點產業別課程佔比分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(年齡別、區域別、學歷別)">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>參訓學員年度產投計畫經費運用情形占比</span>
+                </a>
+              </li>
+            </ul>
+            <li class="side-sub-menu-item" data-sub="true">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>青年職訓指標</span>
+              </a>
+            </li>
+            <ul class="side-sub-menu">
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(性別、年齡、學制別、身分別)">
+                <a class="side-sub-menu-link" href="employment_youth_1.html">
+                  <span>參訓背景</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(計畫別、縣市別、分署別)">
+                <a class="side-sub-menu-link" href="employment_youth_2.html">
+                  <span>廠商行業別分布情形</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別)">
+                <a class="side-sub-menu-link" href="employment_youth_3.html">
+                  <span>青年訓後薪資落點</span>
+                </a>
+              </li>
+            </ul>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-user-edit" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>個人化設定</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>儀表板設定</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>個人資料維護</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-setting-2" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>系統管理</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>帳號設定</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>使用紀錄歷程</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <figure class="custom-setting-card">
+        <div class="mask mask-circle"></div>
+        <div class="custom-setting-card-inner">
+          <figcaption class="custom-setting-card-img">
+            <div class="custom-setting-card-img-container"></div>
+          </figcaption>
+          <div class="custom-setting-card-title">
+            自行縮放您的網站尺寸設定！
+          </div>
+          <div class="custom-setting-card-btns" id="fontBtns">
+            <button id="scale_down" class="custom-setting-btn btn btn--white btn--xxs">縮小</button>
+            <button id="scale_default" class="custom-setting-btn btn btn--white btn--xxs">恢復預設</button>
+            <button id="scale_up" class="custom-setting-btn btn btn--white btn--xxs">放大</button>
+          </div>
+        </div>
+      </figure>
+    </nav>
+  </aside>
+  <!-- MAIN CONTENT -->
+  <article class="main-content" id="MainContent">
+    <div class="backend-page-content">
+      <div class="backend-page-header">
+        <div class="mask mask-datas"></div>
+        <div class="lottie lottie-bg" data-animation-path="https://assets7.lottiefiles.com/packages/lf20_qwATcU.json" data-anim-loop="true" data-name="cahrt1"></div>
+        <div class="backend-page-header-cnt">
+          <h2 class="backend-page-title">111 年度職業訓練業務執行績效儀表板</h2>
+          <!-- <button type="button" id="modal-2">123123</button> -->
+          <!-- <p class="backend-page-para">歡迎來到
+            <big class="text-primary">職業訓練視覺化分析平台</big>！
+          </p> -->
+        </div>
+      </div>
+      <div class="backend-page-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-8 col-sm-12">
+              <div class="dashboard-card">
+                <header class="dashboard-card-header">
+                  <div class="dashboard-card-header-lt">
+                    <i class="tub-map-1" aria-hidden="true">
+                      <font class=""></font>
+                      <font class=""></font>
+                      <font class=""></font>
+                    </i>
+                    <h3 class="hd-title mr-32">職訓數據地圖</h3>
+                    <ul class="nav nav-segment mb-0" id="change_navs" role="tablist">
+                      <li class="nav-item">
+                        <label class="" id="c_courses" data-toggle="tab" data-target="#tabv1" role="tab">
+                          <i class="tub-book">
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                          </i>
+                          <font>看課程</font>
+                        </label>
+                      </li>
+                      <li class="nav-item">
+                        <label class="active" id="c_member" data-toggle="tab" data-target="#tabv2" role="tab">
+                          <i class="tub-profile-2user">
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                          </i>
+                          <font>看學員</font>
+                        </label>
+                      </li>
+                      <li class="nav-item">
+                        <label class="" id="c_cost" data-toggle="tab" data-target="#tabv3" role="tab">
+                          <i class="tub-money-4">
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                          </i>
+                          <font>看經費</font>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="dashboard-card-header-rt">
+                    <div class="dashboard-card-header-tools">
+                      <div class="dropdown" data-toggle="tooltip" data-original-title="更多功能操作" data-boundary="">
+                        <button class="btn t-form-btn" id="card_map" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="tub-category">
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                          </i>
+                        </button>
+                        <div class="dropdown-menu dropdown-animated dropdown-menu-right" aria-labelledby="card_map">
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-calendar-add dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            選擇日期區間
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-edit dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            編輯預設顯示</a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-translate dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            轉換成其他語言
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-map dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            前往地圖主頁面
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </header>
+                <div class="dashboard-card-body">
+                  <div class="tab-content tab-sliding" id="table-tab">
+                    <div class="tab-pane pt-0" id="tabv1" role="tabpanel">
+                      <div class="t-txt-right dl-list">
+                        <dl>
+                          <dt>北分署</dt>
+                          <dd>
+                            <strong class="text-border-primary">124</strong>
+                            筆課程
+                          </dd>
+                        </dl>
+                        <dl>
+                          <dt>桃分署</dt>
+                          <dd>
+                            <strong class="text-border-secondary">92</strong>
+                            筆課程
+                          </dd>
+                        </dl>
+                        <dl>
+                          <dt>中分署</dt>
+                          <dd>
+                            <strong class="text-border-tertiary">68</strong>
+                            筆課程
+                          </dd>
+                        </dl>
+                        <dl>
+                          <dt>南分署</dt>
+                          <dd>
+                            <strong class="text-border-quaternary">48</strong>
+                            筆課程
+                          </dd>
+                        </dl>
+                        <dl>
+                          <dt>高分署</dt>
+                          <dd>
+                            <strong class="text-border-success">42</strong>
+                            筆課程
+                          </dd>
+                        </dl>
+                      </div>
+                      <div class="map-container" id="map-course">
+                        <div class="mask mask_graph"></div>
+                        <div class="map-table">
+                          <strong>課程數量：</strong>
+                          <ul class="map-tabel-list">
+                            <li>
+                              <span class="maker cls-0"></span>
+                              <font>0</font>
+                            </li>
+                            <li>
+                              <span class="maker cls-3"></span>
+                              <font>1 - 25</font>
+                            </li>
+                            <li>
+                              <span class="maker cls-1"></span>
+                              <font>26 - 50</font>
+                            </li>
+                            <li>
+                              <span class="maker cls-4"></span>
+                              <font>51 - 75</font>
+                            </li>
+                            <li>
+                              <span class="maker cls-2"></span>
+                              <font>76 - 100</font>
+                            </li>
+                            <li>
+                              <span class="maker cls-5"></span>
+                              <font>100+</font>
+                            </li>
+                            <div class="results">
+                              <!-- data will be inserted here-->
+                            </div>
+                          </ul>
+                        </div>
+                        <div class="map-tools" data-toggle="tooltip" title="暗黑模式 / 正常模式">
+                          <button type="button" class="btn btn--grey btn--square map-course-btn" data-toggle="action" data-toggle-target="#map-course" data-toggle-state="active" data-toggle-target-class="dark_mode" id="map-course-btn">
+                            <i class="tub-moon">
+                              <font></font>
+                              <font></font>
+                            </i>
+                          </button>
+                        </div>
+                        <svg id="taiwan_course" class="tw-map" xmlns="http://www.w3.org/2000/svg" width="1004" height="1306.362" viewBox="500 300 160 1000">
+                          <g id="taiwan_map_citys" transform="translate(-182 -168)">
+                            <g id="taiwan" transform="translate(62 -92)">
+                              <g id="Kaohsiung" class="cls-1">
+                                <path class="cls-11" d="m581 1132-1-1-3-1h-1l-1 1h-4l-13-10v-1l-12-17 2-1 10 12-1-3-4-7-5-6-9-8-3-5h-1l-1-5 2-5 1-4-1-5-3-6-5-7-4-11h-1l-1-4v-1l1-3 1-3v-3l-3-2v-3l-3-5-1-2-2-14v-1l6-4h2v1l4 9 4 2 16 2 8-1 8 1 4-1 3-3h1l6-2 6-5 2-5 3-5 6-7 6-7 7-5 7-7 6-9 10-17 11-15 2-6-1-6-2-5 1-5v-1l3-3 1-1 7 1 6-1 12-7 4-5 8-6 8-5 4-4 3-7h1l8-7 19-10 5 1 6 2v1l4 6 1 2 2 6v1l-3 5-6 2-1 3 1 3 5 4 7 5 3 8v3l-1 1-15 3-6 4-4 4-8 5-1 5 3 6v1l-3 5h-1l-6 4-1 6 2 10-3 13v12l-5 6-8 7-2 10 1 7 3 5 6 6 1 5 1 1-2 1h-4l-5-1h-4l-8 7h-1l-6-6-7-8-7 1-6 6-1 1v-1l-13-6-9 4-6 7h-1l-8 3-17-1-1 4-2 7v1l-2 7v17l-6 21v7l3 7v9l-8 21v1Z" transform="translate(122 270)" />
+                                <path class="cls-12" d="m725 846-18 10-9 6-3 7-5 5-7 5-8 6-5 5-12 7-6 1-7-1-3 4-1 5 2 4 1 7-2 7-11 15-10 17-6 8-8 7-6 6-6 6-6 7-3 6-2 5-6 5-7 2-3 3-5 1-8-1-8 1-16-2-5-3-4-8v-1l-6 4 2 14 1 2 3 5v2l3 2v4l-1 3-1 3 1 5 5 10 5 8 3 5 1 6-1 4-2 5 1 5 4 4 9 8 5 6 4 8 2 7-13-15 12 17 13 10h2l2-1h2l2 1 8-20v-8l-3-8v-7l6-21v-17l2-8 2-7 1-5 18 1 8-3 7-7 9-4 13 6 7-6 7-1 8 9 5 5 9-7h4l5 1h4l-1-5-6-7-3-4-1-8 2-10 8-8 5-5v-12l3-13-2-10 1-7 7-4 3-5-3-6 1-5 8-5 4-4 7-4 15-4v-3l-3-7-6-6-6-3-1-4 2-3 5-3 3-5-2-6v-2l-5-6-5-2-5-1m0-2h1l4 1 6 3h1l4 6v1l1 2 2 6v1l-3 5-1 1-5 2-1 2 1 3 5 3 6 5 1 1 3 8v2l-1 3-16 3-6 4-3 4h-1l-7 5-1 4 3 6-1 1-2 5-1 1-7 4v5l2 10v1l-3 13v11l-1 1-4 6-8 7-2 9 1 7 3 4 6 6v1l1 5a2 2 0 0 1-1 3h-5l-5-1h-3l-8 7h-3l-6-6-7-8-5 1-7 6h-2l-12-6-8 4-6 7h-1l-8 3h-1l-16-1-2 3-1 8-2 7v17l-6 21v7l3 7v9l-8 21a2 2 0 0 1-3 1l-2-1h-1l-1 1h-4l-13-11h-1l-12-17a2 2 0 0 1 3-3l7 9-2-5-5-6-9-9h-1l-3-4v-1l-2-4v-2l2-4 1-4-1-5-3-5-5-8-4-10-1-1-1-4v-1l1-3 1-4v-2l-2-2-1-1v-2l-3-4v-1l-1-2-2-14 1-2 6-3a2 2 0 0 1 3 1l4 8 4 2 15 2 8-1 8 1 4-1 3-2v-1l7-2 5-4 2-5h1l3-6 5-7 6-7 7-5 7-7 6-8 10-17 11-15 2-6-1-6-1-5h-1l1-5v-2l4-3 1-1 7 1 5-1 12-6 4-6 8-6h1l7-4 4-5 3-7h1l8-7h1l18-10h1Z" transform="translate(122 270)" />
+                              </g>
+                              <g id="Pingtung" class="cls-2">
+                                <path class="cls-11" d="m694 1298-2-3-4-7-7-5-8-3-6-2v6h-1l-2 3h-1l-3-1h-1l-4-3v-3l1-7-5-9-1-3v-2l1-3v-15l3-3v-3l-20-51-1-3-6-7-4-10-2-2-8-7-5-3h-1l-1-4v-1l-4-2-10-5h-1l-4-3v-1l-5-4-2-1-1-1 8-21v-8l-3-7v-8l6-21v-17l2-7 1-8h1l1-5h1l18 1 7-3 7-7 9-5h1v1l13 6 6-6 8-2 1 1 7 9 5 4 8-6h5l6 1 4 7v4l5 2h1l5 3 1 1h-1l-2 14v6l-2 5h-1l-10 4-5 3-7 2-5 4-3 6-3 7-3 7-1 15 1 6 2 6 1 7v6l3 4 4 6h1l-1 1-2 4-6 3-1 4-1 4 2 3 4 2 3 4v6l1 6 3 6 4 5 10 4h5v1l1 52-1 7-3 6v1l-4 2-3 4v7l1 9v10Zm-131-120-1-1v-4h-1 1l1-3 3-4h2l1-1h1v1l2 3h1-1v2l-3 2-5 4-1 1Z" transform="translate(122 270)" />
+                                <path class="cls-12" d="M693 1295v-6l-1-10v-8l4-4 3-2 3-6 1-7-1-52h-4l-10-5-5-4-3-6-1-6v-6l-3-5-3-1-3-4 1-5 2-4 5-3 3-4-5-5-3-5v-6l-1-7-2-6-1-6 1-15 3-8 4-6 2-7 5-4 8-2 5-3 10-4 2-5v-5l2-14-5-3-5-2-1-5-4-6-5-1h-4l-9 7-6-6-7-9-7 2-7 6-13-7-10 5-6 7-8 3-18-1-2 5-1 7-2 8v16l-6 22v7l3 7v8l-8 21 3 2 5 4 4 3 10 5 4 3 1 1 1 4 6 3 8 6 2 3 4 10 6 7 1 3 20 51v3l-3 4v14l-1 3v2l1 2 5 10-1 7v2l4 3 3 1 3-2v-7l8 2 8 4 6 5 5 7m-130-119 5-4 3-2v-1l-2-3v1h-2l-3 3-2 3 1 3m130 121-2-1-4-7-6-5-8-3-5-1v4l-1 1-2 2-2 1-4-1-4-3-1-2v-3l1-6-5-8v-1l-1-2v-3l1-3v-14l1-1 2-4v-2l-20-51-1-2-5-7h-1l-4-10-2-3-8-6-5-3-1-1-1-3v-1l-4-3-10-4v-1l-5-3-4-4-3-1-1-3 8-20v-7l-3-8v-8l6-21v-17l2-8 1-7h1l1-5 2-1 18 1 7-3 6-6 1-1 9-4h2l12 6 5-5 1-1 7-2 2 1 8 9 4 4 8-6h5l6 1 1 1 4 6v5l4 1h1l6 3v3l-2 13v5l-1 1-2 5-1 1-9 4-5 3h-1l-7 1-4 4-3 6v1l-3 6-3 7-1 14 1 7 2 6 1 7v5l3 5 4 5v2l-2 4-1 1-5 3-1 3-1 3 2 3 3 2h1l3 5v6l1 6 3 5 4 5 9 4h4a2 2 0 0 1 2 2l1 52-1 7v1l-3 6-1 1-3 2-3 3v7l1 9v7a2 2 0 0 1-2 2Zm-130-119a2 2 0 0 1-2-1v-5l1-3 3-4h6l2 3v3l-1 1-2 2-5 4h-2Z" transform="translate(122 270)" />
+                              </g>
+                              <g id="Taitung" class="cls-1">
+                                <path class="cls-11" d="M884 1267v-1l-8-2v-1l-7-4-4-4v-1l1-3v-2l-1-2-1-2-2-2h23v4l-1 3-1 2 1 2 5 4 2 2v5h-1l-6 1v1Zm-187-65v-1l-10-4v-1l-5-4v-1l-3-6-1-6v-6l-3-3-3-2-3-4v-6h1l2-4 5-3 2-3-4-5-3-5v-6l-1-7-2-6-1-7 1-15 3-8 3-6 3-7 5-5h1l7-2 5-2 10-4 1-5v-5l3-13-5-3-5-1-1-1v-5l-4-6v-2h4l-1-4-6-6-3-5-2-8v-1l3-10 8-7 4-6 1-11 3-13-3-10 1-7 1-1 7-3 2-5-2-5v-1l1-6 8-5 4-4 7-4 16-4 1-1v2l1 7 5 7 7 3 6 3h1l4 5 6 1h1l5 1h1v1l9 16 11 9 8 1 6-3 1-6v-7l3-6 4-13h1l3-8 3-8 2-7 4-5 3-7v-7l-2-6v-1l4-6 11-5h1l3 1h1v1l-4 26-1 1-2 4v1l-7 9-2 5-2 6-2 11v10l-1 10-5 10-2 3-5 3-2 2-1 2-1 6h-1l-4 9-3 12v1l-2 6-11 15-1 2-14 12-3 4v11l-1 4-3 3-4 7-5 4-16 11-11 12-3 1-2 3-5 13-3 5-8 10-3 6-2 12-5 17-9 17-1 5-2 17v15h-5l-1 1Zm169-114h-4v-1h-1l-2-1h-1v-1l-3-4v-1l-1-4v-1l1-1 10-1h1v1h1v1l1 2-1 4v2l-1 1 1 2-1 1v1Z" transform="translate(122 270)" />
+                                <path class="cls-12" d="m884 1266 6-2v-3l-2-2-5-4-1-2 1-3 1-4v-2h-20l2 2 1 3v2l-1 3 4 4 7 5 7 3m-186-66h4v-15l2-16 1-5 9-17 5-17 2-12 4-6 8-10 2-5 5-14 2-3 3-1 11-12 16-11 5-4 5-6 2-4 1-3v-12l3-3 14-12 1-3 11-15 2-6 3-13 5-8 1-6 1-2 3-3 4-3 2-2 5-10 1-10v-10l2-11 2-7 2-5 7-9 3-5 4-26-3-1-11 5-4 5 2 7v7l-3 7-4 5-2 7-3 8-4 8-4 13-3 6v7l-1 6-7 4-8-1-12-10-9-16-6-1-6-1-5-5-6-3-8-3-5-8-1-7-16 3-6 5-4 4-8 5-1 5 2 6-2 5-8 4-1 7 3 10-3 13-1 12-4 5-8 8-3 9 2 9 3 4 6 7 1 5h-4l4 7v5l6 1 5 3-3 14v6l-2 5-9 4-5 2-8 2-5 4-3 7-3 7-3 7-1 15 1 6 2 7 1 7v5l3 5 4 6-2 3-5 4-3 4v4l3 4 3 2 3 4v6l1 6 3 6 4 5 11 4m167-113 1-1-1-2 1-1v-2l1-4-1-2-1-1-10 1v1l1 4 3 5 3 1v1h3m19 181-1-1-7-3-7-5-4-3-1-3 1-2v-2l-1-1-1-2a2 2 0 0 1 1-4h20l2 2v3l-1 3-1 2 1 2 4 3h1l2 3v4l-2 2-5 1-1 1Zm-186-66h-1l-10-4-1-1-5-5-3-6v-1l-1-6v-5l-2-4-3-1-1-1-3-4v-6h1l2-4v-1l5-3 2-2-4-5-3-5v-6l-1-7-2-6-1-7 1-15v-1l3-7 3-7 3-6v-1l6-5h1l7-2 5-2 9-4 1-4v-5h1l2-13-4-2-5-1-2-2v-5l-4-6a2 2 0 0 1 2-3h2l-1-2-6-6v-1l-3-4v-1l-2-8v-1l3-10v-1l9-7 3-5 1-11 3-13-2-9-1-1 1-7 1-2 7-3 2-4-2-5v-1l1-6 1-1 8-5 3-4h1l6-4h1l15-4a2 2 0 0 1 3 1l1 7 4 8 8 2 6 3 5 5 6 1 6 1 1 1 9 16 11 9 7 1 5-3 1-5v-8l3-6 5-13 3-7 3-9 2-6 1-1 3-5 3-6v-6l-2-7v-2l4-5 1-1 11-5h1l4 1 1 2-4 26-1 1-2 5-7 10-3 4-1 6-2 11v10l-1 10v1l-5 10-2 2h-1l-4 4-2 2-1 2-1 5-1 1-4 8-3 13-2 6h-1l-10 15-1 3h-1l-13 12-3 3v12l-1 3h-1l-2 4-5 6-5 5-16 11-10 11-1 1-2 1-2 2-5 13v1l-3 5-8 10-3 5-2 12v1l-5 16v1l-9 16-1 6-2 16v14l-2 2h-4Zm167-113h-3l-2-1-2-1-1-1-3-5-1-5v-2h1l1-1 10-1 1 1h1l1 1 1 2v1l-1 4v1l-1 1v1l1 1v1l-1 1a2 2 0 0 1-2 2Z" transform="translate(122 270)" />
+                              </g>
+                              <g id="Penghu" class="cls-3">
+                                <path class="cls-11" d="m319 929-1-1-1-1-2-5v-1l1-1 1-1h1l-3-1-2-3-1-3h1l1-2h1l3 1h1l1 3 1 1h-1l-1 3v1l2-1 3 1h1v5h-1l-1 1-1 2-1 1-2 1Zm64-14-1-3-1-3v-2l1-2 1 1h3v3l-1 1-1 2-1 3Zm-15-2-1-1-1-1v-2h1l3-1 1 1v2l1 1h-1l-2 1h-1Zm-28-31h-4l-1-1h-1v-1l1-3v-3l-1 1h-1l-1-1v-3l2-5h1l1-1h1v1l3 3 1 1 1 1v3l1 1h1l-1 1v2l-1 1v1l1 1h-1l-2 1Zm4-2h-1v-3l2-2 1-1h2l2 1v3h-2l-3 2h-1Zm-54-10v-1l-1-1h-1l1-1 1-3h1l3 1v4h-1l-2 1h-1Zm52-25-2-1-1-2v-1h1v-1h3l3-1 1-1 3 1 2 1-2 1-3 2-2 1-3 1Zm15-9v-1l-5-1v-1l-5-5h-1l1-1 1-2 1-2 1 2 2 3h4l3-1 2-1v-1l-2-1h-1l-1-2-1-1v1h-1l-2 1v-11h3l2 1 7-5 5-1 2-1-1 2-1 4 2-1h5l2-2 1-2v2l5 9 1 4v5l-2-1-2-2-2-2h-2l-4 2h-3l-1 1v1l-1 4h-1v2h-1l-4 3h-1l-5 1Zm-28-14h-5v-1l1-2 1-2h1l2-1h4v-7h1l3-10v-1l3-3h1l5 4 1 1-1 1-3 1-1 3-3 8v2l1 2v1l-1 1v1h-6l-1 1h-1l-1 1h-1Zm31-17-1-2-1-4-2-2-4-4-1-1 1-1 5-4h1l4 2 3 3 2 3v1l-3 2 1 3v1l-1 2h-1l-2 1h-1Zm5-28-1-3-1-3v-2l2-2 1-3 1-1 1 1v1l3 2v3h-1l-2 1-2 2v1l-1 3Z" transform="translate(122 270)" />
+                                <path class="cls-12" d="m319 928 2-1 1-2 2-2v-3l-3-1-4 1-1 2 2 4 1 2m-1-10 2-3-2-3-3-1-2 1 1 3 2 2 2 1m65-6 1-2 1-2v-1h-3v2l1 3m-15 0 2-1v-2l-3 1 1 2m-28-31 1-1v-1l1-2 1-1-2-1v-4l-2-1-3-4-1 1-2 5v2l2-1h1v4l-1 3 2 1h3m4-2 3-2h2v-1l-1-1h-2l-1 1-1 2v1m-53-10 2-1v-2l-2-1-2 3 2 1m51-25 2-1 2-1 4-2-3-1-4 2h-2l-1 1 1 1 1 1m15-9 5-1 5-3 1-1 1-4v-2h2l3-1 4-2 2 1 3 1 2 2v-3l-1-4-5-9-1 3h-6l-4 1 1-1 1-4-4 1-8 5-2-1h-2v8h1l1-2 2 3 1 1 2 1 2 1-3 3-4 1-4-1-3-3-1 3 5 5 4 2m-28-14 1-1h2l1-1h5l1-1-1-2v-3l3-8 2-4 2-1-4-4-3 3-4 10v7l-2 1h-3l-2 1-1 1-1 2h4m32-17 2-1 1-2-1-3 3-3-2-3-3-3-3-1-6 4 5 4 2 3 1 4 1 1m4-30 1-1 2-2 2-2v-2l-2-1-1-1-1 3-2 1v2l1 3m-46 156-2-1-1-1v-1l-2-5 1-2v-1h-1l-2-3v-1l-1-2 1-2 1-1 2-1 3 1 1 1 2 3v3l3 1 2 2v4l-1 1-1 1-2 2v1l-2 1h-1Zm64-16-2-1-1-3v-1l1-2a2 2 0 0 1 2-2h2l2 2v3l-1 1-1 2-2 1Zm-15 0-2-1-1-2v-2l2-1 3-1 2 2v2a2 2 0 0 1-1 2l-2 1h-1Zm-28-31h-4l-2-1a2 2 0 0 1-1-3l1-2v-1a2 2 0 0 1-3-2v-3l2-5 2-1 1-1 2 1 3 3 1 1 1 2v2l1 1h1l1-1h3l1 1 1 2v2l-2 1h-1l-3 2h-2l-1 1-1 1h-1Zm-49-12-2-1-1-1v-2l1-3 2-1 3 1 1 2v2l-1 1-1 1-2 1Zm51-25h-1l-1-1-1-1-1-2 1-2 1-1h3l3-1h4a2 2 0 0 1 1 4l-4 2-2 1-2 1h-1Zm15-9v-1l-5-2h-1l-5-5v-2l1-3a2 2 0 0 1 3 0l3 3h3l3-1h1l-2-1v-1l-2-1h-1a2 2 0 0 1-3-2v-8l2-2h3l1 1 7-5 5-1a2 2 0 0 1 2 2v2h5l1-2a2 2 0 0 1 3 1l5 8v1l1 4v4a2 2 0 0 1-4 1l-1-2-2-2h-2l-3 2h-4v2l-2 3v2l-1 1-5 3h-1l-4 1h-1Zm-28-14h-4a2 2 0 0 1-2-2l1-2 1-1 1-1 1-1 2-1h3v-6h1l3-11 3-3h3l4 3a2 2 0 0 1 0 3l-2 2-1 3-3 8v3l1 1-1 1-1 2h-6l-1 1h-1l-1 1a2 2 0 0 1-1 0Zm32-17-2-1-1-1v-1l-1-3-2-3-4-4a2 2 0 0 1 0-3l6-4h2l3 2h1l3 3 2 3-1 3-1 1v4l-1 2-1 1-3 1Zm4-30-2-1-1-3v-4l2-1 1-3a2 2 0 0 1 4 0v1l2 1 1 2v2l-1 1-2 1-2 2a2 2 0 0 1-2 2Z" transform="translate(122 270)" />
+                              </g>
+                              <g id="Tainan" class="cls-3">
+                                <path class="cls-11" d="m563 1013-8-1-8 1-16-2-5-3h-1l-3-8-6 3-1 1v-2l-1-6-2-3-3-4-1-1 1-1 4-3 3-5-1-5h-5l-1 1-1 3-2 3h-5l-1-2v-8l-1-2-3-1-1 2-2 2v1h-4v1-1l-3-2h-1v-3 1l-1 1v1l-1-1-3-2-2-4v-1l1-1v-1h2v1l1 1 1 2 2 2v-4l2-3 3-2h4l2-1 1-2-1-1-9-2h-1v-4h8v-1l-4-4h-1l-2-3h-1v-1l1-4 1-1 2-1 3-1 1-2-1-3-1-3-1-1h1l-3 5h-2l3-10 1-1h2v2l1-3 2-2v-5l4-9 1-2h1l-2-2v-1l2-4v-1h1l5 2 9 2 7 1 5-2 3-5 6-4 6-5 5-4v-1l6-4 8-4 16-3h9l7 2 4 3h1l2 4v1l1 4 10 10v1l1 7v1l-1 14 1 4 4 3h3l5-2h1l5-1 4 1 8 1h1v1l-2 7h-1l-10 15-10 17-7 9-7 7-7 6-6 6-5 7-3 5-2 5v1h-1l-6 4-6 3-4 2v1l-4 1h-1Zm-81-65-2-1 4-13 1-1h1l1 1v1l-2 6-3 7Zm13-40h-2v-12h2v1h1v1l-1 8h-1 1v2Z" transform="translate(122 270)" />
+                                <path class="cls-12" d="m563 1012 5-1 3-3 7-3 6-4 2-5 3-6 6-7 6-6 6-6 8-7 6-8 10-17 11-15 2-7-8-1-4-1-5 1-6 2h-3l-5-4-1-4 1-14-1-8-10-10-1-5-2-4-4-3-8-2h-8l-15 3-8 4-6 4-5 5-7 5-5 4-3 5-6 2-7-1-9-2-5-2-2 4 4 3-3 1-2 1-3 9v5l-2 3-2 3v3l1 3 1 4-2 3-2 1-3 1-1 4 3 3 5 4v3h-8v2l10 2 1 2-1 3-3 1h-4l-3 2-1 2v7l3 3 3-1 2-3 2-2 4 2 1 2v7l1 2h3l2-2 1-4 1-1h7l1 6-3 6-5 3 4 4 2 4 1 6 6-4v1l4 8 5 3 16 2 8-1 8 1m-80-42 1-1v-1l-2-3-1-2-1-1-1 1 2 5 2 2m-2-22 3-7 2-7h-1l-4 14m7-20 4-8v-2h-1l-3 10m6-20v-3l1-8h-1v11m69 106-8-1-8 1h-1l-15-2h-1l-5-3-1-1-3-7-4 3a2 2 0 0 1-3-2l-1-6-1-3-4-3a2 2 0 0 1 0-3l4-4 3-5-1-3h-4l-1 3v1l-2 3h-5l-2-1-1-2v-9l-2-1-2 1-1 3-1 1h-5l-3-2v-1a2 2 0 0 1-3 0l-2-2-1-1-2-4v-1l1-1 2-2 2 1 1 1v1l1 1v1-2l1-1 1-2v-1l3-2h5l2-1v-1l-9-2-2-2v-2l2-2h5l-3-3-3-3v1l-3 6a2 2 0 0 1-4-1l4-13 3-2 2 1 2-1 2-1 1-1-1-3-1-1-1 3a2 2 0 0 1-4-2l3-10 2-1h2v-1l2-2v-4a2 2 0 0 1-3-1v-11a2 2 0 0 1 3-2l1 1 1 2-1 8v1l3-7v-1l1-2-1-2 2-4 2-2 5 2 9 2 7 1 5-2 2-4 1-1 5-4 7-4 4-5h1l6-5 8-4 16-3h9l7 2h1l4 3v1l3 4 1 5 10 10v1l1 7v1l-1 14 1 3 3 3h3l5-2h1l5-1 4 1 8 1a2 2 0 0 1 2 3l-2 6-1 1-10 15-10 17-7 8v1l-7 7-7 5-6 7-5 6-3 5-2 6-1 1-6 4h-1l-6 3-3 2-1 1-4 1h-1Z" transform="translate(122 270)" />
+                              </g>
+                              <g id="ChiayiCounty" class="cls-1">
+                                <path class="cls-11" d="M622 919h-5l-4-4h-1l-1-5 1-14-1-7-9-10v-1l-2-5-2-4-4-2-7-2h-8l-15 3-8 4-6 4-4 5-7 5-6 4-2 4v1l-7 3-8-2-8-2h-1l-5-2v-2h6l-2-1h-3l-1 2-1 3h-1l-2 2h-1v-2h-1l1-1 2-3 1-2 1-2 1-1v1h1v-2l2-5v-1h9l-3-9-3-5-1 2v1h1v5h-2v-7l1 1-1-2v-2l-1-2h1l2-4v-1l-2-1h-1v-1l1-2 1-2 1-2v-1l3-3h-7v-11l12-1h1l8 5h5l4-3 1-5 3-3 5-1 7-6 4-2 4-4 17-9 7-2 13-3h8l5 5 5 6 12 4h3l9-3h1l4 4 3 3h5l12-3 3-1v-8h8l7 3 4 1 6 3v7l-3 5 1 4 3 6v7l1 3 7 1h27l2 1-2 1-19 10-8 6-3 7h-1l-4 5-8 4-8 6-4 6-13 7-6 1-6-1-3 3v5l1 4 1 7v1h-1l-9-1-3-1-5 1-5 2Zm-37-67 6 2 7-3h4l3-2-3-6-2-4-4-2-5-2-8 1-8 2-4 3 1 5 6 2 7 4Zm-83 30-1-1h-1v-1l2-4v-1h2l2-1-1 2v2h-1l-1 3-1 1Zm5-23-1-1-2-2-1-3 2 1 2 1h1v1l-1 2v1Zm-33 0-1-1 4-5v-1l14-14 10-13h1l2-1 3-1-1 2-10 15-4 5-3 3-4 4-3 2-4 4h-1l-3 1Z" transform="translate(122 270)" />
+                                <path class="cls-12" d="m621 918 6-2 5-1 4 1 8 1-1-7-1-4v-5l3-4 7 1 6-1 12-7 5-5 8-6 7-5 5-5 3-6 9-7 18-10h-26l-8-2-1-3v-6l-3-7-1-5 3-5v-5l-5-3-4-1-7-3h-7v8l-4 1-12 3h-6l-2-3-5-4-8 3h-4l-13-5-5-5-5-5h-7l-13 3-7 2-16 9-4 4-4 2-7 6-6 1-2 3-1 5-4 3h-6l-9-5-11 1v9h8l-4 5-1 3-1 2-1 1 3 2v2l-2 3 4 8 4 11h-9l-2 6v3h2l2 1 2-2 1 3h-1l-4 1h-3l5 2 9 2 7 2 6-3 3-5 5-4 7-5 5-5 6-4 8-4 15-3h8l8 2 4 3 2 4 1 5 10 10 1 8-1 14 1 5 5 3h3m-30-84 6 2 4 3 2 4 3 6-3 3h-5l-6 3-8-2-7-4-6-3-1-5 4-4 9-2 8-1m-93 61 2-2 1-3 2-2-1-1-1 1-1 3-3 3 1 1m4-14 2-3v-2h-1l-2 4 1 1m5-9v-5 5m0-8 1-2h-1v2m-33-5 3-2 4-4 3-2 4-4 3-3 5-5 9-14h-3l-10 14-14 14-4 6m32-2 1-1-2-1 1 2m115 63h-5l-4-4-1-1-1-4v-1l1-14-1-7-9-10-2-5-2-4-3-2-7-2h-8l-15 3-7 3-6 5-5 5-6 5h-1l-5 3-2 5-1 1-6 2-2 1-7-2-9-2-5-2-1 1v1l-2 1a2 2 0 0 1-3-1v-3l2-2 1-3 1-2a2 2 0 0 1 2 0v-2a2 2 0 0 1-2-1v-1l-1-2 2-4 1-1h1a2 2 0 0 1 3 2v1h6l-2-8-1-1v5a2 2 0 0 1-4-1v-5a2 2 0 0 1 1-2l-1-1v-4h1v-1l-1-1-2-2a2 2 0 0 1 1-3l1-2v-1l2-2v-2h1l1-2h-4a2 2 0 0 1-2-2v-8l1-3 12-1h1l8 5h5l3-3 1-4h1l2-3 1-1 5-1 6-5 1-1 4-2 3-3 1-1 16-9h1l7-2 13-3h8l6 5 4 6 12 4h3l8-3 2 1 5 3 2 3h5l12-3h2v-7l2-2h7l1 1 6 2 4 1h1l5 3 1 2v5l-1 1-2 5 1 4 2 6 1 1v5l1 3 6 1h27a2 2 0 0 1 0 4l-18 9-8 7-4 6v1l-4 5h-1l-7 4-8 6-4 5-1 1-12 7h-1l-6 1-6-1-2 3v4l1 4 1 7a2 2 0 0 1-2 2l-9-1-3-1-5 1-5 2h-1Zm-36-69 6 2 7-3h4l1-1-1-6-3-3-3-2-5-2-7 1-9 1-3 3 1 4 5 2 7 4Zm-111 10a2 2 0 0 1-2-4l4-5 14-14 11-14h1l2-1a2 2 0 0 1 2 3l-9 14v1l-4 4-3 4-4 4-3 2-5 3v1l-3 1-1 1Z" transform="translate(122 270)" />
+                              </g>
+                              <g id="ChiayiCity" class="cls-2">
+                                <path class="cls-11" d="m591 856-7-2h-1l-6-4-6-3h-1v-1l-1-5v-1l4-4h1l9-2 8-1 6 2 4 3h1l2 4 3 7v1h-1l-3 2v1h-5l-6 3h-1Z" transform="translate(122 270)" />
+                                <path class="cls-12" d="m591 834-8 1-9 2-4 4 1 5 6 3 7 4 7 2 7-3h5l3-3-3-6-2-4-4-3-6-2m0-2h1l5 2v1l5 2 3 4v1l3 7-1 2-3 2-1 1h-4l-7 3h-1l-7-2h-1l-7-5-6-2-1-1-1-6 1-2 3-4h1l10-2 8-1Z" transform="translate(122 270)" />
+                              </g>
+                              <g id="Yunlin" class="cls-4">
+                                <path class="cls-11" d="M531 838h-7l-8-5-11 2h-3l2-2 4-5v-16l1-12v-1l2-9v-1h1l4-7 1-10 2-9 2-3 6-8 1-3 1-2 5-4 1-2h1l8 4 22-2h8l6 2 12 4 19 3h1l12 6h5l12 2 1-3 1 3 2 7v1l-2 4-1 7 1 8-2 6-1 5 4 4 5 2 7-2 8-1h1v1l3 3 1 2h-2v8h-1l-4 1v1l-12 2-6 1h-1v-1l-2-4-4-3-8 3h-5l-12-5h-1l-5-6-4-4h-7l-12 3-7 2-17 9-3 4h-1l-4 2-7 6-5 1-2 2-2 5v1l-4 3Z" transform="translate(122 269)" />
+                                <path class="cls-12" d="m536 742-1 2-5 4-1 1-1 3-6 8-2 3-2 9-1 10-5 8-2 10-1 12v16l-5 6 12-2 8 5h7l3-3 2-5 2-3 6-1 7-6 4-2 4-4 16-9 7-2 13-3h7l5 5 5 6 13 4h4l8-3 5 4 2 4 6-1 12-2 4-2v-8h1l-3-4-8 1-7 2-6-2-4-5 1-6 2-5-1-8 1-7 2-5-2-7-1 1-12-2h-6l-12-6-20-3-11-4-7-2h-7l-22 2-8-4m0-2h1l7 4 21-2h9l6 2h1l11 4 19 3h1l12 6h6l11 2a2 2 0 0 1 3 1l2 7v1l-2 5-1 6 1 8v1l-2 5-1 4 4 4 4 2 6-2h1l8-1 2 1 2 4a2 2 0 0 1 0 2v7l-1 2-4 1-1 1-11 2h-1l-6 1-2-1-2-4-4-3-7 3h-5l-12-5h-1l-5-6-5-4h-6l-12 3-7 2-16 9-4 3v1l-4 2-7 6h-1l-5 1-1 2-2 4v1l-4 4h-9l-7-5-11 2a2 2 0 0 1-2-4l4-4v-16l1-12v-1l2-10h1l4-8 1-9 2-9v-1l2-3 6-8 1-2v-1l1-1v-1l6-4v-1a2 2 0 0 1 2-1Z" transform="translate(122 269)" />
+                              </g>
+                              <g id="Changhua" class="cls-3">
+                                <path class="cls-11" d="m641 762-12-2h-6l-12-6-20-2v-1l-12-4-6-2h-7l-22 3h-1v-1l-8-4v-1l1-2 1-7 2-3 7-7 2-2 2-8 5-8 5-16 3-5 3-3 3-2 2-1 1-1 1-3 1-3 5-4 1-3 1-10 1-3 3-3 11-13h1l6 2 4 3 1 1 2 6 1 8 5 5 11 3h1l4 4 3 5 2 4v5l1 2 4 1h1l5 3v3l1 3v1h-1l-4 2-1 2 1 4h-1l-2 5-1 5v6l-1 6-1 13 2 6 3 3 4 2 5 3h1v1l-1 3v1h-1l-3 1-3 3-2 1-1 1h-1Z" transform="translate(122 269)" />
+                                <path class="cls-12" d="m597 636-11 13-3 3-1 2-1 11-1 3-5 4-1 2-1 3-1 2-3 1-2 2-3 3-3 4-5 16-5 8-2 8-2 3-7 7-2 3-1 7-1 1 8 5 22-3h7l7 2 11 5 20 2 12 6h6l12 2 1-1 3-1 2-2 4-2 1-3-6-3-4-2-3-3-2-6 1-14 1-6v-6l2-6 2-4-1-4 1-3 5-2-1-3v-2l-5-3-4-1-1-3-1-4-2-4-3-5-4-4-12-3-5-6-1-7-2-7-4-3-6-2m0-2h1l5 2h1l4 4h1l2 7 1 7 4 5 11 3 1 1 4 3 1 1 3 5 2 4v4l1 2 3 1h1l6 4v3l1 3-2 2-3 1-1 2v5l-2 4-1 5v6l-1 6-1 13 2 6 2 2 4 2 6 3 1 2-1 4-1 1-4 1-2 2v1l-3 1-1 1h-1l-12-2h-7l-11-6-20-2v-1l-12-4-6-2h-7l-22 3-1-1-8-4-1-3 1-1 1-7 2-3v-1l7-7 2-2 2-7 1-1 4-7 5-16 1-1 2-4 1-1 3-3 2-2h1l2-1v-1l1-2 1-3 1-1 5-4v-2l1-10 1-3 1-1 2-2 11-14h2Z" transform="translate(122 269)" />
+                              </g>
+                              <g id="Nantou" class="cls-4">
+                                <path class="cls-11" d="M739 859v-1l-1-2-4-5-5-2-4-1-1-1h-26l-7-1h-1v-1l-1-4-1-6-2-6-2-5 1-1 2-5 1-4-5-3-4-1-7-2-6-1-3-3h-7l-7 2v1-1l-6-2h-1l-4-5v-1l1-6 2-5-1-7v-1l1-7 2-4-2-7v-1l3-2 2-2h1l3-2 1-2-5-2-4-2-4-3v-1l-2-6h-1 1v-14l2-7v-5l1-6 2-4v-5l1-2v-1h1l3-1v-4h6l17 2h4l5-5 7-14 4-8v-1h1l6-3h1l10 1h5l6-7 3-2v-1l1 1 9 6h2l2-5 1-1 4-4h8l4-2 8-7 5-3h1l4-1 9-5h6l6-1 11-4h1l4-1 5 1 13 2v1l1-1 2 7v4h-1l-5 3-6 2-4 3 1 9 2 2 5 4h1l1 5v4l-8 11-5 10-2 8 1 2v1l2 4v8l-2 10-3 9-4 9-2 7v3l-1 1-5 9 2 3 3 4 1 6 1 7-1 9-3 13-2 5-5 3-7 3-4 5-1 8v1h-1l-5 4v1h-8l-7 2-5 3-1 4-2 2 2 6v1l-3 3-6 4h-2Z" transform="translate(122 269)" />
+                                <path class="cls-12" d="m807 625-4 1-11 4-7 1h-6l-9 5-4 1-5 3-8 7-5 2h-7l-5 4-2 5-4 1-9-6-3 2-5 7h-6l-11-1-6 3-4 9-7 14-5 5h-5l-17-2h-5v3l-4 2-1 3v4l-2 4-1 6v6l-2 6v14l2 6 3 3 4 2 6 3-1 3-4 2-3 2-2 1 2 8-2 4-1 8 1 7-2 6-1 5 4 5 6 2 7-2h8l3 3 6 1 6 2 5 2 5 2-1 6-3 5 2 5 2 6 1 6 1 4 7 1h26l1 1 4 1 6 2 4 6 1 2 6-4 3-3-2-6 2-2 1-4 6-4 7-2h7l6-5 1-9 4-5 8-3 4-3 2-5 3-12 1-9-1-7-1-5-3-5-2-4 6-9v-4l2-7 4-8 3-9 2-10v-8l-1-4-2-3 2-8 5-11 8-10v-4l-1-5-5-3-3-3-1-10 4-3 7-2 5-2v-4l-2-6-13-2-5-1m0-2h1l4 1 14 2 1 1 2 6v4l-1 2-5 3h-1l-6 2-3 2 1 8 2 3 5 3 1 1 1 4v6l-8 10-5 11-2 6 1 3 2 5v8l-2 10v1l-3 8v1l-4 8-2 7v3l-1 1-5 9 2 2 3 4v1l1 6 1 7-1 9-3 13-2 5-1 1-4 3h-1l-7 3-3 4-1 8-1 2-5 4-1 1h-8l-7 1-4 4-1 3v1l-1 1 1 6-1 2-3 3-6 3a2 2 0 0 1-3-1v-1l-4-5-5-2-4-1-1-1h-26l-8-1-1-2-1-3v-1l-1-5-2-7-2-5 1-1 2-5 1-3-4-3-4-1-7-2-6-1-1-1-2-2h-7l-7 2h-1l-6-2v-1l-4-4-1-2 1-6 2-5-1-7v-1l1-7 2-4-2-7 1-2 2-2 3-2 3-1v-1l-4-3-3-1h-1l-4-4-2-7v-14l2-7v-6l1-5 2-4v-5l1-3 1-1 3-1v-2a2 2 0 0 1 2-2h5l17 2h4l4-4 7-14 4-9 1-1 7-3h1l10 1h5l5-7 3-2h3l8 6h1l3-5v-1l5-3 1-1h6l5-1 7-8h1l5-3 5-1 8-5h7l6-1 11-4h1l4-1Z" transform="translate(122 269)" />
+                              </g>
+                              <g id="Taichung" class="cls-4">
+                                <path class="cls-11" d="M670 694h-1l-17-3h-6v-2l-4-3-5-1v-1l-2-3v-4l-2-4-3-5-4-3-11-3h-1v-1l-4-5h-1v-1l-1-7-2-6-4-3-6-2-1-1 1-1 1-3v-1h1l3-2 2-7 2-12h1l9-16 3-10 3-6 14-15v-1l1 1 9 15 5 5 6 5 15 11 7 4 7 1 11 6h12l5-3v-7h1l5-4h1l10 1 6 2v1h1l4 5 5 2 9-5 7-2 11-10 6-3 4-4h1l4-3h6l4-2 1-5 1-1 4-2v-1h1l10-1h1l3 1 3 1h1v1l-1 5 1 3 5 1 5 3 3 2h3l5-3h6l6 5 1 1-1 1-4 4-1 4-2 7h-1l-7 5-3 4-1 5v1l-3 4h-1l-3 1-1 2v1l-3 2h-1l-13-2-5-1-4 1-11 4-7 1h-6l-8 5h-1l-4 1-5 3-7 7h-1l-5 2h-6l-5 4-2 5-1 1h-3l-1 1v-1l-9-6-2 1-6 8-6 1h-1l-9-2-6 3-4 8-7 15h-1l-5 5-4 1Z" transform="translate(122 269)" />
+                                <path class="cls-12" d="m635 564-13 15-3 5-3 10-10 16-2 13-2 6-4 3-1 3v1l6 2 4 3 2 7 1 7 5 6 12 3 4 4 3 5 2 4v4l2 3 4 1 5 3v2h5l18 3 4-1 5-5 7-14 4-9 6-3 11 2 6-1 5-7 3-2 9 6h4l2-6 5-4h7l5-2 8-7 5-3 4-1 9-5h6l7-1 11-4 4-1 5 1 13 2 3-2 1-2 4-2 3-4 1-5 3-5 8-5 2-6 1-4 4-5-6-5h-5l-4 3h-4l-4-2-4-3-5-1-2-4 1-5-4-1-2-1-11 1-1 1-4 2-1 6-5 2h-6l-4 3-4 4-6 3-12 9-7 3-9 5-5-2-5-6-6-2-10-1-6 3v8l-6 3h-12l-11-6-7-2-7-3-15-11-7-6-5-5-9-14m0-2a2 2 0 0 1 2 1l9 14 5 5 6 5 15 11 7 4 6 1h1l11 6h11l4-2v-7l1-1 6-4h1l10 1h1l6 3 5 5 4 2 8-4 7-3 11-9 1-1 5-3 5-4 4-3h6l4-2 2-4v-2l4-2 1-1h1l10-1h1l3 1 3 1 2 2-1 5 1 2 4 1h1l4 3 3 2h3l5-3h5l2 1 6 4a2 2 0 0 1 0 3l-4 5-1 3v1l-2 6-1 1-7 4-3 5-1 5-4 4v1l-3 1-1 2h-1l-2 2-2 1-13-2-5-1-4 1-11 4-6 1h-6l-9 5-4 1-5 2-8 8-5 2h-7l-4 3-2 5-2 2h-5l-8-6-1 1-6 8h-1l-6 1h-1l-9-2-5 3-4 8-7 14-1 1-5 4-1 1-4 1h-1l-18-3h-4l-2-2-4-3-4-1-1-1-2-3v-5l-1-3-3-5-4-3-12-3-1-1-4-5-1-1-1-8-2-5-3-3-6-2a2 2 0 0 1-1-3l1-1v-3l1-1 3-2 2-6 2-12 1-1 9-16 3-9v-1l3-5v-1l14-14 1-1Z" transform="translate(122 269)" />
+                              </g>
+                              <g id="HsinchuCity" class="cls-3">
+                                <path class="cls-11" d="m719 491-4-1h-1v-1l-2-3-4-3-7-3h-1v-1l1-4h1l5-11v-1l2-2 1-2v-1l-1-2-1-2v-1l2-3 2-2h1l8 4 15 4 6 3 4 4v1l2 3v1l-1 4h-1l-2 2-5 1-6 2-3 4-2 5v1l-2 2-1 1h-1l-4 1h-1Z" transform="translate(122 269)" />
+                                <path class="cls-12" d="m720 490 4-1 3-3 2-6 3-4 6-2 5-1 3-2 1-3-2-4-4-4-5-3-15-4-9-4-1 2-2 3 1 2 1 2v2l-1 1-2 3-6 11-1 5 7 2 4 3 3 4 5 1m0 2h-1l-5-1-1-1-2-4-4-2-7-3-1-2 1-4h1l5-12 2-3 1-1v-1l-1-1-1-2v-2l2-3v-1l2-2h2l8 4 15 4 1 1 5 2 1 1 3 4h1l2 4v1l-1 4-1 1-3 1v1l-5 1-5 2-3 3-2 6h-1l-2 3v1h-1l-5 1Z" transform="translate(122 269)" />
+                              </g>
+                              <g id="HsinchuCounty" class="cls-4">
+                                <path class="cls-11" d="M803 573v-2l-1-5-4-7-3-4h-1l-1-4-4-4-12 4h-1l-4-1-7 1-8 2-4-1-1-1v-1l1-5 1-4-1-4-1-3 1-3 1-4v-8l-4-3-12-6-6-5-4-4-5-11v-1h1l2-3 2-6 4-5 6-2 5-1 2-1 1-3-2-3-3-4-6-3-15-4v-1l-8-3-1-1v-1l2-2v-4l1-2v-1l2-3h1l2-2h1l1-1v-1l1-2v-1l2-6 2-3 1-1h1l3 1h13v-1l1 1 4 3h1l4 9 4 1 4 2h1l4 2 6 2h1l3 4 1 1-1 5 3 4 6 2 4 3 3 3h8l4 4 2 4 4 3h1l3 2v1l1 5 1 7v1l-2 7v1l-4 6v3l5 4 6 4 5 1h1l4 3 7 4 5 2-1 1h1l-2 7-1 4v5l-4 6-14 14-4 10v1h-1l-3-1-10 1-1 1-1 1Z" transform="translate(122 269)" />
+                                <path class="cls-12" d="m804 571 1-1 10-1 3 1 4-11 14-14 4-6v-4l1-5 2-6-4-2-8-5-4-2-5-1-6-4-6-4v-4l4-7 2-8-1-7-1-5-3-3-4-2-3-4-3-4h-8l-3-3-4-3-7-3-3-3 1-6-4-4-7-2-4-2-4-2-5-2-4-8-5-3-14 1-3-2-2 4-2 6-1 3 1 1-3 1-3 2-2 3-1 3v4l-2 2 9 4 15 4 5 3 4 4 2 4-1 3-3 2-5 1-6 2-3 4-2 6-3 3 5 11 4 5 6 4 12 6 4 3v9l-1 4-1 3 1 3 1 4-1 5-1 5 4 1 8-2 7-1 5 1 12-4 5 4 1 5 4 3 4 8 1 5m0 2a2 2 0 0 1-2-2l-1-4-4-8-3-3-1-1-1-3-3-3-12 2-1 1-4-1-7 1-7 2h-1l-4-1-2-3 1-5 1-4-1-3-1-3v-2l1-3 1-3v-8l-3-2-12-6h-1l-6-5-4-4v-1l-5-11 1-2 2-3 2-5v-1l4-4 1-1 6-2 5-1 1-1 1-2-2-3-3-3-5-3-15-5-8-3a2 2 0 0 1-1-3l1-2v-4l1-3h1l2-3v-1l3-2h1v-1l1-3 2-6h1l2-4h19l5 3 1 1 3 8 4 1 5 2 4 2 7 2h1l3 5 1 1-1 5 2 3 6 2h1l4 3 3 3h6l2 1 3 3 1 1 2 4 4 2 4 2v2l1 5 1 7v1l-2 8-4 6v3l5 3 5 4 6 1 4 3 7 4 5 2 1 2v1l-2 6-1 4v6l-4 5v1l-14 14-4 10-2 1-3-1-10 1-1 1Z" transform="translate(122 269)" />
+                              </g>
+                              <g id="Miaoli" class="cls-3">
+                                <path class="cls-11" d="M696 613v-1l-12-6-6-1h-1l-7-4-15-11-7-6-4-5-10-14v-2l8-8 1-3 1-7 2-6h1l5-10 2-6 2-3v-1l7-2 1-1 1-3 2-2v-1l4-4 5-3v-1l6-1 6 1-1-4v-1l3-4 4-3 2-6 1-2 3-2v-1l1-1 1 1 7 2 4 3 3 4 4 1 4-1v1h1l5 11 3 4 6 4 12 6h1l3 3 1 1 1 5-1 4v1l-1 3-1 3 1 2v1l1 4-1 5-1 4 3 1 8-3h12l12-3h1l5 4v1l1 4 4 3 4 8v1l1 5v1l-4 2-2 5v1l-5 2h-5l-4 3-5 4-6 3-11 9-1 1-6 2-9 5h-1l-6-2-5-6-5-2-10-1-5 3-1 7v1l-5 3h-1l-12 1Z" transform="translate(122 269)" />
+                                <path class="cls-12" d="M701 480v1l-4 2v2l-2 5-4 4-3 4 1 5-7-1-6 1-4 4-4 4-2 3-1 2-2 2-7 2-1 3-2 6-6 11-2 5-1 7-2 4-7 8 9 14 5 5 6 6 16 11 7 4 6 1 12 7 12-1 5-3 1-7 6-4 10 1 6 3 5 5 5 2 9-4 7-3 12-10 5-3 5-4 4-3h6l5-2 1-6 4-2-1-5-4-8-3-3-2-5-5-4-12 3h-12l-8 3-4-1 1-6 1-4-1-4-1-3 1-3 1-4 1-4-1-5-4-3-12-6-6-4-4-5-5-11-4 1-5-1-2-4-5-3-7-2m0-2h1l7 2 5 3v1l3 3 3 1 3-1a2 2 0 0 1 3 1l5 11 3 4 6 4 12 6 4 4 1 1 1 5v1l-1 3v1l-1 3v5l1 4v1l-1 5v3h1l8-1v-1h12l12-3 1 1 5 4 1 1 1 4 3 3h1l4 8v1l1 4-1 2-3 3-2 5-1 1-5 2h-5l-4 2-4 5h-1l-5 3-12 9-7 3-9 5h-2l-5-2-1-1-4-5-6-2-9-1-4 3-1 6-1 2-5 3h-1l-12 1-1-1-11-6-6-1-1-1-7-3h-1l-15-11v-1l-6-5-5-5v-1l-9-14v-2l7-8 1-4 1-6 3-6 5-10 2-7 2-3 1-1 6-1 1-2 1-2h1l1-3 4-5h1l4-3 1-1 6-1 5 1-1-3 1-1 2-4h1l3-4 2-5 1-2 1-1 2-2a2 2 0 0 1 2-1Z" transform="translate(122 269)" />
+                              </g>
+                              <g id="Taoyuan" class="cls-3">
+                                <path class="cls-11" d="M844 525h-1l-5-2-7-5-4-2-5-1h-1l-6-4-5-4h-1v-6l4-6 2-8-1-7-1-4-3-3-4-2-3-5-3-3-3 1h-1l-3-1h-1l-3-3-4-3-6-2-1-1-3-3-1-1h1l1-6-4-3-6-2-4-2-5-2-5-2-4-9-4-2-14 1-3-2h-1v-1l9-14 7-9 8-6 18-6 4-3 4-3 5-3 9-3 20-3 1-1v1l4 4 6 3h1l4 3 3 3 4 1 5 2v1l5 7v1l1 4-1 4v1l-4 3-13 4-3 4v6l-1 5 1 5 5 5 1 6-1 6 4 2h8l5 2 9 13v1l-1 5h-1l-3 4 1 4 2 6 8 8 3 6v1h-1l-3 1-4 3 3 12v1l-3 4-4 1h-3l-3 1-1 1v1Z" transform="translate(122 269)" />
+                                <path class="cls-12" d="m843 524 1-2 4-1h3l3-1 3-4-3-12 5-4 3-1-2-5-9-9-2-5-1-6 4-3 1-6-8-12-5-2h-8l-5-3 1-6-1-5-5-5-1-6 1-5v-7l3-4 14-4 3-3 1-4-1-4-5-8-4-2-4-1-3-3-5-3-6-3-5-5-20 4-9 3-4 3-4 3-4 3-19 6-7 6-7 8-9 14 3 2 14-1 5 3 4 8 5 2 4 2 4 2 7 2 4 4-2 6 4 4 7 2 4 3 3 3 4 1 4-1 3 4 3 4 4 3 3 2 1 5 1 7-2 8-4 7v4l5 4 7 4 5 1 4 3 8 4 4 2m0 2h-1l-4-2v-1l-8-4-4-2-5-1v-1l-7-3-5-4-1-2v-5l5-7 1-7-1-6v-1l-1-4-2-2-4-2-1-1-3-4-2-3-3 1h-1l-4-1-1-1-3-3-3-3-7-2-4-4v-6l-2-3-6-2-1-1-4-1-4-2-5-2-1-1-4-8-3-2-13 1-1-1-3-1a2 2 0 0 1-1-3l9-14 7-8v-1l7-6h1l18-6 4-3 3-3h1l4-2 1-1 9-3 20-3h2l4 4 6 3 5 4 3 2 3 1h1l4 2 1 1 5 8v1l1 4-1 5h-1l-3 4h-1l-13 4-2 3v6l-1 5 1 5 5 4v1l1 5v1l-1 5 4 2h7l5 2 1 1 9 12v2l-2 5v1l-2 3v4l1 5 9 8v1l3 5a2 2 0 0 1-1 3l-3 1-4 3 3 11-1 1-2 4-1 1-3 1h-4l-3 1v1a2 2 0 0 1-2 1Z" transform="translate(122 269)" />
+                              </g>
+                              <g id="Hualien" class="cls-2">
+                                <path class="cls-11" d="m814 954-8-2h-1l-12-10-9-15-5-2-6-1h-1l-5-5-6-3-7-2h-1v-1l-5-8-1-8-1-2-2-7-6-5-6-4-1-4v-1l1-3v-1h1l5-2 3-4-2-6v-1l6-3 3-3-2-5v-1l2-3 1-4h1l5-4 8-2h7l5-4 1-9 4-5 1-1 7-2 4-3 2-5 3-12 1-9-1-7-1-5-3-4-2-4h-1l1-1 5-9 1-4 2-7 4-8 3-9 2-10v-7l-2-5-2-3v-1l3-7 5-11 8-10v-4l-1-4-5-3-3-3-1-1v-10l1-1 3-3h1l6-2 5-2v-3l-2-6v-1h1l2-2 1-2h1l3-2 3-3 1-5v-1l3-5 8-4 2-6v-5h1l4-5h2l2 2 6 3 15 4 9 3h6l4-4 2-6h1l4-1h1l18 11 11 2h2v1l2 3v2l-1 2-6 6-6 9h-1l-4 3-1 2v2l-1 2-6 5-3 2-3 6-2 12v1h-1l-7 11-1 4v4l2 5 1 2 1 1 1 2v4l-1 3-3 6-1 3v7l-4 16-6 17-8 40v1l-5 9-11 64v2l-1-1-3-1-11 5-3 5 1 7h1v7l-4 7-3 5-3 7-2 8-4 8-5 13-3 6v13h-1v1l-6 3-1 1Z" transform="translate(122 269)" />
+                                <path class="cls-12" d="m855 588-5 5v4l-2 6-8 5-3 5-1 5-3 4-4 2-1 2-3 2 2 6v4l-5 2-7 2-4 3v10l3 3 6 4 1 4v4l-8 10-5 11-3 8 2 3 2 5v7l-2 10-3 9-4 8-2 7-1 4-5 10 2 4 3 4 1 5 1 7-1 9-3 12-2 5-4 4-8 2-4 6-1 8-6 5h-7l-8 2-5 4-1 4-2 2 2 7-3 2-6 4 2 6-3 5-6 2-1 3 1 4 5 4 7 5 2 8 1 2 1 8 5 8 8 3 6 2 5 5 6 1 6 2 9 16 12 9 8 2 7-4v-13l3-6 5-13 4-8 2-9 3-6 4-5 3-7v-7l-2-7 4-6 11-5 3 1 11-64 5-10 8-40 6-17 4-16v-7l1-3 3-6 1-4v-4l-2-1-1-3-2-5v-5l1-4 8-11 3-12 2-6 3-3 6-5 1-1v-2l1-2 5-4 6-9 6-5 1-3v-1l-2-3h-1l-11-2-19-11-4 1-2 6-5 4h-7l-8-3-15-4-6-3-3-2m0-2h1l3 2 6 3 15 4 8 3h5l4-4 2-5 2-1 4-1h1l18 11 11 2h1a2 2 0 0 1 1 0l1 1 2 3v3l-1 3h-1l-5 6-7 8v1l-4 3-1 1v3l-1 1v1l-7 5-2 2-3 6-2 12h-1l-7 11-1 4v4l2 5 1 1 1 1v1l1 1v5l-1 3v1l-3 5-1 3v7h-1l-3 16v1l-6 17-8 40-5 10-11 64a2 2 0 0 1-2 1l-3-1-10 5-3 4 1 6 1 1v8l-4 7-3 5-3 6-2 8v1l-4 7-5 13v1l-3 5v13l-1 2-7 3-1 1-8-2h-1l-12-10h-1l-8-16-5-1-6-1h-2l-4-5-6-3-8-2-1-1-5-8v-1l-1-7v-1l-1-2-2-7-6-4-5-4-1-1-1-4v-2l1-3 1-1 5-2 3-4-2-5 1-2 6-3 2-2-2-5v-2l2-2 1-4 1-1 5-4h1l7-2h7l5-4 1-8v-1l4-5 1-1 8-2 3-3 2-4 3-13 1-8-1-7-1-4-3-4v-1l-2-4v-1l5-9 1-4 2-7 4-9 3-8 2-10v-7l-1-4-2-3-1-2 3-7v-1l5-10v-1l8-10v-3l-1-3-5-3-3-4-1-1v-10l1-1 4-3v-1l7-2 4-2v-2l-2-6 1-2 2-2 1-1 1-1 3-2 3-3 1-5 3-5 1-1 7-4 2-5v-4l1-2 5-4 1-1Z" transform="translate(122 269)" />
+                              </g>
+                              <g id="Yilan" class="cls-3">
+                                <path class="cls-11" d="m937 605-2-2h-1l-11-2-18-11-3 1-2 5v1h-1l-5 4h-7l-8-3-15-4h-1l-6-3-3-2-5-4h-5l-4 2h-5v1-1l-4-2-4-3-5-1h-1l-1-4v-5l-2-1h-1v-1l4-11 14-14 4-6-1-4 2-5 2-6 1-2v-1l4-1h4l3-1 1-3-3-12v-1h1l5-4h1l3-1 5-2 5-1 4-3v-1l5-3 6-3 4-3-1-1-1-3v-5l2-5h1l4-4 4-3 13-5 14-8 6-2 5-4 3-4 3-5 4-2 4-1 4-3 1-3-2-3v-1l1-3h1l11-3 4-2 8-4v-1l6-1h1l3 2h1v2h1l-1 1-12 6-5 5-19 22-3 5-2 7-1 7-1 8v7l4 15v1l-1 4-1 4v7l3 6 7 4 7 1h1v4h-7l-3 1-1 1 3 4 1 7-1 6-6 4v4l2 3 1 3-1 1-2 2-6 4-7 7v11l-1 2-1 2-1 3-1 7v2l-1 1-1 1 1 1h1v1l1 1h-1v2Zm49-150h-5l-1-1-2-3-2-2h3l1 1 2-2h1l2 1h1l1 2 1 1h-1v2l-1 1Z" transform="translate(123 269)" />
+                                <path class="cls-12" d="m987 407-6 1-9 5-3 2-12 3-1 3 2 3-1 4-5 3-3 1-4 2-3 4-3 5-5 4-7 2-13 8-13 5-4 2-5 4-2 5v5l1 3 1 2-4 3-7 3-5 3-3 4-5 1-6 2-3 1-6 4 3 12-2 4-3 1h-3l-4 1-1 2-2 6-2 5 1 4-4 6-14 15-4 10 4 1-1 6 1 3 5 1 5 3 3 2h4l5-2h5l6 4 2 2 7 3 15 4 8 3h7l5-4 2-6 4-1 18 11 12 2h1l-2-2 1-1 1-2v-1l1-7 1-3 1-2 1-3v-10l7-8 6-4 3-2-1-3-2-3v-5l6-4 1-5-1-7-3-5 2-1 2-1h7v-2l-8-1-6-4-4-6v-9l1-3 1-4-4-16v-7l1-8 1-8 2-7 3-4 19-23 6-5 12-6-1-1-3-2m-4 42-3 2-1-1 2 3 1 1h4v-2l-1-3h-2m4-44h1l3 2v1l1 1a2 2 0 0 1 0 3l-12 6-5 4-19 23-3 4-2 7-1 7-1 8v7l4 15v1l-1 4-1 4v7l3 5 6 4 7 1 2 2v2a2 2 0 0 1-2 2h-6l-2 1 1 3 1 1 1 6v1l-1 6-1 1-5 3v4l2 2v1l1 2-1 2-2 3h-1l-6 3-6 8v10l-1 3-1 2-1 3-1 6v2l-1 1v2a2 2 0 0 1-1 3h-2l-11-2h-1l-17-11-2 1-2 5h-1l-5 5h-8l-9-3-15-4-6-3h-1l-2-2-6-4h-3l-5 2h-6l-3-2-5-3-4-1-2-1-1-4v-4l-2-1a2 2 0 0 1-1-3l4-10 1-1 14-14 3-5-1-4 1-1 1-4 2-7 1-1 1-2 4-1h4l2-1 1-2-3-12 1-2 6-4 3-1 6-2 4-1 4-3 5-4 7-3 3-2v-1l-1-3h-1v-5l2-5 1-1 5-4 4-3 13-5 13-8h1l6-2 4-3 3-5 3-4 1-1 4-2 3-1 4-2 1-3-2-2v-2l1-3 2-1 11-3 3-2 9-4v-1l6-1h1Zm-4 42 2 1h1l2 3v4l-2 1h-5l-1-1-1-1-2-3a2 2 0 0 1 2-3l1 1 2-2h1Z" transform="translate(123 269)" />
+                              </g>
+                              <g id="Keelung" class="cls-2">
+                                <path class="cls-11" d="M932 391h-1l-5-1-11-4v-1l-3-2-4-3-2-4h-1l-1-3-3-4-1-3v-1h1l3-3 7-3 4-3h1l2 1 2 3 4 1 11 3 4 1-3 1v14l3 3 1 1h-1v3l-3 2-4 2Z" transform="translate(123 269)" />
+                                <path class="cls-12" d="m916 357-4 3-8 3-3 2 1 3 3 4 1 4 3 3 4 3 3 3 10 4 6 1 4-2 2-2v-2l-3-4v-15l-11-3-4-1-3-3-1-1m0-2 1 1h1l1 1 2 2 3 1 11 3a2 2 0 0 1 2 2v14l3 3v5l-1 1-2 2h-1l-4 2h-1l-5-1-11-4v-1l-3-2h-1l-3-3v-1l-3-3v-1l-2-3-3-3v-1l-1-3 1-2 3-2 1-1 7-3 4-2 1-1Z" transform="translate(123 269)" />
+                              </g>
+                              <g id="Taipei" class="cls-5">
+                                <path class="cls-11" d="M893 416h-6l-5-1-4-4-4-4-5-5h-1l-3-7h-1l2-7-1-6-6-6-4-4v-1l2-3 2-2 2-5 4-4 11-7 2-2h1l4-2 4 1h1l2 2v8l3 7 3 9 3 4h1l1 5-1 7v4l4 2 4 4v1l-2 4-8 10-4 2h-1Z" transform="translate(123 269)" />
+                                <path class="cls-12" d="m893 415 4-2 8-9 2-5-4-3-4-2v-6l1-6-1-5-4-3-3-10-3-7v-7l-2-2-4-1-4 2-3 2-11 7-3 4-2 4-2 3-2 3 4 4 6 5 1 7-2 7 4 7 6 4 4 5 4 3 4 1h6m0 2h-6l-5-1-1-1-3-3h-1l-3-4-6-5-4-7-1-1 2-7-1-6-5-5-4-4-1-2 2-3v-1l2-2 2-4v-1l4-4 11-7 3-2 4-2h2l4 1 3 3v8l3 6 2 10 4 3v1l2 4v1l-1 7v3l3 2 1 1 3 3 1 2-2 5-8 10a2 2 0 0 1-1 0l-4 2h-1Z" transform="translate(123 269)" />
+                              </g>
+                              <g id="NewTaipei" class="cls-5">
+                                <path class="cls-11" d="m861 500-2-6-9-8v-1l-2-5-1-5v-1h1l2-4 2-4-8-12-5-2h-8l-5-3v-1l1-6-1-5-5-5-1-5v-1l1-5v-7l3-4h1l13-4 3-3 1-4-1-4-5-7-4-2-4-1-3-3-5-3-6-3-4-5-2-1h2l11-2 5-2 6-5 2-1 2-1h4l3 1h1v1l2 2v1l1 2 1 1 2-1-3-4-6-6-3-2v-1l1-3 2-2 2-1 2-5 4-6v-1l6-5 1-1 9-4v-1l12-2 11 1 5 4 10 14 3 7h1l2-1h7v2l-1 1-1 1v4l2 1h3l-2 2-5 3-7 3-3 2 1 2 3 3v1l1 3 3 3 4 4 3 2 10 4 5 1 3-2 2-1 1-2-4-3v-17h1l35 9 3 2h1v1l-2 3v3l1 5 2 9 2 3 2 1 7-1h4l4 2 4 2 2 2 1 1-1 1-9 4-1 1v-1l-1-1-3-2-5 2-8 4-4 2-11 3-1 2 2 3h1l-1 1-1 3v1h-1l-4 3-4 1-3 2-4 4-3 5-5 4-6 2-14 8-13 5-3 2-5 4-2 5v4l1 3 1 2-1 1-3 3h-1l-6 3-5 3-4 4-5 1v1l-6 1h-1Zm27-86h5l4-1 7-10 2-3-3-3-5-2v-7l1-6-1-4-4-3v-1l-3-10-3-6v-8l-1-1-4-1-3 1-3 3-11 6-3 4-2 5h-1l-1 2-1 2 3 4 6 6 1 6v1l-1 7 3 6 6 5 4 4 3 3 5 1Z" transform="translate(123 269)" />
+                                <path class="cls-12" d="m877 323-11 2-10 5-7 6-3 6-2 5-1 1-2 1-1 2-1 2 3 2 6 6 3 6-3 1-2-1-1-3-2-3-3-1h-3l-3 1h-2l-6 6-4 1-12 3 5 4 6 3 5 3 3 3 4 1 4 2 5 8 1 4-1 4-4 4-13 3-3 4v7l-1 6 1 5 5 5 1 5-1 7 5 2h7l5 2 9 12-2 6-3 3 1 6 1 5 9 9 3 5 6-1 5-2 3-4 5-3 7-3 4-3-1-2-1-3v-4l2-5 5-4 4-3 13-5 13-8 7-2 5-4 3-5 3-4 4-2 3-1 5-3 1-4-2-3 1-3 12-3 3-2 9-4 6-2 3 2 1 1 8-4-2-3-3-1-5-2h-3l-7 1-2-1-3-4-2-9-1-5v-3l2-3-3-2-35-9v15l4 4-1 2-2 2-4 2-5-1-11-4-3-2-4-4-3-3-1-4-3-4-1-3 3-2 8-3 4-3-2-1-1-2v-2l1-2 1-1v-1h-5l-3 1h-1l-4-7-10-14-4-4-11-1m21 90-5 2h-5l-5-1-4-3-4-5-6-4-3-7 1-7-1-7-6-5-4-4 2-3 2-3 2-4 3-4 11-7 3-2 4-2 4 1 2 2v7l3 7 3 10 4 4 1 4-1 7v5l4 2 4 3-2 5-7 9m-21-92 11 1 1 1 4 3h1l10 15 3 6 2-1h6l2 2v1l-1 1-1 1v3l2 2a2 2 0 0 1 0 3l-4 3h-1l-7 3-1 1v2l2 3h1l1 4 3 3 3 3 3 2 10 4 4 1 4-2 1-1h1l-4-4v-16a2 2 0 0 1 3-2l34 9h1l3 2 1 2-2 4v2l1 5 2 8 2 4h1l7-1h4v1l4 1h1l3 2h1l2 3a2 2 0 0 1-1 3l-8 4-3-1h-1l-2-2-5 1-8 5-3 2h-1l-10 3-1 1 2 2v2l-1 4-1 1-5 3-4 1-3 2-3 3-3 5v1l-5 4h-1l-6 2-13 8-13 5-4 2-4 4-2 4v3l1 3v1l1 2-1 2-4 2v1l-7 3-4 3-4 3-1 1-5 1-6 2-2-1-2-5-9-8v-1l-2-6-1-5 1-2 3-3 1-4-8-11-4-2h-8l-5-3-1-2 1-6-1-4-5-5v-1l-1-5v-1l1-5v-8l4-4h1l12-4 3-3 1-3-1-3-4-7-4-2-4-1h-1l-3-3-4-3-6-3h-1l-4-5a2 2 0 0 1 1-3l11-2 4-2 6-5h1l1-1h1l2-1h4l3 1-2-2-3-2-1-2 1-3v-1l2-1 1-1h1v-1l2-5h1l3-6 7-6 10-5v-1l11-2h1Zm9 29-3-1-3 1-2 3h-1l-10 6-4 4-1 4h-1l-1 3-1 1 3 3 5 6 1 1 1 6v1l-1 7 3 5 5 5h1l3 4 4 3 4 1h5l3-1 7-9 2-3-3-2-4-3-1-1v-6l1-6-1-3-4-4v-1l-3-9-3-7v-7l-1-1Zm-38 16v-1 1Z" transform="translate(123 269)" />
+                              </g>
+                              <g id="Kinmen" class="cls-3">
+                                <path class="cls-11" d="M30 584h-1l-3-2h-3l-3-1-1-3h-1l1-1 2-3 1-1v-4l-1-4-1-5h-1v-3h1l1-1 8-4 1 1 10 6 5-1 2-8 2-6h1l7-2h1v1l7 6v1l5 12v1l-1 8v1l-4 5h-1l-7-4-5-2-7 1-7 4-4 6-4 2Zm-26-5-3-1H0v-1l5-10v-1l2-1 2-1h3l2 2 2 2v4l-1 2h-1v1h-2l-1 1v1h-1l-1 1-5 1Zm327-164v-1l-2-1v-1l1-3v-1l3-1h3v3l-1 2v1l-3 1-1 1Z" transform="translate(121 269)" />
+                                <path class="cls-12" d="m30 583 3-2 4-6 7-4 8-1 5 2 7 4 4-5 1-8-5-13-7-7-7 2-3 5-1 9-7 1-10-7-7 4-2 1v2l2 4 1 5v4l-1 1-2 3v1l1 2 2 1h3l4 2m-26-5 5-1 1-1 1-1 1-1h2l1-3v-3l-1-1-2-2H9l-2 1-1 1-5 10 3 1m327-165 3-1 1-2v-2h-2l-2 1-1 3 1 1M30 585h-1l-4-2h-3l-2-1-1-1-1-2v-3l2-3h1v-4l-1-4-1-4-1-1v-2l1-2 2-1 7-3h2l10 6 5-1 1-7 2-6 1-1 8-2 2 1 7 6v1l5 13v1l-1 9v1l-4 4-3 1-7-5-4-1-7 1-6 4-4 6h-1l-3 2h-1Zm-26-5H3l-3-1a2 2 0 0 1-1-3l5-10h1l1-2h1l2-1h4l2 2 2 2v6l-2 2-1 1h-1l-1 1-1 1h-1v1l-5 1H4Zm327-165h-1l-1-1-1-2 1-3 1-2 2-1h3l2 2v3l-1 2-1 1-3 1h-1Z" transform="translate(121 269)" />
+                              </g>
+                              <g id="Lienchiang" transform="translate(588 269)">
+                                <g id="TWN5128" class="cls-1">
+                                  <path class="cls-11" d="m458 107 1-3 2-4 1-1h3l1-1v4l-2 2-3 2-3 1Zm-4-5-1-1-2-3v-1h1l3-1h1l2 1 1 1-1 1-2 1-1 1-1 1Zm-2-41h-1l-2-2-1-2v-1l1-2 1-2 1-1h1v2l2 1 3-2h4v3l-3 3-4 2h-1v1h-1Zm10-12-1-1-1-1h-1v-5l1-2 1-1h2l1-1 2-1h3l1 2 1 1v3l1 2-2-1h-2l-1-2-1 1h-2l-1 1-1 3v2ZM571 9l-1-2h-1l-2-1h-1l1-1 1-1-1-1 1-1 2-2h1l2 1h1v2h1l1 1-1 1h-2l-1 1-1 1v2Z" transform="translate(-449 -1)" />
+                                  <path class="cls-12" d="m460 105 4-2 1-2v-1h-1v1l-2-1-2 5m-6-4 2-2 1-1-2-1-3 1 2 3m-2-41h1l5-3 2-2v-2h-2l-4 2h-1l-2-1v-2l-1 1v1l-1 2 1 2 2 2m9-13 1-4 1-1h2l2-1h1l1 2h1v-2l-1-2-1-1h-2l-2 1-2 1-1 1-1 1v5h1M570 7l1-2 1-1h2l-1-1V2l-2-1-2 1-1 1 1 1-1 1 1 1h1v1M460 107a2 2 0 0 1-2-3l2-5 3-1h2a2 2 0 0 1 2 2v3l-2 1-1 1-3 1-1 1Zm-6-4a2 2 0 0 1-1-1l-2-3a2 2 0 0 1 1-3l2-1h2l2 1a2 2 0 0 1 0 4h-1l-1 2-2 1Zm-2-41-1-1-2-1-1-1-1-2v-1l1-2v-1l1-1 1-1h1a2 2 0 0 1 2 1v1h1l2-2h4l2 2v2l-1 1-2 3h-1l-4 2h-1l-1 1Zm9-13h-1l-1-1-1-1v-6l1-1 1-1 1-1h2v-1l2-1h3l2 1 1 1 1 1v3a2 2 0 0 1-2 3h-1l-2-1v-1l-1 1h-2l-1 4a2 2 0 0 1-2 1ZM570 9l-1-1h-1l-1-1a2 2 0 0 1-1-3l1-3h1l2-2h2l2 1 1 1v1l1 1a2 2 0 0 1-1 3h-2l-1 2a2 2 0 0 1-2 1Z" transform="translate(-449 -1)" />
+                                </g>
+                              </g>
+                            </g>
+                            <g id="texts">
+                              <g id="Yilan-t" transform="translate(-38 310)"><text id="宜蘭縣" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">宜蘭縣</tspan>
+                                </text></g>
+                              <g id="Hualien-t" transform="translate(-105 526)"><text id="花蓮縣" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">花蓮縣</tspan>
+                                </text></g>
+                              <g id="Taitung-t" transform="translate(-197 778)"><text id="台東縣" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">台東縣</tspan>
+                                </text></g>
+                              <g id="Pingtung-t" transform="translate(-310 866)"><text id="屏東縣" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">屏東縣</tspan>
+                                </text></g>
+                              <g id="Kaohsiung-t" transform="translate(-310 763)"><text id="高雄市" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">高雄市</tspan>
+                                </text></g>
+                              <g id="Tainan-t" transform="translate(-388 723)"><text id="台南市" class="cls-8" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">台南市</tspan>
+                                </text></g>
+                              <g id="ChiayiCity-t" transform="translate(-361 622)"><text id="嘉義市" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">嘉義市</tspan>
+                                </text></g>
+                              <g id="ChiayiCounty-t" transform="translate(-283 638)"><text id="嘉義縣" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">嘉義縣</tspan>
+                                </text></g>
+                              <g id="Yunlin-t" transform="translate(-388 558)"><text id="雲林縣" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">雲林縣</tspan>
+                                </text></g>
+                              <g id="Changhua-t" transform="translate(-349 479)"><text id="彰化縣" class="cls-8" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">彰化縣</tspan>
+                                </text></g>
+                              <g id="Nantou-t" transform="translate(-222 511)"><text id="南投縣" class="cls-8" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">南投縣</tspan>
+                                </text></g>
+                              <g id="Taichung-t" transform="translate(-261 411)"><text id="台中市" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">台中市</tspan>
+                                </text></g>
+                              <g id="Miaoli-t" transform="translate(-236 325)"><text id="苗栗縣" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">苗栗縣</tspan>
+                                </text></g>
+                              <g id="Taoyuan-t" transform="translate(-158 190)"><text id="桃園市" class="cls-8" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">桃園市</tspan>
+                                </text></g>
+                              <g id="HsinchuCounty-t" transform="translate(-171 275)"><text id="新竹縣" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">新竹縣</tspan>
+                                </text></g>
+                              <g id="HsinchuCity-t" transform="translate(-238 244)"><text id="新竹市" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">新竹市</tspan>
+                                </text></g>
+                              <g id="Penghu-t" transform="translate(-600 638)"><text id="澎湖縣" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">澎湖縣</tspan>
+                                </text></g>
+                              <g id="Kinmen-t" transform="translate(-901 341)"><text id="金門縣" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">金門縣</tspan>
+                                </text></g>
+                              <g id="Lienchiang-t" transform="translate(-458 -175)"><text id="連江縣" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">連江縣</tspan>
+                                </text></g>
+                              <g id="Keelung-t" transform="translate(-2 144)"><text id="基隆市" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">基隆市</tspan>
+                                </text></g>
+                              <g id="Taipei-t" transform="translate(-65 160)"><text id="台北市" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">台北市</tspan>
+                                </text></g>
+                              <g id="NewTaipei-t" transform="translate(-66 223)"><text id="新北市" class="cls-7" transform="translate(1104 406)">
+                                  <tspan x="0" y="0">新北市</tspan>
+                                </text></g>
+                            </g>
+                            <g id="points">
+                              <g id="points-2" data-name="points" transform="translate(1110 489)">
+                                <g id="Union_3" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_96" data-name="96" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">96</tspan>
+                                </text>
+                              </g>
+                              <g id="points-3" data-name="points" transform="translate(1047 505)">
+                                <g id="Union_3-2" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_117" data-name="117" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-12.1" y="0">117</tspan>
+                                </text>
+                              </g>
+                              <g id="points-4" data-name="points" transform="translate(1046 568)">
+                                <g id="Union_3-3" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_91" data-name="91" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-12.4" y="0">146</tspan>
+                                </text>
+                              </g>
+                              <g id="points-5" data-name="points" transform="translate(1073 655)">
+                                <g id="Union_3-4" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_18" data-name="18" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">18</tspan>
+                                </text>
+                              </g>
+                              <g id="points-6" data-name="points" transform="translate(915 1123)">
+                                <g id="Union_3-5" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_28" data-name="28" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">28</tspan>
+                                </text>
+                              </g>
+                              <g id="points-7" data-name="points" transform="translate(724 1068)">
+                                <g id="Union_3-6" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_6" data-name="6" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-4.7" y="0">6</tspan>
+                                </text>
+                              </g>
+                              <g id="points-8" data-name="points" transform="translate(724 903)">
+                                <g id="Union_3-7" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_66" data-name="66" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">66</tspan>
+                                </text>
+                              </g>
+                              <g id="points-9" data-name="points" transform="translate(802 1108)">
+                                <g id="Union_3-8" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_49" data-name="49" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">49</tspan>
+                                </text>
+                              </g>
+                              <g id="points-10" data-name="points" transform="translate(751 967)">
+                                <g id="Union_3-9" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_96-2" data-name="96" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">96</tspan>
+                                </text>
+                              </g>
+                              <g id="points-11" data-name="points" transform="translate(829 984)">
+                                <g id="Union_3-10" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_39" data-name="39" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">39</tspan>
+                                </text>
+                              </g>
+                              <g id="points-12" data-name="points" transform="translate(802 1211)">
+                                <g id="Union_3-11" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_72" data-name="72" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">72</tspan>
+                                </text>
+                              </g>
+                              <g id="points-13" data-name="points" transform="translate(1007 871)">
+                                <g id="Union_3-12" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_77" data-name="77" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">77</tspan>
+                                </text>
+                              </g>
+                              <g id="points-14" data-name="points" transform="translate(890 856)">
+                                <g id="Union_3-13" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_62" data-name="62" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">62</tspan>
+                                </text>
+                              </g>
+                              <g id="points-15" data-name="points" transform="translate(851 756)">
+                                <g id="Union_3-14" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_58" data-name="58" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">58</tspan>
+                                </text>
+                              </g>
+                              <g id="points-16" data-name="points" transform="translate(876 670)">
+                                <g id="Union_3-15" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_8" data-name="8" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-4.7" y="0">8</tspan>
+                                </text>
+                              </g>
+                              <g id="points-17" data-name="points" transform="translate(763 824)">
+                                <g id="Union_3-16" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_24" data-name="24" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">24</tspan>
+                                </text>
+                              </g>
+                              <g id="points-18" data-name="points" transform="translate(954 535)">
+                                <g id="Union_3-17" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_16" data-name="16" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">16</tspan>
+                                </text>
+                              </g>
+                              <g id="points-19" data-name="points" transform="translate(941 620)">
+                                <g id="Union_3-18" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_52" data-name="52" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">52</tspan>
+                                </text>
+                              </g>
+                              <g id="points-20" data-name="points" transform="translate(874 589)">
+                                <g id="Union_3-19" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_40" data-name="40" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">40</tspan>
+                                </text>
+                              </g>
+                              <g id="points-21" data-name="points" transform="translate(513 984)">
+                                <g id="Union_3-20" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_18-2" data-name="18" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">18</tspan>
+                                </text>
+                              </g>
+                              <g id="points-22" data-name="points" transform="translate(655 170)">
+                                <g id="Union_3-21" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_26" data-name="26" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">26</tspan>
+                                </text>
+                              </g>
+                              <g id="points-23" data-name="points" transform="translate(212 686)">
+                                <g id="Union_3-22" data-name="Union 3" class="cls-9">
+                                  <path class="cls-11" d="M10620 1781a20 20 0 0 1-20-20 20 20 0 0 1 20-20 20 20 0 0 1 20 20 20 20 0 0 1-20 20Z" transform="translate(-10601 -1742)" />
+                                  <path class="cls-12" d="M10620 1742a19 19 0 1 0 0 38 19 19 0 0 0 0-38m0-2a21 21 0 0 1 21 21 21 21 0 0 1-21 21 21 21 0 0 1-21-21 21 21 0 0 1 21-21Z" transform="translate(-10601 -1742)" />
+                                </g><text id="_14" data-name="14" class="cls-10" transform="translate(19 26)">
+                                  <tspan x="-9.4" y="0">14</tspan>
+                                </text>
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                    <div class="tab-pane active pt-0" id="tabv2" role="tabpanel">
+                      <div class="d3-map-container" id="map-course">
+                        <div class="mask mask_graph"></div>
+                        <div class="d3-map-wrap">
+                          <div class="d3-map-tools">
+                            <button class="btn btn--square btn--grey" id="zoomIn">
+                              <i class="tub-search-zoom-in">
+                                <font></font>
+                                <font></font>
+                                <font></font>
+                              </i>
+                            </button>
+                            <button class="btn btn--square btn--grey" id="zoomOut">
+                              <i class="tub-search-zoom-out">
+                                <font></font>
+                                <font></font>
+                                <font></font>
+                              </i>
+                            </button>
+                            <button class="btn btn--square btn--grey" id="resetZoom">
+                              <i class="tub-refresh-right-square">
+                                <font></font>
+                                <font></font>
+                              </i>
+                            </button>
+                          </div>
+                          <div id='d3-tooltip'>
+                          </div>
+                          <!-- <img src="img/disable-img.jpg" alt="" class="center-block"> -->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane pt-0" id="tabv3" role="tabpanel">
+                      <div class="map-container">
+                        <div class="mask mask_graph"></div>
+                        <svg id="taiwan_cost" class="tw-map" xmlns="http://www.w3.org/2000/svg" width="810" height="744" viewBox="0 0 810 744">
+                          <g id="Group_214819" data-name="Group 214819" transform="translate(-476 -116)">
+                            <rect id="Rectangle_170063" data-name="Rectangle 170063" width="810" height="744" rx="12" transform="translate(476 116)" fill="transparent" />
+                            <g id="Group_214818" data-name="Group 214818" transform="translate(11 114.364)">
+                              <g id="tw" transform="translate(585.999 41.635)">
+                                <path id="kpptr" d="M11425.354,1900.069l-3.483-2.665-4-1.794-4.1-.975-.153,3.382-1.178,1.181-1.742-.411-1.9-1.588-.1-1.23.665-3.588-2.817-4.716-.258-1.23.052-1.076.206-1.641v-5.535l.254-1.591,1.282-1.843.258-1.539-10.2-26.448-.818-1.487-2.818-3.484-2.257-5.075-1.024-1.435-4.2-3.333-2.766-1.536-.463-1.9-.358-.668-2.254-1.487-5.127-2.459-2.307-1.588-2.459-2.153-1.334-.819,4.152-10.508-4.152,10.508-1.333-.564-.819.049-.923.359h-1.128l-6.664-5.225-6.2-8.767,6.51,7.893-.77-3.793-1.947-3.689-2.717-3.076-4.614-4.305-1.794-2.153-.818-2.459,1.128-2.358.562-2.1-.767-2.971-1.384-2.87-2.514-3.947-2.355-5.228-.515-2.306.052-1.539.77-1.846.153-1.23-.257-.613-1.384-1.18-.257-1.178-1.484-2.511-.359-1.027-1.076-6.97,3.125-1.9.1.255,2,4.409,2.459,1.282,8.047,1.125,4.2-.46,4.306.512,2.152-.77,1.794-1.331,3.333-1.334,3.229-2.254,1.229-2.821,1.536-2.665,2.717-3.64,3.128-3.278,3.33-2.769,3.793-3.689,3.333-4.308,5.124-8.712,5.332-7.74,1.178-3.382-.512-3.434-.718-2.306.052-2.563,1.846-1.794,3.536.359,2.972-.31,6.3-3.741,2.307-2.766,4.05-3.128,3.947-2.2,2.152-2.561,1.846-3.486,4.357-3.486,9.481-4.817,2.2.512,2.972,1.128,2.152,3.023.359,1.024.975,2.974-1.539,2.563-2.87,1.23-.718,1.641.513,2.048,2.87,1.846,3.229,2.665,1.438,3.9.153,1.279-8,1.95-3.28,2.1-2.049,2-4,2.613-.463,2.922.463-2.922,4-2.613,2.049-2,3.28-2.1,8-1.95.614,3.793,2.563,4.152,4,1.435,3.125,1.487,2.563,2.459,3.229.463,2.922.77,4.717,8.2,5.994,4.971,4.2.564,3.333-1.9.46-3.18-.052-3.431,1.589-3.128,2.462-6.767,1.895-3.947,1.23-4.305,1.386-3.382,1.741-2.665,1.847-3.536-.308-3.538-.873-3.536,2-2.769,5.535-2.665,1.794.512-2.355,13.532-1.129,2.511-3.64,4.817-1.331,2.511-1.076,3.128-.77,5.844.1,5.225-.512,4.974-2.512,5.075-1.076,1.076-2.41,1.794-1.126,1.125-.515,1.18-.871,2.971-2.459,4.305-1.487,6.715-1.076,3.024-5.28,7.586-.665,1.386-7.124,6.047-1.692,1.947-.205,1.383.31,3.18-.1,1.435-.613,1.641-1.128,1.794-2.41,3.125-2.41,2.306-8.252,5.486-5.535,6.1-1.383.718-1.076,1.383-2.665,6.921-1.333,2.563-4.1,5.124-1.692,3.076-.972,6.3-2.46,8.61-4.872,8.561-.715,2.922-.873,8.252.153,7.534.463,26.447-.819,3.741-1.281,3.076-1.745,1.282-2.048,1.9.052,4.256.767,4.713-.205,3.026Zm4.82-44.8,2.3-.153-2.3.153Zm-9.536-11.073.053-2.919Zm-.613-13.992-2.717,1.641-1.076,2-.258,2.306.258-2.306,1.076-2Zm-2.41-7.381v0Zm11.993-35.518-2.46,1.383-3.895.819-2.769,2.309-1.229,3.382-1.9,3.382-1.539,3.845-.41,7.534.41-7.534,1.539-3.845,1.9-3.382,1.229-3.382,2.769-2.309,3.895-.819Zm-54.125-1.027-2.922,10.867-.05,3.64.05-3.64,2.922-10.867.052-4.869Zm60.175-3.64-.294.734.294-.731v-.051Zm-58.381-12.557-.666,3.692-1.333,4.048,1.333-4.048.666-3.692.871-2.511,9.125.564,4.1-1.435,3.281-3.64,4.817-2.306,6.715,3.382,3.383-3.023,3.688-.923,3.9,4.563,3.023,2.818,4.357-3.434,2.2-.1,2.667.46,2-.255-2,.255-2.667-.46-2.2.1-4.357,3.434-3.023-2.818-3.9-4.563-3.688.923-3.383,3.023-6.715-3.382-4.817,2.306-3.281,3.64-4.1,1.435-9.125-.564Zm55.869-29.882-2.205,3.026-4.356,3.689-1.178,5.023,1.178-5.023,4.356-3.689ZM11434.734,1727.7Zm3.127-10.662-3.793,2.051-.411,3.536.411-3.536,3.793-2.051,1.383-2.511Zm83.954,170.012-3.483-2.459-2-1.9.613-1.386-.052-1.282-.513-1.23-.87-1.076h9.993v.923l-.665,1.794-.206,1.487.463,1.282,2.407,1.794,1.027,1.282-.153,1.383-2.821.871Zm-160.889-45.667.717-1.383,1.436-1.846h1.024l.358-.205,1.027,1.487-.153.512-1.386.923-2.563,2.2ZM11514.282,1797l-.206-.31-1.383-.512-1.435-2.511-.718-2.2.307-.307,5.124-.359.566.307.408,1.027-.408,2-.463.819-.205.871.205.822-.052.564Zm-278.881-82.111-.767-2.41.512-.613,1.947-.668,1.383.359.053,1.076-.1.822-.616.616-.821,1.125-.921.463Zm-1.024-4.563-1.024-1.282-.153-1.279.613-.564,1.641.255.923,1.589-.87,1.591Zm34.034-4.253.153-1.024.153.1h1.181v.665l-.564.77-.359.923Zm-7.841.616.153-.31,1.281-.1.408,1.024-1.024.1-.205.049Zm-15.43-15.071-.819-.359.718-1.588-.1-2.153-.463.307-1.024.31-.307-1.18,1.076-2.613.819-.153,1.383,1.843.668.411.05,1.177.257.822.718.613-.307.822-.616.616.307.972-.767.307Zm3.64-.972.205-.668.564-.767.358-.31.819-.153.77.463-.1.665-.874.052-1.536.923ZM11221,1684.85l.72-1.334,1.229.31v.819l-.307.46-1.079.31Zm26.192-12.354-.153-.92.358-.31.924.257,2.048-1.024,1.334.307-1.641,1.076-1.076.307-1.128.564Zm6.047-5.483-2.511-2.511.668-1.282,1.383,1.641,2.049.46,2.2-.613,1.794-1.487-1.229-.46-1.024-.616-.77-.819-.718-1.128-.41.718-.513.307-.153-2.048.153-2.051h.923l1.077.255,3.793-2.355,2.357-.822-.616,2.257-.307.666,2.052-.666,1.588.2,1.178-.1.821-1.383,2.41,4.459.614,2.051-.258,1.536-1.024-1.024-1.281-.871-1.436-.257L11264,1662.2l-1.435.153-.718.411-.361.767-.562,2.1-.358.613-2.41,1.386-2.46.359Zm-13.939-5.792.358-1.076.613-.665.976-.258,1.281-.1,1.126-.463.31-1.024.052-2.459,1.638-5.332,1.591-1.536,2.153,1.846-1.282.767-.871,1.846-1.435,4.357-.052,1.128.358,1.024-.153.665-1.539.258-1.126.052-.77.153-.665.307-.616.512Zm17.579-9.585-.46-1.794-1.024-1.484-2.2-2.2,2.817-2.1,1.69.871,1.641,1.435.72,1.484-1.281,1.233.512,1.794-.718,1.178-1.128.359Zm2.205-16.246-.1-.718.92-.77.822-1.539.254.564,1.282.718-.205.923-1.126.668-1.027,1.23-.153.46Z" transform="translate(-11072.129 -1239.826)" fill="#499894" />
+                                <path id="yct168" d="M11262.519,1770.241l-4.2.461-8.047-1.128-2.461-1.282-2-4.409-.1-.256-3.125,1.9-.513-3.23-.923-1.843-2-2,2.409-1.743,1.385-3.127-.564-2.663-3.229-.461-.615.923-.564,1.74-.923,1.384-1.691-.051-.664-1.179.257-3.586-.41-1.23-2.1-.923-1.179,1.077-.924,1.487-1.436.359-1.486-1.282-.356-1.795.356-1.743.566-1.179,1.535-.82,1.9-.254,1.59-.513.513-1.538-.718-.769-4.817-1.23v-.974l4.048-.051-.41-1.333-2.205-1.9-1.433-1.638.356-2.051,1.281-.769,1.385-.461.718-1.282-.41-2-.718-1.641.461-1.535.719-1.9,1.179-1.333-.256-1.179.256-1.179,1.692-4.612.817-.872,1.333-.308-1.895-1.282.82-2.1h0l1.948-.154,1.692-.718.718.256-.462-1.638-1.128.818-.923-.256-1.281-.051v-1.689l1.23-2.871,1.9-.154,2.769.051-1.9-5.381-2.1-4.1.975-1.9v-.974l-1.59-.769.205-.92.923-1.025.462-1.333,2.051-2.666-4.358.256-.1-4.458,2.358-2.666-.1-8.406.359-6.306,1.436-5.022,2.2-3.948.664-5.124,1.18-4.512.666-1.535,3.128-4.153.563-1.436.359-.769,2.868-2.2.41-.82,3.9,2.253,11.276-1.33,3.895.205,3.384.92,5.944,2.256,10.1,1.179,6.255,3.076,2.971-.051,6.152,1.23.513-.359.972,3.689-1.022,2.41-.513,3.692.513,3.945-.975,2.666-.461,2.92,2.051,2.41,2.971,1.282,3.486-1.025,4.2-.461,1.333,1.794,3.128.359,3.486,1.333,2.1.615,2.614,1.436-.153,2.715-1.538,2.615.615,2.461,1.384,3.33.205,3.025.564,1.948,3.9.718,13.119.1.462.1-9.482,4.817-4.355,3.486-1.846,3.486-2.153,2.561-3.947,2.2-4.048,3.127-2.308,2.766-6.3,3.743-2.974.308-3.538-.359-1.843,1.794-.052,2.564.718,2.3.513,3.435-1.179,3.381-5.332,7.742-5.125,8.713-3.332,4.3-3.791,3.692-3.333,2.769-3.125,3.278-2.717,3.64-1.538,2.663-1.23,2.82-3.23,2.256-3.33,1.333-1.794,1.333-2.153.769Zm36.747-48.95-2.715,1.231,2.718-1.231,2.561-.308Zm-45.207-15.529-2.971,1.843,2.974-1.843,3.381-2.615Zm30.651-16.917-3.486,1.384,3.486-1.381,2.308-.308Zm-.82-8.1,2.1,1.128,1.281,2.051,1.282,3.486-1.282-3.486-1.281-2.051Zm-13.581,2.2,1.945-2.1ZM11277.022,1680.03Zm-23.016-4.714-1.076,1.538,1.079-1.538,2.715-.41Zm54.077-3.743,3.228-.308-3.228.307ZM11224.641,1748l-.872-2.153.154-.667h.358l.462.615.358.974,1.077,1.128-.052.513-.308.615Zm2.253-17.068.308.051-.817,3.281-1.487,3.484Zm3.076-8.3.256-.051.1.974-2.153,4.15Zm1.538-10.661.257.1-.359,4.1v0l-.205,1.231Zm1.59-1.9,1.228-1.589.464-1.23.562-.766.308.256.051.561-.715,1.025-.771,1.589-.92.718Zm1.9-6.97,1.022-1.948.462-.205-.257.974-.871,1.538Zm2.817-6.509.256.205.052,1.484-.257.564Zm.1-2.922.666.205-.41.82Zm-14.966-4.358,7.124-7.226,5.435-6.919,1.279-.41-4.611,7.534-2.308,2.307-1.487,1.795-1.945,1.948-1.538,1.074-2.256,1.846-1.641.82Zm14.043,1.025.923.41-.257.667Z" transform="translate(-10977.666 -1251.615)" fill="#edc373" />
+                                <path id="thmr" d="M11246.218,1752.352l-3.383-.615-3.741-1.844-7.739-5.69-3.229-2.82-2.41-2.561-4.715-7.329,3.69-4.154.974-2.049.461-3.383,1.129-2.871,3.022-5.329.819-3.229.771-1.386,3.485-1.024.974-1.076.563-1.334.717-1.28,2.153-2.205,2.359-1.741,2.868-.768,3.639.666-.461-2.768,1.386-1.895,1.895-1.949.974-2.922.412-.973,1.844-.922.153-.666,3.537,1.383,2.205,1.332,1.383,1.949,2.256.871,2.356-.563.1-.1,2.256,5.688,2,2.256-2-2.256-2.256-5.688,1.231-1.59,1.178-2.868,1.742-2.205,3.024-1.229,2.614-.461,1.229-.72.515-1.844-.515,1.844-1.229.717-2.614.464-3.024,1.229-1.742,2.205-1.178,2.868-1.231,1.59-.1.1-2.356.563-2.256-.871-1.383-1.949-2.205-1.332-3.537-1.386.615-2.1,2.819-5.844,1.127-1.536.358-.768v-.874l-.358-.973-.563-1.127.769-1.539.924-.921h0l.771-1.178.308-2,.461-1.485,1.024-1.488,1.386-1.076,1.28-.461-.1-.615.358-1.488,1.127-3.124,1.078-1.693,4.561-7.278,3.537-4.254,3.69-3.127,9.432-3.127,2.2-1.383,1.9-1.642,2.308-1.28,4.612-1.642,10.3-1.844,2.151,2.359,3.229,1.536,2.409,1.588,1.64,1.437,2.1.512,2.15,1.127,2.615,3.844.256,2.1-.512,2.154-1.69,1.741-6.715,2-1.9,2.049.1,3.178-.513,2.973.513,2.615,2.768,2.612.513,2.615-.666,3.434,2.615,1.485,3.792-.2,2.562,1.027,4.358,6.3-.771,2.717-1.588,1.9.409,2.663.718,2.871,4.563,4.356,1.28,2.768-1.588.461-2.769,2,1.588,6.356-1.127,1.946-1.744.666-1.689-.307-2,.822-.256.768-1.178,3.332-.717,2.407.308,2.256-1.949,2.973-7.176,7.278-2.2,5.38-1.437-.41-5.432.512-.409.31-.308-2.512-2.358-4-1.69-1.693-.668-2.253-2.562-2.051-6.407,1.639-2.461-.256-3.485.256-3.946,1.078-2.1-.512,2.1.512,3.946-1.078,3.485-.256,2.461.256,6.407-1.639,2.562,2.051.668,2.253,1.69,1.693,2.358,4,.308,2.512-1.9,1.332-.922,2.871-2.513,1.024-2.715-.051-2.153,1.536-2.358,2.256-3.022,1.639-5.946,4.718-3.485,1.485-4.563,2.41-2.766-1.076-2.563-2.871-3.076-1.232-5.073-.41-2.819,1.693-.461,3.793-2.666,1.434-6.2.359Zm35.262-36.288.515,1.488.512,2.049-.512-2.049Zm43.62-6.354,2.458,1.127-2.458-1.13-3.744-2.1ZM11282.558,1710.683ZM11280.2,1706.276Zm32.547-10.1-2.358,3.332.259,2.2-.256-2.2,2.355-3.332.974-4Zm-5.329-15.068,1.332,2.3-1.332-2.307-1.744-1.792Zm-7.28-3.588,1.59,1.588-1.59-1.59-2.151-1.588Zm-7.278-4.564,1.795,1.9-1.792-1.9.563-2.973Zm-13.683-13.375,2.048,4.458-2.048-4.461-2.359-1.588Z" transform="translate(-10894.939 -1441.977)" fill="#00589b" />
+                                <path id="tkyhkm" d="M11633.448,2119.134l-6-4.97-4.715-8.2-2.921-.768-3.229-.462-2.562-2.458-3.128-1.487-4-1.437-2.564-4.149-.615-3.8-.153-1.278-1.435-3.9-3.229-2.665-2.871-1.843-.513-2.049.719-1.643,2.871-1.228,1.534-2.562-.972-2.974,3.074-1.8,1.59-1.434-.872-3.177.769-1.387.771-2.049,2.662-2,3.795-.822,3.793-.153,2.715-2.409.665-4.358,2.053-2.665,3.9-1.437,2.306-1.587.818-2.615,1.643-6.457.616-4.3-.463-3.692-.615-2.768-1.64-2.1-1.075-2.049,2.921-4.82.1-1.9,1.28-3.589,2-4.355,1.54-4.511.822-5.073.306-3.9-.922-2.306-1.027-1.69,1.181-3.9,2.612-5.483,4.1-5.332.153-2-.769-2.308-2.665-1.743-1.487-1.587-.1-5.073,1.9-1.49,3.381-1.125,2.665-1.231-.1-1.9-.716-3.177,1.435-1.028.615-1.075,1.743-.871,1.587-1.946.668-2.615,1.54-2.562,3.84-2.411,1.233-3.177.207-2.155,2.405-2.512-3.024-2.409h-2.509l-2.411,1.181-2.05.309-1.9-1.284-2.253-1.331-2.512-.512-.718-1.949.309-2.818-1.846-.512,2.2-5.383,7.176-7.279,1.949-2.974-.307-2.255.719-2.409,1.178-3.333.256-.766,2-.822,1.692.309,1.743-.668,1.125-1.946-1.587-6.357,2.768-2,1.587-.462h0l-1.283-2.768-4.559-4.355-.718-2.871-.413-2.665,1.591-1.9.769-2.718-4.355-6.3-2.564-1.028-3.792.206-2.615-1.484.669-3.436-.516-2.615-2.768-2.612-.51-2.615.51-2.974-.1-3.177,1.894-2.049,6.716-2,1.69-1.74.513-2.152-.257-2.1-2.611-3.845-2.152-1.128-2.1-.509-1.64-1.437-2.409-1.587-3.229-1.54-2.152-2.359,5.741-1.075,2.459-.922,3.127-2.668.975-.459,1.125-.206h1.593l1.793.565.975,1.381.615,1.387.766.819,1.8-.718-1.846-2.921-2.974-3.024-1.588-.975.463-1.384.922-.769.972-.462.412-.509,1.077-2.618,1.638-3.021,3.386-3.024,4.92-2.512,5.636-1.284,5.536.618,2.306,1.74,5.126,7.282,1.844,3.79.615-.256,1.387-.359,1.537-.206,1.128.309-.051.462-.565.666-.512.925.05,1.125.565.615,1.178.875h0l.719.456,1.23,1.387,2,.719,5.739,1.434-.153,6.1.153-6.1,17.734,4.308,1.64,1.022-.821,1.9-.2,1.484.359,2.665,1.23,4.458,1.331,2.105,1.128.459,3.586-.512,1.847.206,2.152.562,1.9.975,1.027,1.284-4.461,2.2-.409-.565-1.693-.975,1.69.975.412.565-6.148,3.074-2.82,2.409-9.587,11.687-1.484,2.462-1.181,3.483-.821,3.948-.254,3.893.153,3.8,1.693,7.944-.1,2.049-.769,2,.1,4.152,1.793,3.23,3.333,2.049,3.9.719v.922l-1.64-.153-1.59.153-1.334.409-.972.718,1.384,2.562.665,3.333-.409,2.871-3.074,1.74-.2,1.284.356,1.537.872,1.384.306,1.434-1.28,1.231-3.178,1.846-3.589,4.1-.153,1.637.259,3.589-.618,1.331-.665,1.181-.412,1.64-.254,3.28-.306.821-.516.663-.256.718.668.975.307.412.818,1.484.1.565-.716,1.228-2.974,2.921-3.178,4.411-2.408,1.9-.719,1.025.359,1.075-.462.771-3.384,2.612-1.28,1.231-1.437,3.074-1.483,6.254-3.793,5.586-.771,2.255.1,2.409.922,2.665.771,1.181.665.512.409.715.053,1.643-.562,1.843-1.9,2.974-.359,1.793-.2,3.28-1.641,8.356-3.28,8.713-4.1,20.552-2.458,5.026-5.639,32.854-1.8-.515-5.532,2.668-2,2.768.874,3.533.307,3.536L11651.7,2087l-1.74,2.665-1.384,3.383-1.23,4.3-1.9,3.949-2.459,6.763-1.593,3.127.054,3.433-.463,3.18-3.333,1.9ZM11699.929,1940.151Zm-23.117-63.607.513,1.637.206,1.028-.206-1.028-.513-1.637-.1-2.152Zm34.751-27.319-1.28-1.846Zm-45.516-11.533,2.974,2.355,1.946,2.208,1.9,1.69,2.459.512,2.974.05-2.974-.05-2.459-.512-1.9-1.69-1.946-2.208-2.974-2.355-2-3.433Zm18.3,1.025-3.893,4.92,3.9-4.92,1.024-2.2Zm2.105-12.608,1.894,1.743,1.54,1.125,5.43,2.258,2.617.309-2.617-.309-5.43-2.258-1.54-1.125-1.894-1.743-1.437-1.793Zm-25.169-1.693,2.924,2.821.615,3.23-.615-3.23-2.924-2.821-1.946-2.152Zm21.374-3.79-.307-1.49Zm-448.942,108.966-1.384-.05-1.23-.565-.615-1.075.256-.359,1.075-1.437.359-.612.1-1.078-.05-1.281-.359-2.205-.922-2.152-.1-1.075.769-.462,3.9-1.9,5.126,3.383,3.587-.462.564-4.458,1.178-2.821,3.846-.768,3.587,3.333,2.408,6.457-.513,4.511-2,2.359-3.483-2.205-2.564-.818-4.151.409-3.64,2.306-2,3.127-1.743.872ZM11221,1927.44l2.562-5.073.666-.719,1.077-.256,1.075-.05,1.027.716.818.925v1.587l-.718,1.078-.819.05-.562.615-.309.615-.615.359-2.665.769Zm502.607-62.991-.719-.409-.871-1.387.459.153,1.54-.872,1.075.256.821,1.131-.359,1.181Zm-334.339-21.324.358-1.64,1.231-.719.871.156.1.972-.412,1.078-1.484.768ZM11728.066,1842.05Zm-268.986-146.285,1.28.256.053-.459.563-.206-.1,1.181-.972,1.075-2.1,1.025Zm-6.407-1.484,1.846-.668,1.384.769-.975.565-1.024,1.075Zm-1.588-25.219-.412-1.228.257-1.437.565-1.025.512-.1.153,1.128,1.128.409.512.256,2.256-1.331h1.437v.922l-1.437,1.64-2.817,1.487-.872.153Zm6.764-7.535-.256-.769.256-2.2.257-.822.565-.359,1.384-.459.358-.462,1.128-.665,1.281.2.665.975.719.719-.307,1.128.307.615-.719-.1-.769-1.128-.562-.359-1.181.666-.512-.2-.666.153-.769.871-.615,2.562Zm70.273-25.729-.615-.1-.925-.512.565-.872-.257-.715.46-.309,1.128-.922,1.333.769.307.665.615.512-.615.206-.562-.206-.719.668-.562,1.075Z" transform="translate(-11220 -1631.364)" fill="#7fc3dc" />
+                                <path id="tcnr" d="M11325.15,1781.721,11323,1778.7l-2.975-1.129-2.2-.511-.463-.1-13.12-.1-3.9-.717-.562-1.948-.206-3.023-1.383-3.331-.614-2.46,1.537-2.614.154-2.717-2.614-1.434-2.1-.617-3.483-1.331-3.128-.36-1.332-1.794-4.2.463-3.486,1.026-2.974-1.283-2.049-2.409.46-2.923.975-2.663-.512-3.948.512-3.689,1.025-2.411-.975-3.688,1.231-.82,1.28-1.18,1.948-.769.512-1.794-.512,1.794-1.948.769-1.283,1.18-1.229.82-.514.357-6.151-1.229-2.972.051-6.254-3.077-10.1-1.177-5.945-2.257-3.383-.92-3.895-.206-11.277,1.331L11221,1723.6l.411-.717.817-3.64.617-1.537,3.64-3.486,1.022-1.434,1.386-4,2.151-3.946,2.923-8.251,1.383-2.409,1.537-1.54,1.283-.871,1.126-.563.822-.717.306-1.537.614-1.434,2.615-2.052.616-1.537.307-5.177.46-1.434,1.385-1.334,5.792-6.766.309-.409.408-1.691,1.691-1.386,1.129-3.331,1.383-6.3,4.769-8.254,1.435-5.074,1.742-2.817,6.817-7.586,4.714,7.329,2.409,2.563,3.231,2.82,7.739,5.688,3.74,1.846,3.383.614,5.946,3.434,6.2-.36,2.663-1.434.463-3.791,2.82-1.691,5.074.409,3.074,1.231,2.563,2.869,2.769,1.077,4.56-2.409,3.486-1.486,5.945-4.717,3.025-1.64,2.357-2.254,2.151-1.537,2.717.052,2.512-1.026.923-2.871,1.9-1.331.408-.309,5.435-.511,1.435.409,1.846.514-.309,2.817.717,1.949,2.512.511,2.257,1.334,1.895,1.28,2.051-.306,2.409-1.18h2.511l3.026,2.409-2.409,2.511-.205,2.154-1.231,3.177-3.843,2.408-1.537,2.563-.666,2.614-1.592,1.949-1.742.871-.614,1.074-1.435,1.026.717,3.177.1,1.9-2.666,1.231-3.383,1.126-1.9,1.489.1,5.074,1.485,1.589,2.666,1.743.769,2.306-.151,2-4.1,5.328-2.614,5.486-1.18,3.894,1.025,1.691.923,2.306-.309,3.9-.82,5.074-1.537,4.511-2,4.354-1.279,3.589-.1,1.9-2.923,4.817,1.077,2.051,1.641,2.1.614,2.769.463,3.691-.617,4.306-1.638,6.457-.822,2.614-2.306,1.589-3.895,1.434-2.052,2.666-.665,4.357-2.718,2.409-3.791.154-3.794.82-2.666,2-.769,2.049-.769,1.386.871,3.177-1.588,1.434-3.074,1.794Zm-49.668-55.508,2,.717-2-.717-1.846-1.691Zm-.972-20.863-.82,2.769-.051,2.923-.617,3.383-.46,6.869.463-6.869.614-3.383.051-2.923.82-2.769,1.025-2.357Zm3.586-6.714-2.2.82-.614,1.489.614-1.489,2.206-.82-.052-1.843Zm-.049-1.843v0Zm36.389-17.991-2.972,3.946,2.975-3.946,1.537-.974Zm6.1,2.46,1.794-.463,1.332-2.817-1.335,2.817-1.792.462Zm20.4-11.994-2.254.411,2.257-.411,4.509-2.408Zm10.917-3.023-3.229.511,3.231-.511,5.688-2.257Z" transform="translate(-10945.836 -1342.849)" fill="#e9897e" />
+                              </g>
+                              <path id="Path_252578" data-name="Path 252578" d="M857,115.828,903.172,123l52.1,177.094" fill="none" stroke="#00589b" stroke-width="2" />
+                              <path id="Path_252582" data-name="Path 252582" d="M1044.207,153.613,949.234,278.651,861.52,353.187" transform="translate(181.729)" fill="none" stroke="#7fc3dc" stroke-width="2" />
+                              <path id="Path_252579" data-name="Path 252579" d="M857,115.828,903.172,123l127.6,120.4" transform="translate(-128.135 150.172)" fill="none" stroke="#e9897e" stroke-width="2" />
+                              <path id="Path_252580" data-name="Path 252580" d="M857,115.828,903.172,123l104.111-7.172" transform="translate(-128.135 375.388)" fill="none" stroke="#edc373" stroke-width="2" />
+                              <path id="Path_252581" data-name="Path 252581" d="M999.633,281.484l-67.456-47.6-49.155-63.68" transform="translate(45.636 375.388)" fill="none" stroke="#499894" stroke-width="2" />
+                              <g id="thmr-tip" transform="translate(136 -172)">
+                                <g id="Rectangle_170062" data-name="Rectangle 170062" transform="translate(514 215)" fill="#fff" stroke="#00589b" stroke-width="2">
+                                  <rect width="234" height="124" rx="8" stroke="none" />
+                                  <rect x="1" y="1" width="232" height="122" rx="7" fill="none" />
+                                </g>
+                                <g id="thmr-tip-inner" transform="translate(6)">
+                                  <text id="開訓課程數_" data-name="開訓課程數：" transform="translate(520 270)" fill="#28282d" font-size="16" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" opacity="0.8">
+                                    <tspan x="0" y="0">開訓課程數：</tspan>
+                                  </text>
+                                  <text id="_38_筆" data-name="38 筆" transform="translate(622 270)" fill="#121328" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="0" y="0">38</tspan>
+                                    <tspan y="0" xml:space="preserve" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" font-weight="400"> 筆</tspan>
+                                  </text>
+                                  <text id="_6_167_位" data-name="6,167 位" transform="translate(622 298)" fill="#121328" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="0" y="0">6,167</tspan>
+                                    <tspan y="0" xml:space="preserve" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" font-weight="400"> 位</tspan>
+                                  </text>
+                                  <text id="_3_376_666_元" data-name="3,376,666 元" transform="translate(622 326)" fill="#121328" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="0" y="0">3,376,666</tspan>
+                                    <tspan y="0" xml:space="preserve" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" font-weight="400"> 元</tspan>
+                                  </text>
+                                  <text id="參訓學員數_" data-name="參訓學員數：" transform="translate(520 298)" fill="#28282d" font-size="16" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" opacity="0.8">
+                                    <tspan x="0" y="0">參訓學員數：</tspan>
+                                  </text>
+                                  <text id="累積執行數_" data-name="累積執行數：" transform="translate(520 326)" fill="#28282d" font-size="16" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" opacity="0.8">
+                                    <tspan x="0" y="0">累積執行數：</tspan>
+                                  </text>
+                                  <text id="桃分署" transform="translate(568 242)" fill="#00589b" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="-48" y="0">桃分署</tspan>
+                                  </text>
+                                </g>
+                              </g>
+                              <g id="thmr-tip-2" data-name="thmr-tip" transform="translate(1 -11)">
+                                <g id="Rectangle_170062-2" data-name="Rectangle 170062" transform="translate(514 215)" fill="#fff" stroke="#e9897e" stroke-width="2">
+                                  <rect width="234" height="124" rx="8" stroke="none" />
+                                  <rect x="1" y="1" width="232" height="122" rx="7" fill="none" />
+                                </g>
+                                <g id="thmr-tip-inner-2" data-name="thmr-tip-inner" transform="translate(6)">
+                                  <text id="開訓課程數_2" data-name="開訓課程數：" transform="translate(520 270)" fill="#28282d" font-size="16" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" opacity="0.8">
+                                    <tspan x="0" y="0">開訓課程數：</tspan>
+                                  </text>
+                                  <text id="_25_筆" data-name="25 筆" transform="translate(622 270)" fill="#121328" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="0" y="0">25</tspan>
+                                    <tspan y="0" xml:space="preserve" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" font-weight="400"> 筆</tspan>
+                                  </text>
+                                  <text id="_4_276_位" data-name="4,276 位" transform="translate(622 298)" fill="#121328" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="0" y="0">4,276</tspan>
+                                    <tspan y="0" xml:space="preserve" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" font-weight="400"> 位</tspan>
+                                  </text>
+                                  <text id="_1_868_124_元" data-name="1,868,124 元" transform="translate(622 326)" fill="#121328" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="0" y="0">1,868,124</tspan>
+                                    <tspan y="0" xml:space="preserve" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" font-weight="400"> 元</tspan>
+                                  </text>
+                                  <text id="參訓學員數_2" data-name="參訓學員數：" transform="translate(520 298)" fill="#28282d" font-size="16" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" opacity="0.8">
+                                    <tspan x="0" y="0">參訓學員數：</tspan>
+                                  </text>
+                                  <text id="累積執行數_2" data-name="累積執行數：" transform="translate(520 326)" fill="#28282d" font-size="16" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" opacity="0.8">
+                                    <tspan x="0" y="0">累積執行數：</tspan>
+                                  </text>
+                                  <text id="中分署" transform="translate(568 242)" fill="#e9897e" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="-48" y="0">中分署</tspan>
+                                  </text>
+                                </g>
+                              </g>
+                              <g id="thmr-tip-3" data-name="thmr-tip" transform="translate(1 205)">
+                                <g id="Rectangle_170062-3" data-name="Rectangle 170062" transform="translate(514 215)" fill="#fff" stroke="#edc373" stroke-width="2">
+                                  <rect width="234" height="124" rx="8" stroke="none" />
+                                  <rect x="1" y="1" width="232" height="122" rx="7" fill="none" />
+                                </g>
+                                <g id="thmr-tip-inner-3" data-name="thmr-tip-inner" transform="translate(6)">
+                                  <text id="開訓課程數_3" data-name="開訓課程數：" transform="translate(520 270)" fill="#28282d" font-size="16" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" opacity="0.8">
+                                    <tspan x="0" y="0">開訓課程數：</tspan>
+                                  </text>
+                                  <text id="_32_筆" data-name="32 筆" transform="translate(622 270)" fill="#121328" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="0" y="0">32</tspan>
+                                    <tspan y="0" xml:space="preserve" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" font-weight="400"> 筆</tspan>
+                                  </text>
+                                  <text id="_5_566_位" data-name="5,566 位" transform="translate(622 298)" fill="#121328" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="0" y="0">5,566</tspan>
+                                    <tspan y="0" xml:space="preserve" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" font-weight="400"> 位</tspan>
+                                  </text>
+                                  <text id="_2_998_644_元" data-name="2,998,644 元" transform="translate(622 326)" fill="#121328" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="0" y="0">2,998,644</tspan>
+                                    <tspan y="0" xml:space="preserve" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" font-weight="400"> 元</tspan>
+                                  </text>
+                                  <text id="參訓學員數_3" data-name="參訓學員數：" transform="translate(520 298)" fill="#28282d" font-size="16" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" opacity="0.8">
+                                    <tspan x="0" y="0">參訓學員數：</tspan>
+                                  </text>
+                                  <text id="累積執行數_3" data-name="累積執行數：" transform="translate(520 326)" fill="#28282d" font-size="16" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" opacity="0.8">
+                                    <tspan x="0" y="0">累積執行數：</tspan>
+                                  </text>
+                                  <text id="南分署" transform="translate(568 242)" fill="#edc373" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="-48" y="0">南分署</tspan>
+                                  </text>
+                                </g>
+                              </g>
+                              <g id="thmr-tip-4" data-name="thmr-tip" transform="translate(512 353.388)">
+                                <g id="Rectangle_170062-4" data-name="Rectangle 170062" transform="translate(514 215)" fill="#fff" stroke="#499894" stroke-width="2">
+                                  <rect width="234" height="124" rx="8" stroke="none" />
+                                  <rect x="1" y="1" width="232" height="122" rx="7" fill="none" />
+                                </g>
+                                <g id="thmr-tip-inner-4" data-name="thmr-tip-inner" transform="translate(6)">
+                                  <text id="開訓課程數_4" data-name="開訓課程數：" transform="translate(520 270)" fill="#28282d" font-size="16" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" opacity="0.8">
+                                    <tspan x="0" y="0">開訓課程數：</tspan>
+                                  </text>
+                                  <text id="_28_筆" data-name="28 筆" transform="translate(622 270)" fill="#121328" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="0" y="0">28</tspan>
+                                    <tspan y="0" xml:space="preserve" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" font-weight="400"> 筆</tspan>
+                                  </text>
+                                  <text id="_4_062_位" data-name="4,062 位" transform="translate(622 298)" fill="#121328" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="0" y="0">4,062</tspan>
+                                    <tspan y="0" xml:space="preserve" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" font-weight="400"> 位</tspan>
+                                  </text>
+                                  <text id="_1_698_643_元" data-name="1,698,643 元" transform="translate(622 326)" fill="#121328" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="0" y="0">1,698,643</tspan>
+                                    <tspan y="0" xml:space="preserve" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" font-weight="400"> 元</tspan>
+                                  </text>
+                                  <text id="參訓學員數_4" data-name="參訓學員數：" transform="translate(520 298)" fill="#28282d" font-size="16" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" opacity="0.8">
+                                    <tspan x="0" y="0">參訓學員數：</tspan>
+                                  </text>
+                                  <text id="累積執行數_4" data-name="累積執行數：" transform="translate(520 326)" fill="#28282d" font-size="16" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" opacity="0.8">
+                                    <tspan x="0" y="0">累積執行數：</tspan>
+                                  </text>
+                                  <text id="高分署" transform="translate(568 242)" fill="#499894" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="-48" y="0">高分署</tspan>
+                                  </text>
+                                </g>
+                              </g>
+                              <g id="thmr-tip-5" data-name="thmr-tip" transform="translate(512 -145.612)">
+                                <g id="Rectangle_170062-5" data-name="Rectangle 170062" transform="translate(514 215)" fill="#fff" stroke="#7fc3dc" stroke-width="2">
+                                  <rect width="234" height="124" rx="8" stroke="none" />
+                                  <rect x="1" y="1" width="232" height="122" rx="7" fill="none" />
+                                </g>
+                                <g id="thmr-tip-inner-5" data-name="thmr-tip-inner" transform="translate(6)">
+                                  <text id="開訓課程數_5" data-name="開訓課程數：" transform="translate(520 270)" fill="#28282d" font-size="16" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" opacity="0.8">
+                                    <tspan x="0" y="0">開訓課程數：</tspan>
+                                  </text>
+                                  <text id="_66_筆" data-name="66 筆" transform="translate(622 270)" fill="#121328" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="0" y="0">66</tspan>
+                                    <tspan y="0" xml:space="preserve" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" font-weight="400"> 筆</tspan>
+                                  </text>
+                                  <text id="_8_828_位" data-name="8,828 位" transform="translate(622 298)" fill="#121328" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="0" y="0">8,828</tspan>
+                                    <tspan y="0" xml:space="preserve" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" font-weight="400"> 位</tspan>
+                                  </text>
+                                  <text id="_6_245_569_元" data-name="6,245,569 元" transform="translate(622 326)" fill="#121328" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="0" y="0">6,245,569</tspan>
+                                    <tspan y="0" xml:space="preserve" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" font-weight="400"> 元</tspan>
+                                  </text>
+                                  <text id="參訓學員數_5" data-name="參訓學員數：" transform="translate(520 298)" fill="#28282d" font-size="16" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" opacity="0.8">
+                                    <tspan x="0" y="0">參訓學員數：</tspan>
+                                  </text>
+                                  <text id="累積執行數_5" data-name="累積執行數：" transform="translate(520 326)" fill="#28282d" font-size="16" font-family="NotoSansCJKtc-Regular, Noto Sans CJK TC" opacity="0.8">
+                                    <tspan x="0" y="0">累積執行數：</tspan>
+                                  </text>
+                                  <text id="北分署" transform="translate(568 242)" fill="#7fc3dc" font-size="16" font-family="NotoSansCJKtc-Bold, Noto Sans CJK TC" font-weight="700">
+                                    <tspan x="-48" y="0">北分署</tspan>
+                                  </text>
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="dashboard-card">
+                <header class="dashboard-card-header">
+                  <div class="dashboard-card-header-lt">
+                    <i class="tub-data" id="modal-2">
+                      <font class=""></font>
+                      <font class=""></font>
+                      <font class=""></font>
+                      <font class=""></font>
+                      <font class=""></font>
+                    </i>
+                    <h3 class="hd-title">當年度學員數統計</h3>
+                  </div>
+                  <div class="dashboard-card-header-rt">
+                    <div class="dashboard-card-header-tools">
+                      <div class="dropdown" data-toggle="tooltip" data-original-title="更多功能操作" data-boundary="">
+                        <button class="btn t-form-btn" id="card_2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="tub-category">
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                          </i>
+                        </button>
+                        <div class="dropdown-menu dropdown-animated dropdown-menu-right" aria-labelledby="card_2">
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-calendar-add dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            選擇日期區間
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-edit dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            編輯預設顯示</a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-translate dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            轉換成其他語言
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-map dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            前往地圖主頁面
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </header>
+                <div class="dashboard-card-body">
+                  <div class="t-txt-right">
+                    <ul class="nav nav-segment" id="change_navs" role="tablist" data-scroll="x">
+                      <li class="nav-item ">
+                        <label class="active" id="c_week-tab" data-toggle="tab" href="#c_week" role="tab">
+                          <font>本週</font>
+                          <label class="badge badge-rounded t-badge-primary">8</label>
+                        </label>
+                      </li>
+                      <li class="nav-item">
+                        <label class="" id="c_month-tab" data-toggle="tab" href="#c_month" role="tab">
+                          <font>本月</font>
+                          <label class="badge badge-rounded t-badge-primary">4</label>
+                        </label>
+                      </li>
+                      <li class="nav-item">
+                        <label class="" id="c_year-tab" data-toggle="tab" href="#c_year" role="tab">
+                          <font>本年度</font>
+                          <label class="badge badge-rounded t-badge-primary">7</label>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <ul class="list-inline list-group mb-24 text-14">
+                    <li class="media">
+                      <div class="">
+                        <span class="badge sm" style="background-color: rgba(115,150,255, 1)"></span>
+                        新進學員數
+                      </div>
+                    </li>
+                    <li class="">
+                      <div class="">
+                        <span class="badge sm" style="background-color: rgba(115,150,255, .28)"></span>
+                        結訓學員數
+                      </div>
+                    </li>
+                    <li class="">
+                      <div class="">
+                        <span class="badge sm" style="background-color: rgba(248,161,236, 1)"></span>
+                        成長率
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="js-area-chart t-relative" data-height="300px" data-mobile-height="180px" data-high="180" data-low="0" data-offset-x="30" data-offset-y="50" data-postfix="m" data-is-show-area="true" data-is-show-line="false" data-is-show-points="true" data-is-full-width="true" data-is-hide-line="true" data-is-stack-bars="true" data-is-show-axis-x="true" data-is-show-axis-y="true" data-is-show-tooltips="true" data-is-line-smooth="[true]" data-tooltip-description-position="right" data-tooltip-custom-class="" data-is-fill-colors-gradient="true" data-fill-colors='[
+                        ["rgba(115,150,255, 1)","rgba(248,161,236, 1)"],
+                        ["rgba(115,150,255, .6)","rgba(248,161,236, .6)"],
+                        ["rgba(115,150,255, .28)","rgba(248,161,236, .28)"]
+                      ]' data-align-text-axis-x="center" data-fill-opacity=".72" data-stroke-color="#D1D4D8" data-stroke-width="2" data-stroke-dash-array="2" data-text-size-x="12px" data-text-color-x="#1F1F39" data-text-offset-top-x="6" data-text-size-y="12px" data-text-color-y="#9AA0A9" data-points-colors='[
+                        ["rgba(248,161,236, 1)"],
+                        ["rgba(115,150,255, 1)"],
+                        ["rgba(248,161,236, 1)"]
+                      ]' data-point-dimensions='{"width":15,"height":15}' data-points-stroke-width="2" data-points-radius="5" data-series='[[20, 180, 125, 40, 80, 50, 20 ,88 ,92 ,100 ,66 ,24 ],[75, 120, 50, 80, 130, 60, 120, 180, 125, 40, 80, 50],[110, 50, 70, 20, 90, 150, 0, 180, 125, 40, 80, 50]]' data-labels='["Jan", "Feb", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]'>
+                  </div>
+                </div>
+              </div> -->
+              <!-- <div class="dashboard-card">
+                <div class="dashboard-card-header dashboard-card-header--secondary">
+                  <div class="dashboard-card-header-lt">
+                    <i class="tub-calculator">
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <h3>參訓學員薪資結構</h3>
+                  </div>
+                  <div class="dashboard-card-header-rt">
+                    <div class="dashboard-card-header-tools">
+                      <div class="dropdown" data-toggle="tooltip" data-original-title="更多功能操作" data-boundary="">
+                        <button class="btn t-form-btn" id="card_2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="tub-category">
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                          </i>
+                        </button>
+                        <div class="dropdown-menu dropdown-animated dropdown-menu-right" aria-labelledby="card_2">
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-calendar-add dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            <font class="dropdown-item-text">
+                              選擇日期區間
+                            </font>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-edit dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            編輯預設顯示</a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-translate dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            轉換成其他語言
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-map dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            前往地圖主頁面
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="dashboard-card-body">
+                  <div class="js-bar-chart t-relative" data-series="[
+                               [40,124,61,124,200,124,173],
+                               [30,114,51,114,126,114,136],
+                               [20,104,41,104,109,104,126]
+                             ]" data-is-horizontal-bars="true" data-labels='["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]' data-is-stack-bars="false" data-is-show-axis-x="true" data-is-show-axis-y="true" data-is-show-label-axis-x="true" data-is-show-label-axis-y="true" data-is-stroke-rounded="true" data-is-show-tooltips="true" data-height="400" data-mobile-height="200" data-high="280" data-offset-axis-x="60" data-offset-axis-y="40" data-low="0" data-distance="0" data-labels-qty="0" data-stroke-width="20" data-mobile-stroke-width="10" data-stroke-color='["#fcd53b","#07d7f7","#8069f2"]' data-is-grid-solid-line="true" data-grid-line-color="#eeeef1" data-grid-line-width="8" data-labels-start-from="0" data-label-color-axis-x="#4a4e69" data-label-font-size-axis-x="14px" data-label-color-axis-y="#868e96" data-label-font-size-axis-y="14px" data-text-offset-top-x="4" data-tooltip-custom-class="" data-tooltip-currency="">
+                  </div>
+                  <figure class="highcharts-figure">
+                    <div id="salary"></div>
+                    <p class="highcharts-description"></p>
+                  </figure>
+                </div>
+              </div> -->
+            </div>
+            <div class="col-xl-4 col-sm-12">
+              <div class="dashboard-card-main dashboard-card-main-primary">
+                <div class="mask mask-wave-color-v1 opt-12"></div>
+                <div class="dashboard-card-content">
+                  <div class="dashboard-card-header">
+                    <h6 class="dashboard-card-header-title">
+                      累積使用經費 / 執行率
+                    </h6>
+                  </div>
+                  <div class="dashboard-card-float-icon">
+                    <i class="tub-arrow-3 text-success" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                    </i>
+                  </div>
+                  <div class="dashboard-card-body">
+                    <p class="js-counter dashboard-num text-primary text-bg-before-border-primary t-inline-block" data-unit="元" data-comma-separated="true">
+                      1874672991
+                    </p>
+                    <div class="dashboard-card-inner">
+                      <div class="dashboard-card-icon">
+                        <i class="tub-moneys text-primary" aria-hidden="true">
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                        </i>
+                      </div>
+                      <div class="dashboard-card-chart-pie">
+                        <div class="js-pie" data-circles-value="67" data-circles-max-value="100" data-circles-bg-color="#CCEBEB" data-circles-fg-color="#1BC5BD" data-circles-color="#fff" data-circles-font-weight="700" data-circles-radius="32" data-circles-stroke-width="32" data-circles-font-size="18" data-circles-additional-text="%" data-circles-duration="1000" data-circles-scroll-animate="true">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="dashboard-card-main dashboard-card-main-secondary">
+                <div class="mask mask-wave-color-v2 opt-12"></div>
+                <div class="dashboard-card-content">
+                  <div class="dashboard-card-header">
+                    <h6 class="dashboard-card-header-title">
+                      累計結訓學員數 / 結訓率
+                    </h6>
+                  </div>
+                  <div class="dashboard-card-float-icon">
+                    <i class="tub-arrow-3 text-danger" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                    </i>
+                  </div>
+                  <div class="dashboard-card-body">
+                    <p class="js-counter dashboard-num text-secondary text-bg-before-border-secondary t-inline-block" data-unit="位" data-comma-separated="true">
+                      27829
+                    </p>
+                    <div class="dashboard-card-inner">
+                      <div class="dashboard-card-icon">
+                        <i class="tub-people text-secondary" aria-hidden="true">
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                        </i>
+                      </div>
+                      <div class="dashboard-card-chart-pie">
+                        <div class="js-pie" data-circles-value="97" data-circles-max-value="100" data-circles-bg-color="#CCCCE3" data-circles-fg-color="#6667AB" data-circles-color="#fff" data-circles-font-weight="700" data-circles-radius="32" data-circles-stroke-width="32" data-circles-font-size="18" data-circles-additional-text="%" data-circles-duration="1000" data-circles-scroll-animate="true">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--  <img src="img/card_1.png" alt="card_1"> -->
+              </div>
+              <div class="dashboard-card-main dashboard-card-main-tertiary">
+                <div class="mask mask-wave-color-v3 opt-12"></div>
+                <div class="dashboard-card-content">
+                  <div class="dashboard-card-header">
+                    <h6 class="dashboard-card-header-title">
+                      重點產業別開班數 / 重點產業別參訓學員數 / 開班率
+                    </h6>
+                  </div>
+                  <div class="dashboard-card-body">
+                    <p class="js-counter dashboard-num text-tertiary text-bg-before-border-tertiary t-inline-block" data-unit="班" data-comma-separated="true">
+                      92
+                    </p>
+                    <p class="js-counter dashboard-num text-tertiary text-bg-before-border-tertiary t-inline-block ml-24" data-unit="人" data-comma-separated="true">
+                      1210
+                    </p>
+                    <div class="dashboard-card-inner">
+                      <div class="dashboard-card-icon">
+                        <i class="tub-briefcase text-tertiary" aria-hidden="true">
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                        </i>
+                      </div>
+                      <div class="dashboard-card-chart-pie">
+                        <div class="js-pie" data-circles-value="82.5" data-circles-max-value="100" data-circles-bg-color="#FFD0D8" data-circles-fg-color="#FF728B" data-circles-color="#fff" data-circles-font-weight="700" data-circles-radius="32" data-circles-stroke-width="32" data-circles-font-size="18" data-circles-additional-text="%" data-circles-duration="1000" data-circles-scroll-animate="true">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="dashboard-card dashboard-card-bg dashboard-card-bg-v1">
+                <header class="dashboard-card-header">
+                  <div class="dashboard-card-header-lt">
+                    <h3 class="hd-title">本月學員統計總覽</h3>
+                  </div>
+                  <div class="dashboard-card-header-rt">
+                    <div class="dashboard-card-header-tools">
+                      <div class="dropdown" data-toggle="tooltip" data-original-title="更多功能操作" data-boundary="">
+                        <button class="btn t-form-btn" id="card_map" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="tub-category">
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                          </i>
+                        </button>
+                        <div class="dropdown-menu dropdown-animated dropdown-menu-right" aria-labelledby="card_map">
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-calendar-add dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            選擇日期區間
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-edit dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            編輯預設顯示</a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-translate dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            轉換成其他語言
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-map dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            前往地圖主頁面
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dashboard-card-header-chart">
+                    <div class="js-bar-chart t-relative" data-series="[[10,8,5,7,6,6,10,10,8,5,7,6,6,10,6,6,10],
+                    [10,8,5,7,6,6,10,10,8,5,7,6,6,10,6,6,10]]" data-is-show-axis-x="false" data-is-full-width="true" data-is-stroke-rounded="true" data-is-show-tooltips="true" data-is-show-axis-y="false" data-height="100%" data-high="12" data-low="0" data-distance="8" data-stroke-width="4" data-stroke-color='["rgba(255,255,255,1)","rgba(255,255,255,.6)"]'>
+                    </div>
+                  </div>
+                </header>
+                <div class="dashboard-card-body">
+                  <ul class="list-inline dashboard-card-list-inline">
+                    <li class="w-col-6 dashboard-card-list-inline-item">
+                      <div class="dashboard-card-list-inline-item-title">
+                        本月參訓學員數
+                      </div>
+                      <div class="dashboard-card-list-inline-item-txt">
+                        <font data-unit="位">
+                          1,188
+                        </font>
+                        <i class="tub-trend-up text-success">
+                          <font></font>
+                          <font></font>
+                        </i>
+                      </div>
+                    </li>
+                    <li class="w-col-6 dashboard-card-list-inline-item">
+                      <div class="dashboard-card-list-inline-item-title">
+                        本週參訓新學員數
+                      </div>
+                      <div class="dashboard-card-list-inline-item-txt">
+                        <font data-unit="位">
+                          588
+                        </font>
+                        <i class="tub-trend-down text-danger">
+                          <font></font>
+                          <font></font>
+                        </i>
+                      </div>
+                    </li>
+                    <li class="w-col-6 dashboard-card-list-inline-item">
+                      <div class="dashboard-card-list-inline-item-title">
+                        本月結訓學員數
+                      </div>
+                      <div class="dashboard-card-list-inline-item-txt">
+                        <font data-unit="位">
+                          1,188
+                        </font>
+                        <i class="tub-trend-down text-danger">
+                          <font></font>
+                          <font></font>
+                        </i>
+                      </div>
+                    </li>
+                    <li class="w-col-6 dashboard-card-list-inline-item">
+                      <div class="dashboard-card-list-inline-item-title">
+                        本週結訓新學員數
+                      </div>
+                      <div class="dashboard-card-list-inline-item-txt">
+                        <font data-unit="位">
+                          280
+                        </font>
+                        <i class="tub-trend-down text-danger">
+                          <font></font>
+                          <font></font>
+                        </i>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!--  <div class="dashboard-card">
+                <div class="dashboard-card-header dashboard-card-header--quaternary">
+                  <div class="dashboard-card-header-lt">
+                    <i class="tub-graph" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <h3 class="hd-title">
+                      職前訓練總體績效
+                    </h3>
+                  </div>
+                  <div class="dashboard-card-header-rt">
+                    <div class="dashboard-card-header-tools">
+                      <div class="dropdown" data-toggle="tooltip" data-original-title="更多功能操作" data-boundary="">
+                        <button class="btn t-form-btn" id="card_map" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="tub-category">
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                          </i>
+                        </button>
+                        <div class="dropdown-menu dropdown-animated dropdown-menu-right" aria-labelledby="card_map">
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-calendar-add dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            選擇日期區間
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-edit dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            編輯預設顯示</a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-translate dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            轉換成其他語言
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-map dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            前往地圖主頁面
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="dashboard-card-body">
+                  <select class="t-form-control" id="ySelect">
+                    <option value="2020">2020 年</option>
+                    <option value="2019">2019 年</option>
+                    <option value="2018">2018 年</option>
+                    <option value="2017">2017 年</option>
+                  </select>
+                  <figure class="highcharts-figure">
+                    <div id="apply"></div>
+                  </figure>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="backend-page-footer">
+      <div class="container-fluid">
+        <div class="brand-wda-logo w-32 h-32 in-bk-mid"></div>
+        <div class="in-bk-mid ml-8">
+          勞動力發展署版權所有 Wda Co., Ltd., wda All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </article>
+  <!-- <ul class="fixed-rt-tool">
+    <li class="fixed-rt-tool-item">
+      <button>
+        setting
+      </button>
+    </li>
+    <li class="fixed-rt-tool-item">
+    </li>
+  </ul> -->
+  <a class="js-go-to" href="javascript:;" data-type="fixed" data-position='{"bottom": 16, "right": 16 }' data-offset-top="100" data-compensation="#Header" data-show-effect="zoomIn" data-hide-effect="zoomOut">
+    <i class="tub-arrow-up-2">
+      <font></font>
+      <font></font>
+    </i>
+  </a>
+  <div id="loader">
+    <div class="loader-cnt">
+      <div id="lottie_load"></div>
+    </div>
+  </div>
+  <!-- JQuery -->
+  <script src="vendor/jquery/dist/jquery.min.js"></script>
+  <script src="vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+  <!-- Bootstrap  -->
+  <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- appear -->
+  <script src="vendor/appear/appear.js"></script>
+  <!-- circles -->
+  <script src="vendor/circles-js/circles.min.js"></script>
+  <!-- chartist -->
+  <script src="vendor/chartist/chartist.min.js"></script>
+  <script src="vendor/chartist-plugin-legend/chartist-plugin-legend.min.js"></script>
+  <!-- mCustomScrollbar -->
+  <script src="vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+  <!-- Lottie -->
+  <script src="vendor/lottie-web/5.7.13/lottie.min.js"></script>
+  <script src="vendor/svg-pan-zoom/dist/svg-pan-zoom.min.js"></script>
+  <script src="vendor/hammerjs/hammer.min.js"></script>
+  <!-- Main.js -->
+  <script src="js/core.js"></script>
+  <!-- chartist -->
+  <script src="js/charts/Tu.chartist-area.js"></script>
+  <script src="js/charts/Tu.chartist-bar.js"></script>
+  <script src="js/charts/Tu.chartist-pie.js"></script>
+  <script src="js/charts/Tu.chartist-donut.js"></script>
+  <!-- circles -->
+  <script src="js/charts/Tu.circles.js"></script>
+  <!-- Counter -->
+  <script src="js/components/Tu.counter.js"></script>
+  <script src="js/components/Tu.dropdown.js"></script>
+  <script src="js/components/Tu.modal.js"></script>
+  <!-- Scrollbar Setting -->
+  <script src="js/components/TU.scrollbar.js"></script>
+  <script src="js/components/Tu.toggle.js"></script>
+  <script src="js/components/Tu.gotop.js"></script>
+  <script src="js/colors.js"></script>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/topojson@3"></script>
+  <script src="js/d3_map.js"></script>
+  <script>
+  // https://sheets.googleapis.com/v4/spreadsheets/{表單id}/values/{sheet名稱}?alt=json&key={API金鑰}
+  </script>
+  <script type="text/javascript">
+  taiwan_map_members();
+  // tainan_map();
+  // d3.json("map_test/farm-product-map.json")
+  //   .then(function(product) {
+
+  //     g.selectAll("circle")
+  //       .data(product)
+  //       .join("circle")
+  //       .attr("cx", function(d) {
+  //         return projection([d.Longitude, d.Latitude])[0];
+  //       })
+  //       .attr("cy", function(d) {
+  //         return projection([d.Longitude, d.Latitude])[1];
+  //       })
+  //       .attr("r", 8)
+  //       .attr('class', 'd3-map-points')
+  //     g.selectAll("path")
+  //       .join("path")
+  //       .on("mouseover", function(e) {
+  //         g.selectAll(".d3-map-country")
+  //           .transition()
+  //           .duration(200)
+  //           .style("opacity", .48)
+  //         d3.select(this)
+  //           .transition()
+  //           .duration(200)
+  //           .style("opacity", 1)
+  //           .style("stroke", tu_dark)
+  //           .style("stroke-width", "2")
+  //       })
+  //       // .style('fill', "white")
+  //       // .style("stroke", "black")
+  //       .style("stroke-width", ".25")
+  //       .style("stroke-opacity", ".5")
+  //       .attr("d", path)
+
+  //       // .on("mouseenter", function(e) {
+  //       //   // d3.select(this).style("fill", tu_tertiary_600);
+  //       //   const selectObj = d3.select(this).data();
+  //       //   svg.append("g")
+  //       //     .style("border", function(d) {
+  //       //       console.log(e)
+  //       //     })
+  //       //     .attr("id", "tooltip")
+  //       //     .html(`<rect rx="4" x="${e.x}" y="${e.y}" width="100" height="75" style="fill:${tu_secondary_900};"></rect>
+  //       //           <text font-weight="700" style="fill:${tu_secondary_100};">
+  //       //               <tspan x="${selectObj[0].AgriBtItemNm}"> 12312312</tspan>
+  //       //               <tspan x="${e.x+20}" y="${e.y+55}">123123</tspan>
+  //       //               <tspan x="${e.x+45}" y="${e.y+70}" style="font-size:12px;">Avg:NT$/m²</tspan>
+  //       //           </text>`)
+  //       // })
+  //       // .on("mouseleave", function(e) {
+  //       //   svg.select("#tooltip").remove();
+  //       // })
+  //       .transition().delay((d, i) => (i * 100))
+  //     // .style("fill", '')
+
+  //   });
+
+
+
+
+
+  var ntpTable = '';
+
+  $.TuCore.components.modal.init('#NewTaipei', {
+    title: '新北市課程區域分佈',
+    drag: true,
+    size: 'modal-xl',
+    body: '<div class="modal-map-cnt">' +
+      '  <h6 class="map-title">新北市 <big>146</big> 筆</h6>' +
+      '  <div class="modal-map-lt">' +
+      '    <div class="mask mask_graph"></div>' +
+      '      <img id="Map_of_NewTaipei" src="img/Map_of_NewTaipei.svg" alt="新北市">' +
+      '    </div>' +
+      '    <div class="modal-map-rt js-tab-placeholder">' +
+      '      <ul class="card-list"></ul>' + ntpTable + '' +
+      '    </div>' +
+      '  </div>',
+    created: function(modal) {
+      modal.on('shown.bs.modal', function() {
+        function modalGetData(selector, sheetname) {
+          var sheetid = '1YMIyUd0KEhwR758slr_qFmcAzThqaS5EI25iKQ0T0Nw',
+            sheetno = 2,
+            sheetname = 'new_taipei_city',
+            googleAPIKey = 'AIzaSyDJP6nfQSxT-tRqPR6z_hyqBnn11LDskcU',
+            dataurl = 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetid + '/values/' + sheetname + '?alt=json&key=' + googleAPIKey + '';
+
+          fetch(dataurl)
+            .then(res => res.json())
+            .then(res => {
+              var data = res.values;
+              data.shift();
+              Array.prototype.forEach.call(data, d => {
+                var item = `
+              <li class="card-list-item">
+                  <span class="card-list-item-marker"></span>
+                  <h6 class="card-list-item-name">${d[3]}</h6>
+                  <p class="card-list-item-val">
+                  <strong class="text-secondary">${d[7]}</strong> 門 課程</p>
+              </li>`;
+
+                document.querySelector('.card-list').insertAdjacentHTML('beforeend', item);
+              })
+            })
+        };
+        if (!$('.card-list-item').length)
+          setTimeout(function() {
+            modal.find('.modal-map-rt').removeClass('js-tab-placeholder');
+            modalGetData();
+          }, 1500);
+      });
+    },
+  });
+
+
+  // $.TuCore.components.modal.init('#Taipei', {
+  //   title: '台北市課程區域分佈',
+  //   size: 'modal-xl',
+  //   body: '<div class="modal-map-cnt">' +
+  //     '  <div class="modal-map-lt">' +
+  //     '    <img src="img/Map_of_TaipeiCity.svg" alt="台北市">' +
+  //     '  </div>' +
+  //     '  <div class="modal-map-rt">' + ntpTable + '' +
+  //     '  </div>' +
+  //     '</div>',
+  //   created: function(modal ,id) {
+  //     $(modal).on('shown.bs.modal', function() {
+  //       function modalGetData(selector, sheetname) {
+  //         var ntpTable = '';
+  //         var ntpTable = '';
+  //         var sheetid = '1YMIyUd0KEhwR758slr_qFmcAzThqaS5EI25iKQ0T0Nw',
+  //           sheetno = 2,
+  //           sheetname = 'tp',
+  //           googleAPIKey = 'AIzaSyDJP6nfQSxT-tRqPR6z_hyqBnn11LDskcU',
+  //           dataurl = 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetid + '/values/' + sheetname + '?alt=json&key=' + googleAPIKey + '';
+
+  //         fetch(dataurl)
+  //           .then(res => res.json())
+  //           .then(res => {
+  //             var data = res.values;
+  //             console.log(data);
+  //             data.shift();
+  //             Array.prototype.forEach.call(data, d => {
+  //               var Card = `
+  //             <div class="card">
+  //               <div class="text-center">
+  //                 <h4>${d[3]}</h4>
+  //                 <p>${d[7]} 門課程</p>
+  //               </div>
+  //             </div>`;
+
+  //               document.querySelector('.modal-map-rt').insertAdjacentHTML('beforeend', Card);
+  //             })
+  //           })
+  //       };
+  //       modalGetData();
+  //     });
+  //   },
+  // });
+  </script>
+
+</html>

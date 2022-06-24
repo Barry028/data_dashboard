@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,maximum-scale=1.0,user-scalable=no">
+  <meta charset="UTF-8">
+  <title>勞動力發展署 - 職業訓練視覺化分析平台</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <!-- Animate  -->
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <!-- iCon  -->
+  <link rel="stylesheet" type="text/css" href="vendor/iCons/turbo_icon_blur-v1.0/style.css">
+  <!-- CSS  -->
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <!--[if lte IE 9]>
+        <script src="vender/IE_Supports/html5shiv/dist/html5shiv.min.js"></script>
+        <script src="vender/IE_Supports/respond/dest/respond.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.jquery.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.prototype.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.yui3.min.js"></script>
+    <![endif]-->
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'ufg8zbw',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+</head>
+
+<body class="clear-fix " id="index">
+  <!-- HEADER -->
+  <header class="backend-header" id="Header">
+    <div class="container-fluid">
+      <div class="header-group">
+        <div class="header-group-lt">
+          <a href="index_v1.html" class="header-logo">
+            <img src="img/logo-primary.svg" title="勞動力發展署" alt="職業訓練視覺化分析平台" class="logo-img">
+          </a>
+        </div>
+        <div class="header-group-rt">
+          <ul class="header-tools">
+            <li class="header-tools-item">
+              <time id="current_time" class="current-time t-visibility-hidden">
+                <div class="calendar-inner">
+                  <div class="calendar-header">
+                    <font id="mon_ch"></font>
+                  </div>
+                  <div class="calendar-content">
+                    <font id="date"></font>
+                  </div>
+                </div>
+                <div class="clock-inner">
+                  <div class="clock-lt">
+                    <font id="mon" class="clock-month"></font>
+                    <font id="year" class="clock-year"></font>
+                    <font id="day" class="clock-day"></font>
+                  </div>
+                  <div class="clock-rt">
+                    <font id="hour" class="clock-hour"></font>
+                    <font id="min" class="clock-min"></font>
+                    <font id="sec" class="clock-sec"></font>
+                  </div>
+                </div>
+              </time>
+            </li>
+            <li class="header-tools-item">
+                 <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="avatar-container">
+                    <div class="avatar-img" data-bg-img-src="dist/img/3d_avatars/3d-male-001.webp"></div>
+                  </div>
+                  <div class="user-description">
+                    <div class="user-description-unit">勞動力發展署</div>
+                    <div class="user-description-txts">訓練發展組 歐陽光亮</div>
+                  </div>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-lock-1 dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">密碼變更</font>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-profile dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">個人資料</font>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-logout dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">登出系統</font>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- SIDE MEUN -->
+  <aside class="side-bar-menu" id="SideBar" data-burger="#BurGerMenu">
+    <h2 class="side-main-title">
+      <font class="side-main-title-inner">功能選單</font>
+      <big>MEUN</big>
+      <input id="BurGerMenu" type="checkbox" class="toggle-input">
+      <label id="BurGer" for="BurGerMenu" class="toggle-menu">
+        <span></span>
+      </label>
+    </h2>
+    <nav class="side-main-menu">
+      <ul class="js-scrollbar">
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v1.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v1</span>
+            <label class="badge t-badge-secondary">v1</label>
+          </a>
+        </li>
+        <li class="side-main-list-item ">
+          <a class="side-main-list-link" href="index_v2.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v2</span>
+            <label class="badge t-badge-tertiary">v2</label>
+          </a>
+        </li>
+        <li class="side-main-list-item ">
+          <a class="side-main-list-link" href="index_v3.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v3</span>
+            <label class="badge t-badge-quaternary">v3</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v4.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v4</span>
+            <label class="badge t-badge-primary">v4</label>
+          </a>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-civic-cvc" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>營運指標</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item" data-sub="true">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>職前訓練指標</span>
+              </a>
+            </li>
+            <ul class="side-sub-menu ">
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(性別、年齡、學歷、身分別)">
+                <a class="side-sub-menu-link" href="employment_before_1.html">
+                  <span>產業別開課占比</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(報名、甄試、開訓、結訓、就業、結訓率、就業率)">
+                <a class="side-sub-menu-link" href="employment_employment_analysis_bg.html">
+                  <span>分署職訓執行情形</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(各計畫參訓人數、開課班數)">
+                <a class="side-sub-menu-link" href="employment_before_3.html">
+                  <span>職前計畫執行情形</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(產業別、地區別)">
+                <a class="side-sub-menu-link" href="employment_before_4.html">
+                  <span>熱門參訓職類分布趨勢</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(地區別、薪資級距)">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>前五強就業率職類別</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、職類別)">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>就業關聯性分析</span>
+                </a>
+              </li>
+            </ul>
+            <li class="side-sub-menu-item" data-sub="true">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>在職訓練指標</span>
+              </a>
+            </li>
+            <ul class="side-sub-menu">
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(縣市別、分署別)">
+                <a class="side-sub-menu-link" href="employment_pre_1.html">
+                  <span>產業別開課占比</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(性別、年齡、學歷、身分別)">
+                <a class="side-sub-menu-link" href="employment_pre_2.html">
+                  <span>參訓背景</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(級距別、分署別、縣市別))">
+                <a class="side-sub-menu-link" href="employment_pre_3.html">
+                  <span>參訓者薪資落點分布</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(一年度更新一次)">
+                <a class="side-sub-menu-link" href="employment_pre_4.html">
+                  <span>訓練單位屬性分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(投保公司行業別)">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>參訓者任職產業分布</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、縣市別、計畫別)">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>訓練單位屬性分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、縣市別、結訓率)">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>重點產業別課程佔比分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(年齡別、區域別、學歷別)">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>參訓學員年度產投計畫經費運用情形占比</span>
+                </a>
+              </li>
+            </ul>
+            <li class="side-sub-menu-item" data-sub="true">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>青年職訓指標</span>
+              </a>
+            </li>
+            <ul class="side-sub-menu">
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(性別、年齡、學制別、身分別)">
+                <a class="side-sub-menu-link" href="employment_youth_1.html">
+                  <span>參訓背景</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(計畫別、縣市別、分署別)">
+                <a class="side-sub-menu-link" href="employment_youth_2.html">
+                  <span>廠商行業別分布情形</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別)">
+                <a class="side-sub-menu-link" href="employment_youth_3.html">
+                  <span>青年訓後薪資落點</span>
+                </a>
+              </li>
+            </ul>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-user-edit" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>個人化設定</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>儀表板設定</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>個人資料維護</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-setting-2" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>系統管理</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>帳號設定</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>使用紀錄歷程</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <figure class="custom-setting-card">
+        <div class="mask mask-circle"></div>
+        <div class="custom-setting-card-inner">
+          <figcaption class="custom-setting-card-img">
+            <div class="custom-setting-card-img-container"></div>
+          </figcaption>
+          <div class="custom-setting-card-title">
+            自行縮放您的網站尺寸設定！
+          </div>
+          <div class="custom-setting-card-btns" id="fontBtns">
+            <button id="scale_down" class="custom-setting-btn btn btn--white btn--xxs">縮小</button>
+            <button id="scale_default" class="custom-setting-btn btn btn--white btn--xxs">恢復預設</button>
+            <button id="scale_up" class="custom-setting-btn btn btn--white btn--xxs">放大</button>
+          </div>
+        </div>
+      </figure>
+    </nav>
+  </aside>
+  <!-- MAIN CONTENT -->
+  <article class="main-content" id="MainContent">
+    <div class="backend-page-content">
+      <div class="backend-page-header backend-page-header-dark">
+        <div class="mask mask-datas"></div>
+        <div class="lottie lottie-bg" data-animation-path="https://assets7.lottiefiles.com/packages/lf20_qwATcU.json" data-anim-loop="true" data-name="cahrt1"></div>
+        <div id="gradient-line-chart1"></div>
+        <div class="backend-page-header-cnt">
+          <h2 class="backend-page-title">110 年度職業訓練業務執行績效儀表板</h2>
+        </div>
+      </div>
+      <div class="backend-page-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-4 col-sm-12">
+              <div class="dashboard-card dashboard-card-bg dashboard-card-bg-v1">
+                <header class="dashboard-card-header">
+                  <div class="dashboard-card-header-lt">
+                    <h3 class="hd-title">本月學員統計總覽</h3>
+                  </div>
+                  <div class="dashboard-card-header-rt">
+                    <div class="dashboard-card-header-tools">
+                      <div class="dropdown" data-toggle="tooltip" data-original-title="更多功能操作" data-boundary="">
+                        <button class="btn t-form-btn" id="card_map" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="tub-category">
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                          </i>
+                        </button>
+                        <div class="dropdown-menu dropdown-animated dropdown-menu-right" aria-labelledby="card_map">
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-calendar-add dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            選擇日期區間
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-edit dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            編輯預設顯示</a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-translate dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            轉換成其他語言
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-map dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            前往地圖主頁面
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="dashboard-card-header-chart">
+                    <div class="js-bar-chart t-relative" data-series="[[10,8,5,7,6,6,10,10,8,5,7,6,6,10,6,6,10],
+                    [10,8,5,7,6,6,10,10,8,5,7,6,6,10,6,6,10]]" data-is-show-axis-x="false" data-is-full-width="true" data-is-stroke-rounded="true" data-is-show-tooltips="true" data-is-show-axis-y="false" data-height="100%" data-high="12" data-low="0" data-distance="8" data-stroke-width="4" data-stroke-color='["rgba(255,255,255,1)","rgba(255,255,255,.6)"]'>
+                    </div>
+                  </div>
+                </header>
+                <div class="dashboard-card-body">
+                  <ul class="list-inline dashboard-card-list-inline">
+                    <li class="w-col-6 dashboard-card-list-inline-item">
+                      <div class="dashboard-card-list-inline-item-title">
+                        本月參訓學員數
+                      </div>
+                      <div class="dashboard-card-list-inline-item-txt">
+                        <font data-unit="位">
+                          1,188
+                        </font>
+                        <i class="tub-trend-up text-success">
+                          <font></font>
+                          <font></font>
+                        </i>
+                      </div>
+                    </li>
+                    <li class="w-col-6 dashboard-card-list-inline-item">
+                      <div class="dashboard-card-list-inline-item-title">
+                        本週參訓新學員數
+                      </div>
+                      <div class="dashboard-card-list-inline-item-txt">
+                        <font data-unit="位">
+                          588
+                        </font>
+                        <i class="tub-trend-down text-danger">
+                          <font></font>
+                          <font></font>
+                        </i>
+                      </div>
+                    </li>
+                    <li class="w-col-6 dashboard-card-list-inline-item">
+                      <div class="dashboard-card-list-inline-item-title">
+                        本月結訓學員數
+                      </div>
+                      <div class="dashboard-card-list-inline-item-txt">
+                        <font data-unit="位">
+                          1,188
+                        </font>
+                        <i class="tub-trend-down text-danger">
+                          <font></font>
+                          <font></font>
+                        </i>
+                      </div>
+                    </li>
+                    <li class="w-col-6 dashboard-card-list-inline-item">
+                      <div class="dashboard-card-list-inline-item-title">
+                        本週結訓新學員數
+                      </div>
+                      <div class="dashboard-card-list-inline-item-txt">
+                        <font data-unit="位">
+                          280
+                        </font>
+                        <i class="tub-trend-down text-danger">
+                          <font></font>
+                          <font></font>
+                        </i>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-sm-12">
+              <div class="dashboard-card">
+                <header class="dashboard-card-header">
+                  <div class="dashboard-card-header-lt">
+                    <i class="tub-briefcase" aria-hidden="true">
+                      <font class=""></font>
+                      <font class=""></font>
+                      <font class=""></font>
+                    </i>
+                    <h3 class="hd-title">
+                      參訓總數
+                      <!-- <small>總人數</small> -->
+                      <!--  (僅分析委外訓練課程,自辦訓練課程不分析) -->
+                    </h3>
+                  </div>
+                  <div class="dashboard-card-header-rt">
+                    <div class="dashboard-card-header-tools">
+                      <div class="dropdown" data-toggle="tooltip" data-original-title="更多功能操作" data-boundary="">
+                        <button class="btn t-form-btn" id="card_map" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="tub-category">
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                          </i>
+                        </button>
+                        <div class="dropdown-menu dropdown-animated dropdown-menu-right" aria-labelledby="card_map">
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-calendar-add dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            <font class="dropdown-item-text">
+                              選擇日期區間
+                            </font>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-edit dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            編輯預設顯示</a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-translate dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            轉換成其他語言
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-map dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            前往地圖主頁面
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </header>
+                <div class="dashboard-card-body">
+                  <div class="t-table">
+                    <div class="t-table-cell t-v-align-middle w-col-4">
+                      <ul class="list-group text-14 t-txt-left">
+                        <li class="">
+                          <div class="">
+                            <span class="badge sm t-v-align-middle" style="background-color: #80C4DC"></span>
+                            <font class="text-lightgrey">職前</font>
+                            <br>
+                            <strong>16,867</strong> 人
+                          </div>
+                        </li>
+                        <li class="mt-8">
+                          <div class="">
+                            <span class="badge sm t-v-align-middle" style="background-color: #3B3DBF"></span>
+                            <font class="text-lightgrey">在職</font>
+                            <br>
+                            <strong>32,956</strong> 人
+                          </div>
+                        </li>
+                        <li class="mt-8">
+                          <div class="">
+                            <span class="badge sm t-v-align-middle" style="background-color: #FF9E9E"></span>
+                            <font class="text-lightgrey">青年</font>
+                            <br>
+                            <strong>28,760</strong> 人
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="t-table-cell t-v-align-middle">
+                      <div class="js-donut-chart t-relative" data-series='[16867, 32956, 28760]' data-border-width="60" data-start-angle="0" data-show-labels="true" data-label-currency="人" data-is-show-tooltips="true" data-tooltip-currency="" data-tooltip-badge-markup="" data-tooltip-custom-class="chartist-tooltip-dark" data-fill-colors='["#80C4DC","#3B3DBF","#FF9E9E"]'>
+                        <!-- <h6 class="js-donut-chart-label" data-unit="人">共 456,111</h6> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-sm-12">
+              <div class="dashboard-card">
+                <header class="dashboard-card-header">
+                  <div class="dashboard-card-header-lt">
+                    <i class="tub-briefcase" aria-hidden="true">
+                      <font class=""></font>
+                      <font class=""></font>
+                      <font class=""></font>
+                      <font class=""></font>
+                      <font class=""></font>
+                    </i>
+                    <h3 class="hd-title">
+                      參訓學員性別分布數
+                      <!-- <small>男女比例</small> -->
+                    </h3>
+                  </div>
+                  <div class="dashboard-card-header-rt">
+                    <div class="dashboard-card-header-tools">
+                      <div class="dropdown" data-toggle="tooltip" data-original-title="更多功能操作" data-boundary="">
+                        <button class="btn t-form-btn" id="card_map" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="tub-category">
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                          </i>
+                        </button>
+                        <div class="dropdown-menu dropdown-animated dropdown-menu-right" aria-labelledby="card_map">
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-calendar-add dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            選擇日期區間
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-edit dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            編輯預設顯示</a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-translate dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            轉換成其他語言
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-map dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            前往地圖主頁面
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </header>
+                <div class="dashboard-card-body">
+                  <div class="t-table">
+                    <div class="t-table-cell t-v-align-middle w-col-4">
+                      <ul class="list-group text-14 t-txt-left">
+                        <li class="">
+                          <div class="">
+                            <span class="badge sm" style="background-color: #009EF7"></span>
+                            <font class="text-lightgrey">男性</font>
+                            <br>
+                            <strong>41,987</strong> 人
+                          </div>
+                        </li>
+                        <li class="mt-8">
+                          <div class="">
+                            <span class="badge sm" style="background-color: #FC86B0"></span>
+                            <font class="text-lightgrey">女性</font>
+                            <br>
+                            <strong>36,596</strong> 人
+                          </div>
+                        </li>
+                        <li class="mt-8">
+                          <div class="">
+                            <font class="text-lightgrey">總計</font>
+                            <br>
+                            <strong>78,583</strong> 人
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="t-table-cell t-v-align-middle">
+                      <div class="js-donut-chart t-relative" data-series='[41987 , 36596]' data-border-width="60" data-start-angle="0" data-start-angle="0" data-show-labels="true" data-label-currency="人" data-is-show-tooltips="true" data-tooltip-currency="" data-tooltip-badge-markup="" data-tooltip-custom-class="chartist-tooltip-dark" data-fill-colors='["#009EF7","#FC86B0"]'>
+                        <!-- <h6 class="js-donut-chart-label" data-unit="人">
+                      234,222
+                    </h6> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-3">
+              <div class="dashboard-card-main dashboard-card-main-primary">
+                <div class="mask mask-wave-color-v1 opt-12"></div>
+                <div class="dashboard-card-content">
+                  <div class="dashboard-card-header">
+                    <h6 class="dashboard-card-header-title">
+                      累積使用經費 / 執行率
+                    </h6>
+                  </div>
+                  <div class="dashboard-card-float-icon">
+                    <i class="tub-arrow-3 text-success" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                    </i>
+                  </div>
+                  <div class="dashboard-card-body">
+                    <p class="js-counter dashboard-num text-primary text-bg-before-border-primary t-inline-block" data-unit="元" data-comma-separated="true">
+                      1874672991
+                    </p>
+                    <div class="dashboard-card-inner">
+                      <div class="dashboard-card-icon">
+                        <i class="tub-moneys text-primary" aria-hidden="true">
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                        </i>
+                      </div>
+                      <div class="dashboard-card-chart-pie">
+                        <div class="js-pie" data-circles-value="96" data-circles-max-value="100" data-circles-bg-color="#CCEBEB" data-circles-fg-color="#1BC5BD" data-circles-color="#fff" data-circles-font-weight="700" data-circles-radius="32" data-circles-stroke-width="32" data-circles-font-size="18" data-circles-additional-text="%" data-circles-duration="1000" data-circles-scroll-animate="true">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3">
+              <div class="dashboard-card-main dashboard-card-main-secondary">
+                <div class="mask mask-wave-color-v2 opt-12"></div>
+                <div class="dashboard-card-content">
+                  <div class="dashboard-card-header">
+                    <h6 class="dashboard-card-header-title">
+                      累參訓中學員數 / 結訓學員就業率
+                    </h6>
+                  </div>
+                  <div class="dashboard-card-float-icon">
+                    <i class="tub-arrow-3 text-danger" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                    </i>
+                  </div>
+                  <div class="dashboard-card-body">
+                    <p class="js-counter dashboard-num text-secondary text-bg-before-border-secondary t-inline-block" data-unit="位" data-comma-separated="true">
+                      27829
+                    </p>
+                    <div class="dashboard-card-inner">
+                      <div class="dashboard-card-icon">
+                        <i class="tub-people text-secondary" aria-hidden="true">
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                        </i>
+                      </div>
+                      <div class="dashboard-card-chart-pie">
+                        <div class="js-pie" data-circles-value="92" data-circles-max-value="100" data-circles-bg-color="#CCCCE3" data-circles-fg-color="#6667AB" data-circles-color="#fff" data-circles-font-weight="700" data-circles-radius="32" data-circles-stroke-width="32" data-circles-font-size="18" data-circles-additional-text="%" data-circles-duration="1000" data-circles-scroll-animate="true">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--  <img src="img/card_1.png" alt="card_1"> -->
+              </div>
+            </div>
+            <div class="col-xl-3">
+              <div class="dashboard-card-main dashboard-card-main-tertiary">
+                <div class="mask mask-wave-color-v3 opt-12"></div>
+                <div class="dashboard-card-content">
+                  <div class="dashboard-card-header">
+                    <h6 class="dashboard-card-header-title">
+                      開班中訓練單位數 / 開班率
+                    </h6>
+                  </div>
+                  <div class="dashboard-card-body">
+                    <p class="js-counter dashboard-num text-tertiary text-bg-before-border-tertiary t-inline-block" data-unit="位" data-comma-separated="true">
+                      1210
+                    </p>
+                    <div class="dashboard-card-inner">
+                      <div class="dashboard-card-icon">
+                        <i class="tub-briefcase text-tertiary" aria-hidden="true">
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                        </i>
+                      </div>
+                      <div class="dashboard-card-chart-pie">
+                        <div class="js-pie" data-circles-value="82.5" data-circles-max-value="100" data-circles-bg-color="#FFD0D8" data-circles-fg-color="#FF728B" data-circles-color="#fff" data-circles-font-weight="700" data-circles-radius="32" data-circles-stroke-width="32" data-circles-font-size="18" data-circles-additional-text="%" data-circles-duration="1000" data-circles-scroll-animate="true">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3">
+              <div class="dashboard-card-main dashboard-card-main-quaternary">
+                <div class="mask mask-wave-color-v4"></div>
+                <div class="dashboard-card-content">
+                  <div class="dashboard-card-header">
+                    <h6 class="dashboard-card-header-title">
+                      青年參訓人數 / 青年就業率
+                    </h6>
+                  </div>
+                  <div class="dashboard-card-body">
+                    <p class="js-counter dashboard-num text-quaternary text-bg-before-border-quaternary t-inline-block" data-unit="位" data-comma-separated="true">
+                      2898
+                    </p>
+                    <div class="dashboard-card-inner">
+                      <div class="dashboard-card-icon">
+                        <i class="tub-personalcard text-quaternary" aria-hidden="true">
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                        </i>
+                      </div>
+                      <div class="dashboard-card-chart-pie">
+                        <div class="js-pie" data-circles-value="66" data-circles-max-value="100" data-circles-bg-color="#FFF2C4" data-circles-fg-color="#FFD950" data-circles-color="#fff" data-circles-font-weight="700" data-circles-radius="32" data-circles-stroke-width="32" data-circles-font-size="18" data-circles-additional-text="%" data-circles-duration="250" data-circles-scroll-animate="true">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-4 col-lg-6 col-md-12">
+              <div class="dashboard-card-main dashboard-card-main-danger">
+                <div class="dashboard-card-content">
+                  <div class="dashboard-card-header">
+                    <h6 class="dashboard-card-header-title">
+                      本週參訓學員數 / 成長率
+                      <small>2022/03/01 ~ 2022/03/07</small>
+                    </h6>
+                  </div>
+                  <div class="dashboard-card-body">
+                    <div class="progress-stats-shadow" style="height: 150px">
+                      <div class="js-bar-chart" data-is-stack-bars="false" data-is-show-axis-x="true" data-is-show-axis-y="false" data-is-show-label-axis-x="true" data-is-show-label-axis-y="false" data-height="150" data-mobile-height="150" data-high="20" data-offset-axis-x="20" data-offset-axis-y="0" data-low="0" data-distance="24" data-stroke-width="20" data-mobile-stroke-width="20" data-stroke-color='["#eee"]' data-is-grid-solid-line="true" data-grid-line-color="#eeeef1" data-label-color-axis-x="#4a4e69" data-label-font-size-axis-x="14px" data-label-color-axis-y="#868e96" data-label-font-size-axis-y="14px" data-is-show-tooltips="true" data-is-tooltip-currency-reverse="true" data-is-tooltip-reverse-data="false" data-tooltip-currency="" data-tooltip-custom-class="chartist-tooltip-dark" data-postfix="%" data-series="[[100, 100, 100, 100, 100, 100, 100]]" data-labels='["Mon", "Tue", "Wex", "Thu", "Fri", "Sat", "Sun"]'>
+                      </div>
+                    </div>
+                    <div class="progress-stats-container">
+                      <div class="js-bar-chart" data-is-stack-bars="false" data-is-show-axis-x="true" data-is-show-axis-y="false" data-is-show-label-axis-x="true" data-is-show-label-axis-y="false" data-height="150" data-mobile-height="150" data-high="20" data-offset-axis-x="20" data-offset-axis-y="0" data-low="0" data-distance="24" data-stroke-width="20" data-mobile-stroke-width="20" data-stroke-color='["#80c4dc"]' data-is-grid-solid-line="true" data-grid-line-color="#eeeef1" data-label-color-axis-x="#4a4e69" data-label-font-size-axis-x="14px" data-label-color-axis-y="#868e96" data-label-font-size-axis-y="14px" data-is-show-tooltips="true" data-is-tooltip-currency-reverse="true" data-is-tooltip-reverse-data="false" data-tooltip-currency="" data-postfix="%" data-tooltip-custom-class="chartist-tooltip-dark" data-series="[[18, 20, 14, 18, 20, 15, 18]]" data-labels='["", "", "", "", "", "", ""]'>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-12">
+              <div class="dashboard-card-main dashboard-card-main-danger">
+                <div class="dashboard-card-content">
+                  <div class="dashboard-card-header">
+                    <h6 class="dashboard-card-header-title">
+                      本週參訓學員數 / 成長率
+                      <small>2022/03/01 ~ 2022/03/07</small>
+                    </h6>
+                  </div>
+                  <div class="dashboard-card-body">
+                    <div class="progress-stats-container" style="height: 150px">
+                      <div class="js-bar-chart" data-is-stack-bars="false" data-is-show-axis-x="true" data-is-show-axis-y="false" data-is-show-label-axis-x="true" data-is-show-label-axis-y="false" data-height="150" data-mobile-height="150" data-high="20" data-offset-axis-x="20" data-offset-axis-y="0" data-low="0" data-distance="24" data-stroke-width="20" data-mobile-stroke-width="20" data-stroke-color='["#eee"]' data-is-grid-solid-line="true" data-grid-line-color="#eeeef1" data-label-color-axis-x="#4a4e69" data-label-font-size-axis-x="14px" data-label-color-axis-y="#868e96" data-label-font-size-axis-y="14px" data-is-show-tooltips="true" data-is-tooltip-currency-reverse="true" data-is-tooltip-reverse-data="false" data-tooltip-currency="" data-postfix="%" data-series="[[100, 100, 100, 100, 100, 100, 100]]" data-labels='["Mon", "Tue", "Wex", "Thu", "Fri", "Sat", "Sun"]'>
+                      </div>
+                      <div class="progress-stats-container">
+                        <div class="js-bar-chart" data-is-stack-bars="false" data-is-show-axis-x="true" data-is-show-axis-y="false" data-is-show-label-axis-x="true" data-is-show-label-axis-y="false" data-height="150" data-mobile-height="150" data-high="20" data-offset-axis-x="20" data-offset-axis-y="0" data-low="0" data-distance="24" data-stroke-width="20" data-mobile-stroke-width="20" data-stroke-color='["#f07896"]' data-is-grid-solid-line="true" data-grid-line-color="#eeeef1" data-label-color-axis-x="#4a4e69" data-label-font-size-axis-x="14px" data-label-color-axis-y="#868e96" data-label-font-size-axis-y="14px" data-is-show-tooltips="true" data-is-tooltip-currency-reverse="true" data-is-tooltip-reverse-data="false" data-tooltip-currency="" data-postfix="%" data-tooltip-custom-class="chartist-tooltip-dark" data-series="[[18, 20, 14, 18, 20, 15, 18]]" data-labels='["", "", "", "", "", "", ""]'>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-6 col-md-12">
+              <div class="dashboard-card-main dashboard-card-main-danger">
+                <div class="dashboard-card-content">
+                  <div class="dashboard-card-header">
+                    <h6 class="dashboard-card-header-title">
+                      本週參訓學員數 / 成長率
+                      <small>2022/03/01 ~ 2022/03/07</small>
+                    </h6>
+                  </div>
+                  <div class="dashboard-card-body">
+                    <div class="progress-stats-container" style="height: 150px">
+                      <div class="js-bar-chart" data-is-stack-bars="false" data-is-show-axis-x="true" data-is-show-axis-y="false" data-is-show-label-axis-x="true" data-is-show-label-axis-y="false" data-height="150" data-mobile-height="150" data-high="20" data-offset-axis-x="20" data-offset-axis-y="0" data-low="0" data-distance="24" data-stroke-width="20" data-mobile-stroke-width="20" data-stroke-color='["#eee"]' data-is-grid-solid-line="true" data-grid-line-color="#eeeef1" data-label-color-axis-x="#4a4e69" data-label-font-size-axis-x="14px" data-label-color-axis-y="#868e96" data-label-font-size-axis-y="14px" data-is-show-tooltips="true" data-is-tooltip-currency-reverse="true" data-is-tooltip-reverse-data="false" data-tooltip-currency="" data-postfix="%" data-series="[[100, 100, 100, 100, 100, 100, 100]]" data-labels='["Mon", "Tue", "Wex", "Thu", "Fri", "Sat", "Sun"]'>
+                      </div>
+                      <div class="progress-stats-container">
+                        <div class="js-bar-chart" data-is-stack-bars="false" data-is-show-axis-x="true" data-is-show-axis-y="false" data-is-show-label-axis-x="true" data-is-show-label-axis-y="false" data-height="150" data-mobile-height="150" data-high="20" data-offset-axis-x="20" data-offset-axis-y="0" data-low="0" data-distance="24" data-stroke-width="20" data-mobile-stroke-width="20" data-stroke-color='["#67bf5c"]' data-is-grid-solid-line="true" data-grid-line-color="#eeeef1" data-label-color-axis-x="#4a4e69" data-label-font-size-axis-x="14px" data-label-color-axis-y="#868e96" data-label-font-size-axis-y="14px" data-is-show-tooltips="true" data-is-tooltip-currency-reverse="true" data-is-tooltip-reverse-data="false" data-tooltip-currency="" data-postfix="%" data-tooltip-custom-class="chartist-tooltip-dark" data-series="[[18, 20, 14, 18, 20, 15, 18]]" data-labels='["", "", "", "", "", "", ""]'>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-12">
+              <div class="dashboard-card">
+                <header class="dashboard-card-header">
+                  <div class="dashboard-card-header-lt">
+                    <i class="tub-data" id="modal-2">
+                      <font class=""></font>
+                      <font class=""></font>
+                      <font class=""></font>
+                      <font class=""></font>
+                      <font class=""></font>
+                    </i>
+                    <h3 class="hd-title">當年度學員數統計</h3>
+                  </div>
+                  <div class="dashboard-card-header-rt">
+                    <div class="dashboard-card-header-tools">
+                      <div class="dropdown" data-toggle="tooltip" data-original-title="更多功能操作" data-boundary="">
+                        <button class="btn t-form-btn" id="card_2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="tub-category">
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                          </i>
+                        </button>
+                        <div class="dropdown-menu dropdown-animated dropdown-menu-right" aria-labelledby="card_2">
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-calendar-add dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            選擇日期區間
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-edit dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            編輯預設顯示</a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-translate dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            轉換成其他語言
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-map dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            前往地圖主頁面
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </header>
+                <div class="dashboard-card-body">
+                  <div class="js-area-chart t-relative t-point" data-height="228" data-width="100%" data-mobile-height="200" data-high="12" data-low="0" data-offset-x="32" data-offset-y="24" data-postfix="k" data-is-show-area="false" data-is-show-line="false" data-is-full-width="true" data-is-stack-bars="false" data-is-show-axis-x="true" data-is-show-axis-y="true" data-is-show-tooltips="true" data-is-line-smooth='["step"]' data-is-show-points="true" data-is-hide-area="true" data-is-tooltips-append-to-body="true" data-is-tooltip-divided="false" data-is-tooltip-reverse-data="false" data-is-tooltip-currency-reverse="false" data-is-side-stroke-hidden-axis-x="false" data-line-colors='["#66C4C5","#6667AB","#FF728B"]' data-line-width='["2","2","2"]' data-line-dasharrays='["2","2","2"]' data-stroke-color-axis-x="#e4e6ef" data-stroke-color-axis-y="#e4e6ef" data-dasharray-color-axis-y="#9AA0A9" data-labels-qty="" data-labels-start-from="" data-tooltip-description-position="top" data-tooltip-custom-class="" data-tooltip-currency="" data-tooltip-badge-markup="" data-align-text-axis-x="center" data-stroke-color='#e4e6ef' data-stroke-width="16" data-stroke-dash-array="0" data-text-size-x="12px" data-text-color-x="#9AA0A9" data-text-offset-top-x="0" data-text-size-y="12px" data-text-color-y="#9AA0A9" data-points-colors='["#66C4C5","#6667AB","#FF728B"]' data-points-stroke='["#fff","#fff","#fff"]' data-points-stroke-width="12" data-points-radius="8" data-series='[
+                          [12, 9, 7, 8, 5, 4, 6, 2, 3, 3, 4, 6],
+                          [4,  5, 3, 7, 3, 5, 5, 3, 4, 4, 5, 5],
+                          [5,  3, 4, 5, 6, 3, 3, 4, 5, 6, 3, 4]
+                          ]' data-labels='["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"]' data-chart-padding="0">
+                  </div>
+                </div>
+              </div>
+              <div class="dashboard-card">
+                <header class="dashboard-card-header">
+                  <div class="dashboard-card-header-lt">
+                    <i class="tub-data" id="modal-2">
+                      <font class=""></font>
+                      <font class=""></font>
+                      <font class=""></font>
+                      <font class=""></font>
+                      <font class=""></font>
+                    </i>
+                    <h3 class="hd-title">當年度學員數統計</h3>
+                  </div>
+                  <div class="dashboard-card-header-rt">
+                    <div class="dashboard-card-header-tools">
+                      <div class="dropdown" data-toggle="tooltip" data-original-title="更多功能操作" data-boundary="">
+                        <button class="btn t-form-btn" id="card_2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="tub-category">
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                          </i>
+                        </button>
+                        <div class="dropdown-menu dropdown-animated dropdown-menu-right" aria-labelledby="card_2">
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-calendar-add dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            選擇日期區間
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-edit dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            編輯預設顯示</a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-translate dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            轉換成其他語言
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-map dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            前往地圖主頁面
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </header>
+                <div class="dashboard-card-body">
+                  <div class="t-txt-right">
+                    <ul class="nav nav-segment" id="change_navs" role="tablist" data-scroll="x">
+                      <li class="nav-item ">
+                        <label class="active" id="c_week-tab" data-toggle="tab" href="#c_week" role="tab">
+                          <font>本週</font>
+                          <label class="badge badge-rounded t-badge-primary">8</label>
+                        </label>
+                      </li>
+                      <li class="nav-item">
+                        <label class="" id="c_month-tab" data-toggle="tab" href="#c_month" role="tab">
+                          <font>本月</font>
+                          <label class="badge badge-rounded t-badge-primary">4</label>
+                        </label>
+                      </li>
+                      <li class="nav-item">
+                        <label class="" id="c_year-tab" data-toggle="tab" href="#c_year" role="tab">
+                          <font>本年度</font>
+                          <label class="badge badge-rounded t-badge-primary">7</label>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <ul class="list-inline list-group mb-24 text-14">
+                    <li class="media">
+                      <div class="">
+                        <span class="badge sm" style="background-color: rgba(115,150,255, 1)"></span>
+                        新進學員數
+                      </div>
+                    </li>
+                    <li class="">
+                      <div class="">
+                        <span class="badge sm" style="background-color: rgba(115,150,255, .28)"></span>
+                        結訓學員數
+                      </div>
+                    </li>
+                    <li class="">
+                      <div class="">
+                        <span class="badge sm" style="background-color: rgba(248,161,236, 1)"></span>
+                        成長率
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="js-area-chart t-relative" data-height="300px" data-mobile-height="180px" data-high="180" data-low="0" data-offset-x="30" data-offset-y="50" data-postfix="m" data-is-show-area="true" data-is-show-line="false" data-is-show-points="true" data-is-full-width="true" data-is-hide-li  ne="true" data-is-stack-bars="true" data-is-show-axis-x="true" data-is-show-axis-y="true" data-is-show-tooltips="true" data-is-line-smooth="[true]" data-tooltip-description-position="right" data-tooltip-custom-class="" data-fill-colors='[["#1657ff"],["#4e79a7"],["#ffe482"]]' data-align-text-axis-x="center" data-fill-opacity="1" data-stroke-color="#D1D4D8" data-stroke-width="2" data-stroke-dash-array="2" data-text-size-x="12px" data-text-color-x="#1F1F39" data-text-offset-top-x="6" data-text-size-y="12px" data-text-color-y="#9AA0A9" data-points-colors='[["#1657ff"],["#4e79a7"],["#ffe482"]
+                      ]' data-point-dimensions='{"width":15,"height":15}' data-points-stroke-width="2" data-points-radius="5" data-series='[[20, 180, 125, 40, 80, 50, 20 ,88 ,92 ,100 ,66 ,24 ],[75, 120, 50, 80, 130, 60, 120, 180, 125, 40, 80, 50],[110, 50, 70, 20, 90, 150, 88, 180, 125, 40, 80, 50]]' data-labels='["Jan", "Feb", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]'>
+                  </div>
+                </div>
+              </div>
+              <div class="dashboard-card">
+                <div class="dashboard-card-header dashboard-card-header--secondary">
+                  <div class="dashboard-card-header-lt">
+                    <i class="tub-calculator">
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <h3>參訓學員薪資結構</h3>
+                  </div>
+                  <div class="dashboard-card-header-rt">
+                    <div class="dashboard-card-header-tools">
+                      <div class="dropdown" data-toggle="tooltip" data-original-title="更多功能操作" data-boundary="">
+                        <button class="btn t-form-btn" id="card_2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="tub-category">
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                          </i>
+                        </button>
+                        <div class="dropdown-menu dropdown-animated dropdown-menu-right" aria-labelledby="card_2">
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-calendar-add dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            <font class="dropdown-item-text">
+                              選擇日期區間
+                            </font>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-edit dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            編輯預設顯示</a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-translate dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            轉換成其他語言
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-map dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            前往地圖主頁面
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="dashboard-card-body">
+                  <div class="js-area-chart chart--points-invisible" data-series='[[
+                   {"meta":"Bitcoin","value":"70"},
+                   {"meta":"Bitcoin","value":"52"},
+                   {"meta":"Bitcoin","value":"47"},
+                   {"meta":"Bitcoin","value":"58"},
+                   {"meta":"Bitcoin","value":"38"},
+                   {"meta":"Bitcoin","value":"40"},
+                   {"meta":"Bitcoin","value":"57"},
+                   {"meta":"Bitcoin","value":"40"},
+                   {"meta":"Bitcoin","value":"31"},
+                   {"meta":"Bitcoin","value":"53"},
+                   {"meta":"Bitcoin","value":"60"},
+                   {"meta":"Bitcoin","value":"43"},
+                   {"meta":"Bitcoin","value":"70"},
+                   {"meta":"Bitcoin","value":"52"},
+                   {"meta":"Bitcoin","value":"47"},
+                   {"meta":"Bitcoin","value":"58"},
+                   {"meta":"Bitcoin","value":"38"},
+                   {"meta":"Bitcoin","value":"40"},
+                   {"meta":"Bitcoin","value":"57"},
+                   {"meta":"Bitcoin","value":"40"},
+                   {"meta":"Bitcoin","value":"31"},
+                   {"meta":"Bitcoin","value":"53"},
+                   {"meta":"Bitcoin","value":"60"},
+                   {"meta":"Bitcoin","value":"43"}
+                 ]
+               ]' data-labels='["1AM","2AM","3AM","4AM","5AM","6AM","7AM","8AM","9AM","10AM","11AM","12AM","1PM","2PM","3PM","4PM","5PM","6PM","7PM","8PM","9PM","10PM","11PM","12PM"]' data-labels-qty="12" data-labels-start-from="1" data-height="205" data-mobile-height="100" data-high="150" data-chart-padding='{"top": 5}' data-offset-x="30" data-offset-y="30" data-is-show-axis-x="false" data-is-show-axis-y="true" data-is-hide-area="true" data-line-colors='["#8069f2"]' data-line-dasharrays="[0]" data-line-width='["2px"]' data-is-line-smooth="[true]" data-fill-opacity="1" data-fill-colors='["#8069f2"]' data-stroke-color-axis-x="#eeeef1" data-stroke-dasharray-axis-x="none" data-text-size-x="12px" data-text-color-x="#8b8e9f" data-text-offset-top-x="15" data-text-align-axis-x="center" data-text-size-y="12px" data-text-color-y="#868e96" data-is-show-tooltips="true" data-tooltip-custom-class="chart-tooltip-dark" data-tooltip-currency="USD " data-is-tooltip-divided="true" data-is-show-points="true" data-point-custom-class="chart__point--donut chart__point--border-xs border-primary rounded-circle" data-point-dimensions='{"width":15,"height":15}'></div>
+                  <!-- End Area Chart -->
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-12">
+              <div class="dashboard-card">
+                <header class="dashboard-card-header">
+                  <div class="dashboard-card-header-lt">
+                    <i class="tub-data" id="modal-2">
+                      <font class=""></font>
+                      <font class=""></font>
+                      <font class=""></font>
+                      <font class=""></font>
+                      <font class=""></font>
+                    </i>
+                    <h3 class="hd-title">當年度學員數統計</h3>
+                  </div>
+                  <div class="dashboard-card-header-rt">
+                    <div class="dashboard-card-header-tools">
+                      <div class="dropdown" data-toggle="tooltip" data-original-title="更多功能操作" data-boundary="">
+                        <button class="btn t-form-btn" id="card_2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="tub-category">
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                          </i>
+                        </button>
+                        <div class="dropdown-menu dropdown-animated dropdown-menu-right" aria-labelledby="card_2">
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-calendar-add dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            選擇日期區間
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-edit dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            編輯預設顯示</a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-translate dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            轉換成其他語言
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-map dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            前往地圖主頁面
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </header>
+                <div class="dashboard-card-body">
+                  <div class="t-txt-right">
+                    <ul class="nav nav-segment" id="change_navs" role="tablist" data-scroll="x">
+                      <li class="nav-item ">
+                        <label class="active" id="c_week-tab" data-toggle="tab" href="#c_week" role="tab">
+                          <font>本週</font>
+                          <label class="badge badge-rounded t-badge-primary">8</label>
+                        </label>
+                      </li>
+                      <li class="nav-item">
+                        <label class="" id="c_month-tab" data-toggle="tab" href="#c_month" role="tab">
+                          <font>本月</font>
+                          <label class="badge badge-rounded t-badge-primary">4</label>
+                        </label>
+                      </li>
+                      <li class="nav-item">
+                        <label class="" id="c_year-tab" data-toggle="tab" href="#c_year" role="tab">
+                          <font>本年度</font>
+                          <label class="badge badge-rounded t-badge-primary">7</label>
+                        </label>
+                      </li>
+                    </ul>
+                  </div>
+                  <ul class="list-inline list-group mb-24 text-14">
+                    <li class="media">
+                      <div class="">
+                        <span class="badge sm" style="background-color: rgba(115,150,255, 1)"></span>
+                        新進學員數
+                      </div>
+                    </li>
+                    <li class="">
+                      <div class="">
+                        <span class="badge sm" style="background-color: rgba(115,150,255, .28)"></span>
+                        結訓學員數
+                      </div>
+                    </li>
+                    <li class="">
+                      <div class="">
+                        <span class="badge sm" style="background-color: rgba(248,161,236, 1)"></span>
+                        成長率
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="js-area-chart t-relative" data-height="300px" data-mobile-height="180px" data-high="180" data-low="0" data-offset-x="30" data-offset-y="50" data-postfix="m" data-is-show-area="true" data-is-show-line="false" data-is-show-points="true" data-is-full-width="true" data-is-hide-line="true" data-is-stack-bars="true" data-is-show-axis-x="true" data-is-show-axis-y="true" data-is-show-tooltips="true" data-is-line-smooth="[true]" data-tooltip-description-position="right" data-tooltip-custom-class="" data-is-fill-colors-gradient="true" data-fill-colors='[
+                        ["rgba(115,150,255, 1)","rgba(248,161,236, 1)"],
+                        ["rgba(115,150,255, .6)","rgba(248,161,236, .6)"],
+                        ["rgba(115,150,255, .28)","rgba(248,161,236, .28)"]
+                      ]' data-align-text-axis-x="center" data-fill-opacity=".72" data-stroke-color="#D1D4D8" data-stroke-width="2" data-stroke-dash-array="2" data-text-size-x="12px" data-text-color-x="#1F1F39" data-text-offset-top-x="6" data-text-size-y="12px" data-text-color-y="#9AA0A9" data-points-colors='[
+                        ["rgba(248,161,236, 1)"],
+                        ["rgba(115,150,255, 1)"],
+                        ["rgba(248,161,236, 1)"]
+                      ]' data-point-dimensions='{"width":15,"height":15}' data-points-stroke-width="2" data-points-radius="5" data-series='[[20, 180, 125, 40, 80, 50, 20 ,88 ,92 ,100 ,66 ,24 ],[75, 120, 50, 80, 130, 60, 120, 180, 125, 40, 80, 50],[110, 50, 70, 20, 90, 150, 0, 180, 125, 40, 80, 50]]' data-labels='["Jan", "Feb", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]'>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-12">
+              <div class="dashboard-card">
+                <div class="dashboard-card-header dashboard-card-header--secondary">
+                  <div class="dashboard-card-header-lt">
+                    <i class="tub-calculator">
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <h3>參訓學員薪資結構</h3>
+                  </div>
+                  <div class="dashboard-card-header-rt">
+                    <div class="dashboard-card-header-tools">
+                      <div class="dropdown" data-toggle="tooltip" data-original-title="更多功能操作" data-boundary="">
+                        <button class="btn t-form-btn" id="card_2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="tub-category">
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                          </i>
+                        </button>
+                        <div class="dropdown-menu dropdown-animated dropdown-menu-right" aria-labelledby="card_2">
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-calendar-add dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            <font class="dropdown-item-text">
+                              選擇日期區間
+                            </font>
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-edit dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            編輯預設顯示</a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-translate dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            轉換成其他語言
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-map dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            前往地圖主頁面
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="dashboard-card-body">
+                  <div class="js-bar-chart t-relative" data-series="[
+                               [40,124,61,124,200,124,173],
+                               [30,114,51,114,126,114,136],
+                               [20,104,41,104,109,104,126]
+                             ]" data-is-horizontal-bars="true" data-labels='["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]' data-is-stack-bars="false" data-is-show-axis-x="true" data-is-show-axis-y="true" data-is-show-label-axis-x="true" data-is-show-label-axis-y="true" data-is-stroke-rounded="true" data-is-show-tooltips="true" data-height="400" data-mobile-height="200" data-high="280" data-offset-axis-x="60" data-offset-axis-y="40" data-low="0" data-distance="0" data-labels-qty="0" data-stroke-width="20" data-mobile-stroke-width="10" data-stroke-color='["#fcd53b","#07d7f7","#8069f2"]' data-is-grid-solid-line="true" data-grid-line-color="#eeeef1" data-grid-line-width="8" data-labels-start-from="0" data-label-color-axis-x="#4a4e69" data-label-font-size-axis-x="14px" data-label-color-axis-y="#868e96" data-label-font-size-axis-y="14px" data-text-offset-top-x="4" data-tooltip-custom-class="" data-tooltip-currency="">
+                  </div>
+                  <figure class="highcharts-figure">
+                    <div id="salary"></div>
+                    <p class="highcharts-description"></p>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="backend-page-footer">
+        <div class="container-fluid">
+          <div class="brand-wda-logo-grey w-32 h-32 in-bk-mid"></div>
+          <div class="in-bk-mid ml-8">
+            勞動力發展署版權所有 Wda Co., Ltd., wda All rights reserved.
+          </div>
+        </div>
+      </footer>
+  </article>
+</body>
+<!-- <div id="loader">
+    <div class="loader-cnt">
+      <div id="lottie_load"></div>
+    </div>
+  </div> -->
+<form action="" method="get" id="themes">
+  <input type="hidden" id="fontSizeClass">
+</form>
+<!-- JQuery -->
+<script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+<!-- Loader -->
+<script src="vendor/pace-1.2.4/pace.min.js"></script>
+<!-- Bootstrap  -->
+<script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Appear -->
+<script src="vendor/appear/appear.js"></script>
+<!-- Circles -->
+<script src="vendor/circles-js/circles.min.js"></script>
+<!-- Chartist -->
+<script src="vendor/chartist/chartist.min.js"></script>
+<!-- mCustomScrollbar -->
+<script src="vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<!-- Lottie -->
+<script src="vendor/lottie-web/5.7.13/lottie.min.js"></script>
+<!-- Main.js -->
+<script src="js/core.js"></script>
+<!-- Custom Plugins -->
+<!-- Chartist -->
+<script src="js/charts/Tu.chartist-area.js"></script>
+<script src="js/charts/Tu.chartist-bar.js"></script>
+<script src="js/charts/Tu.chartist-pie.js"></script>
+<script src="js/charts/Tu.chartist-donut.js"></script>
+<!-- Circles -->
+<script src="js/charts/Tu.circles.js"></script>
+<!-- Counter -->
+<script src="js/components/Tu.counter.js"></script>
+<script src="js/components/Tu.dropdown.js"></script>
+<script src="js/components/Tu.modal.js"></script>
+<!-- Scrollbar Setting -->
+<script src="js/components/Tu.scrollbar.js"></script>
+<script src="js/components/Tu.toggle.js"></script>
+<script src="js/components/Tu.gotop.js"></script>
+<script type="text/javascript">
+var lineGradientChart1 = new Chartist.Line('#gradient-line-chart1', {
+  labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+  series: [
+    [125, 200, 125, 225, 175, 275, 220],
+    [175, 275, 165, 280, 120, 226, 150]
+  ]
+}, {
+  low: 100,
+  fullWidth: true,
+  onlyInteger: true,
+  axisY: {
+    low: 0,
+    scaleMinSpace: 50,
+  },
+  axisX: {
+    showGrid: false
+  },
+  lineSmooth: Chartist.Interpolation.simple({
+    divisor: 2
+  }),
+  plugins: [
+    Chartist.plugins.tooltip({
+      appendToBody: true,
+      pointClass: 'ct-point'
+    })
+  ]
+});
+lineGradientChart1.on('created', function(data) {
+  var defs = data.svg.querySelector('defs') || data.svg.elem('defs');
+  defs.elem('linearGradient', {
+    id: 'lineLinear1',
+    x1: 0,
+    y1: 0,
+    x2: 1,
+    y2: 0
+  }).elem('stop', {
+    offset: '0%',
+    'stop-color': 'rgba(168,120,244,0.1)'
+  }).parent().elem('stop', {
+    offset: '10%',
+    'stop-color': 'rgba(168,120,244,1)'
+  }).parent().elem('stop', {
+    offset: '80%',
+    'stop-color': 'rgba(255,108,147, 1)'
+  }).parent().elem('stop', {
+    offset: '98%',
+    'stop-color': 'rgba(255,108,147, 0.1)'
+  });
+
+  defs.elem('linearGradient', {
+    id: 'lineLinear2',
+    x1: 0,
+    y1: 0,
+    x2: 1,
+    y2: 0
+  }).elem('stop', {
+    offset: '0%',
+    'stop-color': 'rgba(0,230,175,0.1)'
+  }).parent().elem('stop', {
+    offset: '10%',
+    'stop-color': 'rgba(0,230,175,1)'
+  }).parent().elem('stop', {
+    offset: '80%',
+    'stop-color': 'rgba(255,161,69, 1)'
+  }).parent().elem('stop', {
+    offset: '98%',
+    'stop-color': 'rgba(255,161,69, 0.1)'
+  });
+
+  return defs;
+}).on('draw', function(data) {
+  var circleRadius = 10;
+  if (data.type === 'point') {
+    var circle = new Chartist.Svg('circle', {
+      cx: data.x,
+      cy: data.y,
+      'ct:value': data.y,
+      r: circleRadius,
+      class: data.value.y === 225 ? 'ct-point ct-point-circle' : 'ct-point ct-point-circle-transperent'
+    });
+    data.element.replace(circle);
+  }
+  if (data.type === 'line') {
+    data.element.animate({
+      d: {
+        begin: 1000,
+        dur: 1000,
+        from: data.path.clone().scale(1, 0).translate(0, data.chartRect.height()).stringify(),
+        to: data.path.clone().stringify(),
+        easing: Chartist.Svg.Easing.easeOutQuint
+      }
+    });
+  }
+});
+</script>
+
+</html>

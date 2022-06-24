@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,maximum-scale=1.0,user-scalable=no">
+  <meta charset="UTF-8">
+  <title>勞動力發展署 - 職業訓練視覺化分析平台</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <!-- Animate  -->
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <!-- iCon  -->
+  <link rel="stylesheet" type="text/css" href="vendor/iCons/turbo_icon_blur-v1.0/style.css">
+  <!-- CSS  -->
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <!--[if lte IE 9]>
+        <script src="vender/IE_Supports/html5shiv/dist/html5shiv.min.js"></script>
+        <script src="vender/IE_Supports/respond/dest/respond.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.jquery.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.prototype.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.yui3.min.js"></script>
+    <![endif]-->
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'ufg8zbw',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+</head>
+
+<body id="index">
+  <!-- HEADER -->
+  <header class="backend-header" id="Header">
+    <div class="container-fluid">
+      <div class="header-group">
+        <div class="header-group-lt">
+          <a href="index_v1.html" class="header-logo">
+            <img src="img/logo-primary.svg" title="勞動力發展署" alt="職業訓練視覺化分析平台" class="logo-img">
+          </a>
+        </div>
+        <div class="header-group-rt">
+          <ul class="header-tools">
+            <li class="header-tools-item">
+              <time id="current_time" class="current-time t-visibility-hidden">
+                <div class="calendar-inner">
+                  <div class="calendar-header">
+                    <font id="mon_ch"></font>
+                  </div>
+                  <div class="calendar-content">
+                    <font id="date"></font>
+                  </div>
+                </div>
+                <div class="clock-inner">
+                  <div class="clock-lt">
+                    <font id="mon" class="clock-month"></font>
+                    <font id="year" class="clock-year"></font>
+                    <font id="day" class="clock-day"></font>
+                  </div>
+                  <div class="clock-rt">
+                    <font id="hour" class="clock-hour"></font>
+                    <font id="min" class="clock-min"></font>
+                    <font id="sec" class="clock-sec"></font>
+                  </div>
+                </div>
+              </time>
+            </li>
+            <li class="header-tools-item">
+              <div class="dropdown dropdown-user-menu" data-toggle="tooltip" data-html="true" data-placement="left" title="勞動力發展署<br>訓練發展組 歐陽光亮">
+                <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="avatar-container">
+                    <div class="avatar-img" data-bg-img-src="dist/img/3d_avatars/3d-male-001.webp"></div>
+                  </div>
+                  <div class="user-description">
+                    <div class="user-description-unit">勞動力發展署</div>
+                    <div class="user-description-txts">訓練發展組 歐陽光亮</div>
+                  </div>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-lock-1 dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">密碼變更</font>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-profile dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">個人資料</font>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-logout dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">登出系統</font>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- SIDE MEUN -->
+  <aside class="side-bar-menu" id="SideBar" data-burger="#BurGerMenu">
+    <h2 class="side-main-title">
+      <font class="side-main-title-inner">功能選單</font>
+      <big>MEUN</big>
+      <input id="BurGerMenu" type="checkbox" class="toggle-input">
+      <label id="BurGer" for="BurGerMenu" class="toggle-menu">
+        <span></span>
+      </label>
+    </h2>
+    <nav class="side-main-menu">
+      <ul class="js-scrollbar">
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v1.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v1</span>
+            <label class="badge t-badge-secondary">v1</label>
+          </a>
+        </li>
+        <li class="side-main-list-item ">
+          <a class="side-main-list-link" href="index_v2.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v2</span>
+            <label class="badge t-badge-tertiary">v2</label>
+          </a>
+        </li>
+        <li class="side-main-list-item ">
+          <a class="side-main-list-link" href="index_v3.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v3</span>
+            <label class="badge t-badge-quaternary">v3</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v4.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v4</span>
+            <label class="badge t-badge-primary">v4</label>
+          </a>
+        </li>
+        <li class="side-main-list-item active open" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-civic-cvc" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>營運指標</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item" data-sub="true">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>職前訓練指標</span>
+              </a>
+            </li>
+            <ul class="side-sub-menu">
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(性別、年齡、學歷、身分別)">
+                <a class="side-sub-menu-link" href="employment_before_1.html">
+                  <span>參訓學員背景分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(報名、甄試、開訓、結訓、就業、結訓率、就業率)">
+                <a class="side-sub-menu-link" href="employment_before_2.html">
+                  <span>分署職訓執行情形</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(各計畫參訓人數、開課班數)">
+                <a class="side-sub-menu-link" href="employment_before_3.html">
+                  <span>職前計畫執行情形</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(產業別、地區別)">
+                <a class="side-sub-menu-link" href="employment_before_4.html">
+                  <span>重點產業別參訓職類分布趨勢</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item " data-toggle="tooltip" data-placement="right" title="(地區別、薪資級距)">
+                <a class="side-sub-menu-link" href="employment_before_5.html">
+                  <span>課程報名趨勢</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、職類別)">
+                <a class="side-sub-menu-link" href="employment_before_6.html">
+                  <span>學員訓後薪資水準分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(地區別、薪資級距)">
+                <a class="side-sub-menu-link" href="employment_before_7.html">
+                  <span>學員訓後就業關聯性</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、職類別)">
+                <a class="side-sub-menu-link" href="employment_before_8.html">
+                  <span>學員訓後薪資水準分析</span>
+                </a>
+              </li>
+            </ul>
+            <li class="side-sub-menu-item open" data-sub="true">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>在職訓練指標</span>
+              </a>
+            </li>
+            <ul class="side-sub-menu">
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(縣市別、分署別)">
+                <a class="side-sub-menu-link" href="employment_pre_1.html">
+                  <span>產業別開課占比</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(性別、年齡、學歷、身分別)">
+                <a class="side-sub-menu-link" href="employment_pre_2.html">
+                  <span>參訓背景</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item active" data-toggle="tooltip" data-placement="right" title="(級距別、分署別、縣市別))">
+                <a class="side-sub-menu-link" href="employment_pre_3.html">
+                  <span>參訓者薪資落點分布</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(一年度更新一次)">
+                <a class="side-sub-menu-link" href="employment_pre_4.html">
+                  <span>訓練單位屬性分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(投保公司行業別)">
+                <a class="side-sub-menu-link" href="employment_pre_5.html">
+                  <span>參訓者任職產業分布</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、縣市別、計畫別)">
+                <a class="side-sub-menu-link" href="employment_pre_6.html">
+                  <span>訓練單位屬性分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、縣市別、結訓率)">
+                <a class="side-sub-menu-link" href="employment_pre_7.html">
+                  <span>重點產業別課程佔比分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(年齡別、區域別、學歷別)">
+                <a class="side-sub-menu-link" href="employment_pre_8.html">
+                  <span>參訓學員年度產投計畫經費運用情形占比</span>
+                </a>
+              </li>
+            </ul>
+            <li class="side-sub-menu-item" data-sub="true">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>青年職訓指標</span>
+              </a>
+            </li>
+            <ul class="side-sub-menu">
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(性別、年齡、學制別、身分別)">
+                <a class="side-sub-menu-link" href="employment_youth_1.html">
+                  <span>參訓背景</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(計畫別、縣市別、分署別)">
+                <a class="side-sub-menu-link" href="employment_youth_2.html">
+                  <span>廠商行業別分布情形</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別)">
+                <a class="side-sub-menu-link" href="employment_youth_3.html">
+                  <span>青年訓後薪資落點</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別)">
+                <a class="side-sub-menu-link" href="employment_youth_4.html">
+                  <span>學員訓後就業關聯性</span>
+                </a>
+              </li>
+            </ul>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-user-edit" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>個人化設定</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>儀表板設定</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>個人資料維護</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-setting-2" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>系統管理</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>帳號設定</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>使用紀錄歷程</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <figure class="custom-setting-card">
+        <div class="mask mask-circle"></div>
+        <div class="custom-setting-card-inner">
+          <figcaption class="custom-setting-card-img">
+            <div class="custom-setting-card-img-container"></div>
+          </figcaption>
+          <div class="custom-setting-card-title">
+            自行縮放您的網站尺寸設定！
+          </div>
+          <div class="custom-setting-card-btns" id="fontBtns">
+            <button id="scale_down" class="custom-setting-btn btn btn--white btn--xxs">縮小</button>
+            <button id="scale_default" class="custom-setting-btn btn btn--white btn--xxs">恢復預設</button>
+            <button id="scale_up" class="custom-setting-btn btn btn--white btn--xxs">放大</button>
+          </div>
+        </div>
+      </figure>
+    </nav>
+  </aside>
+  <article class="main-content" id="MainContent">
+    <div class="backend-page-content">
+      <div class="backend-page-header">
+        <div class="mask mask_datas"></div>
+        <div class="lottie lottie-bg" data-animation-path="https://assets7.lottiefiles.com/packages/lf20_qwATcU.json" data-anim-loop="true" data-name="cahrt1"></div>
+        <div class="backend-page-header-cnt">
+          <h2 class="backend-page-title">營運指標 - 在職訓練指標 - 參訓者薪資落點分布</h2>
+          <ul class="backend-page-breadcrumbs">
+            <li class="backend-page-breadcrumbs-item">
+              <a href="javascript:;">首頁</a>
+            </li>
+            <li class="backend-page-breadcrumbs-item">
+              營運指標
+            </li>
+            <li class="backend-page-breadcrumbs-item">
+              在職訓練指標
+            </li>
+            <li class="backend-page-breadcrumbs-item">
+              參訓者薪資落點分布
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="backend-page-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="dashboard-card">
+                <header class="dashboard-card-header">
+                  <div class="dashboard-card-header-lt">
+                    <h3 class="hd-title">參訓者薪資落點分布</h3>
+                  </div>
+                  <div class="dashboard-card-header-rt">
+                    <div class="dashboard-card-header-tools">
+                      <div class="dropdown" data-toggle="tooltip" data-original-title="更多功能操作" data-boundary="">
+                        <button class="btn t-form-btn" id="card_map" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <i class="tub-category">
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                            <font></font>
+                          </i>
+                        </button>
+                        <div class="dropdown-menu dropdown-animated dropdown-menu-right" aria-labelledby="card_map">
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-calendar-add dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            選擇日期區間
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-edit dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            編輯預設顯示</a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-translate dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            轉換成其他語言
+                          </a>
+                          <a class="dropdown-item" href="#">
+                            <i class="tub-map dropdown-item-icon">
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                              <font></font>
+                            </i>
+                            前往地圖主頁面
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </header>
+                <div class="dashboard-card-body">
+                  <ul class="nav nav-tabs mb-0" id="change_navs" role="tablist">
+                    <li class="nav-item">
+                      <label class="active" id="tab-1" data-toggle="tab" data-target="#tabv1" role="tab">
+                        <font>參訓者薪資落點分布</font>
+                      </label>
+                    </li>
+                    <li class="nav-item">
+                      <label style="display: none" class="" id="tab-2" data-toggle="tab" data-target="#tabv2" role="tab">
+                        <font>北分署 - 參訓者薪資落點分布</font>
+                      </label>
+                    </li>
+                  </ul>
+                  <div class="tab-content tab-sliding" id="table-tab">
+                    <div class="tab-pane active" id="tabv1" role="tabpanel">
+                      <div class="row">
+                        <div class="col-xl-12">
+                          <div class="slider-timeBar">
+                            <input type="text" id="slider" class="slider" />
+                          </div>
+                          <div class="echart-container">
+                            <div id="user_salary" class="echart-inner"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane " id="tabv2" role="tabpanel">
+                      <div class="row">
+                        <div class="col-xl-6">
+                          <div class="echart-container">
+                            <div id="employment_gender" class="echart-inner"></div>
+                          </div>
+                          <div class="echart-container t-white-space-normal">
+                            <div id="user_salary_courses" class="echart-inner">
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-6">
+                          <div class="echart-container">
+                            <div id="employment_education" class="echart-inner"></div>
+                          </div>
+                          <div class="echart-container">
+                            <div id="employment_identity" class="echart-inner"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="backend-page-footer">
+      <div class="container-fluid">
+        <div class="brand-wda-logo-grey w-32 h-32 in-bk-mid"></div>
+        <div class="in-bk-mid ml-8">
+          勞動力發展署版權所有 Wda Co., Ltd., wda All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </article>
+  <a class="js-go-to" href="javascript:;" data-type="fixed" data-position='{"bottom": 16, "right": 16 }' data-offset-top="100" data-compensation="#Header" data-show-effect="zoomIn" data-hide-effect="zoomOut">
+    <i class="tub-arrow-up-2">
+      <font></font>
+      <font></font>
+    </i>
+  </a>
+  <!-- LOADER -->
+  <!-- <div id="loader">
+    <div class="loader-cnt">
+      <div id="lottie_load"></div>
+    </div>
+  </div> -->
+ <form action="" method="get" id="themes">
+    <input type="hidden" id="fontSizeClass">
+  </form>
+  <!-- JQuery -->
+  <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+  <!-- Bootstrap  -->
+  <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Appear -->
+  <script src="vendor/appear/appear.js"></script>
+  <!-- rSlider -->
+  <script src="vendor/range-slider/js/rSlider.min.js"></script>
+  <!-- Circles -->
+  <script src="vendor/circles-js/circles.min.js"></script>
+  <!-- Chartist -->
+  <script src="vendor/chartist/chartist.min.js"></script>
+  <!-- mCustomScrollbar -->
+  <script src="vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+  <!-- Lottie -->
+  <script src="vendor/lottie-web/5.7.13/lottie.min.js"></script>
+  <!-- Loader -->
+  <!--<script src="vendor/pace-1.2.4/pace.min.js"></script>-->
+  <!-- eCharts -->
+  <script src="vendor/echarts/dist/echarts.min.js"></script>
+  <!-- eCharts Themes -->
+  <script src="vendor/echarts/theme/wda_data.js"></script>
+  <!-- eCharts liquidfill -->
+  <script src="vendor/echarts-liquidfill-master/dist/echarts-liquidfill.min.js"></script>
+  <!-- Svg  Zoom -->
+  <script src="vendor/svg-pan-zoom/dist/svg-pan-zoom.min.js"></script>
+  <!-- Hammer -->
+  <script src="vendor/hammerjs/hammer.min.js"></script>
+  <!-- Main.js -->
+  <!-- <script src="js/core_polyfills.js"></script> -->
+  <script src="js/core.js"></script>
+  <!-- Custom Plugins -->
+  <!-- Chartist -->
+  <script src="js/charts/Tu.chartist-area.js"></script>
+  <script src="js/charts/Tu.chartist-bar.js"></script>
+  <script src="js/charts/Tu.chartist-pie.js"></script>
+  <script src="js/charts/Tu.chartist-donut.js"></script>
+  <!-- Circles -->
+  <script src="js/charts/Tu.circles.js"></script>
+  <!-- Counter -->
+  <script src="js/components/Tu.counter.js"></script>
+  <script src="js/components/Tu.dropdown.js"></script>
+  <script src="js/components/Tu.modal.js"></script>
+  <script src="js/components/Tu.range-slider.js"></script>
+  <!-- Scrollbar Setting -->
+  <script src="js/components/TU.scrollbar.js"></script>
+  <script src="js/components/Tu.toggle.js"></script>
+  <script src="js/components/Tu.gotop.js"></script>
+  <!-- Charts Js -->
+  <script src="js/echarts_variables.js"></script>
+  <script src="js/echarts_inner_now.js"></script>
+  <script>
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,maximum-scale=1.0,user-scalable=no">
+  <meta charset="UTF-8">
+  <title>勞動力發展署 - 職業訓練視覺化分析平台</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <!-- Animate  -->
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <!-- iCon  -->
+  <link rel="stylesheet" type="text/css" href="vendor/iCons/turbo_icon_blur-v1.0/style.css">
+  <!-- CSS  -->
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <!-- Vendor -->
+  <!--[if lte IE 9]>
+        <script src="vender/IE_Supports/html5shiv/dist/html5shiv.min.js"></script>
+        <script src="vender/IE_Supports/respond/dest/respond.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.jquery.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.prototype.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.yui3.min.js"></script>
+    <![endif]-->
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'ufg8zbw',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="backend-header" id="Header">
+    <div class="container-fluid">
+      <div class="header-group">
+        <div class="header-group-lt">
+          <a href="index_v1.html" class="header-logo">
+            <img src="img/logo.svg" title="勞動力發展署" alt="職業訓練視覺化分析平台" class="logo-img">
+          </a>
+        </div>
+        <div class="header-group-rt">
+          <ul class="header-tools">
+            <li class="header-tools-item">
+              <!-- <div class="form-switch">
+                <input class="form-check-input" type="checkbox" value="" id="flexSwitch20x30" />
+                <label class="form-check-label" for="flexSwitch20x30" data-no="No" data-yes="YES"></label>
+              </div> -->
+              <time class="current-clock">
+                <div class="current-clock--heading">
+                  現在時間
+                </div>
+                <div class="clock-group light--clock" id="current_clock">
+                  <div class="flip-card down">
+                    <div class="digital front number0"></div>
+                    <div class="digital back number1"></div>
+                  </div>
+                  <div class="flip-card down">
+                    <div class="digital front number0"></div>
+                    <div class="digital back number1"></div>
+                  </div>
+                  <em>:</em>
+                  <div class="flip-card down">
+                    <div class="digital front number0"></div>
+                    <div class="digital back number1"></div>
+                  </div>
+                  <div class="flip-card down">
+                    <div class="digital front number0"></div>
+                    <div class="digital back number1"></div>
+                  </div>
+                  <em>:</em>
+                  <div class="flip-card down">
+                    <div class="digital front number0"></div>
+                    <div class="digital back number1"></div>
+                  </div>
+                  <div class="flip-card down">
+                    <div class="digital front number0"></div>
+                    <div class="digital back number1"></div>
+                  </div>
+                </div>
+              </time>
+            </li>
+            <li class="header-tools-item">
+              <time class="t-calendar-date" id="current_date">
+                <dl>
+                  <dt>
+                    <strong id="month" class="t-month"></strong>
+                  </dt>
+                  <dd>
+                    <span id="date" class="t-date"></span>
+                    <span id="day" class="t-day"></span>
+                  </dd>
+                </dl>
+              </time>
+            </li>
+            <li class="header-tools-item">
+              <div class="dropdown dropdown-user-menu" data-toggle="tooltip" data-html="true" data-placement="left" title="勞動力發展署<br>訓練發展組 歐陽光亮">
+                <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="avatar-container">
+                    <div class="avatar-img" data-bg-img-src="dist/img/3d_avatars/3d-male-001.webp"></div>
+                  </div>
+                  <div class="user-description">
+                    <div class="user-description-unit">勞動力發展署</div>
+                    <div class="user-description-txts">訓練發展組 歐陽光亮</div>
+                  </div>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-lock-1 dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">密碼變更</font>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-profile dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">個人資料</font>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-logout dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">登出系統</font>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- SIDE MEUN -->
+  <aside class="side-bar-menu" id="SideBar">
+    <h2 class="side-main-title">
+      <font class="side-main-title-inner">功能選單</font>
+      <big>MEUN</big>
+      <input id="BurGerMenu" type="checkbox" class="toggle-input">
+      <label id="BurGer" for="BurGerMenu" class="toggle-menu">
+        <span></span>
+      </label>
+    </h2>
+    <nav class="side-main-menu">
+      <ul class="js-scrollbar">
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v1.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v1</span>
+            <label class="badge t-badge-soft-secondary">v1</label>
+          </a>
+        </li>
+        <li class="side-main-list-item ">
+          <a class="side-main-list-link" href="index_v2.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v2</span>
+            <label class="badge t-badge-soft-tertiary">v2</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v3.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v3</span>
+            <label class="badge t-badge-soft-quaternary">v3</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v4.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v4</span>
+            <label class="badge t-badge-soft-primary">v4</label>
+          </a>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-square" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>互動服務管理</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>互動服務</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>互動服務</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>互動服務</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>互動服務</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-civic-cvc" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>營運指標</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="map.html">
+                <span>用地圖看統計</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>本年度目標</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>統計圖表</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-lamp-charge" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>主題分析探勘</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="themes_data.html">
+                <span>參訓學員訓後成效分析</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>在職學員成效分析</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>青年學員成效分析</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-folder-favorite" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>我的收藏</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>我的收藏</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" class="side-sub-menu-link" href="javascript:;">
+                <span>我的收藏</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>我的收藏</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>我的收藏Ｘ</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-setting-2" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>系統管理</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>帳號維護</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>權限管理</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>參數設定</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>資料介接情形</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>稽核紀錄</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </aside>
+  <article class="main-content" id="MainContent">
+    <div class="backend-page-content">
+      <div class="backend-page-header">
+        <div class="mask mask-datas"></div>
+        <div class="lottie lottie-bg" data-animation-path="https://assets7.lottiefiles.com/packages/lf20_qwATcU.json" data-anim-loop="true" data-name="cahrt1"></div>
+        <div class="backend-page-header-cnt">
+          <h2 class="backend-page-title">110 年度職業訓練業務執行績效儀表板</h2>
+          <p class="backend-page-para">歡迎來到
+            <big class="text-primary">職業訓練視覺化分析平台</big>！
+          </p>
+        </div>
+      </div>
+      <div class="backend-page-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-8">
+              <div class="row">
+                <div class="col-xl-12">
+                  <div class="dashboard-card dashboard-card-">
+                    <header class="dashboard-card-header">
+                      <div class="dashboard-card-header-lt">
+                        <i class="tub-map-1" aria-hidden="true">
+                          <font></font>
+                          <font></font>
+                          <font></font>
+                        </i>
+                        <h3 class="hd-title">用地圖看統計</h3>
+                      </div>
+                      <div class="dashboard-card-header-rt">
+                        <div class="dashboard-card-header-tools">
+                          <div class="dropdown" data-toggle="tooltip" data-original-title="更多功能操作" data-boundary="">
+                            <button class="btn btn--square t-form-btn" id="card_map" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="svg-icon svg-icon-info w-24 h-24">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24">
+                                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="5" y="5" width="5" height="5" rx="1" fill="#1F1F39"></rect>
+                                    <rect x="14" y="5" width="5" height="5" rx="1" fill="#1F1F39" opacity="0.3"></rect>
+                                    <rect x="5" y="14" width="5" height="5" rx="1" fill="#1F1F39" opacity="0.3"></rect>
+                                    <rect x="14" y="14" width="5" height="5" rx="1" fill="#1F1F39" opacity="0.3"></rect>
+                                  </g>
+                                </svg>
+                              </i>
+                            </button>
+                            <div class="dropdown-menu dropdown-animated dropdown-menu-right" aria-labelledby="card_map">
+                              <a class="dropdown-item" href="#">
+                                <i class="svg-icon svg-icon-info w-20 h-20 mr-8 opt-48">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <g id="vuesax_bulk_calendar-search" data-name="vuesax/bulk/calendar-search" transform="translate(-620 -188)">
+                                      <g id="calendar-search">
+                                        <path id="Vector" d="M0,0H24V24H0Z" transform="translate(620 188)" fill="none" opacity="0" />
+                                        <path id="Vector-2" data-name="Vector" d="M17,0a1,1,0,0,1,1,1V7.16c0,3-1.5,5-5,5H5c-3.5,0-5-2-5-5V1A1,1,0,0,1,1,0Z" transform="translate(623 197.84)" fill="#292d32" opacity="0.4" />
+                                        <path id="Vector-3" data-name="Vector" d="M13.711,2.31V.75a.75.75,0,0,0-1.5,0v1.5h-6.5V.75a.75.75,0,0,0-1.5,0V2.31A4.248,4.248,0,0,0,0,6.56a.5.5,0,0,0,.5.53h16.92a.5.5,0,0,0,.5-.53A4.248,4.248,0,0,0,13.711,2.31Z" transform="translate(623.039 189.25)" fill="#292d32" />
+                                        <path id="Vector-4" data-name="Vector" d="M7.53,6.47l-.74-.74A3.707,3.707,0,1,0,5.73,6.79l.74.74a.748.748,0,0,0,1.06,0A.754.754,0,0,0,7.53,6.47Z" transform="translate(628.13 200)" fill="#292d32" />
+                                      </g>
+                                    </g>
+                                  </svg>
+                                </i>
+                                選擇日期區間
+                              </a>
+                              <a class="dropdown-item" href="#">
+                                <i class="svg-icon svg-icon-info w-20 h-20 mr-8 opt-36">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <g id="vuesax_bulk_edit" data-name="vuesax/bulk/edit" transform="translate(-620 -252)">
+                                      <g id="edit">
+                                        <path id="Vector" d="M13.48,0H5.52C2.07,0,0,2.06,0,5.52v7.95C0,16.94,2.07,19,5.52,19h7.95c3.46,0,5.52-2.06,5.52-5.52V5.52C19,2.06,16.93,0,13.48,0Z" transform="translate(622 255)" fill="#292d32" opacity="0.4" />
+                                        <path id="Vector-2" data-name="Vector" d="M6.617,1.365c-1.79-1.8-3.54-1.84-5.38,0L.107,2.485a.365.365,0,0,0-.09.37,7.5,7.5,0,0,0,5.11,5.11.41.41,0,0,0,.11.01.386.386,0,0,0,.27-.11l1.11-1.12a3.843,3.843,0,0,0,1.36-2.67A3.922,3.922,0,0,0,6.617,1.365Z" transform="translate(634.403 253.615)" fill="#292d32" />
+                                        <path id="Vector-3" data-name="Vector" d="M11.174,5.08a7.993,7.993,0,0,1-.77-.41c-.2-.12-.4-.25-.59-.39a5.219,5.219,0,0,1-.52-.4,1.028,1.028,0,0,1-.16-.14,7.2,7.2,0,0,1-.95-.96.766.766,0,0,1-.13-.17,3.734,3.734,0,0,1-.38-.51,4.786,4.786,0,0,1-.36-.55,7.885,7.885,0,0,1-.4-.76c-.13-.28-.23-.54-.32-.79L1.214,5.38a3.07,3.07,0,0,0-.76,1.5L.024,9.86a1.872,1.872,0,0,0,.47,1.61,1.773,1.773,0,0,0,1.28.5c.11,0,.22-.01.33-.02l2.97-.42a2.988,2.988,0,0,0,1.5-.76l5.38-5.38C11.7,5.31,11.454,5.2,11.174,5.08Z" transform="translate(626.686 257.34)" fill="#292d32" />
+                                        <path id="Vector-4" data-name="Vector" d="M0,0H24V24H0Z" transform="translate(620 252)" fill="none" opacity="0" />
+                                      </g>
+                                    </g>
+                                  </svg>
+                                </i>
+                                編輯預設顯示</a>
+                              <a class="dropdown-item" href="#">
+                                <i class="svg-icon svg-icon-info w-20 h-20 mr-8 opt-36">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <g id="vuesax_bulk_translate" data-name="vuesax/bulk/translate" transform="translate(-748 -316)">
+                                      <g id="translate">
+                                        <path id="Vector" d="M0,0H24V24H0Z" transform="translate(772 340) rotate(180)" fill="none" opacity="0" />
+                                        <path id="Vector-2" data-name="Vector" d="M5.08,10.16a5.08,5.08,0,1,1,5.08-5.08A5.081,5.081,0,0,1,5.08,10.16Z" transform="translate(759.84 327.84)" fill="#121328" opacity="0.4" />
+                                        <path id="Vector-3" data-name="Vector" d="M3.02,0H6.94c2.07,0,3.07,1,3.02,3.02V6.94c.05,2.07-.95,3.07-3.02,3.02H3.02C1,10,0,9,0,6.93V3.01C0,1,1,0,3.02,0Z" transform="translate(750 318)" fill="#121328" opacity="0.4" />
+                                        <path id="Vector-4" data-name="Vector" d="M4.83,3.84a1.458,1.458,0,0,1-.87-.32,3.823,3.823,0,0,0,.52-1.34h.34a.75.75,0,0,0,0-1.5H3.53a.743.743,0,0,0-1.48,0H.76a.75.75,0,0,0,0,1.5H2.93A2.311,2.311,0,0,1,.75,3.84a.75.75,0,0,0,0,1.5,3.7,3.7,0,0,0,2.18-.72,2.952,2.952,0,0,0,1.89.72.755.755,0,0,0,.75-.75A.747.747,0,0,0,4.83,3.84Z" transform="translate(752.18 320.42)" fill="#121328" />
+                                        <g id="Group">
+                                          <g id="Group-2" data-name="Group">
+                                            <path id="Vector-5" data-name="Vector" d="M7.75,8.5A7.763,7.763,0,0,1,0,.75.755.755,0,0,1,.75,0,.755.755,0,0,1,1.5.75,6.261,6.261,0,0,0,6.33,6.84l-.27-.45a.751.751,0,1,1,1.29-.77L8.4,7.37a.745.745,0,0,1,.01.75A.781.781,0,0,1,7.75,8.5Z" transform="translate(749.25 330.25)" fill="#121328" />
+                                          </g>
+                                          <g id="Group-3" data-name="Group">
+                                            <path id="Vector-6" data-name="Vector" d="M7.756,8.5a.755.755,0,0,1-.75-.75,6.261,6.261,0,0,0-4.83-6.09l.27.45a.751.751,0,1,1-1.29.77L.106,1.13A.745.745,0,0,1,.1.38.732.732,0,0,1,.746,0,7.763,7.763,0,0,1,8.5,7.75.741.741,0,0,1,7.756,8.5Z" transform="translate(762.244 317.25)" fill="#121328" />
+                                          </g>
+                                        </g>
+                                        <path id="Vector-7" data-name="Vector" d="M5.7,4.69,3.562.42A.77.77,0,0,0,2.892,0a.76.76,0,0,0-.67.41L.082,4.68a.745.745,0,0,0,.34,1.01.8.8,0,0,0,.33.08.753.753,0,0,0,.67-.41l.17-.34h2.59l.17.34a.763.763,0,0,0,1.01.34A.745.745,0,0,0,5.7,4.69ZM2.352,3.52,2.9,2.43l.55,1.09Z" transform="translate(762.028 329.64)" fill="#121328" />
+                                      </g>
+                                    </g>
+                                  </svg>
+                                </i>
+                                轉換成其他語言
+                              </a>
+                              <a class="dropdown-item" href="#">
+                                <i class="svg-icon svg-icon-info w-20 h-20 mr-8 opt-36">
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <g id="vuesax_bulk_logout" data-name="vuesax/bulk/logout" transform="translate(-364 -444)">
+                                      <g id="logout">
+                                        <path id="Vector" d="M10,0a.86.86,0,0,1,.86.86V19.15a.86.86,0,0,1-.86.86,9.565,9.565,0,0,1-10-10A9.579,9.579,0,0,1,10,0Z" transform="translate(367.24 446)" fill="#121328" opacity="0.4" />
+                                        <path id="Vector-2" data-name="Vector" d="M12.66,3.068,9.82.218a.75.75,0,0,0-1.06,1.06l1.56,1.56H.75a.75.75,0,0,0,0,1.5h9.57L8.76,5.9a.754.754,0,0,0,0,1.06.748.748,0,0,0,1.06,0l2.84-2.85A.73.73,0,0,0,12.66,3.068Z" transform="translate(371.88 452.473)" fill="#121328" />
+                                        <path id="Vector-3" data-name="Vector" d="M0,0H24V24H0Z" transform="translate(364 444)" fill="none" opacity="0" />
+                                      </g>
+                                    </g>
+                                  </svg>
+                                </i>
+                                前往地圖主頁面
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </header>
+                    <div class="dashboard-card-body">
+                      <ul id="icon1" class="row"></ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <footer class="backend-page-footer">
+      <div class="container-fluid">
+        <div class="brand-wda-logo-grey w-32 h-32 in-bk-mid"></div>
+        <div class="in-bk-mid ml-8">
+          勞動力發展署版權所有 Wda Co., Ltd., wda All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </article>
+</body>
+<!-- JQuery -->
+<script src="vendor/jquery/dist/jquery.min.js"></script>
+<script src="vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+<!-- Bootstrap  -->
+<script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<!-- appear -->
+<script src="vendor/appear/appear.js"></script>
+<!-- circles -->
+<script src="vendor/circles-js/circles.min.js"></script>
+<!-- chartist -->
+<script src="vendor/chartist/chartist.min.js"></script>
+<!-- mCustomScrollbar -->
+<script src="vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<!-- Lottie -->
+<script src="vendor/lottie-web/5.7.13/lottie.min.js"></script>
+<script src="vendor/svg-pan-zoom/dist/svg-pan-zoom.min.js"></script>
+<script src="vendor/hammerjs/hammer.min.js"></script>
+<!-- Loader -->
+<script src="vendor/pace-1.2.4/pace.min.js"></script>
+<!-- Main.js -->
+<script src="js/core.js"></script>
+<!-- chartist -->
+<script src="js/charts/Tu.chartist-area.js"></script>
+<script src="js/charts/Tu.chartist-bar.js"></script>
+<script src="js/charts/Tu.chartist-pie.js"></script>
+<script src="js/charts/Tu.chartist-donut.js"></script>
+<!-- circles -->
+<script src="js/charts/Tu.circles.js"></script>
+<!-- Counter -->
+<script src="js/components/Tu.counter.js"></script>
+<script src="js/components/Tu.dropdown.js"></script>
+<script src="js/components/Tu.modal.js"></script>
+<!-- Scrollbar Setting -->
+<script src="js/components/TU.scrollbar.js"></script>
+<script src="js/components/Tu.toggle.js"></script>
+<!-- <script src="js/customChats.js"></script> -->
+<!-- <script src="js/chartist_pages_2.js"></script> -->
+<!--   <script src="js/chartist_pages.js"></script> -->
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<!-- <script src="vendor/d3.v3/topojson.v1.min.js"></script> -->
+<script src="https://unpkg.com/topojson@3"></script>
+<script>
+$.ajax({
+  url: "vendor/turbo_icon_blur-v1.0/selection.json",
+  dataType: "json",
+  success: function(data) {
+    var icons = data.icons;
+
+    $.each(icons, function(key, icon) {
+
+      $('[data-toggle="tooltip"]').tooltip();
+
+      if (icon.setId == 30) {
+        $('#icon1').append(
+          "<li class='col-xl-2'>\
+              <div class='gui-icon-cnt text-32'>\
+                  <a class='link--grey' href='javascript:;' data-toggle=tooltip title=nre-" + icon.properties.name + ">\
+                      <i class='tub-" + icon.properties.name + "'>\
+                        <font></font>\
+                        <font></font>\
+                        <font></font>\
+                        <font></font>\
+                        <font></font>\
+                        <font></font>\
+                        <font></font>\
+                      </i>\
+                  </a>\
+                  <p>tub-" + icon.properties.name + "</p>\
+              </div>\
+          </li>")
+      }
+
+    })
+
+  },
+  error: function(jqXHR, textStatus, errorThrown) {
+    console.log('ERROR', textStatus, errorThrown);
+  }
+});
+</script>
+
+</html>

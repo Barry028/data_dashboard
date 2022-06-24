@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,maximum-scale=1.0,user-scalable=no">
+  <meta charset="UTF-8">
+  <title>勞動力發展署 - 職業訓練視覺化分析平台</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <!-- Animate  -->
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <!-- iCon  -->
+  <link rel="stylesheet" type="text/css" href="vendor/iCons/turbo_icon_blur-v1.0/style.css">
+  <!-- CSS  -->
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <!-- Vendor -->
+  <!--[if lte IE 9]>
+        <script src="vender/IE_Supports/html5shiv/dist/html5shiv.min.js"></script>
+        <script src="vender/IE_Supports/respond/dest/respond.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.jquery.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.prototype.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.yui3.min.js"></script>
+    <![endif]-->
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'ufg8zbw',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+</head>
+
+<body>
+  <div class="backend-wrapper">
+    <!-- HEADER -->
+    <header class="backend-header" id="Header">
+      <div class="container-fluid">
+        <div class="header-group">
+          <div class="header-group-lt">
+            <a href="index_v1.html" class="header-logo">
+              <img src="img/logo.svg" title="勞動力發展署" alt="職業訓練視覺化分析平台" class="logo-img">
+            </a>
+          </div>
+          <div class="header-group-rt">
+            <ul class="header-tools">
+              <li class="header-tools-item">
+                <!-- <div class="form-switch">
+                <input class="form-check-input" type="checkbox" value="" id="flexSwitch20x30" />
+                <label class="form-check-label" for="flexSwitch20x30" data-no="No" data-yes="YES"></label>
+              </div> -->
+                <time class="current-clock">
+                  <div class="current-clock--heading">
+                    現在時間
+                  </div>
+                  <div class="clock-group light--clock" id="current_clock">
+                    <div class="flip-card down">
+                      <div class="digital front number0"></div>
+                      <div class="digital back number1"></div>
+                    </div>
+                    <div class="flip-card down">
+                      <div class="digital front number0"></div>
+                      <div class="digital back number1"></div>
+                    </div>
+                    <em>:</em>
+                    <div class="flip-card down">
+                      <div class="digital front number0"></div>
+                      <div class="digital back number1"></div>
+                    </div>
+                    <div class="flip-card down">
+                      <div class="digital front number0"></div>
+                      <div class="digital back number1"></div>
+                    </div>
+                    <em>:</em>
+                    <div class="flip-card down">
+                      <div class="digital front number0"></div>
+                      <div class="digital back number1"></div>
+                    </div>
+                    <div class="flip-card down">
+                      <div class="digital front number0"></div>
+                      <div class="digital back number1"></div>
+                    </div>
+                  </div>
+                </time>
+              </li>
+              <li class="header-tools-item">
+                <time class="t-calendar-date" id="current_date">
+                  <dl>
+                    <dt>
+                      <strong id="month" class="t-month"></strong>
+                    </dt>
+                    <dd>
+                      <span id="date" class="t-date"></span>
+                      <span id="day" class="t-day"></span>
+                    </dd>
+                  </dl>
+                </time>
+              </li>
+              <li class="header-tools-item">
+                <div class="dropdown dropdown-user-menu" data-toggle="tooltip" data-html="true" data-placement="left" title="勞動力發展署<br>訓練發展組 歐陽光亮">
+                  <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="avatar-container">
+                      <div class="avatar-img" data-bg-img-src="dist/img/3d_avatars/3d-male-001.webp"></div>
+                    </div>
+                    <div class="user-description">
+                      <div class="user-description-unit">勞動力發展署</div>
+                      <div class="user-description-txts">訓練發展組 歐陽光亮</div>
+                    </div>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">
+                      <i class="tub-lock-1 dropdown-item-icon" aria-hidden="true">
+                        <font></font>
+                        <font></font>
+                        <font></font>
+                        <font></font>
+                        <font></font>
+                      </i>
+                      <font class="dropdown-item-text">密碼變更</font>
+                    </a>
+                    <a class="dropdown-item" href="#">
+                      <i class="tub-profile dropdown-item-icon" aria-hidden="true">
+                        <font></font>
+                        <font></font>
+                      </i>
+                      <font class="dropdown-item-text">個人資料</font>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                      <i class="tub-logout dropdown-item-icon" aria-hidden="true">
+                        <font></font>
+                        <font></font>
+                      </i>
+                      <font class="dropdown-item-text">登出系統</font>
+                    </a>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- SIDE MEUN -->
+    <aside class="side-bar-menu" id="SideBar">
+      <h2 class="side-main-title">
+        <font class="side-main-title-inner">功能選單</font>
+        <big>MEUN</big>
+        <input id="BurGerMenu" type="checkbox" class="toggle-input">
+        <label id="BurGer" for="BurGerMenu" class="toggle-menu">
+          <span></span>
+        </label>
+      </h2>
+      <nav class="side-main-menu">
+        <ul class="js-scrollbar">
+          <li class="side-main-list-item">
+            <a class="side-main-list-link" href="index_v1.html">
+              <i class="tub-home-hashtag" aria-hidden="true">
+                <font></font>
+                <font></font>
+              </i>
+              <span>首頁 v1</span>
+              <label class="badge t-badge-soft-secondary">v1</label>
+            </a>
+          </li>
+          <li class="side-main-list-item ">
+            <a class="side-main-list-link" href="index_v2.html">
+              <i class="tub-home-hashtag" aria-hidden="true">
+                <font></font>
+                <font></font>
+              </i>
+              <span>首頁 v2</span>
+              <label class="badge t-badge-soft-tertiary">v2</label>
+            </a>
+          </li>
+          <li class="side-main-list-item">
+            <a class="side-main-list-link" href="index_v3.html">
+              <i class="tub-home-hashtag" aria-hidden="true">
+                <font></font>
+                <font></font>
+              </i>
+              <span>首頁 v3</span>
+              <label class="badge t-badge-soft-quaternary">v3</label>
+            </a>
+          </li>
+          <li class="side-main-list-item">
+            <a class="side-main-list-link" href="index_v4.html">
+              <i class="tub-home-hashtag" aria-hidden="true">
+                <font></font>
+                <font></font>
+              </i>
+              <span>首頁 v4</span>
+              <label class="badge t-badge-soft-primary">v4</label>
+            </a>
+          </li>
+          <li class="side-main-list-item" data-sub="true">
+            <a href="javascript:;" class="side-main-list-link">
+              <i class="tub-square" aria-hidden="true">
+                <font></font>
+                <font></font>
+                <font></font>
+                <font></font>
+              </i>
+              <span>互動服務管理</span>
+            </a>
+            <ul class="side-sub-menu">
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>互動服務</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>互動服務</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>互動服務</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>互動服務</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="side-main-list-item" data-sub="true">
+            <a href="javascript:;" class="side-main-list-link">
+              <i class="tub-civic-cvc" aria-hidden="true">
+                <font></font>
+                <font></font>
+                <font></font>
+                <font></font>
+                <font></font>
+                <font></font>
+                <font></font>
+                <font></font>
+              </i>
+              <span>營運指標</span>
+            </a>
+            <ul class="side-sub-menu">
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="map.html">
+                  <span>用地圖看統計</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>本年度目標</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>統計圖表</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="side-main-list-item" data-sub="true">
+            <a href="javascript:;" class="side-main-list-link">
+              <i class="tub-lamp-charge" aria-hidden="true">
+                <font></font>
+                <font></font>
+                <font></font>
+              </i>
+              <span>主題分析探勘</span>
+            </a>
+            <ul class="side-sub-menu">
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="themes_data.html">
+                  <span>參訓學員訓後成效分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>在職學員成效分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>青年學員成效分析</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="side-main-list-item" data-sub="true">
+            <a href="javascript:;" class="side-main-list-link">
+              <i class="tub-folder-favorite" aria-hidden="true">
+                <font></font>
+                <font></font>
+              </i>
+              <span>我的收藏</span>
+            </a>
+            <ul class="side-sub-menu">
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>我的收藏</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" class="side-sub-menu-link" href="javascript:;">
+                  <span>我的收藏</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>我的收藏</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>我的收藏Ｘ</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="side-main-list-item" data-sub="true">
+            <a href="javascript:;" class="side-main-list-link">
+              <i class="tub-setting-2" aria-hidden="true">
+                <font></font>
+                <font></font>
+              </i>
+              <span>系統管理</span>
+            </a>
+            <ul class="side-sub-menu">
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>帳號維護</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>權限管理</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>參數設定</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>資料介接情形</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item">
+                <a class="side-sub-menu-link" href="javascript:;">
+                  <span>稽核紀錄</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <article class="main-content" id="MainContent">
+      <div class="backend-page-content">
+        <div class="backend-page-header">
+          <div class="mask mask-pattern"></div>
+          <div class="mask mask-brand-image"></div>
+          <div class="mask mask-blob"></div>
+          <div class="backend-page-header-cnt">
+            <h2 class="backend-page-title">設計規範 - 色彩計畫</h2>
+            <!-- <p class="backend-page-para">歡迎來到 <big>東柏資訊 - 專案管理平台</big> 管理系統！</p> -->
+            <ul class="backend-page-breadcrumbs">
+              <li>
+                <a href="javascript:;">首頁</a>
+              </li>
+              <li>
+                <a href="javascript:;">設計規範</a>
+              </li>
+              <li>
+                色彩計畫
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="backend-page-body">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="dashboard-card dashboard-card-cyan">
+                  <div class="dashboard-card-header">
+                    <div class="dashboard-card-header-lt">
+                      <svg height="2.25rem" class="mr-12" viewBox="0 0 100 100" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="32" cy="50" r="30" fill="#4DD0E1"></circle>
+                        <circle cx="68" cy="34" r="30" fill="#FFF04D"></circle>
+                        <circle cx="60" cy="68" r="30" fill="#F84D8A"></circle>
+                      </svg>
+                      <h3>色彩計畫 Colors</h3>
+                    </div>
+                    <div class="dashboard-card-header-rt">
+                    </div>
+                  </div>
+                  <div class="dashboard-card-body">
+                    <p class="para para-dropcap para-dropcap-primary mb-12">
+                      <!-- <font class="t-dropcap clearfix">色</font>彩 -->
+                      色彩 <code>(colors)</code> 主要分成五組，
+                      <strong>💎 主題色</strong>、
+                      <strong>💎 主題文字色</strong>、
+                      <strong>💎 背景色</strong>、
+                      <strong>💎 中性灰色</strong>及<strong>💎 中性品牌灰色</strong>。
+                    </p>
+                    <p class="para">
+                      在 <kbd>Sass</kbd> 中使用顏色變數
+                      <code>scss/bootstrap3/helpers/_variables_Colors.scss</code>
+                    </p>
+                    <p class="para mb-20 text-right">
+                      <a class="text-border-primary" href="https://getbootstrap.com/docs/3.4/css/#helper-classes-backgrounds" target="_blank">
+                        <font>Boorstrap3 顏色文檔</font>
+                        <i class="tu-external-link1"></i>
+                      </a>
+                    </p>
+                    <hr>
+                    <ul class="nav nav-segment" id="color_navs" role="tablist" data-scroll="x">
+                      <li class="nav-item">
+                        <label class="active" id="theme-tab" data-toggle="tab" href="#theme" role="tab">
+                          <font>主題顏色</font>
+                          <label class="badge badge-rounded t-badge-primary">8</label>
+                        </label>
+                      </li>
+                      <li class="nav-item">
+                        <label class="" id="typography-tab" data-toggle="tab" href="#typography" role="tab">
+                          <font>主題文字色</font>
+                          <label class="badge badge-rounded t-badge-primary">4</label>
+                        </label>
+                      </li>
+                      <li class="nav-item">
+                        <label class="" id="background-tab" data-toggle="tab" href="#background" role="tab">
+                          <font>背景顏色</font>
+                          <label class="badge badge-rounded t-badge-primary">7</label>
+                        </label>
+                      </li>
+                      <li class="nav-item">
+                        <label class="" id="gray-tab" data-toggle="tab" href="#gray" role="tab">
+                          <font>中性灰色</font>
+                          <label class="badge badge-rounded t-badge-primary">9</label>
+                        </label>
+                      </li>
+                      <li class="nav-item">
+                        <label class="" id="neutral-tab" data-toggle="tab" href="#neutral" role="tab">
+                          <font>中性品牌灰色</font>
+                          <label class="badge badge-rounded t-badge-primary">9</label>
+                        </label>
+                      </li>
+                      <li class="nav-item">
+                        <label class="" id="gradient-tab" data-toggle="tab" href="#gradient" role="tab">
+                          <font>漸層顏色v1</font>
+                          <label class="badge badge-rounded t-badge-primary">12</label>
+                        </label>
+                      </li>
+                    </ul>
+                    <div class="tab-content tab-sliding" id="colorContent">
+                      <div class="tab-pane active" id="theme" role="tab" aria-labelledby="theme-tab">
+                        <ul class="list-palete">
+                          <li class="palete-card palete-card--primary">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">Primary</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-primary</code>
+                                <code>.text-primary</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-primary">text-primary</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--secondary">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">Secondary</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-secondary</code>
+                                <code>.text-secondary</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-secondary">text-secondary</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--tertiary">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">tertiary</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-tertiary</code>
+                                <code>.text-tertiary</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-tertiary">text-tertiary</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--quaternary">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">quaternary</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-quaternary</code>
+                                <code>.text-quaternary</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-quaternary">text-quaternary</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--success">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">success</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-success</code>
+                                <code>.text-success</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-success">text-success</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--danger">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">danger</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-danger</code>
+                                <code>.text-danger</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-danger">text-danger</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--info">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">info</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-info</code>
+                                <code>.text-info</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-info">text-info</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--warning">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">warning</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-warning</code>
+                                <code>.text-warning</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-warning">text-warning</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--darkblue">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">darkblue</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-darkblue</code>
+                                <code>.text-darkblue</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-darkblue">text-darkblue</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="tab-pane" id="typography" role="tab" aria-labelledby="typography-tab">
+                        <ul class="list-palete">
+                          <li class="palete-card palete-card--dark">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">dark</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-dark</code>
+                                <code>.text-dark</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-dark">text-dark</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--darkgray">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">darkgray</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-darkgray</code>
+                                <code>.text-darkgray</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-dark-darkgray">text-darkgray</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--gray">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">gray</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-gray</code>
+                                <code>.text-gray</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-gray">text-gray</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--lightgray">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">lightgray</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-lightgray</code>
+                                <code>.text-lightgray</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-lightgray">text-lightgray</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="tab-pane" id="background" role="tab" aria-labelledby="background-tab">
+                        <ul class="list-palete">
+                          <li class="palete-card palete-card--white">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">white</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-white</code>
+                                <code>.text-white</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-white bg-dark">text-white</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--border">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">border</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-border</code>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--bg">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">bg</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-bg</code>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--bg-light">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">bg-light</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-light</code>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--bg-lighter">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">bg-lighter</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-lighter</code>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--bg-brad-light">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">bg-brad-light</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.bg-brad-light</code>
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="tab-pane" id="gray" role="tab" aria-labelledby="gray-tab">
+                        <ul class="list-palete">
+                          <li class="palete-card palete-card--gray100">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">Gray-100</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-gray100</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-gray100">text-gray100</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--gray200">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">Gray-200</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-gray200</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-gray200">text-gray200</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--gray300">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">Gray-300</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-gray300</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-gray300">text-gray300</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--gray400">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">Gray-400</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-gray400</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-gray400">text-gray400</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--gray500">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">Gray-500</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-gray500</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-gray500">text-gray500</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--gray600">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">Gray-600</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-gray600</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-gray600">text-gray600</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--gray600">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">Gray-700</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-gray700</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-gray700">text-gray700</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--gray800">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">Gray-800</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-gray800</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-gray800">text-gray800</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--gray900">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">Gray-900</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-gray900</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-gray900">text-gray900</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="tab-pane" id="neutral" role="tab" aria-labelledby="neutral-tab">
+                        <ul class="list-palete">
+                          <li class="palete-card palete-card--neutral100">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">neutral-100</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-neutral100</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-neutral100">text-neutral100</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--neutral200">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">neutral-200</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-neutral200</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-neutral200">text-neutral200</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--neutral300">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">neutral-300</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-neutral300</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-neutral300">text-neutral300</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--neutral400">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">neutral-400</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-neutral400</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-neutral400">text-neutral400</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--neutral500">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">neutral-500</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-neutral500</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-neutral500">text-neutral500</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--neutral600">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">neutral-600</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-neutral600</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-neutral600">text-neutral600</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--neutral600">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">neutral-700</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-neutral700</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-neutral700">text-neutral700</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--neutral800">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">neutral-800</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-neutral800</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-neutral800">text-neutral800</p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--neutral900">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">neutral-900</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.text-neutral900</code>
+                              </p>
+                              <p class="palete-color__code palete-color__lighten__code text-neutral900">text-neutral900</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="tab-pane" id="gradient" role="tab" aria-labelledby="gradient-tab">
+                        <ul class="list-palete">
+                          <li class="palete-card palete-card--t-grd-bg-primary gradient">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">grd-bg-primary</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.t-grd-bg-primary</code>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--t-grd-bg-secondary gradient">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">grd-bg-secondary</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.t-grd-bg-secondary</code>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--t-grd-bg-tertiary gradient">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">grd-bg-tertiary</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.t-grd-bg-tertiary</code>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--t-grd-bg-success gradient">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">grd-bg-success</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.t-grd-bg-success</code>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--t-grd-bg-danger gradient">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">grd-bg-danger</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.t-grd-bg-danger</code>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--t-grd-bg-warning gradient">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">grd-bg-warning</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.t-grd-bg-warning</code>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--t-grd-bg-info gradient">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">grd-bg-info</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.t-grd-bg-info</code>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--t-grd-bg-dark gradient">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">grd-bg-dark</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.t-grd-bg-dark</code>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--t-grd-bg-darkgray gradient">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">grd-bg-darkgray</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.t-grd-bg-darkgray</code>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--t-grd-bg-gray gradient">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">grd-bg-gray</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.t-grd-bg-gray</code>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--t-grd-bg-lightgray gradient">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">grd-bg-lightgray</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.t-grd-bg-lightgray</code>
+                              </p>
+                            </div>
+                          </li>
+                          <li class="palete-card palete-card--t-grd-bg-darkblue gradient">
+                            <div class="palete-color">
+                              <div class="palete-color__square palete-color__lighten"></div>
+                            </div>
+                            <div class="palete-color__content">
+                              <h5 class="palete-color__name">grd-bg-darkblue</h5>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__hex"></p>
+                              <p class="palete-color__code palete-color__lighten__code__rgb"></p>
+                              <p class="palete-color__code palete-color__lighten__code palete-color__lighten__code__class">
+                                <code>.t-grd-bg-darkblue</code>
+                              </p>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="backend-page-footer">
+        <div class="container-fluid">
+          <div class="brand-wda-logo-grey w-32 h-32 in-bk-mid"></div>
+          <div class="in-bk-mid ml-8">
+            勞動力發展署版權所有 Wda Co., Ltd., wda All rights reserved.
+          </div>
+        </div>
+      </footer>
+    </article>
+    <!-- Go Top -->
+    <button class="js-go-to go-to-top" data-type="fixed" data-position='{"bottom": 24,"right": 0}' data-offset-top="100" data-compensation="#js-header" data-show-effect="zoomIn" data-hide-effect="zoomOut" data-style="rocket">
+      <div class="rocket">
+        <div class="rocket__body">
+          <div class="rocket__inner"></div>
+        </div>
+        <div class="rocket__fire"></div>
+      </div>
+    </button>
+    <!-- Loading -->
+    <div id="loadingMask">
+      <div id="svgContainer"></div>
+    </div>
+    <!-- JQuery -->
+    <script src="vendor/jquery/dist/jquery.min.js"></script>
+    <script src="vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    <!-- Bootstrap  -->
+    <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- appear -->
+    <script src="vendor/appear/appear.js"></script>
+    <!-- circles -->
+    <script src="vendor/circles-js/circles.min.js"></script>
+    <!-- chartist -->
+    <script src="vendor/chartist/chartist.min.js"></script>
+    <!-- mCustomScrollbar -->
+    <script src="vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- Lottie -->
+    <script src="vendor/lottie-web/5.7.13/lottie.min.js"></script>
+    <script src="vendor/svg-pan-zoom/dist/svg-pan-zoom.min.js"></script>
+    <script src="vendor/hammerjs/hammer.min.js"></script>
+    <!-- Loader -->
+    <script src="vendor/pace-1.2.4/pace.min.js"></script>
+    <!-- Main.js -->
+    <script src="js/core.js"></script>
+    <!-- chartist -->
+    <script src="js/charts/Tu.chartist-area.js"></script>
+    <script src="js/charts/Tu.chartist-bar.js"></script>
+    <script src="js/charts/Tu.chartist-pie.js"></script>
+    <script src="js/charts/Tu.chartist-donut.js"></script>
+    <!-- circles -->
+    <script src="js/charts/Tu.circles.js"></script>
+    <!-- Counter -->
+    <script src="js/components/Tu.counter.js"></script>
+    <script src="js/components/Tu.dropdown.js"></script>
+    <script src="js/components/Tu.modal.js"></script>
+    <!-- Scrollbar Setting -->
+    <script src="js/components/TU.scrollbar.js"></script>
+    <script src="js/components/Tu.toggle.js"></script>
+    <!-- <script src="js/customChats.js"></script> -->
+    <!-- <script src="js/chartist_pages_2.js"></script> -->
+    <!--   <script src="js/chartist_pages.js"></script> -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- <script src="vendor/d3.v3/topojson.v1.min.js"></script> -->
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script>
+    // 轉換色碼
+    function rgb2hex(rgb) {
+      rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+
+      function hex(x) {
+        return ("0" + parseInt(x).toString(16)).slice(-2);
+      }
+      return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+    };
+
+    // Color Palete bulid
+    $("ul.list-palete > li:not(.gradient)").each(function() {
+      var _this = $(this);
+      var lighten = _this.find('div.palete-color').find('div.palete-color__lighten').css('backgroundColor');
+      var lightenHex = rgb2hex(lighten);
+
+
+      _this.find('div.palete-color__content').find('p.palete-color__lighten__code__hex').html(lightenHex);
+      _this.find('div.palete-color__content').find('p.palete-color__lighten__code__rgb').html(lighten);
+    });
+    // $("ul.list-palete > li.gradient").each(function() {
+    //   var _this = $(this);
+    //   var gradient = _this.find('div.palete-color').find('div.palete-color__lighten').css('backgroundImage');
+
+    //   // _this.find('div.palete-color__content').find('p.palete-color__lighten__code__hex').html(gradientHex);
+    //   _this.find('div.palete-color__content').find('p.palete-color__lighten__code__rgb').html(gradient);
+    // });
+    </script>
+</body>
+
+</html>
