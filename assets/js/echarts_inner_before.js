@@ -332,7 +332,7 @@ if ($('#employment_analysis_bg').length) {
     if (option && typeof option === 'object') {
       employment_analysis_bg.setOption(option, true);
     }
-    
+
     window.addEventListener('resize', function() {
       employment_analysis_bg.resize();
     });
@@ -6139,7 +6139,7 @@ if ($('#employment_analysis_cost').length) {
           color: tu_dark,
           interval: 0,
           padding: [4, 0, 0, 0]
-          // rotate: 45
+            // rotate: 45
         }
       }],
       yAxis: [{
@@ -6489,5 +6489,302 @@ if ($('#employment_analysis_side').length) {
     window.addEventListener('resize', function() {
       employment_analysis_side.resize();
     });
+  })();
+}
+
+// before_7 index v8 
+if ($('#vocational_training_citys_pie').length) {
+  (function vocational_training_citys_pie() {
+    var dom = document.getElementById("vocational_training_citys_pie");
+    var vocational_training_citys_pie = echarts.init(dom, 'wda_data', {
+      renderer: 'svg',
+      useDirtyRect: true,
+      locale: 'EN'
+    });
+
+
+    option = {
+      color: color_v21,
+      title: {
+        text: 'XXX 行業別 - 職類別開缺數量',
+        textStyle: {
+          fontSize: 24,
+          fontWeight: 'bolder',
+          color: tu_dark,
+        },
+        x: 'center',
+        y: 'top',
+      },
+      grid: {
+        bottom: 24,
+        left: 100,
+        right: '10%'
+      },
+      tooltip: {
+        trigger: 'item',
+        formatter: '{b} : {c} ({d}%)'
+      },
+      legend: {
+        type: "scroll",
+        width: "100%",
+        x: 'center', //水平位置，【left\center\right\数字】
+        y: 'bottom', //垂直位置，【top\center\bottom\数字】
+        align: 'left', //字在图例的左边或右边【left/right】
+        orient: 'horizontal', //图例方向【horizontal/vertical】
+        icon: 'roundRect', //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+        textStyle: {
+          color: tu_grey_800,
+        },
+
+      },
+      series: [{
+        radius: ['30%', '62%'],
+        center: ['50%', '50%'],
+        type: 'pie',
+        label: {
+          normal: {
+            show: true,
+            formatter: '{b} ({d}%)',
+            textStyle: {
+              fontSize: 12,
+              color: tu_dark,
+            },
+            position: 'outer',
+            alignTo: "labelLine",
+            distanceToLabelLine: 2,
+            edgeDistance: 8
+          },
+          emphasis: {
+            show: true
+          },
+        },
+        labelLine: {
+          normal: {
+            show: true,
+            length: 8,
+            length2: 20
+          },
+          emphasis: {
+            show: true
+          },
+        },
+        data: data.seriesData
+      }, {
+        name: '內',
+        radius: ['30%', '38%'],
+        center: ['50%', '50%'],
+        type: 'pie',
+        label: {
+          alignTo: "edge",
+          normal: {
+            show: false
+          },
+          emphasis: {
+            show: false
+          },
+        },
+        labelLine: {
+          normal: {
+            show: false
+          },
+          emphasis: {
+            show: false
+          }
+        },
+        animation: false,
+        tooltip: {
+          show: false
+        },
+        data: [{
+          value: 0,
+          itemStyle: {
+            color: "rgba(20,20,20,0.16)",
+          },
+        }],
+      }, {
+        name: '外',
+        type: 'pie',
+        clockWise: false,
+        hoverAnimation: false,
+        center: ['50%', '50%'],
+        radius: ['64%', '64%'],
+        label: {
+          normal: {
+            show: false
+          }
+        },
+        tooltip: {
+          show: false
+        },
+        data: [{
+          value: 10,
+          itemStyle: {
+            normal: {
+              borderWidth: 2,
+              borderColor: "rgba(0,0,0,0.12)",
+            }
+          }
+        }]
+      }]
+    };
+
+
+    if (option && typeof option === 'object') {
+      vocational_training_citys_pie.setOption(option);
+    }
+
+    window.addEventListener('resize', function() {
+      vocational_training_citys_pie.resize();
+    });
+
+  })();
+}
+
+// before_7 index v8 
+if ($('#vocational_training_citys_stuedent_pie').length) {
+  (function vocational_training_citys_stuedent_pie() {
+    var dom = document.getElementById("vocational_training_citys_stuedent_pie");
+    var vocational_training_citys_stuedent_pie = echarts.init(dom, 'wda_data', {
+      renderer: 'svg',
+      useDirtyRect: true,
+      locale: 'EN'
+    });
+
+
+    option = {
+      color: color_v22,
+      title: {
+        text: 'XXX職類 - 別各縣市預估結訓學員占比情形',
+        textStyle: {
+          fontSize: 24,
+          fontWeight: 'bolder',
+          color: tu_dark,
+        },
+        x: 'center',
+        y: 'top',
+      },
+      grid: {
+        bottom: 24,
+        left: 100,
+        right: '10%'
+      },
+      tooltip: {
+        trigger: 'item',
+        formatter: '{b} : {c} ({d}%)'
+      },
+      legend: {
+        type: "scroll",
+        width: "100%",
+        x: 'center', //水平位置，【left\center\right\数字】
+        y: 'bottom', //垂直位置，【top\center\bottom\数字】
+        align: 'left', //字在图例的左边或右边【left/right】
+        orient: 'horizontal', //图例方向【horizontal/vertical】
+        icon: 'roundRect', //图例形状【circle\rect\roundRect\triangle\diamond\pin\arrow\none】
+        textStyle: {
+          color: tu_grey_800,
+        },
+
+      },
+      series: [{
+        radius: ['30%', '62%'],
+        center: ['50%', '50%'],
+        type: 'pie',
+        label: {
+          normal: {
+            show: true,
+            formatter: '{b} ({d}%)',
+            textStyle: {
+              fontSize: 12,
+              color: tu_dark,
+            },
+            position: 'outer',
+            alignTo: "labelLine",
+            distanceToLabelLine: 2,
+            edgeDistance: 8
+          },
+          emphasis: {
+            show: true
+          },
+        },
+        labelLine: {
+          normal: {
+            show: true,
+            length: 8,
+            length2: 20
+          },
+          emphasis: {
+            show: true
+          },
+        },
+        data: data.seriesData
+      }, {
+        name: '內',
+        radius: ['30%', '38%'],
+        center: ['50%', '50%'],
+        type: 'pie',
+        label: {
+          alignTo: "edge",
+          normal: {
+            show: false
+          },
+          emphasis: {
+            show: false
+          },
+        },
+        labelLine: {
+          normal: {
+            show: false
+          },
+          emphasis: {
+            show: false
+          }
+        },
+        animation: false,
+        tooltip: {
+          show: false
+        },
+        data: [{
+          value: 0,
+          itemStyle: {
+            color: "rgba(20,20,20,0.16)",
+          },
+        }],
+      }, {
+        name: '外',
+        type: 'pie',
+        clockWise: false,
+        hoverAnimation: false,
+        center: ['50%', '50%'],
+        radius: ['64%', '64%'],
+        label: {
+          normal: {
+            show: false
+          }
+        },
+        tooltip: {
+          show: false
+        },
+        data: [{
+          value: 10,
+          itemStyle: {
+            normal: {
+              borderWidth: 2,
+              borderColor: "rgba(0,0,0,0.12)",
+            }
+          }
+        }]
+      }]
+    };
+
+
+    if (option && typeof option === 'object') {
+      vocational_training_citys_stuedent_pie.setOption(option);
+    }
+
+    window.addEventListener('resize', function() {
+      vocational_training_citys_stuedent_pie.resize();
+
+    });
+
   })();
 }

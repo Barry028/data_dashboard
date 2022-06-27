@@ -792,387 +792,387 @@ var fontBtnList = document.getElementById('fontBtns').addEventListener('click', 
 
 
 
-// window.addEventListener("load", function() {
-//   var eventsHandler = {
-//     haltEventListeners: ['touchstart', 'touchend', 'touchmove', 'touchleave', 'touchcancel'],
-//     init: function(options) {
-//       var instance = options.instance,
-//         initialScale = 1,
-//         pannedX = 0,
-//         pannedY = 0
+window.addEventListener("load", function() {
+  var eventsHandler = {
+    haltEventListeners: ['touchstart', 'touchend', 'touchmove', 'touchleave', 'touchcancel'],
+    init: function(options) {
+      var instance = options.instance,
+        initialScale = 1,
+        pannedX = 0,
+        pannedY = 0
 
-//       this.hammer = Hammer(options.svgElement, {
-//         inputClass: Hammer.SUPPORT_POINTER_EVENTS ? Hammer.PointerEventInput : Hammer.TouchInput
-//       })
-//       // 多點觸控時兩手指距離越來越近
-//       this.hammer.get('pinch').set({
-//         enable: true
-//       })
-//       this.hammer.on('doubletap', function(ev) {
-//         instance.zoomIn()
-//       })
-//       // 拖動開始 / 過程
-//       this.hammer.on('panstart panmove', function(ev) {
-//         if (ev.type === 'panstart') {
-//           pannedX = 0
-//           pannedY = 0
-//         }
-//         instance.panBy({
-//           x: ev.deltaX - pannedX,
-//           y: ev.deltaY - pannedY
-//         })
-//         pannedX = ev.deltaX
-//         pannedY = ev.deltaY
-//       })
-//       // 多點觸控開始 / 過程
-//       this.hammer.on('pinchstart pinchmove', function(ev) {
-//         if (ev.type === 'pinchstart') {
-//           initialScale = instance.getZoom()
-//           instance.zoomAtPoint(initialScale * ev.scale, {
-//             x: ev.center.x,
-//             y: ev.center.y
-//           })
-//         }
+      this.hammer = Hammer(options.svgElement, {
+        inputClass: Hammer.SUPPORT_POINTER_EVENTS ? Hammer.PointerEventInput : Hammer.TouchInput
+      })
+      // 多點觸控時兩手指距離越來越近
+      this.hammer.get('pinch').set({
+        enable: true
+      })
+      this.hammer.on('doubletap', function(ev) {
+        instance.zoomIn()
+      })
+      // 拖動開始 / 過程
+      this.hammer.on('panstart panmove', function(ev) {
+        if (ev.type === 'panstart') {
+          pannedX = 0
+          pannedY = 0
+        }
+        instance.panBy({
+          x: ev.deltaX - pannedX,
+          y: ev.deltaY - pannedY
+        })
+        pannedX = ev.deltaX
+        pannedY = ev.deltaY
+      })
+      // 多點觸控開始 / 過程
+      this.hammer.on('pinchstart pinchmove', function(ev) {
+        if (ev.type === 'pinchstart') {
+          initialScale = instance.getZoom()
+          instance.zoomAtPoint(initialScale * ev.scale, {
+            x: ev.center.x,
+            y: ev.center.y
+          })
+        }
 
-//         instance.zoomAtPoint(initialScale * ev.scale, {
-//           x: ev.center.x,
-//           y: ev.center.y
-//         })
-//       })
-//       options.svgElement.addEventListener('touchmove', function(e) {
-//         e.preventDefault();
-//       });
-//     },
-//     destroy: function() {
-//       this.hammer.destroy()
-//     }
-//   };
-//   var svg_options = {
-//     zoomEnabled: true,
-//     controlIconsEnabled: true,
-//     fit: true,
-//     center: true,
-//     minZoom: 0.6,
-//     maxZoom: 10,
-//     zoomScaleSensitivity: 0.1,
-//     center: true,
-//     customEventsHandler: eventsHandler
-//   }
-//   if ($('#taiwan_cost').length)
-//     var costZoom = window.zoomTaiwan_cost = svgPanZoom('#taiwan_cost', svg_options);
-//   if ($('#taiwan_course').length)
-//     var courseZoom = window.zoomTaiwan_course = svgPanZoom('#taiwan_course', svg_options);
-//   if ($('#taiwan_course1').length)
-//     var courseZoom1 = window.zoomTaiwan_course = svgPanZoom('#taiwan_course1', svg_options);
+        instance.zoomAtPoint(initialScale * ev.scale, {
+          x: ev.center.x,
+          y: ev.center.y
+        })
+      })
+      options.svgElement.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+      });
+    },
+    destroy: function() {
+      this.hammer.destroy()
+    }
+  };
+  var svg_options = {
+    zoomEnabled: true,
+    controlIconsEnabled: true,
+    fit: true,
+    center: true,
+    minZoom: 0.6,
+    maxZoom: 10,
+    zoomScaleSensitivity: 0.1,
+    center: true,
+    customEventsHandler: eventsHandler
+  }
+  if ($('#taiwan_cost').length)
+    var costZoom = window.zoomTaiwan_cost = svgPanZoom('#taiwan_cost', svg_options);
+  if ($('#taiwan_course').length)
+    var courseZoom = window.zoomTaiwan_course = svgPanZoom('#taiwan_course', svg_options);
+  if ($('#taiwan_course1').length)
+    var courseZoom1 = window.zoomTaiwan_course = svgPanZoom('#taiwan_course1', svg_options);
   
 
-//   $.TuCore.helpers.resize($(window), function() {
-//     if ($('#taiwan_course').length) {
-//       courseZoom.resize();
-//       courseZoom.fit();
-//       courseZoom.center();
-//     }
-//     if ($('#taiwan_course1').length) {
-//       courseZoom1.resize();
-//       courseZoom1.fit();
-//       courseZoom1.center();
-//     }
+  $.TuCore.helpers.resize($(window), function() {
+    if ($('#taiwan_course').length) {
+      courseZoom.resize();
+      courseZoom.fit();
+      courseZoom.center();
+    }
+    if ($('#taiwan_course1').length) {
+      courseZoom1.resize();
+      courseZoom1.fit();
+      courseZoom1.center();
+    }
 
-//     if ($('#taiwan_cost').length) {
-//       costZoom.resize();
-//       costZoom.fit();
-//       costZoom.center();
-//     }
-//   });
-// });
+    if ($('#taiwan_cost').length) {
+      costZoom.resize();
+      costZoom.fit();
+      costZoom.center();
+    }
+  });
+});
 
 
-// if ($('#taiwan_course').length) {
+if ($('#taiwan_course').length) {
 
-//   $('#NewTaipei').tooltip({
-//     title: '<h6>新北市</h6>' +
-//       '<p>課程數量：146 筆</p>',
-//     html: true,
-//     placement: 'right',
-//     container: 'body'
-//   });
-//   $('#Taipei').tooltip({
-//     title: '<h6>台北市</h6>' +
-//       '<p>課程數量：117 筆</p>',
-//     html: true,
-//     placement: 'right',
-//     container: 'body'
-//   });
-//   $('#NewTaipei').tooltip({
-//     title: '<h6>新北市</h6>' +
-//       '<p>課程數量：91 筆</p>',
-//     html: true,
-//     placement: 'right',
-//     container: 'body'
-//   });
-//   $('#Keelung').tooltip({
-//     title: '<h6>基隆市</h6>' +
-//       '<p>課程數量：96 筆</p>',
-//     html: true,
-//     placement: 'right',
-//     container: 'body'
-//   });
-//   $('#Yilan').tooltip({
-//     title: '<h6>宜蘭縣</h6>' +
-//       '<p>課程數量：18 筆</p>',
-//     html: true,
-//     placement: 'right',
-//     container: 'body'
-//   });
-//   $('#Hualien').tooltip({
-//     title: '<h6>花蓮縣</h6>' +
-//       '<p>課程數量：77 筆</p>',
-//     html: true,
-//     placement: 'right',
-//     container: 'body'
-//   });
-//   $('#Taoyuan').tooltip({
-//     title: '<h6>桃園市</h6>' +
-//       '<p>課程數量：18 筆</p>',
-//     html: true,
-//     placement: 'right',
-//     container: 'body'
-//   });
-//   $('#HsinchuCounty').tooltip({
-//     title: '<h6>新竹縣</h6>' +
-//       '<p>課程數量：52 筆</p>',
-//     html: true,
-//     placement: 'top',
-//     container: 'body'
-//   });
-//   $('#HsinchuCity').tooltip({
-//     title: '<h6>新竹市</h6>' +
-//       '<p>課程數量：40 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#Miaoli').tooltip({
-//     title: '<h6>苗栗縣</h6>' +
-//       '<p>課程數量：91 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#Taichung').tooltip({
-//     title: '<h6>台中市</h6>' +
-//       '<p>課程數量：58 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#Nantou').tooltip({
-//     title: '<h6>南投縣</h6>' +
-//       '<p>課程數量：58 筆</p>',
-//     html: true,
-//     placement: 'top',
-//     container: 'body'
-//   });
-//   $('#Changhua').tooltip({
-//     title: '<h6>彰化縣</h6>' +
-//       '<p>課程數量：24 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#Yunlin').tooltip({
-//     title: '<h6>雲林縣</h6>' +
-//       '<p>課程數量：66 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#ChiayiCounty').tooltip({
-//     title: '<h6>嘉義縣</h6>' +
-//       '<p>課程數量：39 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#ChiayiCity').tooltip({
-//     title: '<h6>嘉義市</h6>' +
-//       '<p>課程數量：96 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#Tainan').tooltip({
-//     title: '<h6>台南市</h6>' +
-//       '<p>課程數量：6 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#Kaohsiung').tooltip({
-//     title: '<h6>高雄市</h6>' +
-//       '<p>課程數量：49 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#Pingtung').tooltip({
-//     title: '<h6>屏東縣</h6>' +
-//       '<p>課程數量：72 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#Taitung').tooltip({
-//     title: '<h6>台東縣</h6>' +
-//       '<p>課程數量：28 筆</p>',
-//     html: true,
-//     placement: 'right',
-//     container: 'body'
-//   });
-// }
-// if ($('#taiwan_course1').length) {
+  $('#NewTaipei').tooltip({
+    title: '<h6>新北市</h6>' +
+      '<p>課程數量：146 筆</p>',
+    html: true,
+    placement: 'right',
+    container: 'body'
+  });
+  $('#Taipei').tooltip({
+    title: '<h6>台北市</h6>' +
+      '<p>課程數量：117 筆</p>',
+    html: true,
+    placement: 'right',
+    container: 'body'
+  });
+  $('#NewTaipei').tooltip({
+    title: '<h6>新北市</h6>' +
+      '<p>課程數量：91 筆</p>',
+    html: true,
+    placement: 'right',
+    container: 'body'
+  });
+  $('#Keelung').tooltip({
+    title: '<h6>基隆市</h6>' +
+      '<p>課程數量：96 筆</p>',
+    html: true,
+    placement: 'right',
+    container: 'body'
+  });
+  $('#Yilan').tooltip({
+    title: '<h6>宜蘭縣</h6>' +
+      '<p>課程數量：18 筆</p>',
+    html: true,
+    placement: 'right',
+    container: 'body'
+  });
+  $('#Hualien').tooltip({
+    title: '<h6>花蓮縣</h6>' +
+      '<p>課程數量：77 筆</p>',
+    html: true,
+    placement: 'right',
+    container: 'body'
+  });
+  $('#Taoyuan').tooltip({
+    title: '<h6>桃園市</h6>' +
+      '<p>課程數量：18 筆</p>',
+    html: true,
+    placement: 'right',
+    container: 'body'
+  });
+  $('#HsinchuCounty').tooltip({
+    title: '<h6>新竹縣</h6>' +
+      '<p>課程數量：52 筆</p>',
+    html: true,
+    placement: 'top',
+    container: 'body'
+  });
+  $('#HsinchuCity').tooltip({
+    title: '<h6>新竹市</h6>' +
+      '<p>課程數量：40 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#Miaoli').tooltip({
+    title: '<h6>苗栗縣</h6>' +
+      '<p>課程數量：91 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#Taichung').tooltip({
+    title: '<h6>台中市</h6>' +
+      '<p>課程數量：58 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#Nantou').tooltip({
+    title: '<h6>南投縣</h6>' +
+      '<p>課程數量：58 筆</p>',
+    html: true,
+    placement: 'top',
+    container: 'body'
+  });
+  $('#Changhua').tooltip({
+    title: '<h6>彰化縣</h6>' +
+      '<p>課程數量：24 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#Yunlin').tooltip({
+    title: '<h6>雲林縣</h6>' +
+      '<p>課程數量：66 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#ChiayiCounty').tooltip({
+    title: '<h6>嘉義縣</h6>' +
+      '<p>課程數量：39 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#ChiayiCity').tooltip({
+    title: '<h6>嘉義市</h6>' +
+      '<p>課程數量：96 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#Tainan').tooltip({
+    title: '<h6>台南市</h6>' +
+      '<p>課程數量：6 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#Kaohsiung').tooltip({
+    title: '<h6>高雄市</h6>' +
+      '<p>課程數量：49 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#Pingtung').tooltip({
+    title: '<h6>屏東縣</h6>' +
+      '<p>課程數量：72 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#Taitung').tooltip({
+    title: '<h6>台東縣</h6>' +
+      '<p>課程數量：28 筆</p>',
+    html: true,
+    placement: 'right',
+    container: 'body'
+  });
+}
+if ($('#taiwan_course1').length) {
 
-//   $('#NewTaipei').tooltip({
-//     title: '<h6>新北市</h6>' +
-//       '<p>課程數量：146 筆</p>',
-//     html: true,
-//     placement: 'right',
-//     container: 'body'
-//   });
-//   $('#Taipei').tooltip({
-//     title: '<h6>台北市</h6>' +
-//       '<p>課程數量：117 筆</p>',
-//     html: true,
-//     placement: 'right',
-//     container: 'body'
-//   });
-//   $('#NewTaipei').tooltip({
-//     title: '<h6>新北市</h6>' +
-//       '<p>課程數量：91 筆</p>',
-//     html: true,
-//     placement: 'right',
-//     container: 'body'
-//   });
-//   $('#Keelung').tooltip({
-//     title: '<h6>基隆市</h6>' +
-//       '<p>課程數量：96 筆</p>',
-//     html: true,
-//     placement: 'right',
-//     container: 'body'
-//   });
-//   $('#Yilan').tooltip({
-//     title: '<h6>宜蘭縣</h6>' +
-//       '<p>課程數量：18 筆</p>',
-//     html: true,
-//     placement: 'right',
-//     container: 'body'
-//   });
-//   $('#Hualien').tooltip({
-//     title: '<h6>花蓮縣</h6>' +
-//       '<p>課程數量：77 筆</p>',
-//     html: true,
-//     placement: 'right',
-//     container: 'body'
-//   });
-//   $('#Taoyuan').tooltip({
-//     title: '<h6>桃園市</h6>' +
-//       '<p>課程數量：18 筆</p>',
-//     html: true,
-//     placement: 'right',
-//     container: 'body'
-//   });
-//   $('#HsinchuCounty').tooltip({
-//     title: '<h6>新竹縣</h6>' +
-//       '<p>課程數量：52 筆</p>',
-//     html: true,
-//     placement: 'top',
-//     container: 'body'
-//   });
-//   $('#HsinchuCity').tooltip({
-//     title: '<h6>新竹市</h6>' +
-//       '<p>課程數量：40 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#Miaoli').tooltip({
-//     title: '<h6>苗栗縣</h6>' +
-//       '<p>課程數量：91 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#Taichung').tooltip({
-//     title: '<h6>台中市</h6>' +
-//       '<p>課程數量：58 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#Nantou').tooltip({
-//     title: '<h6>南投縣</h6>' +
-//       '<p>課程數量：58 筆</p>',
-//     html: true,
-//     placement: 'top',
-//     container: 'body'
-//   });
-//   $('#Changhua').tooltip({
-//     title: '<h6>彰化縣</h6>' +
-//       '<p>課程數量：24 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#Yunlin').tooltip({
-//     title: '<h6>雲林縣</h6>' +
-//       '<p>課程數量：66 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#ChiayiCounty').tooltip({
-//     title: '<h6>嘉義縣</h6>' +
-//       '<p>課程數量：39 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#ChiayiCity').tooltip({
-//     title: '<h6>嘉義市</h6>' +
-//       '<p>課程數量：96 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#Tainan').tooltip({
-//     title: '<h6>台南市</h6>' +
-//       '<p>課程數量：6 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#Kaohsiung').tooltip({
-//     title: '<h6>高雄市</h6>' +
-//       '<p>課程數量：49 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#Pingtung').tooltip({
-//     title: '<h6>屏東縣</h6>' +
-//       '<p>課程數量：72 筆</p>',
-//     html: true,
-//     placement: 'left',
-//     container: 'body'
-//   });
-//   $('#Taitung').tooltip({
-//     title: '<h6>台東縣</h6>' +
-//       '<p>課程數量：28 筆</p>',
-//     html: true,
-//     placement: 'right',
-//     container: 'body'
-//   });
-// }
+  $('#NewTaipei').tooltip({
+    title: '<h6>新北市</h6>' +
+      '<p>課程數量：146 筆</p>',
+    html: true,
+    placement: 'right',
+    container: 'body'
+  });
+  $('#Taipei').tooltip({
+    title: '<h6>台北市</h6>' +
+      '<p>課程數量：117 筆</p>',
+    html: true,
+    placement: 'right',
+    container: 'body'
+  });
+  $('#NewTaipei').tooltip({
+    title: '<h6>新北市</h6>' +
+      '<p>課程數量：91 筆</p>',
+    html: true,
+    placement: 'right',
+    container: 'body'
+  });
+  $('#Keelung').tooltip({
+    title: '<h6>基隆市</h6>' +
+      '<p>課程數量：96 筆</p>',
+    html: true,
+    placement: 'right',
+    container: 'body'
+  });
+  $('#Yilan').tooltip({
+    title: '<h6>宜蘭縣</h6>' +
+      '<p>課程數量：18 筆</p>',
+    html: true,
+    placement: 'right',
+    container: 'body'
+  });
+  $('#Hualien').tooltip({
+    title: '<h6>花蓮縣</h6>' +
+      '<p>課程數量：77 筆</p>',
+    html: true,
+    placement: 'right',
+    container: 'body'
+  });
+  $('#Taoyuan').tooltip({
+    title: '<h6>桃園市</h6>' +
+      '<p>課程數量：18 筆</p>',
+    html: true,
+    placement: 'right',
+    container: 'body'
+  });
+  $('#HsinchuCounty').tooltip({
+    title: '<h6>新竹縣</h6>' +
+      '<p>課程數量：52 筆</p>',
+    html: true,
+    placement: 'top',
+    container: 'body'
+  });
+  $('#HsinchuCity').tooltip({
+    title: '<h6>新竹市</h6>' +
+      '<p>課程數量：40 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#Miaoli').tooltip({
+    title: '<h6>苗栗縣</h6>' +
+      '<p>課程數量：91 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#Taichung').tooltip({
+    title: '<h6>台中市</h6>' +
+      '<p>課程數量：58 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#Nantou').tooltip({
+    title: '<h6>南投縣</h6>' +
+      '<p>課程數量：58 筆</p>',
+    html: true,
+    placement: 'top',
+    container: 'body'
+  });
+  $('#Changhua').tooltip({
+    title: '<h6>彰化縣</h6>' +
+      '<p>課程數量：24 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#Yunlin').tooltip({
+    title: '<h6>雲林縣</h6>' +
+      '<p>課程數量：66 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#ChiayiCounty').tooltip({
+    title: '<h6>嘉義縣</h6>' +
+      '<p>課程數量：39 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#ChiayiCity').tooltip({
+    title: '<h6>嘉義市</h6>' +
+      '<p>課程數量：96 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#Tainan').tooltip({
+    title: '<h6>台南市</h6>' +
+      '<p>課程數量：6 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#Kaohsiung').tooltip({
+    title: '<h6>高雄市</h6>' +
+      '<p>課程數量：49 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#Pingtung').tooltip({
+    title: '<h6>屏東縣</h6>' +
+      '<p>課程數量：72 筆</p>',
+    html: true,
+    placement: 'left',
+    container: 'body'
+  });
+  $('#Taitung').tooltip({
+    title: '<h6>台東縣</h6>' +
+      '<p>課程數量：28 筆</p>',
+    html: true,
+    placement: 'right',
+    container: 'body'
+  });
+}
 
 
 

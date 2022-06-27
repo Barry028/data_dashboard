@@ -3695,7 +3695,7 @@ if ($('#now_stable_plans').length) {
           smooth: true,
           symbol: 'circle',
           symbolSize: 12,
-                    color: '#b66353',
+          color: '#b66353',
           markPoint: {
             symbolSize: 72,
             data: [{
