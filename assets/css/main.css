@@ -14118,6 +14118,7 @@ a.text-border-neutral:hover, a.text-border-neutral:focus {
 .dashboard-card .dashboard-card-body {
   position: relative;
   padding: 1.25rem 1.5rem;
+  overflow-x: hidden;
 }
 .dashboard-card .dashboard-card-body .dashboard-card-list-inline {
   font-size: 0;

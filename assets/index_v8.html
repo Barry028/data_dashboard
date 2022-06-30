@@ -126,7 +126,7 @@
       </label>
     </h2>
     <nav class="side-main-menu">
-      <ul class="js-scrollbar" >
+      <ul class="js-scrollbar">
         <li class="side-main-list-item active">
           <a class="side-main-list-link" href="index_v1.html">
             <i class="tub-home-hashtag" aria-hidden="true">
@@ -424,7 +424,7 @@
   <article class="main-content v7" id="MainContent">
     <div class="backend-page-content">
       <div class="backend-page-header backend-page-header-notinner">
-        <div class="mask mask_datas"></div> 
+        <div class="mask mask_datas"></div>
         <div class="float-img opt-64">
           <img src="img/3d_Illustration/nikuu/Other_01.png" alt="bgs">
         </div>
@@ -516,7 +516,6 @@
             </a>
           </li>
         </ul>
-       
       </div>
       <div class="backend-page-body">
         <div class="container-fluid">
@@ -1108,11 +1107,14 @@
                   </ul>
                   <div class="tab-content tab-sliding" id="table-tab">
                     <div class="tab-pane active" id="tabv1" role="tabpanel">
-
+                      <div class="slider-timeBar">
+                        <input type="text" id="slider" class="slider" />
+                      </div>
                       <div class="echart-container mb-0">
                         <div id="index_v8_area" class="echart-inner"></div>
                       </div>
-                    </div><!-- echart-container-1-1  -->
+                    </div>
+                    
                     <div class="tab-pane " id="tabv2" role="tabpanel">
                       <div class="echart-container mb-0">
                         <div id="index_v8_area_citys" class="echart-inner"></div>
@@ -1169,6 +1171,8 @@
   <script src="vendor/appear/appear.js"></script>
   <!-- Circles -->
   <script src="vendor/circles-js/circles.min.js"></script>
+    <!-- rSlider -->
+  <script src="vendor/range-slider/js/rSlider.min.js"></script>
   <!-- Chartist -->
   <script src="vendor/chartist/chartist.min.js"></script>
   <script src="vendor/chartist-plugin-tooltips-updated/dist/chartist-plugin-tooltip.js"></script>
@@ -1203,7 +1207,7 @@
   <script src="js/components/Tu.toggle.js"></script>
   <script src="js/components/Tu.gotop.js"></script>
   <script src="js/echarts_variables.js"></script>
-  <script src="js/echarts_index1.js"></script>
+  <script src="js/echarts_index_20220628.js"></script>
   <script>
   var ntpTable = '';
   $.TuCore.components.modal.init('#NewTaipei', {
@@ -1255,7 +1259,6 @@
       });
     },
   });
-
   </script>
 </body>
 
