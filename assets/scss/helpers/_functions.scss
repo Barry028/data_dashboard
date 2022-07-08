@@ -205,20 +205,17 @@
 @function theme-color($key: "primary") {
     @return map-get($theme-colors, $key);
 }
-@function element-color($key: "primary") {
-    @return map-get($element-colors, $key);
-}
+
 @function element-soft-color($key: "primary") {
     @return map-get($element-soft-colors, $key);
 }
-@function brand-color($key: "facebook") {
-    @return map-get($brand-colors, $key);
-}
+
+// @function brand-color($key: "facebook") {
+//     @return map-get($brand-colors, $key);
+// }
+
 @function grey($key: "100") {
     @return map-get($greys, $key);
-}
-@function neutral($key: "100") {
-    @return map-get($neutrals, $key);
 }
 
 // Request a theme color level
