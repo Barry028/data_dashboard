@@ -6,28 +6,37 @@
       .center([121.5, 24.25])
       .scale(10500);
     const svg = d3.select('body')
-      .select('.d3-map-wrap')
+      .select('.full-map-wrap')
       .append('svg')
       .attr('class', 'tw-map')
       .attr('id', 'taiwan_map_members')
       .attr('width', width)
       .attr('height', height);
-    const tooltip = d3
-      .select("#d3-tooltip")
-      .attr('class', 'd3-tooltips');
+
+    const tooltip = d3.select(".full-map-wrap")
+    .append("div")
+    .attr('class', 'd3-tooltips')
+    .attr('id', 'd3_tooltip_v1')
+
+    //  d3.select("#taiwan_map_members").on("mouseleave", function(e) {
+    //   d3.select("#d3_tooltip_v1").remove();
+    // })
     d3.select("#taiwan_map_members").on("mousemove", function(event, d) {
       let pt = d3.pointer(event, this);
-      tooltip
-        .style('left', pt[0] - 32 + 'px')
-        .style('top', pt[1] - 32 + 'px')
-      console.log(pt);
+      var ofX = event.offsetX;
+      var ofY = event.offsetY ;
+      tooltip.style('transform', "translate("+ofX+"px,"+ofY+"px)")
+      console.log(tooltip);
     });
+
     const path = d3.geoPath()
       .projection(projection);
+
     const g = svg.append('g')
       .attr('id', 'taiwan_members')
       .attr('class', 'd3-map-container')
     d3.json('map_d3/map_test/Taiwan_N/COUNTY_MOI_1090820_topo.json')
+
       .then(function(topology) {
         const geojson = topojson
           .feature(topology, topology.objects.COUNTY_MOI_1090820)
@@ -83,7 +92,7 @@
           .on("mouseover", function(e) {
             d3.select(this).style("fill", tu_secondary_500);
             d3.select(this).select(function(d) {
-              tooltip.html(d.properties.COUNTYNAME);
+              tooltip.html(d.properties.COUNTYENG);
               tooltip.style("opacity", "1");
             });
           })
@@ -180,7 +189,7 @@
     //     const districtMap = d3.group(csvData, d => d["鄉鎮市區"]);
     //     console.log(districtMap);
     //   })
-    
+
     function modal() {
       var ntpTable = '';
 
@@ -236,16 +245,19 @@
     };
 
     setTimeout(function() {
-      modal();      
+      modal();
     }, 3000);
   }
 
   function tainan_map() {
     let width = 1200;
     let height = 675;
+
     const projection = d3.geoMercator()
-      .center([120.24, 23.18])
+      .center([120.64, 23.18])
       .scale(40000);
+    var cnt = d3.select('body')
+      .select('.map-wrap');
     const svg = d3.select('body')
       .select('.map-wrap')
       .append('svg')
@@ -253,8 +265,10 @@
       .attr('id', 'taiwan_map_members')
       .attr('width', width)
       .attr('height', height);
+
     const path = d3.geoPath()
       .projection(projection);
+
     const g = svg.append("g");
     d3.json("map_d3/map_test/Taiwan_N/TOWN_MOI_1100415/TOWN_MOI_1100415_topo.json")
       .then(function(topology) {
@@ -267,7 +281,7 @@
             tainanGeojson.push(el);
           }
         })
-        d3.csv("map_test/_tainan/D_lvr_land_A.csv")
+        d3.csv("map_d3/map_test/_tainan/D_lvr_land_A.csv")
           .then(function(csvData) {
             console.log(csvData);
             const districtMap = d3.group(csvData, d => d["鄉鎮市區"]);
@@ -280,6 +294,7 @@
                 }
               }
             });
+
             const tainanGeojsonSort = d3.sort(tainanGeojson, d => (d.properties.HOUSEPRICE));
             console.log(tainanGeojsonSort);
             let maxNum = d3.max(tainanGeojson, (d) => (d.properties.HOUSEPRICE));
@@ -291,30 +306,35 @@
               .join("path")
               .style('fill', "white")
               .style("stroke", "black")
-              .style("stroke-width", ".25")
-              .style("stroke-opacity", ".5")
+              .style("stroke-width", ".24")
+              .style("stroke-opacity", ".66")
               .attr("d", path)
               .on("mouseenter", function(e) {
                 let getTheDtName = d3.select(this).data()[0].properties.TOWNNAME;
                 let getTheDtPrice = parseInt(d3.select(this).data()[0].properties.HOUSEPRICE);
-                svg.append("g")
-                  .style("border", function(d) {
-                    console.log(e)
-                  })
-                  .attr("id", "tooltip").html(`
-                      <rect rx="4" x="${e.x}" y="${e.y}" width="100" height="75" style="fill:darkblue;"></rect>
-                          <text font-weight="bold" style="fill:white;">
-                              <tspan x="${e.x+20}" y="${e.y+35}">${getTheDtName}</tspan>
-                              <tspan x="${e.x+20}" y="${e.y+55}">${getTheDtPrice}元</tspan>
-                              <tspan x="${e.x+45}" y="${e.y+70}" style="font-size:10px;">Avg:NT$/m²</tspan>
-                          </text>
-                      `)
+                var ofX = e.offsetX;
+                var ofY = e.offsetY ;
+                cnt.append("div")
+                  // .style("border", function(d) {
+                  //   console.log(e)
+                  // })
+                  .style('transform', "translate("+ofX+"px,"+ofY+"px)")
+                  .attr('class', 'd3-tooltips')
+                  .attr("id", "d3_tooltip").html(
+                    '<ul class="d3-tooltips-ul">' +
+                        '<li class="d3-tooltips-item item-title">'+getTheDtName+'</li>'+
+                        '<li class="d3-tooltips-item">'+getTheDtPrice +' 元</li>'+
+                        '<li class="d3-tooltips-item"> Avg:NT$/m² </li>'+
+                    '</ul>'
+                  )
               })
               .on("mouseleave", function(e) {
-                svg.select("#tooltip").remove();
+                cnt.select("#d3_tooltip").remove();
               })
+
               .transition().delay((d, i) => (i * 100))
               .style("fill", d => (redGreen(d.properties.HOUSEPRICE)))
+
 
             const zoom = d3.zoom()
               .scaleExtent([0.5, 8])

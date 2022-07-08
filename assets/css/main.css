@@ -8306,7 +8306,7 @@ fieldset[disabled] .datepicker table tr td.selected.disabled:focus, fieldset[dis
   background-color: #66C4C5;
   -webkit-box-shadow: 0px -1px 5px 0px rgba(0, 0, 0, 0.1);
           box-shadow: 0px -1px 5px 0px rgba(0, 0, 0, 0.1);
-  color: #66C4C5;
+  color: element-color("primary");
   top: 50%;
   right: 0;
   -webkit-transform: translateX(5px) translateY(-50%);
@@ -15427,6 +15427,28 @@ a.text-border-neutral:hover, a.text-border-neutral:focus {
   border-radius: 8px;
 }
 
+.d3-tooltips {
+  position: absolute;
+  color: #fff;
+  background-color: #1F1F39;
+  padding: 0.75rem 1rem;
+  display: inline-block;
+  font-size: 1rem;
+  border-radius: 8px;
+  filter: alpha(opacity=80);
+  filter: progid:DXImageTransform.Microsoft.Alpha(opacity=80);
+  opacity: 0.8;
+  z-index: 999;
+}
+.d3-tooltips .d3-tooltips-ul {
+  font-size: 0.875rem;
+}
+.d3-tooltips .d3-tooltips-ul .d3-tooltips-item.item-title {
+  font-size: 125%;
+  font-weight: 900;
+  margin-bottom: 0.75rem;
+}
+
 .map-content {
   position: relative;
   background-color: #f6f9fb;
@@ -15474,7 +15496,8 @@ a.text-border-neutral:hover, a.text-border-neutral:focus {
   position: relative;
   width: 100%;
 }
-.map-container .map-wrap {
+.map-container .map-wrap,
+.map-container .full-map-wrap {
   position: absolute;
   left: 0;
   top: 0;
