@@ -5,6 +5,7 @@
     const projection = d3.geoMercator()
       .center([121.5, 24.25])
       .scale(10500);
+
     const svg = d3.select('body')
       .select('.full-map-wrap')
       .append('svg')
@@ -184,11 +185,6 @@
           svg.transition().call(zoom.scaleTo, 1);
         });
       });
-    // d3.csv("map_test/_tainan/D_lvr_land_A.csv")
-    //   .then(function(csvData) {
-    //     const districtMap = d3.group(csvData, d => d["鄉鎮市區"]);
-    //     console.log(districtMap);
-    //   })
 
     function modal() {
       var ntpTable = '';
