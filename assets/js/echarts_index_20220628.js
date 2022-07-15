@@ -742,7 +742,183 @@ if ($('#index_v8_area_citys').length) {
     });
   })();
 }
+// index v8 區域訓練資源運用情形 職類別各縣市職缺數與職訓量能供給情形
+if ($('#index_v8_area_citys').length) {
+  (function index_v8_area_citys() {
+    var dom = document.getElementById("index_v8_area_citys");
+    var index_v8_area_citys = echarts.init(dom, 'wda_data', {
+      renderer: 'svg',
+      useDirtyRect: true,
+      locale: 'EN'
+    });
 
+    let data1 = [];
+    let data2 = [];
+    let data1_n = [];
+    let data2_n = [];
+
+    for (let i = 0; i < 6; i++) {
+      data1.push(+Math.floor((Math.random(180) * 200).toFixed(0)) + 100);
+      data2.push(+Math.floor((Math.random(80) * 500).toFixed(0)) + 20);
+    }
+
+    function randomSort(arr, newArr) {
+      // 如果原陣列arr的length值等於1時，原陣列只有一個值，其鍵值為0
+      // 同時將這個值push到新陣列newArr中
+      if (arr.length == 1) {
+        newArr.push(arr[0]);
+        return newArr.sort(); // 相當於遞迴退出
+      }
+      // 在原陣列length基礎上取出一個隨機數
+      var random = Math.ceil(Math.random() * arr.length) - 1;
+      // 將原陣列中的隨機一個值push到新陣列newArr中
+      newArr.push(arr[random]);
+      // 對應刪除原陣列arr的對應陣列項
+      arr.splice(random, 1);
+      newArr.sort();
+      return randomSort(arr, newArr.sort());
+    }
+    randomSort(data1, data1_n);
+    randomSort(data2, data2_n);
+
+    option = {
+      title: {
+        text: '01:經營／行政／總務 - XXX 職類別各縣市職缺數與職訓量能供給情形',
+      },
+      grid: {
+        left: '2%',
+        right: '2%',
+        bottom: '10%',
+        top: '12%',
+        containLabel: true
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'cross',
+          crossStyle: {
+            color: tu_grey_400
+          }
+        }
+      },
+      toolbox: {
+        feature: {
+          dataView: {
+            show: true,
+            readOnly: false
+          },
+          magicType: {
+            show: true,
+            type: ['line', 'bar']
+          },
+          restore: {
+            show: true
+          },
+          saveAsImage: {
+            show: true
+          }
+        }
+      },
+      legend: {
+        bottom: '0%'
+      },
+      xAxis: [{
+        type: 'category',
+        data: branch,
+        axisPointer: {
+          type: 'shadow'
+        },
+        axisLabel: {
+          fontSize: 18,
+          fontWeight: 'bolder',
+          interval: 0,
+          rotate: 0,
+          top: '12',
+          color: tu_dark,
+          padding: [8, 0, 0, 8]
+        }
+      }],
+      yAxis: [{
+        type: 'value',
+        name: '求才開缺數',
+        nameLocation: 'start',
+        min: 0,
+        // interval: 50,
+        nameTextStyle: {
+          color: tu_grey_300,
+          align: 'right'
+        },
+        axisLabel: {
+          formatter: '{value} 人'
+        }
+      }, {
+        type: 'value',
+        name: '職訓課程學員數',
+        nameLocation: 'start',
+        min: 0,
+        max: 100,
+        nameTextStyle: {
+          color: tu_grey_500,
+          align: 'left'
+        },
+        interval: 20,
+        axisLabel: {
+          formatter: '{value} %'
+        }
+      }],
+      series: [{
+        name: '求才開缺數',
+        type: 'bar',
+        showBackground: true,
+        backgroundStyle: {
+          color: 'rgba(154, 160, 168, 0.12)',
+          borderRadius: [0, 8, 8, 0]
+        },
+        itemStyle: {
+          shadowBlur: 10,
+          shadowColor: 'rgba(0,0,0,0.24)',
+          borderRadius: [8, 8, 0, 0],
+          color: '#ff9e9e'
+        },
+        tooltip: {
+          valueFormatter: function(value) {
+            return value + ' 人';
+          }
+        },
+        data: data1_n
+      }, {
+        name: '職訓課程學員數',
+        type: 'bar',
+        showBackground: true,
+        backgroundStyle: {
+          color: 'rgba(154, 160, 168, 0.12)',
+          borderRadius: [0, 8, 8, 0]
+        },
+        itemStyle: {
+          shadowBlur: 10,
+          shadowColor: 'rgba(0,0,0,0.24)',
+          borderRadius: [8, 8, 0, 0],
+          color: '#89da8b'
+        },
+
+        tooltip: {
+          valueFormatter: function(value) {
+            return value + ' 人';
+          }
+        },
+        data: data2_n
+      }]
+    };
+
+    if (option && typeof option === 'object') {
+      index_v8_area_citys.setOption(option, true);
+    }
+
+    window.addEventListener('resize', function() {
+      index_v8_area_citys.resize();
+    });
+  })();
+}
 // index v9 訊後就業情形 
 if ($('#index_training_capacity').length) {
   (function index_training_capacity() {
