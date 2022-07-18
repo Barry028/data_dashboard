@@ -1197,9 +1197,9 @@ function saveToStorage() {
                       </div>
                     </div>
                     <div class="tab-pane pt-0" id="tabv2" role="tabpanel">
-                      <div class="d3-map-container" id="taiwan_map_members">
+                      <div class="d3-map-container  full-map-wrap" id="taiwan_map_members">
                         <div class="mask mask_graph"></div>
-                        <div class="d3-map-wrap">
+                        <div class="d3-map-wrap-inner">
                           <div class="d3-map-tools">
                             <button class="btn btn--square btn--grey" id="zoomIn">
                               <i class="tub-search-zoom-in">
@@ -1222,6 +1222,7 @@ function saveToStorage() {
                               </i>
                             </button>
                           </div>
+
                           <div id='d3-tooltip'>
                           </div>
                           <!-- <img src="img/disable-img.jpg" alt="" class="center-block"> -->
@@ -1231,7 +1232,7 @@ function saveToStorage() {
                     <div class="tab-pane pt-0" id="tabv3" role="tabpanel">
                       <div class="map-container">
                         <div class="mask mask_graph"></div>
-                        <svg id="taiwan_cost" class="tw-map" xmlns="http://www.w3.org/2000/svg" width="810" height="744" viewBox="0 0 810 744">
+<!--                         <svg id="taiwan_cost" class="tw-map" xmlns="http://www.w3.org/2000/svg" width="810" height="744" viewBox="0 0 810 744">
                           <g id="Group_214819" data-name="Group 214819" transform="translate(-476 -116)">
                             <rect id="Rectangle_170063" data-name="Rectangle 170063" width="810" height="744" rx="12" transform="translate(476 116)" fill="transparent" />
                             <g id="Group_214818" data-name="Group 214818" transform="translate(11 114.364)">
@@ -1409,7 +1410,7 @@ function saveToStorage() {
                               </g>
                             </g>
                           </g>
-                        </svg>
+                        </svg> -->
                       </div>
                     </div>
                   </div>
@@ -2029,7 +2030,7 @@ function saveToStorage() {
   <script src="js/d3_map.js"></script>
   <script type="text/javascript">
   taiwan_map_members();
-
+// tainan_map()
 
 
 
