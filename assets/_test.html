@@ -393,11 +393,18 @@
                   </div>
                 </header>
                 <div class="dashboard-card-body text-0">
-                  <div class="map-container">
+                 <!--  <div class="map-container">
                     <div id="echarts_tw_county_map" class="map-wrap-inner">
                       <div class="mask mask_graph"></div>
-
                     </div>
+                  </div> -->
+                  <div class="map-container">
+                    <div id="echarts_tw_branch_map" class="map-wrap-inner">
+                      <div class="mask mask_graph"></div>
+                    </div>
+                  </div>
+                  <div style="width: 50%">
+                    <div id="chartid1"></div>
                   </div>
                 </div>
               </div>
@@ -421,6 +428,7 @@
       <font></font>
     </i>
   </a>
+  <!-- precision=0.01 -->
   <!-- LOADER -->
   <!--   <div id="loader">
     <div class="loader-cnt">
@@ -451,8 +459,10 @@
   <script src="vendor/hammerjs/hammer.min.js"></script>
   <!-- eCharts -->
   <script src="vendor/echarts/dist/echarts.min.js"></script>
+  <script src="js/echarts_Util.js"></script>
   <!-- eCharts Themes -->
-  <script src="vendor/echarts/theme/wda_data.js"></script>
+  <!--   <script src="vendor/echarts/theme/wda_data.js"></script>
+ -->
   <script type="text/javascript" src="http://zhangmuchen.top/file/dep/echarts/map/js/china.js"></script>
   <!--   <script type="text/javascript" src="http://zhangmuchen.top/file/dep/echarts/latest/extension/bmap.min.js"></script> -->
   <!-- eCharts liquidfill -->
@@ -460,13 +470,34 @@
   <!-- Main.js -->
   <script src="js/core.js"></script>
   <!-- Custom Plugins -->
-    <script src="js/echarts_variables.js"></script>
+  <script src="js/echarts_variables.js"></script>
   <script src="js/echarts_maps.js"></script>
   <script src="js/components/Tu.modal.js"></script>
   <!-- Scrollbar Setting -->
   <script src="js/components/Tu.scrollbar.js"></script>
   <script src="js/components/Tu.toggle.js"></script>
   <script src="js/components/Tu.gotop.js"></script>
+  <script>
+  var piedata = [{ name: '男生', value: 10 },
+    { name: '女生', value: 20 }
+  ];
+  var groupdata = [
+    { group: '類型1', name: '1月', value: 110 },
+    { group: '類型2', name: '1月', value: 115 },
+    { group: '類型1', name: '2月', value: 50 },
+    { group: '類型2', name: '2月', value: 102 },
+    { group: '類型1', name: '3月', value: 22 },
+    { group: '類型2', name: '3月', value: 112 },
+    { group: '類型1', name: '4月', value: 80 },
+    { group: '類型2', name: '4月', value: 45 },
+    { group: '類型1', name: '5月', value: 25 },
+    { group: '類型2', name: '5月', value: 92 },
+    { group: '類型1', name: '6月', value: 22 },
+    { group: '類型2', name: '6月', value: 52 }
+  ];
+  var option = TuEcharts.pie(piedata, 4, "職訓分析圖");
+  var initChart = new TuEcharts.renderChart(option, "chartid1");
+  </script>
   <!-- Charts Js -->
   <!--   <script src="js/colors.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -474,153 +505,147 @@
   <script src="js/d3_map.js"></script>
   <script src="js/echarts_index1.js"></script> -->
   <script>
-  const PENDING = 'pending';
-  const FULFILLED = 'fulfilled';
-  const REJECTED = 'rejected';
+  //   const PENDING = 'pending';
+  //   const FULFILLED = 'fulfilled';
+  //   const REJECTED = 'rejected';
 
-  function es5Promise(executor) {
-    this.state = PENDING;
-    this.value = null;
-    this.reason = null;
-    this.onFulfilledCallbacks = [];
-    this.onRejectedCallbacks = [];
+  //   function es5Promise(executor) {
+  //     this.state = PENDING;
+  //     this.value = null;
+  //     this.reason = null;
+  //     this.onFulfilledCallbacks = [];
+  //     this.onRejectedCallbacks = [];
 
-    const resolve = (value) => {
-      if (this.state === PENDING) {
-        this.state = FULFILLED;
-        this.value = value;
-        this.onFulfilledCallbacks.forEach(fun => {
-          fun();
-        });
-      }
-    }
+  //     const resolve = (value) => {
+  //       if (this.state === PENDING) {
+  //         this.state = FULFILLED;
+  //         this.value = value;
+  //         this.onFulfilledCallbacks.forEach(fun => {
+  //           fun();
+  //         });
+  //       }
+  //     }
 
-    const reject = (reason) => {
-      if (this.state === PENDING) {
-        this.state = REJECTED;
-        this.reason = reason;
-        this.onRejectedCallbacks.forEach(fun => {
-          fun();
-        });
-      }
-    }
+  //     const reject = (reason) => {
+  //       if (this.state === PENDING) {
+  //         this.state = REJECTED;
+  //         this.reason = reason;
+  //         this.onRejectedCallbacks.forEach(fun => {
+  //           fun();
+  //         });
+  //       }
+  //     }
 
-    try {
-      executor(resolve, reject);
-    } catch (reason) {
-      reject(reason);
-    }
-  }
-  es5Promise.prototype.then = function(onFulfilled, onRejected) {
-    if (typeof onFulfilled != 'function') {
-      onFulfilled = function(value) {
-        return value;
-      }
-    }
-    if (typeof onRejected != 'function') {
-      onRejected = function(reason) {
-        throw reason;
-      }
-    }
-    const promise2 = new es5Promise((resolve, reject) => {
-      switch (this.state) {
-        case FULFILLED:
-          setTimeout(() => {
-            try {
-              const x = onFulfilled(this.value);
-              resolve(x);
-            } catch (reason) {
-              reject(reason);
-            }
-          }, 0);
-          break;
-        case REJECTED:
-          setTimeout(() => {
-            try {
-              const x = onRejected(this.reason);
-              resolve(x);
-            } catch (reason) {
-              reject(reason);
-            }
-          }, 0);
-          break;
-        case PENDING:
-          this.onFulfilledCallbacks.push(() => {
-            setTimeout(() => {
-              try {
-                const x = onFulfilled(this.value);
-                resolve(x);
-              } catch (reason) {
-                reject(reason);
-              }
-            }, 0);
-          })
-          this.onRejectedCallbacks.push(() => {
-            setTimeout(() => {
-              try {
-                const x = onRejected(this.reason);
-                resolve(x);
-              } catch (reason) {
-                reject(reason);
-              }
-            }, 0);
-          })
-          break;
-      }
-    })
-    return promise2;
-  }
-  console.log(1);
-
-
-
-  console.log(2);
-
-  es5Promise.reject = function(reason) {
-    return new es5Promise((resolve, reject) => {
-      reject(reason);
-    });
-  };
-
-
-  let promise = new es5Promise((resolve, reject) => {
-    
-    resolve('ConardLi');
-  });
+  //     try {
+  //       executor(resolve, reject);
+  //     } catch (reason) {
+  //       reject(reason);
+  //     }
+  //   }
+  //   es5Promise.prototype.then = function(onFulfilled, onRejected) {
+  //     if (typeof onFulfilled != 'function') {
+  //       onFulfilled = function(value) {
+  //         return value;
+  //       }
+  //     }
+  //     if (typeof onRejected != 'function') {
+  //       onRejected = function(reason) {
+  //         throw reason;
+  //       }
+  //     }
+  //     const promise2 = new es5Promise((resolve, reject) => {
+  //       switch (this.state) {
+  //         case FULFILLED:
+  //           setTimeout(() => {
+  //             try {
+  //               const x = onFulfilled(this.value);
+  //               resolve(x);
+  //             } catch (reason) {
+  //               reject(reason);
+  //             }
+  //           }, 0);
+  //           break;
+  //         case REJECTED:
+  //           setTimeout(() => {
+  //             try {
+  //               const x = onRejected(this.reason);
+  //               resolve(x);
+  //             } catch (reason) {
+  //               reject(reason);
+  //             }
+  //           }, 0);
+  //           break;
+  //         case PENDING:
+  //           this.onFulfilledCallbacks.push(() => {
+  //             setTimeout(() => {
+  //               try {
+  //                 const x = onFulfilled(this.value);
+  //                 resolve(x);
+  //               } catch (reason) {
+  //                 reject(reason);
+  //               }
+  //             }, 0);
+  //           })
+  //           this.onRejectedCallbacks.push(() => {
+  //             setTimeout(() => {
+  //               try {
+  //                 const x = onRejected(this.reason);
+  //                 resolve(x);
+  //               } catch (reason) {
+  //                 reject(reason);
+  //               }
+  //             }, 0);
+  //           })
+  //           break;
+  //       }
+  //     })
+  //     return promise2;
+  //   }
+  //   console.log(1);
 
 
 
-  function get(url) {
+  //   console.log(2);
+
+  //   es5Promise.reject = function(reason) {
+  //     return new es5Promise((resolve, reject) => {
+  //       reject(reason);
+  //     });
+  //   };
 
 
-    return new es5Promise(function(resolve, reject) {
-      var req = new XMLHttpRequest();
-      req.open("GET", url);
-      req.onload = function() {
-        if (req.status == 200) {
-          // 使用 resolve 回傳成功的結果，也可以在此直接轉換成 JSON 格式
-          console.log(JSON.parse(req.response))
-          resolve(JSON.parse(req.response));
+  //   let promise = new es5Promise((resolve, reject) => {
 
-        } else {
-          // 使用 reject 自訂失敗的結果
-          reject(new Error(req));
-
-        }
-        req.send();
-      };
-
-    })
-  }
-  get("https://assets.codepen.io/2845599/pixel-icon_selection20220630.json")
-    .then(function(req) {
-      console.log(req)
-    })
+  //     resolve('ConardLi');
+  //   });
 
 
-  promise.then((value) => {
-    console.log(value);
-  });
+  // function get(url) {
+  //   return new Promise((resolve, reject) => {
+  //     // 定義 Http request
+  //     var req = new XMLHttpRequest();
+  //     req.open("GET", url);
+  //     req.onload = function () {
+  //       if (req.status == 200) {
+  //         // 使用 resolve 回傳成功的結果，也可以在此直接轉換成 JSON 格式
+  //         resolve(JSON.parse(req.response));
+  //       } else {
+  //         // 使用 reject 自訂失敗的結果
+  //         reject(new Error(req));
+  //       }
+  //     };
+  //     req.send();
+  //   });
+  // }
+  //   get("https://assets.codepen.io/2845599/pixel-icon_selection20220630.json")
+  //     .then(function(req) {
+  //       console.log(req)
+  //     })
+
+
+  //   promise.then((value) => {
+  //     console.log(value);
+  //   });
 
   // console.log('end');
   // .catch((res) => {
