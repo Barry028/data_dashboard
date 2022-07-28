@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/user/public_html/data_dashboard
+    - export DEPLOYPATH=/home/n0fntcl1lrxw/public_html/data_dashboard
     - /bin/cp -R assets $DEPLOYPATH
