@@ -249,9 +249,10 @@ function (_super) {
       }
 
       result.push(option);
-      var children = option.children;
+      var children = option.children; // here we don't judge if option.type is `group`
+      // when new option doesn't provide `type`, it will cause that the children can't be updated.
 
-      if (option.type === 'group' && children) {
+      if (children && children.length) {
         this._flatten(children, result, option);
       } // Deleting for JSON output, and for not affecting group creation.
 

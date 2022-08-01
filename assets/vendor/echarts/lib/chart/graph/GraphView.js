@@ -158,7 +158,7 @@ function (_super) {
         });
       }
 
-      el.setDraggable(draggable && !!forceLayout);
+      el.setDraggable(draggable && !!forceLayout, !!itemModel.get('cursor'));
       var focus = itemModel.get(['emphasis', 'focus']);
 
       if (focus === 'adjacency') {

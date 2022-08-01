@@ -109,6 +109,7 @@
             $('#loader').fadeOut();
           }
         }
+        
         if (window.localStorage.getItem("fontSizeClass") != '') {
           document.getElementsByTagName('html')[0].classList.add(fontSizeClass);
         }
@@ -858,32 +859,32 @@ window.addEventListener("load", function() {
     center: true,
     customEventsHandler: eventsHandler
   }
-  if ($('#taiwan_cost').length)
-    var costZoom = window.zoomTaiwan_cost = svgPanZoom('#taiwan_cost', svg_options);
-  if ($('#taiwan_course').length)
-    var courseZoom = window.zoomTaiwan_course = svgPanZoom('#taiwan_course', svg_options);
-  if ($('#taiwan_course1').length)
-    var courseZoom1 = window.zoomTaiwan_course = svgPanZoom('#taiwan_course1', svg_options);
+  // if ($('#taiwan_cost').length)
+  //   var costZoom = window.zoomTaiwan_cost = svgPanZoom('#taiwan_cost', svg_options);
+  // if ($('#taiwan_course').length)
+  //   var courseZoom = window.zoomTaiwan_course = svgPanZoom('#taiwan_course', svg_options);
+  // if ($('#taiwan_course1').length)
+  //   var courseZoom1 = window.zoomTaiwan_course = svgPanZoom('#taiwan_course1', svg_options);
   
 
-  $.TuCore.helpers.resize($(window), function() {
-    if ($('#taiwan_course').length) {
-      courseZoom.resize();
-      courseZoom.fit();
-      courseZoom.center();
-    }
-    if ($('#taiwan_course1').length) {
-      courseZoom1.resize();
-      courseZoom1.fit();
-      courseZoom1.center();
-    }
+  // $.TuCore.helpers.resize($(window), function() {
+  //   if ($('#taiwan_course').length) {
+  //     courseZoom.resize();
+  //     courseZoom.fit();
+  //     courseZoom.center();
+  //   }
+  //   if ($('#taiwan_course1').length) {
+  //     courseZoom1.resize();
+  //     courseZoom1.fit();
+  //     courseZoom1.center();
+  //   }
 
-    if ($('#taiwan_cost').length) {
-      costZoom.resize();
-      costZoom.fit();
-      costZoom.center();
-    }
-  });
+  //   if ($('#taiwan_cost').length) {
+  //     costZoom.resize();
+  //     costZoom.fit();
+  //     costZoom.center();
+  //   }
+  // });
 });
 
 

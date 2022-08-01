@@ -44,6 +44,7 @@ export interface GraphNodeItemOption extends SymbolOptionMixin, GraphNodeStateOp
      */
     category?: number | string;
     draggable?: boolean;
+    cursor?: string;
 }
 export interface GraphEdgeStateOption {
     lineStyle?: GraphEdgeLineStyleOption;
@@ -118,6 +119,10 @@ export interface GraphSeriesOption extends SeriesOption<GraphNodeStateOption<Cal
         edgeLength?: number | number[];
         layoutAnimation?: boolean;
     };
+    /**
+     * auto curveness for multiple edge, invalid when `lineStyle.curveness` is set
+     */
+    autoCurveness?: boolean | number | number[];
 }
 declare class GraphSeriesModel extends SeriesModel<GraphSeriesOption> {
     static readonly type = "series.graph";

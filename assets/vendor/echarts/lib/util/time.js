@@ -118,7 +118,7 @@ time, template, isUTC, lang) {
   var date = numberUtil.parseDate(time);
   var y = date[fullYearGetterName(isUTC)]();
   var M = date[monthGetterName(isUTC)]() + 1;
-  var q = Math.floor((M - 1) / 4) + 1;
+  var q = Math.floor((M - 1) / 3) + 1;
   var d = date[dateGetterName(isUTC)]();
   var e = date['get' + (isUTC ? 'UTC' : '') + 'Day']();
   var H = date[hoursGetterName(isUTC)]();

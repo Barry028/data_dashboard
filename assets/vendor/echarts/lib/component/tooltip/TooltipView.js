@@ -153,12 +153,13 @@ function (_super) {
   TooltipView.prototype._keepShow = function () {
     var tooltipModel = this._tooltipModel;
     var ecModel = this._ecModel;
-    var api = this._api; // Try to keep the tooltip show when refreshing
+    var api = this._api;
+    var triggerOn = tooltipModel.get('triggerOn'); // Try to keep the tooltip show when refreshing
 
     if (this._lastX != null && this._lastY != null // When user is willing to control tooltip totally using API,
     // self.manuallyShowTip({x, y}) might cause tooltip hide,
     // which is not expected.
-    && tooltipModel.get('triggerOn') !== 'none') {
+    && triggerOn !== 'none' && triggerOn !== 'click') {
       var self_1 = this;
       clearTimeout(this._refreshUpdateTimeout);
       this._refreshUpdateTimeout = setTimeout(function () {

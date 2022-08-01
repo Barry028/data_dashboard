@@ -470,8 +470,8 @@ function (_super) {
         r: borderRadius
       },
       style: {
-        stroke: dataZoomModel.get('dataBackgroundColor') // deprecated option
-        || dataZoomModel.get('borderColor'),
+        // deprecated option
+        stroke: dataZoomModel.get('dataBackgroundColor') || dataZoomModel.get('borderColor'),
         lineWidth: DEFAULT_FRAME_BORDER_WIDTH,
         fill: 'rgba(0,0,0,0)'
       }

@@ -160,6 +160,11 @@ coordSys, item) {
   // Alwalys return true if there is no coordSys
   return coordSys && coordSys.containData && item.coord && !hasXOrY(item) ? coordSys.containData(item.coord) : true;
 }
+export function zoneFilter( // Currently only polar and cartesian has containData.
+coordSys, item1, item2) {
+  // Alwalys return true if there is no coordSys
+  return coordSys && coordSys.containZone && item1.coord && item2.coord && !hasXOrY(item1) && !hasXOrY(item2) ? coordSys.containZone(item1.coord, item2.coord) : true;
+}
 export function createMarkerDimValueGetter(inCoordSys, dims) {
   return inCoordSys ? function (item, dimName, dataIndex, dimIndex) {
     var rawVal = dimIndex < 2 // x, y, radius, angle

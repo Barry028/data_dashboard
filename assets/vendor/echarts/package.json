@@ -1,27 +1,27 @@
 {
-  "_from": "echarts",
-  "_id": "echarts@5.3.2",
+  "_from": "echarts@^5.3.2",
+  "_id": "echarts@5.3.3",
   "_inBundle": false,
-  "_integrity": "sha512-LWCt7ohOKdJqyiBJ0OGBmE9szLdfA9sGcsMEi+GGoc6+Xo75C+BkcT/6NNGRHAWtnQl2fNow05AQjznpap28TQ==",
+  "_integrity": "sha512-BRw2serInRwO5SIwRviZ6Xgm5Lb7irgz+sLiFMmy/HOaf4SQ+7oYqxKzRHAKp4xHQ05AuHw1xvoQWJjDQq/FGw==",
   "_location": "/echarts",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "range",
     "registry": true,
-    "raw": "echarts",
+    "raw": "echarts@^5.3.2",
     "name": "echarts",
     "escapedName": "echarts",
-    "rawSpec": "",
+    "rawSpec": "^5.3.2",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "^5.3.2"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/echarts/-/echarts-5.3.2.tgz",
-  "_shasum": "0a7b3be8c48a48b2e7cb1b82121df0c208d42d2c",
-  "_spec": "echarts",
+  "_resolved": "https://registry.npmjs.org/echarts/-/echarts-5.3.3.tgz",
+  "_shasum": "df97b09c4c0e2ffcdfb44acf518d50c50e0b838e",
+  "_spec": "echarts@^5.3.2",
   "_where": "/Users/turbotechdesign/data_dashboard",
   "bugs": {
     "url": "https://github.com/apache/echarts/issues",
@@ -30,7 +30,7 @@
   "bundleDependencies": false,
   "dependencies": {
     "tslib": "2.3.0",
-    "zrender": "5.3.1"
+    "zrender": "5.3.2"
   },
   "deprecated": false,
   "description": "Apache ECharts is a powerful, interactive charting and data visualization library for browser",
@@ -76,7 +76,7 @@
     "ts-jest": "^26.4.3",
     "typescript": "4.4.3"
   },
-  "homepage": "http://echarts.apache.org",
+  "homepage": "https://echarts.apache.org",
   "jsdelivr": "dist/echarts.min.js",
   "keywords": [
     "echarts",
@@ -133,5 +133,5 @@
     "i18n/*.js"
   ],
   "types": "index.d.ts",
-  "version": "5.3.2"
+  "version": "5.3.3"
 }

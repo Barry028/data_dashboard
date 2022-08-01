@@ -81,9 +81,9 @@ import lifecycle from './lifecycle.js';
 import { platformApi, setPlatformAPI } from 'zrender/lib/core/platform.js';
 import { getImpl } from './impl.js';
 var hasWindow = typeof window !== 'undefined';
-export var version = '5.3.2';
+export var version = '5.3.3';
 export var dependencies = {
-  zrender: '5.3.1'
+  zrender: '5.3.2'
 };
 var TEST_FRAME_REMAIN_TIME = 1;
 var PRIORITY_PROCESSOR_SERIES_FILTER = 800; // Some data processors depends on the stack result dimension (to calculate data extent).
