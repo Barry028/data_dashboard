@@ -182,19 +182,19 @@
             <span>營運指標</span>
           </a>
           <ul class="side-sub-menu">
-            <li class="side-sub-menu-item" data-sub="true">
+            <li class="side-sub-menu-item open" data-sub="true">
               <a class="side-sub-menu-link" href="javascript:;">
                 <span>職前訓練指標</span>
               </a>
             </li>
             <ul class="side-sub-menu">
-              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(性別、年齡、學歷、身分別)">
+              <li class="side-sub-menu-item " data-toggle="tooltip" data-placement="right" title="(性別、年齡、學歷、身分別)">
                 <a class="side-sub-menu-link" href="employment_before_1.html">
                   <span>參訓學員背景分析</span>
                 </a>
               </li>
               <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(報名、甄試、開訓、結訓、就業、結訓率、就業率)">
-                <a class="side-sub-menu-link" href="employment_employment_analysis_bg.html">
+                <a class="side-sub-menu-link" href="employment_before_2.html">
                   <span>分署職訓執行情形</span>
                 </a>
               </li>
@@ -209,17 +209,27 @@
                 </a>
               </li>
               <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(地區別、薪資級距)">
-                <a class="side-sub-menu-link" href="javascript:;">
-                  <span>前五強就業率職類別</span>
+                <a class="side-sub-menu-link" href="employment_before_5.html">
+                  <span>課程報名趨勢</span>
                 </a>
               </li>
               <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、職類別)">
-                <a class="side-sub-menu-link" href="javascript:;">
-                  <span>就業關聯性分析</span>
+                <a class="side-sub-menu-link" href="employment_before_6.html">
+                  <span>學員訓後薪資水準分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(地區別、薪資級距)">
+                <a class="side-sub-menu-link" href="employment_before_7.html">
+                  <span>學員訓後就業關聯性</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item active" data-toggle="tooltip" data-placement="right" title="(分署別、職類別)">
+                <a class="side-sub-menu-link" href="employment_before_8.html">
+                  <span>學員訓後薪資水準分析</span>
                 </a>
               </li>
             </ul>
-            <li class="side-sub-menu-item open" data-sub="true">
+            <li class="side-sub-menu-item" data-sub="true">
               <a class="side-sub-menu-link" href="javascript:;">
                 <span>在職訓練指標</span>
               </a>
@@ -263,7 +273,7 @@
                   </span>
                 </a>
               </li>
-              <li class="side-sub-menu-item active" data-toggle="tooltip" data-placement="right" title="(年齡別、區域別、學歷別)">
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(年齡別、區域別、學歷別)">
                 <a class="side-sub-menu-link" href="employment_pre_8.html">
                   <span>訓練費用結構分析
                   </span>
@@ -470,19 +480,19 @@
                   <div class="tab-content tab-sliding" id="table-tab">
                     <div class="tab-pane active" id="tabv1" role="tabpanel">
                       <div class="echart-container">
-                        <div id="now_stable" class="echart-inner"></div>
+                        <div id="employment_analysis_cost" class="echart-inner"></div>
                       </div>
                     </div>
                     <div class="tab-pane " id="tabv2" role="tabpanel">
                       <div class="row">
                         <div class="col-xl-6  col-md-12">
                           <div class="echart-container">
-                            <div id="now_stable_coures" class="echart-inner"></div>
+                            <div id="employment_analysis_cost_self" class="echart-inner"></div>
                           </div>
                         </div>
                         <div class="col-xl-6 col-md-12">
                           <div class="echart-container">
-                            <div id="now_stable_plans" class="echart-inner"></div>
+                            <div id="employment_analysis_side" class="echart-inner"></div>
                           </div>
                         </div>
                       </div>
@@ -519,7 +529,7 @@
   <form action="" method="get" id="themes">
     <input type="hidden" id="fontSizeClass">
   </form>
-  <!-- JQuery -->
+ <!-- JQuery -->
   <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
   <!-- Bootstrap  -->
@@ -544,10 +554,6 @@
   <script src="vendor/echarts/theme/wda_data.js"></script>
   <!-- eCharts liquidfill -->
   <script src="vendor/echarts-liquidfill-master/dist/echarts-liquidfill.min.js"></script>
-  <!-- Svg  Zoom -->
-  <script src="vendor/svg-pan-zoom/dist/svg-pan-zoom.min.js"></script>
-  <!-- Hammer -->
-  <script src="vendor/hammerjs/hammer.min.js"></script>
   <!-- Main.js -->
   <!-- <script src="js/core_polyfills.js"></script> -->
   <script src="js/core.js"></script>
@@ -570,6 +576,7 @@
   <script src="js/components/Tu.gotop.js"></script>
   <!-- Charts Js -->
   <script src="js/echarts_variables.js"></script>
-  <script src="js/echarts_inner_now.js"></script>
+  <script src="js/echarts_inner_before.js"></script>
+</body>
 
 </html>

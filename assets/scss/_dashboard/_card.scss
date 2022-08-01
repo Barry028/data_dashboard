@@ -99,6 +99,7 @@
   .dashboard-card-body {
     position: relative;
     padding: 1.25rem 1.5rem;
+    overflow-x: hidden;
 
     .dashboard-card-list-inline {
       font-size: 0;

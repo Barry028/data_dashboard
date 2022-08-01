@@ -17,6 +17,22 @@
     padding-top: 100%;
   }
 
+  .d3-map-wrap-inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .tw-map {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(6px 6px 0 rgba($primary-800, 0.8));
+  }
+
   .d3-map-wrap {
     position: absolute;
     left: 0;
@@ -34,12 +50,6 @@
     .btn {
       margin-right: .375rem;
     }
-  }
-
-  .tw-map {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(6px 6px 0 rgba($primary-800, 0.8));
   }
 
   .d3-tooltips {
@@ -134,5 +144,33 @@
     stroke-width: 3;
     fill: $dark;
     text-anchor: middle;
+  }
+}
+
+// .d3-map-wrap {
+//   position: relative;
+// }
+.d3-tooltips {
+  position: absolute;
+  color: $white;
+  background-color: $dark;
+  padding: 0.75rem 1rem;
+  display: inline-block;
+  font-size: 1rem;
+  border-radius: 8px;
+  @include opacity(0.80);
+  z-index: 999;
+
+  .d3-tooltips-ul {
+    font-size: 0.875rem;
+
+
+    .d3-tooltips-item {
+      &.item-title {
+        font-size: 125%;
+        font-weight: 900;
+        margin-bottom: .75rem;
+      }
+    }
   }
 }

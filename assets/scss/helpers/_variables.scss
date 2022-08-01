@@ -655,23 +655,19 @@ $side-bar-min-size-sub-menu-width:                      16rem                   
 
 $side-bar-min-size-sub-menu-caret-size:                 0.75rem                               !default;
 $side-bar-min-size-sub-menu-caret-color:                $side-bar-min-size-sub-menu-bg-color  !default;
-
-
-
 // Set a specific jump point for requesting color jumps
-$theme-color-interval:        8% 							        !default;
-$theme-color-interval-sec: 	  12% 							      !default;
+$theme-color-interval: 8% !default;
+$theme-color-interval-sec: 12% !default;
 // The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
-$yiq-contrasted-threshold:    204                     !default;
+$yiq-contrasted-threshold: 204 !default;
 // Customize the light and dark text colors for use in our YIQ color contrast function.
-$yiq-text-dark:               $dark                   !default;
-$yiq-text-light:              $white                  !default;
-$min-contrast-ratio:          1.5                     !default;
+$yiq-text-dark: $dark !default;
+$yiq-text-light: $white !default;
+$min-contrast-ratio: 1.5 !default;
 // Customize the light and dark text colors for use in our color contrast function.
-$color-contrast-dark:         $dark                   !default;
-$color-contrast-light:        $white                  !default;
-$theme-colors-rgb:            map-loop($theme-colors, to-rgb, "$value") !default;
-
+$color-contrast-dark: $dark !default;
+$color-contrast-light: $white !default;
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value") !default;
 //== Options
 $enable-caret:                                true 		!default;
 $enable-gradients:                            false  	!default;
