@@ -51,6 +51,7 @@ import { makeBackground } from '../helper/listComponent.js';
 import * as layoutUtil from '../../util/layout.js';
 import ComponentView from '../../view/Component.js';
 import { createSymbol } from '../../util/symbol.js';
+import { createOrUpdatePatternFromDecal } from '../../util/decal.js';
 var curry = zrUtil.curry;
 var each = zrUtil.each;
 var Group = graphic.Group;
@@ -185,7 +186,7 @@ function (_super) {
 
         var style = data.getVisual('style');
 
-        var itemGroup = this._createItem(seriesModel, name, dataIndex, legendItemModel, legendModel, itemAlign, lineVisualStyle, style, legendIcon, selectMode);
+        var itemGroup = this._createItem(seriesModel, name, dataIndex, legendItemModel, legendModel, itemAlign, lineVisualStyle, style, legendIcon, selectMode, api);
 
         itemGroup.on('click', curry(dispatchSelectAction, name, null, api, excludeSeriesId)).on('mouseover', curry(dispatchHighlightAction, seriesModel.name, null, api, excludeSeriesId)).on('mouseout', curry(dispatchDownplayAction, seriesModel.name, null, api, excludeSeriesId));
         legendDrawnMap.set(name, true);
@@ -218,7 +219,7 @@ function (_super) {
               });
             }
 
-            var itemGroup = this._createItem(seriesModel, name, dataIndex, legendItemModel, legendModel, itemAlign, {}, style, legendIcon, selectMode); // FIXME: consider different series has items with the same name.
+            var itemGroup = this._createItem(seriesModel, name, dataIndex, legendItemModel, legendModel, itemAlign, {}, style, legendIcon, selectMode, api); // FIXME: consider different series has items with the same name.
 
 
             itemGroup.on('click', curry(dispatchSelectAction, null, name, api, excludeSeriesId)) // Should not specify the series name, consider legend controls
@@ -271,7 +272,7 @@ function (_super) {
     });
   };
 
-  LegendView.prototype._createItem = function (seriesModel, name, dataIndex, legendItemModel, legendModel, itemAlign, lineVisualStyle, itemVisualStyle, legendIcon, selectMode) {
+  LegendView.prototype._createItem = function (seriesModel, name, dataIndex, legendItemModel, legendModel, itemAlign, lineVisualStyle, itemVisualStyle, legendIcon, selectMode, api) {
     var drawType = seriesModel.visualDrawType;
     var itemWidth = legendModel.get('itemWidth');
     var itemHeight = legendModel.get('itemHeight');
@@ -280,7 +281,7 @@ function (_super) {
     var symbolKeepAspect = legendItemModel.get('symbolKeepAspect');
     var legendIconType = legendItemModel.get('icon');
     legendIcon = legendIconType || legendIcon || 'roundRect';
-    var style = getLegendStyle(legendIcon, legendItemModel, lineVisualStyle, itemVisualStyle, drawType, isSelected);
+    var style = getLegendStyle(legendIcon, legendItemModel, lineVisualStyle, itemVisualStyle, drawType, isSelected, api);
     var itemGroup = new Group();
     var textStyleModel = legendItemModel.getModel('textStyle');
 
@@ -422,7 +423,7 @@ function (_super) {
   return LegendView;
 }(ComponentView);
 
-function getLegendStyle(iconType, legendModel, lineVisualStyle, itemVisualStyle, drawType, isSelected) {
+function getLegendStyle(iconType, legendItemModel, lineVisualStyle, itemVisualStyle, drawType, isSelected, api) {
   /**
    * Use series style if is inherit;
    * elsewise, use legend style
@@ -439,10 +440,11 @@ function getLegendStyle(iconType, legendModel, lineVisualStyle, itemVisualStyle,
   } // itemStyle
 
 
-  var legendItemModel = legendModel.getModel('itemStyle');
-  var itemStyle = legendItemModel.getItemStyle();
+  var itemStyleModel = legendItemModel.getModel('itemStyle');
+  var itemStyle = itemStyleModel.getItemStyle();
   var iconBrushType = iconType.lastIndexOf('empty', 0) === 0 ? 'fill' : 'stroke';
-  itemStyle.decal = itemVisualStyle.decal;
+  var decalStyle = itemStyleModel.getShallow('decal');
+  itemStyle.decal = !decalStyle || decalStyle === 'inherit' ? itemVisualStyle.decal : createOrUpdatePatternFromDecal(decalStyle, api);
 
   if (itemStyle.fill === 'inherit') {
     /**
@@ -469,7 +471,7 @@ function getLegendStyle(iconType, legendModel, lineVisualStyle, itemVisualStyle,
 
   handleCommonProps(itemStyle, itemVisualStyle); // lineStyle
 
-  var legendLineModel = legendModel.getModel('lineStyle');
+  var legendLineModel = legendItemModel.getModel('lineStyle');
   var lineStyle = legendLineModel.getLineStyle();
   handleCommonProps(lineStyle, lineVisualStyle); // Fix auto color to real color
 
@@ -478,7 +480,7 @@ function getLegendStyle(iconType, legendModel, lineVisualStyle, itemVisualStyle,
   lineStyle.stroke === 'auto' && (lineStyle.stroke = itemVisualStyle.fill);
 
   if (!isSelected) {
-    var borderWidth = legendModel.get('inactiveBorderWidth');
+    var borderWidth = legendItemModel.get('inactiveBorderWidth');
     /**
      * Since stroke is set to be inactiveBorderColor, it may occur that
      * there is no border in series but border in legend, so we need to
@@ -487,8 +489,8 @@ function getLegendStyle(iconType, legendModel, lineVisualStyle, itemVisualStyle,
 
     var visualHasBorder = itemStyle[iconBrushType];
     itemStyle.lineWidth = borderWidth === 'auto' ? itemVisualStyle.lineWidth > 0 && visualHasBorder ? 2 : 0 : itemStyle.lineWidth;
-    itemStyle.fill = legendModel.get('inactiveColor');
-    itemStyle.stroke = legendModel.get('inactiveBorderColor');
+    itemStyle.fill = legendItemModel.get('inactiveColor');
+    itemStyle.stroke = legendItemModel.get('inactiveBorderColor');
     lineStyle.stroke = legendLineModel.get('inactiveColor');
     lineStyle.lineWidth = legendLineModel.get('inactiveWidth');
   }

@@ -902,12 +902,13 @@ var TuEcharts = {
   },
   /**
    * 柱形圖
-   * @param data : json 數據
-   * @param type : 柱狀圖類型 數值型 1表示
-   * @param data : json 數據
+   * @param data : Json 數據
+   * @param type : 柱狀圖類型 數值型 1 表示
+   * @param data : Json 數據
    */
   bar: function(data, type, title) {
     var datas = TuEcharts.echartsDataFormate.GroupFormate(data, type);
+    console.log(datas.series[0])
     var option = {
       //標題
       title: {
@@ -929,14 +930,14 @@ var TuEcharts = {
       //水平坐標
       xAxis: [{
         type: 'category',
-        data: datas.category
+        data: datas.name[0]
       }],
       //垂直坐標
       yAxis: [{
         type: 'value'
       }],
       //series數據
-      series: datas.series
+      series: datas.series[0]
     };
     return option;
   },

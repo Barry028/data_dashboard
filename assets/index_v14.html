@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" class="">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,maximum-scale=1.0,user-scalable=no">
+  <meta charset="UTF-8">
+  <title>勞動力發展署 - 職業訓練視覺化分析平台</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <!-- Animate  -->
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <!-- iCon  -->
+  <link rel="stylesheet" type="text/css" href="vendor/iCons/turbo_icon_blur-v1.0/style.css">
+  <!-- CSS  -->
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <!--[if lte IE 9]>
+        <script src="vender/IE_Supports/html5shiv/dist/html5shiv.min.js"></script>
+        <script src="vender/IE_Supports/respond/dest/respond.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.jquery.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.prototype.min.js"></script>
+        <script src="vender/IE_Supports/Placeholders/dist/placeholders.yui3.min.js"></script>
+    <![endif]-->
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'ufg8zbw',
+        scriptTimeout: 3000,
+        async: true
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+</head>
+
+<body id="index">
+  <!-- HEADER -->
+  <header class="backend-header" id="Header">
+    <div class="container-fluid">
+      <div class="header-group">
+        <div class="header-group-lt">
+          <a href="index_v1.html" class="header-logo">
+            <img src="img/logo-primary.svg" title="勞動力發展署" alt="職業訓練視覺化分析平台" class="logo-img">
+          </a>
+        </div>
+        <div class="header-group-rt">
+          <ul class="header-tools">
+            <li class="header-tools-item">
+              <time id="current_time" class="current-time t-visibility-hidden">
+                <div class="calendar-inner">
+                  <div class="calendar-header">
+                    <font id="mon_ch"></font>
+                  </div>
+                  <div class="calendar-content">
+                    <font id="date"></font>
+                  </div>
+                </div>
+                <div class="clock-inner">
+                  <div class="clock-lt">
+                    <font id="mon" class="clock-month"></font>
+                    <font id="year" class="clock-year"></font>
+                    <font id="day" class="clock-day"></font>
+                  </div>
+                  <div class="clock-rt">
+                    <font id="hour" class="clock-hour"></font>
+                    <font id="min" class="clock-min"></font>
+                    <font id="sec" class="clock-sec"></font>
+                  </div>
+                </div>
+              </time>
+            </li>
+            <li class="header-tools-item">
+              <div class="dropdown dropdown-user-menu" data-toggle="tooltip" data-html="true" data-placement="left" title="勞動力發展署<br>訓練發展組 歐陽光亮">
+                <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="avatar-container">
+                    <div class="avatar-img" data-bg-img-src="dist/img/3d_avatars/3d-male-001.webp"></div>
+                  </div>
+                  <div class="user-description">
+                    <div class="user-description-unit">勞動力發展署</div>
+                    <div class="user-description-txts">訓練發展組 歐陽光亮</div>
+                  </div>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-lock-1 dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">密碼變更</font>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-profile dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">個人資料</font>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-logout dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">登出系統</font>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- SIDE MEUN -->
+  <aside class="side-bar-menu side-bar-menu-with-icon" id="SideBar">
+    <h2 class="side-main-title">
+      <font class="side-main-title-inner">功能選單</font>
+      <!-- <big>MEUN</big> -->
+      <input id="BurGerMenu" type="checkbox" class="toggle-input">
+      <label id="BurGer" for="BurGerMenu" class="toggle-menu">
+        <span></span>
+      </label>
+    </h2>
+    <nav class="side-main-menu">
+      <ul class="js-scrollbar">
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v1.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁</span>
+            <font>首頁</font>
+          </a>
+        </li>
+        <li class="side-main-list-item ">
+          <a class="side-main-list-link" href="index_v2.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v2</span>
+            <label class="badge t-badge-tertiary">v2</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v2-1.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v2-1</span>
+            <label class="badge t-badge-tertiary">v2-1</label>
+          </a>
+        </li>
+        <li class="side-main-list-item ">
+          <a class="side-main-list-link" href="index_v3.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v3</span>
+            <label class="badge t-badge-quaternary">v3</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v4.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v4</span>
+            <label class="badge t-badge-primary">v4</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v5.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v5</span>
+            <label class="badge t-badge-lightgrey">v5</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v6.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v6</span>
+            <label class="badge t-badge-lightgrey">v6</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v7.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v7</span>
+            <label class="badge t-badge-lightgrey">v7</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v8.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v8</span>
+            <label class="badge t-badge-lightgrey">v8</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v9.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v9</span>
+            <label class="badge t-badge-lightgrey">v9</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v10.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v10</span>
+            <label class="badge t-badge-lightgrey">v10</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v11.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v11</span>
+            <label class="badge t-badge-lightgrey">v11</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v12.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v12</span>
+            <label class="badge t-badge-lightgrey">v12</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v13.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v13</span>
+            <label class="badge t-badge-lightgrey">v13</label>
+          </a>
+        </li>
+        <li class="side-main-list-item active">
+          <a class="side-main-list-link" href="index_v14.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v14</span>
+            <label class="badge t-badge-lightgrey">v14</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="javascript:;">
+            <!--  <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i> -->
+            <i class="svg-icon svg-icon-3hx">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78 48" fill="currentColor">
+                <g data-name="Group 218457">
+                  <g data-name="Professional Team" transform="translate(10 -17)">
+                    <path d="M36 58a1 1 0 0 0-1-1l-2-3a1 1 0 0 0-1 0h-7a1 1 0 0 0-1 0l-2 3a1 1 0 0 0-1 1 1 1 0 0 0 1 1l6 6a1 1 0 0 0 1 0l6-6a1 1 0 0 0 1-1Zm-12 1 3 4-5-4Zm8 0-4 5-3-5Zm-7-1 3-3 3 3Zm8 1h2l-5 4Zm-1-4 2 3h-1l-3-3h1a1 1 0 0 1 1 0Zm-7 0h2l-3 3h-2Z" data-name="Path 254922" />
+                    <rect width="1.1" height="1.5" data-name="Rectangle 172634" rx=".5" transform="translate(49 30)" />
+                    <rect width="1.1" height="1.5" data-name="Rectangle 172635" rx=".5" transform="translate(44 30)" />
+                    <path d="M47 35a2 2 0 0 0 2-1h-1a2 2 0 0 1-1 0h-1a2 2 0 0 0 1 1Z" data-name="Path 254923" />
+                    <path d="M52 30v-1a2 2 0 0 0-1 0 6 6 0 0 0-2 0v1a5 5 0 0 1 2 0 2 2 0 0 1 1 0Z" data-name="Path 254924" />
+                    <path d="M46 30v-1a6 6 0 0 0-3 0v1a2 2 0 0 1 1 0 5 5 0 0 1 2 0Z" data-name="Path 254925" />
+                    <path d="M43 43v-1a1 1 0 0 1-1 0 5 5 0 0 1 0-1 12 12 0 0 0-3 3 1 1 0 0 0-1 1l1 1a15 15 0 0 0 4 1 13 13 0 0 1-1-3 1 1 0 0 1 1-1Z" data-name="Path 254926" />
+                    <path d="M56 44a12 12 0 0 0-4-3 5 5 0 0 1 0 1v1a1 1 0 0 1 0 1 13 13 0 0 1-1 3 15 15 0 0 0 4-1l1-1a1 1 0 0 0 0-1Z" data-name="Path 254927" />
+                    <path d="M55 31a2 2 0 0 0-1-1 13 13 0 0 0 0-4 4 4 0 0 1-2 2v1a8 8 0 0 1 0 1l1 1a2 2 0 0 1 1 0 1 1 0 0 1 0 1 2 2 0 0 1 0 1 1 1 0 0 1-1 0h-1a6 6 0 0 1 0 1 6 6 0 0 1-3 3 3 3 0 0 1-3 0 6 6 0 0 1-4-3 6 6 0 0 1 0-1v-1l-1 1a2 2 0 0 1-1-1 1 1 0 0 1 0-1 1 1 0 0 1 1 0 1 1 0 0 0 1 0v-1s1-5 3-5a1 1 0 0 0 0-1h4a4 4 0 0 1 2 3l1 1v-1a3 3 0 0 0 2-2 4 4 0 0 0 0-1c-1-2-3-3-5-3-2-1-6 0-6 2-3 1-3 3-2 7a1 1 0 0 0-1 0 2 2 0 0 0 0 3 2 2 0 0 0 2 1 6 6 0 0 0 0 2 6 6 0 0 0 1 0 7 7 0 0 0 2 2 4 4 0 0 1 0 1 5 5 0 0 0-2 1 3 3 0 0 0-1 2h2a9 9 0 0 0-1 1l-1 1a13 13 0 0 0 2 3l1 1a22 22 0 0 1 0-8 3 3 0 0 0 2 1 5 5 0 0 1-1 0v1h1a18 18 0 0 0-1 3 19 19 0 0 0 0 3h3a22 22 0 0 0-1-6 1 1 0 0 0 1 0v-1a4 4 0 0 1-1-1 2 2 0 0 0 1 0 22 22 0 0 1 0 8l2-1a13 13 0 0 0 1-3v-1a8 8 0 0 0-1-1h1a3 3 0 0 0-1-2 5 5 0 0 0-1-1 4 4 0 0 1-1-1 6 6 0 0 0 4-4 2 2 0 0 0 1 0 3 3 0 0 0 1-1 2 2 0 0 0 0-2Zm-8 9a2 2 0 0 1-1-1 5 5 0 0 0 0-1 4 4 0 0 0 1 1 4 4 0 0 0 1 0l1-1a4 4 0 0 0 0 1 2 2 0 0 1-2 1Z" data-name="Path 254928" />
+                    <rect width="1" height="1.3" data-name="Rectangle 172636" rx=".5" transform="translate(7 31)" />
+                    <rect width="1" height="1.3" data-name="Rectangle 172637" rx=".5" transform="translate(13 31)" />
+                    <path d="M12 35H9a1 1 0 0 0 2 1 1 1 0 0 0 1-1Z" data-name="Path 254929" />
+                    <path d="M14 30a3 3 0 0 0-2 0 2 2 0 0 1 2 1v-1Z" data-name="Path 254930" />
+                    <path d="m19 44-1-1V29a11 11 0 0 0-1-2 9 9 0 0 0 0-2c-1-2-2-2-3-2a4 4 0 0 0-2-1 6 6 0 0 0-4 0 7 7 0 0 0-3 2 12 12 0 0 0-2 5 43 43 0 0 0 0 5 51 51 0 0 1-1 7v1a12 12 0 0 0 0 3 3 3 0 0 0 2 2 25 25 0 0 0 3 1 21 21 0 0 0 4 0 21 21 0 0 0 4 0 12 12 0 0 0 3-1 2 2 0 0 0 1-2 1 1 0 0 0 0-1Zm-6-3a6 6 0 0 1-2 0 6 6 0 0 1-3 0 10 10 0 0 0 1-2 4 4 0 0 0 2 0 4 4 0 0 0 1 0 9 9 0 0 0 1 2Zm-6 0a7 7 0 0 1 1-1 17 17 0 0 0-1 2v-1Zm6 6a20 20 0 0 1-2 0 20 20 0 0 1-4 0l2-2a1 1 0 0 0-1 0 1 1 0 0 1 0-1 15 15 0 0 1 0-2 7 7 0 0 0 3 0 7 7 0 0 0 2 0 18 18 0 0 1 0 5Zm2 0h-1l-1-7a8 8 0 0 1 2 2 10 10 0 0 1 0 2 13 13 0 0 1 0 3Zm0-14v1a5 5 0 0 1 0 1 5 5 0 0 1-3 3 4 4 0 0 1-2 0 4 4 0 0 1-1 0 9 9 0 0 1-2-2 42 42 0 0 1 0-5 3 3 0 0 1 2-1 3 3 0 0 0-2 0 7 7 0 0 1 1-3 4 4 0 0 1 2-1 2 2 0 0 1 2 0h1c2 0 3 6 3 6a2 2 0 0 1 1 0 1 1 0 0 1 1 1 2 2 0 0 1-1 1 2 2 0 0 1-1 1 5 5 0 0 0 0-1v-1h-1Zm3 12-1 1a9 9 0 0 1-1 0 13 13 0 0 0 0-2v-1a10 10 0 0 1 1 1l1 1Z" data-name="Path 254931" />
+                    <path d="M24 30v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1 0 1 1 0 0 0-1 0Z" data-name="Path 254932" />
+                    <path d="M31 30v1a1 1 0 1 0 1 0v-1a1 1 0 1 0-1 0Z" data-name="Path 254933" />
+                    <path d="M30 29a14 14 0 0 1 3-1 2 2 0 0 1 1 1 2 2 0 0 0-1 0 14 14 0 0 0-3 0Z" data-name="Path 254934" />
+                    <path d="M27 29a14 14 0 0 0-3 0 2 2 0 0 0-1 0 3 3 0 0 1 1-1 14 14 0 0 1 3 1Z" data-name="Path 254935" />
+                    <path d="M34 29h-4a1 1 0 0 0-1 1h-1a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v2a1 1 0 0 0 2 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 0 0-1h1a1 1 0 0 0 0 1v1a1 1 0 0 0 1 1h3a1 1 0 0 0 2-1v-2a1 1 0 0 0-1-1Zm-7 3h-4v-2h4Zm7 0h-4v-2h4v2Z" data-name="Path 254936" />
+                    <path d="M40 48a15 15 0 0 0-5-4 19 19 0 0 0-3-1 2 2 0 0 1 0-1 4 4 0 0 1-1-1 6 6 0 0 0 2-1 4 4 0 0 1 0-1 6 6 0 0 0 1 0 5 5 0 0 0 2-4 3 3 0 0 0 2-2 3 3 0 0 0 0-2 2 2 0 0 0-1-1c1-5 0-9-2-11a2 2 0 0 0-2-1h-1a2 2 0 0 0-2-1 2 2 0 0 0-1 0v1a1 1 0 0 1-1 0v-1a2 2 0 0 0-1 0 2 2 0 0 0-1 1 1 1 0 0 1-1 0h-1a2 2 0 0 0-2 1c-2 2-3 6-2 11a2 2 0 0 0-1 1 3 3 0 0 0 0 2 3 3 0 0 0 2 2 5 5 0 0 0 2 4h1a4 4 0 0 1 0 1 6 6 0 0 0 2 1 3 3 0 0 1-1 1 2 2 0 0 1 0 1l-3 1a15 15 0 0 0-5 4 2 2 0 0 0 0 1 3 3 0 0 0 1 2 12 12 0 0 0 2 1 26 26 0 0 0 9 1 22 22 0 0 0 8-1 12 12 0 0 0 2-1 3 3 0 0 0 1-2 2 2 0 0 0 0-1Zm-20 3a10 10 0 0 1-1-1l-1-1a1 1 0 0 1 0-1 15 15 0 0 1 3-3 22 22 0 0 0-1 6Zm5-16a1 1 0 0 1-2 0 3 3 0 0 1-1-2v-1l-1 1v1l-1-2a2 2 0 0 1 0-1 1 1 0 0 1 0-1 2 2 0 0 1 1 0h1c0-1 0-5 2-7a11 11 0 0 0 9 0c2 2 2 6 2 7h1a2 2 0 0 1 1 0 1 1 0 0 1 0 1 2 2 0 0 1 0 1l-1 2v-1h-1a3 3 0 0 1-1 2 1 1 0 0 1-2 0 6 6 0 0 0-3-1h-1a6 6 0 0 0-3 1Zm5 0a4 4 0 0 1-3 0 4 4 0 0 0 3 0Zm-4 10a2 2 0 0 0 1 0 3 3 0 0 0 0 1 29 29 0 0 0-1 6 27 27 0 0 1 0-9 3 3 0 0 0 0-1 3 3 0 0 0 2 1l-1 1a1 1 0 0 1-1 1Zm1-3v-1a6 6 0 0 0 3 0v1a2 2 0 0 1-3 0Zm4 10a29 29 0 0 0-1-6 3 3 0 0 0 0-1 2 2 0 0 0 1 0 1 1 0 0 1-1-1l-1-1a3 3 0 0 0 2-1 3 3 0 0 0 0 1 27 27 0 0 1 0 9Zm8-3-1 1a9 9 0 0 1-1 1 22 22 0 0 0-1-6 15 15 0 0 1 3 3 1 1 0 0 1 0 1Z" data-name="Path 254937" />
+                  </g>
+                </g>
+              </svg>
+            </i>
+            <span>整合性指標</span>
+            <font>整合</font>
+          </a>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <!--             <i class="tub-civic-cvc" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+            </i> -->
+            <i class="svg-icon svg-icon-3hx">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78 48" fill="currentColor">
+                <g data-name="Group 218449">
+                  <g data-name="011-student" transform="translate(34 3)">
+                    <circle cx=".8" cy=".8" r=".8" data-name="Ellipse 7349" transform="translate(5 11)" />
+                    <circle cx=".8" cy=".8" r=".8" data-name="Ellipse 7350" transform="translate(28 2)" />
+                    <circle cx="1" cy="1" r="1" data-name="Ellipse 7351" transform="translate(4 4)" />
+                    <path d="M34 21v1h1-1v1-1h-1 1v-1Z" data-name="Path 254866" />
+                    <path d="m2 17 1 1 1 1-1 1-1 1-1-1-1-1 1-1 1-1Z" data-name="Path 254867" />
+                    <path d="M33 12h-1v1l1 1v-1h1l-1-1Z" data-name="Path 254873" />
+                    <path d="M15 0v1h-1 1v1-1h1-1V0Z" data-name="Path 254874" />
+                    <path d="M33 30a7 7 0 0 0-2-2l-1-3c1-3 1-5-1-7a9 9 0 0 1-2-3 22 22 0 0 0-1-2V8a1 1 0 0 0-1-1 50 50 0 0 0-7 0 50 50 0 0 0-7 0 1 1 0 0 0-1 1v5a22 22 0 0 0-2 2 9 9 0 0 1-2 3c-2 2-2 4-1 7 1 1 0 2-1 3a7 7 0 0 0-2 2 5 5 0 0 0 0 4 5 5 0 0 0 3 2l1 3a15 15 0 0 0 2 0 27 27 0 0 0 10 2 27 27 0 0 0 9-2 15 15 0 0 0 2 0c0-1 2-1 1-3a5 5 0 0 0 3-2 5 5 0 0 0 0-4Zm-8-10a2 2 0 0 1 1-1 2 2 0 0 0-1 0l1-1 1 2a2 2 0 0 1-1 1 1 1 0 0 1-1 1v-2Zm-14-4a5 5 0 0 0 0-2h13a5 5 0 0 0 1 2 5 5 0 0 1 0 1 28 28 0 0 1-1 5 7 7 0 0 1-4 5 6 6 0 0 1-2 1 6 6 0 0 1-2-1h-1a7 7 0 0 1-4-5 54 54 0 0 1-1-5 5 5 0 0 1 1-1Zm10 14a19 19 0 0 0-3 4 20 20 0 0 0-4-4l1-2a6 6 0 0 0 3 0 7 7 0 0 0 2 0l1 2ZM9 18a1 1 0 0 1 1 0v1a2 2 0 0 0-1 0 2 2 0 0 1 1 1v2a1 1 0 0 1 0-1 2 2 0 0 1-2-1l1-2ZM6 36a13 13 0 0 1 3-3 13 13 0 0 0 0 1 5 5 0 0 0-2 2 5 5 0 0 1 1-1v1a3 3 0 0 0-1 2h1a2 2 0 0 1 0-1v2l-1-1c-2-1-2-1-1-2Zm2 3a20 20 0 0 1 1-2 22 22 0 0 1 0-3 9 9 0 0 1 1-2h1a12 12 0 0 1 2-1v-1a20 20 0 0 1 4 4 1 1 0 0 0 1 0 20 20 0 0 1 4-4v1a12 12 0 0 1 3 1 9 9 0 0 1 1 2 21 21 0 0 1 1 3 20 20 0 0 1 0 2 27 27 0 0 1-9 1 27 27 0 0 1-10-1Zm21-1-1 1-1-2a2 2 0 0 1 1 1 3 3 0 0 0-1-2v-1a5 5 0 0 1 1 1h1a5 5 0 0 0-2-2l-1-1a13 13 0 0 1 3 3h1l-1 2Z" data-name="Path 254876" />
+                    <path d="m8 7 2 1a1 1 0 0 1 1-1 50 50 0 0 1 7-1 50 50 0 0 1 7 1 1 1 0 0 1 1 1h1a10 10 0 0 1 0 3 1 1 0 0 0 0 1 5 5 0 0 0 0 2 2 2 0 0 0 1 0 6 6 0 0 0 0-2 1 1 0 0 0 0-1 11 11 0 0 0-1-3V7h1V6L18 4a2 2 0 0 0-1 0L8 6v1Z" data-name="Path 254877" />
+                  </g>
+                  <g data-name="006-boy">
+                    <path d="M18 11v-1c0-2 3-3 5-3l-1 1a4 4 0 0 0-4 2v1Z" data-name="Path 254878" />
+                    <path d="M28 12h-1a5 5 0 0 0-5-2 4 4 0 0 0-3 1 5 5 0 0 1 3-2 6 6 0 0 1 6 2v1Z" data-name="Path 254879" />
+                    <path d="M19 13v-1a4 4 0 0 1 5 0h-1a4 4 0 0 0-3 1h-1Z" data-name="Path 254886" />
+                    <path d="M14 13v-1a4 4 0 0 1 3-2v1a3 3 0 0 0-3 2Z" data-name="Path 254887" />
+                    <path d="M34 39a13 13 0 0 0-4-3 6 6 0 0 0-4-3h-1a10 10 0 0 0 0-2 1 1 0 0 0-1 0 5 5 0 0 1 0-1 8 8 0 0 0 4-5 2 2 0 0 0 1 0 2 2 0 0 0 1 0 3 3 0 0 0 1-2 3 3 0 0 0 0-3l-1-7a2 2 0 0 1-1-1c0-3-3-5-5-6-4-1-6 0-8 2-4 2-5 5-5 12a3 3 0 0 0 0 3 3 3 0 0 0 2 2 2 2 0 0 0 1 0 8 8 0 0 0 4 5 5 5 0 0 1 0 1 1 1 0 0 0-1 0 10 10 0 0 0 0 2h-1a6 6 0 0 0-4 3 13 13 0 0 0-3 3 2 2 0 0 0-1 2 3 3 0 0 0 2 1v1a18 18 0 0 0 4 1 30 30 0 0 0 5 1h4a30 30 0 0 0 6-1 18 18 0 0 0 3-1l1-1a3 3 0 0 0 1-1 2 2 0 0 0 0-2Zm-20 4a17 17 0 0 1-3-1l2-6a6 6 0 0 1 3-2 34 34 0 0 0-2 9Zm17-20a3 3 0 0 1-2 1v-2a2 2 0 0 1 1 0v-1a2 2 0 0 0-1 0 69 69 0 0 0 0-1 2 2 0 0 1 1 0 2 2 0 0 1 1 3Zm-18 1a3 3 0 0 1-2-1 2 2 0 0 1 1-3 2 2 0 0 1 1 0 10 10 0 0 0 0 1l-1 1a2 2 0 0 1 1 0l1 2a2 2 0 0 1-1 0Zm1 0a16 16 0 0 1 0-2 60 60 0 0 1 0-2c0-3 1-7 3-7a2 2 0 0 1 1 0v-1a3 3 0 0 0-1 0c-2 1-3 4-4 7a3 3 0 0 0-1 0c0-5 1-9 4-10h1c1-2 3-3 7-2 2 0 5 2 5 5a3 3 0 0 0 0 1l1 6a3 3 0 0 0-1 0c0-3-1-6-4-7v1c2 0 3 4 3 7a15 15 0 0 1 0 2 16 16 0 0 1 0 2 8 8 0 0 1-4 6h-1a6 6 0 0 1-2 0 6 6 0 0 1-2 0 8 8 0 0 1-5-6Zm4 17a1 1 0 1 1 1-1 1 1 0 0 1-1 1Zm0-4a1 1 0 1 1 1-1 1 1 0 0 1-1 1Zm3 7h-1v-8a7 7 0 0 0 1 0 7 7 0 0 0 1 0v4l1 4h-2Zm2-10a2 2 0 0 0-1 1 6 6 0 0 1-2 0 2 2 0 0 0-1-1 3 3 0 0 0 0-1 2 2 0 0 0 0-2 6 6 0 0 0 0-1 7 7 0 0 0 2 1 7 7 0 0 0 2-1 5 5 0 0 0 1 1 2 2 0 0 0-1 2 3 3 0 0 0 0 1Zm6 9a34 34 0 0 0-2-9 6 6 0 0 1 3 2l1 6a18 18 0 0 1-2 1Z" data-name="Path 254888" />
+                  </g>
+                </g>
+              </svg>
+            </i>
+            <span>職前訓練指標</span>
+            <font>職前</font>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(性別、年齡、學歷、身分別)">
+              <a class="side-sub-menu-link" href="employment_before_1.html">
+                <span>參訓學員背景分析</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(報名、甄試、開訓、結訓、就業、結訓率、就業率)">
+              <a class="side-sub-menu-link" href="employment_before_2.html">
+                <span>分署職訓執行情形</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(各計畫參訓人數、開課班數)">
+              <a class="side-sub-menu-link" href="employment_before_3.html">
+                <span>職前計畫執行情形</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(產業別、地區別)">
+              <a class="side-sub-menu-link" href="employment_before_4.html">
+                <span>重點產業別參訓職類分布趨勢</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(地區別、薪資級距)">
+              <a class="side-sub-menu-link" href="employment_before_5.html">
+                <span>課程報名趨勢</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、職類別)">
+              <a class="side-sub-menu-link" href="employment_before_6.html">
+                <span>學員訓後薪資水準分析</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(地區別、薪資級距)">
+              <a class="side-sub-menu-link" href="employment_before_7.html">
+                <span>學員訓後就業關聯性</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、職類別)">
+              <a class="side-sub-menu-link" href="employment_before_8.html">
+                <span>學員訓後薪資水準分析</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <!-- <i class="tub-civic-cvc" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+            </i> -->
+            <i class="svg-icon svg-icon-3hx">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78 48" fill="currentColor">
+                <g data-name="Group 218448">
+                  <g data-name="Group 218447">
+                    <g data-name="021-student">
+                      <path d="M35 39a16 16 0 0 0-7-6 9 9 0 0 1-1-1 3 3 0 0 1-2-2 10 10 0 0 0 5-6 3 3 0 0 0 2-1 4 4 0 0 0 1-2 3 3 0 0 0 0-3 33 33 0 0 0 0-4 1 1 0 0 0 0-1l-3-5c0-2-3-3-5-3a1 1 0 0 0 0-1 1 1 0 0 0-1 0 7 7 0 0 0-6 1 4 4 0 0 0-2 2 8 8 0 0 0-5 6 1 1 0 0 0 1 2v1a9 9 0 0 0 0 2 3 3 0 0 0-1 3 4 4 0 0 0 2 2 3 3 0 0 0 1 1 10 10 0 0 0 5 6 3 3 0 0 1-1 2 9 9 0 0 1-2 1 16 16 0 0 0-7 6 2 2 0 0 0 0 2 3 3 0 0 0 2 1c0 1 4 3 11 3s11-2 12-3a3 3 0 0 0 2-1 2 2 0 0 0-1-2Zm-17-6a6 6 0 0 0 8 0 10 10 0 0 0 2 1 9 9 0 0 1-6 2 9 9 0 0 1-5-2 10 10 0 0 0 1-1Zm15-12a3 3 0 0 1-2 2 2 2 0 0 1-1 0v-2a2 2 0 0 1 2-1 2 2 0 0 0-2 0v-1a2 2 0 0 1 2 0l1 2Zm-20 2a3 3 0 0 1-1-2v-2a2 2 0 0 1 2 0v1a2 2 0 0 0-1 0h-1 1a2 2 0 0 1 1 1 17 17 0 0 0 0 2 2 2 0 0 1-1 0Zm2 0a16 16 0 0 1 0-2v-3a9 9 0 0 1 0-2 3 3 0 0 0 3-1 6 6 0 0 0 1-2c1 1 3 3 4 2a2 2 0 0 0 1 0 3 3 0 0 0 3 0 3 3 0 0 0 2 1 14 14 0 0 1 1 3 26 26 0 0 1 0 4 9 9 0 0 1-5 6 6 6 0 0 1-5 0 9 9 0 0 1-5-6Zm5 7a7 7 0 0 0 2 0 7 7 0 0 0 3 0 4 4 0 0 0 1 3 6 6 0 0 1-7 0 4 4 0 0 0 1-3Z" data-name="Path 254914" />
+                    </g>
+                    <g data-name="019-student">
+                      <path d="m69 34-3-1a1 1 0 0 1-1 0 1 1 0 0 1 0-1 4 4 0 0 0-1-4h-6a12 12 0 0 0 2-3 3 3 0 0 0 2 0 4 4 0 0 0 1-2 3 3 0 0 0 1-3 15 15 0 0 0-4-12 12 12 0 0 0-9-5 12 12 0 0 0-9 5 15 15 0 0 0-3 12 3 3 0 0 0 0 3 4 4 0 0 0 2 2 3 3 0 0 0 1 0 2 2 0 0 0 1 0 10 10 0 0 0 6 6 3 3 0 0 1-2 3h-1a18 18 0 0 0-5 4 11 11 0 0 0-1 2 2 2 0 0 0-1 1 3 3 0 0 0 2 2s4 2 10 2 10-2 11-2a3 3 0 0 0 1-2 2 2 0 0 0 0-1v-1a11 11 0 0 0 2 0 5 5 0 0 0 3-3 3 3 0 0 0 1-2Zm-6-12a3 3 0 0 1-2 2 2 2 0 0 1-1 0 18 18 0 0 0 1-2 1 1 0 0 1 1 0v-1a2 2 0 0 0-1 0v-1a3 3 0 0 1 1 0l1 2Zm-22 2a3 3 0 0 1-1-2v-2a3 3 0 0 1 2 0v1a2 2 0 0 0-1 0v1a1 1 0 0 1 1 0 18 18 0 0 0 0 2 2 2 0 0 1-1 0Zm2 0a28 28 0 0 1-1-4l4-2 2-1a15 15 0 0 0 5-5h1c3 2 5 5 6 8a30 30 0 0 1-1 4 10 10 0 0 1-5 7 6 6 0 0 1-5 0 10 10 0 0 1-6-7Zm6 8a6 6 0 0 0 4 0 3 3 0 0 0 3 3l-5 4-4-4a3 3 0 0 0 2-3Zm14 9-2 1s-3 2-10 2-10-2-10-2l-1-1a1 1 0 0 1 0-1 10 10 0 0 1 2-2 17 17 0 0 1 4-3l5 5h1l4-5a17 17 0 0 1 5 3 10 10 0 0 1 1 2 1 1 0 0 1 1 1Z" data-name="Path 254920" />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </i>
+            <span>在職訓練指標</span>
+            <font>在職</font>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(縣市別、分署別)">
+              <a class="side-sub-menu-link" href="employment_pre_1.html">
+                <span>產業別開課占比</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(性別、年齡、學歷、身分別)">
+              <a class="side-sub-menu-link" href="employment_pre_2.html">
+                <span>參訓背景</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(級距別、分署別、縣市別))">
+              <a class="side-sub-menu-link" href="employment_pre_3.html">
+                <span>參訓者薪資落點分布</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(一年度更新一次)">
+              <a class="side-sub-menu-link" href="employment_pre_4.html">
+                <span>訓練單位屬性分析</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(投保公司行業別)">
+              <a class="side-sub-menu-link" href="employment_pre_5.html">
+                <span>參訓者任職產業分布</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、縣市別、計畫別)">
+              <a class="side-sub-menu-link" href="employment_pre_6.html">
+                <span>訓練單位屬性分析</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、縣市別、結訓率)">
+              <a class="side-sub-menu-link" href="employment_pre_7.html">
+                <span>重點產業別課程佔比分析</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(年齡別、區域別、學歷別)">
+              <a class="side-sub-menu-link" href="employment_pre_8.html">
+                <span>參訓學員年度產投計畫經費運用情形占比</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <!-- <i class="tub-civic-cvc" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+            </i> -->
+            <i class="svg-icon svg-icon-3hx">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 78 48" fill="currentColor">
+                <g data-name="Group 218450">
+                  <g data-name="Group 218445">
+                    <g data-name="013-boy">
+                      <path d="M10 42a1 1 0 0 0 0 2 1 1 0 0 0 1 0h1a42 42 0 0 1 1-6 10 10 0 0 0-3 4Zm15-5a10 10 0 0 1-5 0 62 62 0 0 0-1 7h7a62 62 0 0 0-1-7Zm9-21a1 1 0 0 1 0-1 2 2 0 0 0 1-1c0-2-2-4-4-6l-7-4c-6 0-8 3-8 4a1 1 0 0 1-1 0 10 10 0 0 0-5 7v2a6 6 0 0 1 0 2 15 15 0 0 0 1 3 3 3 0 0 0-1 4 4 4 0 0 0 3 2h1a10 10 0 0 0 1 2 10 10 0 0 0 5 3 3 3 0 0 1 0 1l-1-1a1 1 0 0 0-2 1v2a23 23 0 0 0-2 1h-1l-1 7h5a60 60 0 0 1 1-7v-1h-1v-2h1a12 12 0 0 0 3 1 12 12 0 0 0 4-1l1 2h-1v1a59 59 0 0 1 1 7h4l-1-7a22 22 0 0 0-2-1l-1-2a1 1 0 0 0-1-1l-1 1a3 3 0 0 1 0-1 10 10 0 0 0 5-3 10 10 0 0 0 1-2 4 4 0 0 0 4-2 3 3 0 0 0-1-4 45 45 0 0 0 0-6Zm-23 9a2 2 0 0 1 0-2 2 2 0 0 1 2-1v2a2 2 0 0 0-1 0v1a1 1 0 0 1 1 0 14 14 0 0 0 0 2 3 3 0 0 1-2-2Zm11 9a8 8 0 0 1-1 0 4 4 0 0 0 3 0 8 8 0 0 1-2 0Zm7-4a10 10 0 0 1-6 3 3 3 0 0 1-2 0 10 10 0 0 1-5-3 12 12 0 0 1-2-8c0-1 0-9 4-10h1a4 4 0 0 1 3-1 8 8 0 0 1 4 2 12 12 0 0 1 5 9 12 12 0 0 1-2 8Zm5-5a3 3 0 0 1-3 2 14 14 0 0 0 1-2 1 1 0 0 1 1 0v-1a2 2 0 0 0-1 0v-2a2 2 0 0 1 1 1 2 2 0 0 1 1 2Zm-3 13a42 42 0 0 1 1 6h1a1 1 0 0 0 1 0 1 1 0 0 0 0-2 10 10 0 0 0-2-4h-1Z" data-name="Path 254895" />
+                    </g>
+                    <g data-name="022-girl">
+                      <path d="M66 10a14 14 0 0 0-12-7 14 14 0 0 0-13 20 3 3 0 0 0 0 3 4 4 0 0 0 2 2 3 3 0 0 0 1 0h1a5 5 0 0 0-1 3 4 4 0 0 0 0 3 4 4 0 0 0 0 3 5 5 0 0 0 0 2 10 10 0 0 0-2 4 1 1 0 0 0 0 1 1 1 0 0 0 1 1h22a1 1 0 0 0 1-1 1 1 0 0 0 0-1 10 10 0 0 0-2-4 5 5 0 0 0-1-2 4 4 0 0 0 0-3 4 4 0 0 0 0-3 5 5 0 0 0 0-3 2 2 0 0 0 1 0 3 3 0 0 0 1 0 4 4 0 0 0 2-2 3 3 0 0 0 0-3 14 14 0 0 0-1-13ZM43 27a3 3 0 0 1-1-1 2 2 0 0 1 0-3 2 2 0 0 1 1 0v1h-1l1 1a1 1 0 0 1 1 0 17 17 0 0 0 0 2 2 2 0 0 1-1 0Zm2 17h-2v-1a9 9 0 0 1 3-4l-1 5Zm2-10a4 4 0 0 0 1-2 14 14 0 0 0 3 2 3 3 0 0 1 0 1 1 1 0 0 0-1 0 1 1 0 0 0-1 1 12 12 0 0 0-2 1 4 4 0 0 0 0-3Zm7 3a4 4 0 0 0 3-1 2 2 0 0 1 0 2h-3a1 1 0 0 0-1 0h-2a2 2 0 0 1-1-2h1a4 4 0 0 0 3 1Zm-2-1a4 4 0 0 0 0-2h1a5 5 0 0 0 2 0 4 4 0 0 0 1 2 3 3 0 0 1-2 0 3 3 0 0 1-2 0Zm8-2a4 4 0 0 0 0 3 12 12 0 0 0-1-1 7 7 0 0 1-1 0 1 1 0 0 0 0-1h-1a3 3 0 0 1-1-1 14 14 0 0 0 4-2 4 4 0 0 0 0 2Zm5 9v1h-3v-5a9 9 0 0 1 3 4Zm-2-22c0 3 0 7-3 9a12 12 0 0 1-5 3 4 4 0 0 1-2 0 12 12 0 0 1-6-3c-2-2-3-6-3-9a3 3 0 0 0 1 0 4 4 0 0 0 3-2 15 15 0 0 0 1-3 5 5 0 0 0 1 2 4 4 0 0 0 7 0 5 5 0 0 0 1-2 15 15 0 0 0 2 3 4 4 0 0 0 2 2h1Zm3 5a3 3 0 0 1-2 1 2 2 0 0 1-1 0 17 17 0 0 0 1-2 1 1 0 0 1 1 0v-1a2 2 0 0 0-1 0v-1a2 2 0 0 1 2 0 2 2 0 0 1 0 3Z" data-name="Path 254907" />
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </i>
+            <span>青年職訓指標</span>
+            <font>青年</font>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(性別、年齡、學制別、身分別)">
+              <a class="side-sub-menu-link" href="employment_youth_1.html">
+                <span>參訓背景</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(計畫別、縣市別、分署別)">
+              <a class="side-sub-menu-link" href="employment_youth_2.html">
+                <span>廠商行業別分布情形</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別)">
+              <a class="side-sub-menu-link" href="employment_youth_3.html">
+                <span>青年訓後薪資落點</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別)">
+              <a class="side-sub-menu-link" href="employment_youth_4.html">
+                <span>學員訓後就業關聯性</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-user-edit" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>個人化設定</span>
+            <font>個人</font>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>儀表板設定</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>個人資料維護</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <!-- <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-setting-2" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>系統管理</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>帳號設定</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>使用紀錄歷程</span>
+              </a>
+            </li>
+          </ul>
+        </li> -->
+      </ul>
+      <figure class="custom-setting-card">
+        <div class="mask mask_circle"></div>
+        <div class="custom-setting-card-inner">
+          <figcaption class="custom-setting-card-img">
+            <div class="custom-setting-card-img-container"></div>
+          </figcaption>
+          <div class="custom-setting-card-title">
+            自行縮放您的網站尺寸設定！
+          </div>
+          <div class="custom-setting-card-btns" id="fontBtns">
+            <button id="scale_down" class="custom-setting-btn btn btn--white btn--xxs" data-toggle="tooltip" data-placement="top" title="縮小字體">
+              <div class="svg-font-down"></div>
+            </button>
+            <button id="scale_default" class="custom-setting-btn btn btn--white btn--xxs" data-toggle="tooltip" data-placement="top" title="恢復預設大小">
+              <div class="svg-font-default"></div>
+            </button>
+            <button id="scale_up" class="custom-setting-btn btn btn--white btn--xxs" data-toggle="tooltip" data-placement="top" title="放大字體">
+              <div class="svg-font-up"></div>
+            </button>
+          </div>
+        </div>
+      </figure>
+    </nav>
+  </aside>
+  <!-- MAIN CONTENT -->
+  <article class="main-content v7" id="MainContent">
+    <a class="btn btn--primary btn--shadow--primary btn--lg" target="_blank" href="https://xd.adobe.com/view/937f9201-5bea-440d-bf2a-c84dfce0359f-c62c/grid/" style="margin: 1rem 0 0 2rem">線上連結 列表 --></a>
+    <a class="btn btn--secondary btn--shadow--secondary btn--lg" target="_blank" href="https://xd.adobe.com/view/937f9201-5bea-440d-bf2a-c84dfce0359f-c62c/flow/" style="margin: 1rem 0 0 2rem">線上連結 全景 --></a>
+    <div class="iframe-cnts">
+      <iframe class="iframe-inner" width="100%" height="100%" src="https://xd.adobe.com/embed/937f9201-5bea-440d-bf2a-c84dfce0359f-c62c/?flow" frameborder="0"></iframe>
+    </div>
+  </article>
+  <!-- <ul class="fixed-rt-tool">
+    <li class="fixed-rt-tool-item">
+      <button>
+        setting
+      </button>
+    </li>
+    <li class="fixed-rt-tool-item">
+    </li>
+  </ul> -->
+  <a class="js-go-to" href="javascript:;" data-type="fixed" data-position='{"bottom": 16, "right": 16 }' data-offset-top="100" data-compensation="#Header" data-show-effect="zoomIn" data-hide-effect="zoomOut">
+    <i class="tub-arrow-up-2">
+      <font></font>
+      <font></font>
+    </i>
+  </a>
+  <!-- <div id="loader">
+    <div class="loader-cnt">
+      <div id="lottie_load"></div>
+    </div>
+  </div> -->
+  <form action="" method="get" id="themes">
+    <input type="hidden" id="fontSizeClass">
+  </form>
+  <!-- JQuery -->
+  <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+  <!-- Bootstrap  -->
+  <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Appear -->
+  <script src="vendor/appear/appear.js"></script>
+  <!-- Circles -->
+  <script src="vendor/circles-js/circles.min.js"></script>
+  <!-- Chartist -->
+  <script src="vendor/chartist/chartist.min.js"></script>
+  <!-- mCustomScrollbar -->
+  <script src="vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+  <!-- Lottie -->
+  <script src="vendor/lottie-web/5.7.13/lottie.min.js"></script>
+  <!-- Svg  Zoom -->
+  <script src="vendor/svg-pan-zoom/dist/svg-pan-zoom.min.js"></script>
+  <!-- Hammer -->
+  <script src="vendor/hammerjs/hammer.min.js"></script>
+  <!-- eCharts -->
+  <script src="vendor/echarts/dist/echarts.min.js"></script>
+  <!-- eCharts Themes -->
+  <script src="vendor/echarts/theme/wda_data.js"></script>
+  <!-- eCharts liquidfill -->
+  <script src="vendor/echarts-liquidfill/dist/echarts-liquidfill.min.js"></script>
+  <!-- Main.js -->
+  <script src="js/core.js"></script>
+  <!-- Custom Plugins -->
+  <script src="js/echarts_variables.js"></script>
+  <script src="js/echarts_maps.js"></script>
+  <!-- Custom Plugins -->
+  <!-- Chartist -->
+  <script src="js/charts/Tu.chartist-area.js"></script>
+  <script src="js/charts/Tu.chartist-bar.js"></script>
+  <script src="js/charts/Tu.chartist-pie.js"></script>
+  <script src="js/charts/Tu.chartist-donut.js"></script>
+  <!-- Circles -->
+  <script src="js/charts/Tu.circles.js"></script>
+  <!-- Counter -->
+  <script src="js/components/Tu.counter.js"></script>
+  <script src="js/components/Tu.dropdown.js"></script>
+  <script src="js/components/Tu.modal.js"></script>
+  <!-- Scrollbar Setting -->
+  <script src="js/components/Tu.scrollbar.js"></script>
+  <script src="js/components/Tu.toggle.js"></script>
+  <script src="js/components/Tu.gotop.js"></script>
+  <script src="js/echarts_variables.js"></script>
+  <script src="js/echarts_index_20220628.js"></script>
+  <script>
+  </script>
+</body>
+
+</html>

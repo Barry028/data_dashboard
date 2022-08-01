@@ -51,6 +51,7 @@ import * as vector from 'zrender/lib/core/vector.js';
 import * as matrix from 'zrender/lib/core/matrix.js';
 import BoundingRect from 'zrender/lib/core/BoundingRect.js';
 import Transformable from 'zrender/lib/core/Transformable.js';
+import { parsePercent } from '../util/number.js';
 var v2ApplyTransform = vector.applyTransform;
 
 var View =
@@ -118,12 +119,12 @@ function (_super) {
    */
 
 
-  View.prototype.setCenter = function (centerCoord) {
+  View.prototype.setCenter = function (centerCoord, api) {
     if (!centerCoord) {
       return;
     }
 
-    this._center = centerCoord;
+    this._center = [parsePercent(centerCoord[0], api.getWidth()), parsePercent(centerCoord[1], api.getHeight())];
 
     this._updateCenterAndZoom();
   };

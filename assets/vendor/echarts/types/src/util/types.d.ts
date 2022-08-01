@@ -53,7 +53,7 @@ export declare type ComponentSubType = Exclude<ComponentOption['type'], undefine
 /**
  * Use `parseClassType` to parse componentType declaration to componentTypeInfo.
  * For example:
- * componentType declaration: 'xxx.yyy', get componentTypeInfo {main: 'xxx', sub: 'yyy'}.
+ * componentType declaration: 'a.b', get componentTypeInfo {main: 'a', sub: 'b'}.
  * componentType declaration: '', get componentTypeInfo {main: '', sub: ''}.
  */
 export interface ComponentTypeInfo {
@@ -644,7 +644,7 @@ export interface RoamOptionMixin {
     /**
      * Current center position.
      */
-    center?: number[];
+    center?: (number | string)[];
     /**
      * Current zoom level. Default is 1
      */
@@ -1257,6 +1257,7 @@ export interface SeriesLargeOptionMixin {
 }
 export interface SeriesStackOptionMixin {
     stack?: string;
+    stackStrategy?: 'samesign' | 'all' | 'positive' | 'negative';
 }
 declare type SamplingFunc = (frame: ArrayLike<number>) => number;
 export interface SeriesSamplingOptionMixin {

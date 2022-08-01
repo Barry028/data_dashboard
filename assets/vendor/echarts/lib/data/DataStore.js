@@ -132,7 +132,7 @@ function () {
 
   DataStore.prototype.initData = function (provider, inputDimensions, dimValueGetter) {
     if (process.env.NODE_ENV !== 'production') {
-      assert(isFunction(provider.getItem) && isFunction(provider.count), 'Inavlid data provider.');
+      assert(isFunction(provider.getItem) && isFunction(provider.count), 'Invalid data provider.');
     }
 
     this._provider = provider; // Clear

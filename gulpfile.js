@@ -49,7 +49,29 @@ gulp.task('svg', () => {
     .pipe(svgo())
     .pipe(gulp.dest('assets/dist/img'));
 });
+gulp.task('icons', () => {
+  return gulp
+    .src('assets/img/icons/**')
+    .pipe(svgo())
+    .pipe(gulp.dest('assets/dist/icons'));
+});
+gulp.task('webpimgs', () =>
 
+  gulp.src('assets/Ai/0801/**')
+  .pipe(imagemin([
+      imageminJpegtran({
+        quality: 10,
+      }),
+      imageminPngquant({
+        quality: [0.4, 0.6],
+        speed: 1,
+      }),
+    ]))
+  .on('error', (err) => {
+    console.log(err);
+  })
+  .pipe(gulp.dest('assets/Ai/dist/'))
+);
 gulp.task('webp', () =>
   gulp.src('assets/img/**')
   .pipe(webp())

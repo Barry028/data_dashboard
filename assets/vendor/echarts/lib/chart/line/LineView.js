@@ -638,7 +638,11 @@ function (_super) {
 
       if (isAreaChart) {
         polygon = this._newPolygon(points, stackedOnPoints);
-      } // NOTE: Must update _endLabel before setClipPath.
+      } // If areaStyle is removed
+      else if (polygon) {
+          lineGroup.remove(polygon);
+          polygon = this._polygon = null;
+        } // NOTE: Must update _endLabel before setClipPath.
 
 
       if (!isCoordSysPolar) {

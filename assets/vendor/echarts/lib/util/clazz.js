@@ -225,8 +225,8 @@ export function enableClassManagement(target) {
    * Component model classes
    * key: componentType,
    * value:
-   *     componentClass, when componentType is 'xxx'
-   *     or Object.<subKey, componentClass>, when componentType is 'xxx.yy'
+   *     componentClass, when componentType is 'a'
+   *     or Object.<subKey, componentClass>, when componentType is 'a.b'
    */
   var storage = {};
 

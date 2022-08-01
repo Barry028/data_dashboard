@@ -6501,7 +6501,44 @@ if ($('#vocational_training_citys_pie').length) {
       useDirtyRect: true,
       locale: 'EN'
     });
-
+    function random(a, b) {
+      return Math.round(Math.random() * Math.abs(b - a) + Math.min(a, b));
+    }
+    var seriesData = [];
+    for (var i = 0; i < plans.length; i++) {
+      var data = [];
+      for (var j = 0; j < city.length; j++) {
+        data.push([i, j]);
+      }
+      seriesData.push(data);
+    }
+    for (let i = 0; i < seriesData.length; i++) {
+      seriesData[i] = seriesData[i].map(function(item) {
+        return [item[1], item[0], random(1, 24)];
+      })
+      seriesData[i] = {
+        name: plans[i],
+        type: 'heatmap',
+        data: seriesData[i],
+        label: {
+          normal: {
+            color: tu_white,
+            show: true
+          }
+        },
+        itemStyle: {
+          normal: {
+            borderColor: tu_white,
+            borderWidth: 2,
+            borderRadius: 4,
+          },
+          emphasis: {
+            shadowBlur: 10,
+            shadowColor: "rgba(255, 255, 255, 0.5)"
+          }
+        }
+      }
+    }
 
     option = {
       color: color_v21,

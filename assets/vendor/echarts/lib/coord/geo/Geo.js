@@ -199,7 +199,7 @@ function (_super) {
         data = projection.project(data);
       }
 
-      return data && this.projectedToPoint(data);
+      return data && this.projectedToPoint(data, noRoam, out);
     }
   };
 

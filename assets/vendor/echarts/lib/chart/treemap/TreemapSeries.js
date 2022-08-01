@@ -324,12 +324,6 @@ function (_super) {
     levels: [] // Each item: {
     //     visibleMin, itemStyle, visualDimension, label
     // }
-    // data: {
-    //      value: [],
-    //      children: [],
-    //      link: 'http://xxx.xxx.xxx',
-    //      target: 'blank' or 'self'
-    // }
 
   };
   return TreemapSeriesModel;
