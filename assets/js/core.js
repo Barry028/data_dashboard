@@ -1,14 +1,12 @@
 /**
- * TuCore
+ * TuCore Jquery
  *
- * @author BarrY
- * @version 1.2.2
- * @Update 2022/03/22
+ * @ Author   BarrY
+ * @ Version  1.2.2
+ * @ Update   2022 / 03 / 22
  */
-;
+"use strict";
 (function($) {
-
-  'use strict';
 
   $.TuCore = {
 
@@ -92,7 +90,6 @@
       });
 
       $(window).on('load', function() {
-
         $.TuCore.helpers.detectIE();
         $.TuCore.components.clock.init('#current_time');
 
@@ -108,10 +105,6 @@
           animation.onComplete = function() {
             $('#loader').fadeOut();
           }
-        }
-        
-        if (window.localStorage.getItem("fontSizeClass") != '') {
-          document.getElementsByTagName('html')[0].classList.add(fontSizeClass);
         }
       });
     },
@@ -403,7 +396,7 @@
                 $.TuCore.helpers.toast('字體放大成功！', 'success', 1500);
 
                 document.getElementById('fontSizeClass').value = upClasses[0];
-
+                Tu.saveToStorage("fontSizeClass", document.getElementById('fontSizeClass').value);
                 return;
               } else if (elem.classList.contains(upClasses[i])) {
                 elem.classList.remove(upClasses[i]);
@@ -412,19 +405,21 @@
                 $.TuCore.helpers.toast('字體放大成功！', 'success', 1500);
 
                 document.getElementById('fontSizeClass').value = upClasses[i];
+                Tu.saveToStorage("fontSizeClass", document.getElementById('fontSizeClass').value);
 
                 return;
               } else if (elem.classList.contains(upClasses[i + 1])) {
                 $.TuCore.helpers.toast('字體已經放到最大！', 'warning', 1500);
 
                 document.getElementById('fontSizeClass').value = upClasses[i + 1];
-
+                Tu.saveToStorage("fontSizeClass", document.getElementById('fontSizeClass').value);
                 return;
               } else if (elem.classList.contains(downClasses[i])) {
                 elem.classList.remove(downClasses[i]);
                 $.TuCore.helpers.toast('已恢復預設大小！', 'success', 1500);
 
-                document.getElementById('fontSizeClass').value = '';
+                document.getElementById('fontSizeClass').value = ''
+
                 return;
               } else if (elem.classList.contains(downClasses[i + 1])) {
                 i++;
@@ -434,6 +429,7 @@
                 $.TuCore.helpers.toast('字體放大成功！', 'success', 1500);
 
                 document.getElementById('fontSizeClass').value = downClasses[i];
+                Tu.saveToStorage("fontSizeClass", document.getElementById('fontSizeClass').value);
                 return;
               }
             }
@@ -445,6 +441,7 @@
                 $.TuCore.helpers.toast('字體縮小成功！', 'success', 1500);
 
                 document.getElementById('fontSizeClass').value = downClasses[0];
+                Tu.saveToStorage("fontSizeClass");
 
                 return;
               } else if (elem.classList.contains(downClasses[i])) {
@@ -454,13 +451,16 @@
                 $.TuCore.helpers.toast('字體縮小成功！', 'success', 1500);
 
                 document.getElementById('fontSizeClass').value = downClasses[i];
+                Tu.saveToStorage("fontSizeClass");
+
 
                 return;
               } else if (elem.classList.contains(downClasses[i + 1])) {
                 $.TuCore.helpers.toast('字體已經縮到最小！', 'warning', 1500);
 
                 document.getElementById('fontSizeClass').value = downClasses[i + 1];
-
+                Tu.saveToStorage("fontSizeClass");
+                Tu.saveToStorage("fontSizeClass", document.getElementById('fontSizeClass').value);
                 return;
               } else if (elem.classList.contains(upClasses[i])) {
                 elem.classList.remove(upClasses[i]);
@@ -477,7 +477,7 @@
                 $.TuCore.helpers.toast('字體放大成功！', 'success', 1500);
 
                 document.getElementById('fontSizeClass').value = upClasses[i];
-
+                Tu.saveToStorage("fontSizeClass", document.getElementById('fontSizeClass').value);
                 return;
               }
               return;
@@ -487,6 +487,7 @@
             if (!checkContains(elClassNames, 'js-font-scale')) {
               $.TuCore.helpers.toast('目前已是預設大小！', 'warning', 1500);
               document.getElementById('fontSizeClass').value = '';
+
               return;
             } else {
               elem.classList.remove(
@@ -497,10 +498,11 @@
               document.getElementById('fontSizeClass').value = '';
             }
             break;
+            åå
         };
 
 
-
+        Tu.saveToStorage("fontSizeClass", document.getElementById('fontSizeClass').value);
         return this.collection;
       },
 
@@ -651,21 +653,21 @@
                 });
               });
             }
-            
+
 
             _this.find('li').on('click', function() {
               var _thisW = _this.width();
               var thisWidth = $(this).width();
               var moveLeft = this.offsetLeft;
-                // console.log(thisWidth);
-                // console.log(moveLeft);
+              // console.log(thisWidth);
+              // console.log(moveLeft);
               if (_thisW < moveLeft + thisWidth) {
-                 _this[i].scrollTo({
+                _this[i].scrollTo({
                   left: moveLeft,
                   behavior: "smooth"
                 });
               } else {
-                 _this[i].scrollTo({
+                _this[i].scrollTo({
                   left: 0,
                   behavior: "smooth"
                 });
@@ -743,437 +745,656 @@
     $.TuCore.init();
 
     $.TuCore.components.lazyLoad($('.js-img-lazy'));
+
     $.TuCore.components.scrollBar($('[data-scroll="md-x"]'));
+
   });
 
 })(jQuery);
 
 
-if (window.localStorage) {
-  var fontSizeClass = window.localStorage.getItem("fontSizeClass");
-  if (!fontSizeClass) {
-    document.getElementById("fontSizeClass").value = fontSizeClass;
-  }
-}
+/**
+ * Utils Javascript
+ *
+ * @ Author   BarrY
+ * @ Version  1.0.6
+ * @ Update   2022 / 08 / 01
+ */
 
-function saveToStorage() {
-  // localStorage 
-  var fontSizeClass = document.getElementById("fontSizeClass").value;
-  window.localStorage.setItem("fontSizeClass", fontSizeClass);
-}
+(function(global) {
 
+  // 命名建構
+  var Tu = function(args) {
+    var descriptors = Object.getOwnPropertyDescriptors(Tu);
+    console.log(descriptors)
+    return new Tu.Mth.init(args);
+  };
 
-// function showName(){
-//     let nameDom = document.querySelector('.showName')
-//     nameDom.innerHTML = localStorage.getItem('userName')
-// } 
-var fontBtnList = document.getElementById('fontBtns').addEventListener('click', {
-  handleEvent: function(event) {
-    var target = event.target;
-    event.stopImmediatePropagation();
-    event.preventDefault();
+  // Global_Extend 將 Obj 綁定
+  function Global_Extend(target, source) {
+    Utils.each(source, function(value, key) {
+      target[key] = value;
+      return this
+    });
+  };
 
-    switch (target.id) {
-      case "scale_down":
-        $.TuCore.helpers.cFontSize('#scale_down', 'down');
-        // Cookies.set("dark", "on", {expires: 365 });
-        saveToStorage();
-        break;
-      case "scale_default":
-        $.TuCore.helpers.cFontSize('#scale_default', 'default');
-        saveToStorage();
-        break;
-      case "scale_up":
-        $.TuCore.helpers.cFontSize('#scale_up', 'up');
-        saveToStorage();
-        break;
-    }
-  }
-}, false);
+  // 公用工具 針對 Tu.Mth 處理函式用
+  // Use  -->  Tu.func() ...
+  var Utils = {
+    // ** Arrays Tools
+    // 
+    // 清除字符串兩端的空白字符
+    // Target 目標字符串 
+    trim: function(str) {
+      // return (str || '').replace(/^(\s|\u00A0)+|(\s|\u00A0)+$/g, '');
+      return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+    },
 
+    // 判定一個字符串是否包含另外一個字符串
+    // Target 目標字符串 || Str 父字符串 || Separator 分隔符
+    contains: function(target, str, separator) {
+      return separator ?
+        (separator + target + separator).indexOf(separator + str + separator) > -1 : //需要判斷分隔符
+        target.indexOf(str) > -1; //不需判斷分隔符
+    },
 
+    // 判定目標字符串是否位於原字符串的開始之處
+    // Target 目標字符串 || Str 父字符串 || Ignorecase 是否忽略大小寫
+    startsWith: function(target, str, ignorecase) {
+      var start_str = target.substr(0, str.length);
+      return ignorecase ? start_str.toLowerCase() === str.toLowerCase() : //
+        start_str === str;
+    },
 
-window.addEventListener("load", function() {
-  var eventsHandler = {
-    haltEventListeners: ['touchstart', 'touchend', 'touchmove', 'touchleave', 'touchcancel'],
-    init: function(options) {
-      var instance = options.instance,
-        initialScale = 1,
-        pannedX = 0,
-        pannedY = 0
+    // 判定目標字符串是否位於原字符串的末尾
+    // Target 目標字符串 || Str 父字符串 || Ignorecase 是否忽略大小寫
+    endWith: function(target, str, ignorecase) {
+      var end_str = target.substring(target.length - str.length);
+      return ignorecase ? end_str.toLowerCase() === str.toLowerCase() : //
+        end_str === str;
+    },
 
-      this.hammer = Hammer(options.svgElement, {
-        inputClass: Hammer.SUPPORT_POINTER_EVENTS ? Hammer.PointerEventInput : Hammer.TouchInput
-      })
-      // 多點觸控時兩手指距離越來越近
-      this.hammer.get('pinch').set({
-        enable: true
-      })
-      this.hammer.on('doubletap', function(ev) {
-        instance.zoomIn()
-      })
-      // 拖動開始 / 過程
-      this.hammer.on('panstart panmove', function(ev) {
-        if (ev.type === 'panstart') {
-          pannedX = 0
-          pannedY = 0
+    // 將一個字符串重覆自身 N 次
+    // Target 目標字符串 || Ignorecase 重覆次數
+    repeat: function(target, n) {
+      var ev = target;
+      var total = "";
+      while (n > 0) {
+        if (n % 2 == 1) {
+          total += ev;
         }
-        instance.panBy({
-          x: ev.deltaX - pannedX,
-          y: ev.deltaY - pannedY
-        })
-        pannedX = ev.deltaX
-        pannedY = ev.deltaY
-      })
-      // 多點觸控開始 / 過程
-      this.hammer.on('pinchstart pinchmove', function(ev) {
-        if (ev.type === 'pinchstart') {
-          initialScale = instance.getZoom()
-          instance.zoomAtPoint(initialScale * ev.scale, {
-            x: ev.center.x,
-            y: ev.center.y
-          })
+        if (n == 1) {
+          break;
         }
+        ev += ev;
+        // >> 是右移位運算符，相當於將 n 除以 2 取其商,或說開 2 二次方
+        n = n >> 1;
+      }
+      return total;
+    },
 
-        instance.zoomAtPoint(initialScale * ev.scale, {
-          x: ev.center.x,
-          y: ev.center.y
-        })
+    // 移除字符串中的 html 標簽。
+    // Target 目標字符串 
+    stripTags: function(target) {
+      return String(target || "").replace(/<[^>]+>/g); //[^>] 匹配除>以外的任意字符
+    },
+
+    // 移除字符串中所有的 Script 標簽及內容
+    // Target 目標字符串 
+    stripScripts: function(target) {
+      return String(target || "").replace(/<script[^>]*>([\S\s]*?)<\/script>/img); //[\S\s]*? 懶惰匹配任意字符串盡可能少
+    },
+
+    // 在字符串兩端添加雙引號，然後內部需要轉義的地方都要轉義，用於接裝 JSON的鍵名或模析系統中。
+    // Target 目標字符串 
+    quote: function(target) {
+      //需要轉義的非法字符
+      var escapeable = /["\\\x00-\x1f\x7f-\x9f]/g;
+      var meta = {
+        '\b': '\\b',
+        '\t': '\\t',
+        '\n': '\\n',
+        '\f': '\\f',
+        '\r': '\\r',
+        '"': '\\"',
+        '\\': '\\\\'
+      };
+
+      if (target.match(escapeable)) {
+        return '"' + target.replace(escapeable, function(a) {
+          var c = meta[a];
+          if (typeof c === 'string') {
+            return c;
+          }
+          return '\\u' + ('0000' + c.charCodeAt(0).toString(16)).slice(-4)
+        }) + '"';
+      }
+      return '"' + target + '"';
+    },
+
+    // 將數字轉換為 每3位添加一個逗號, 123456 -> 123,456
+    // Num 數字 
+    numOfCom: function(num) {
+      var num = "" + num;
+      var reg = /(?!^)(?=(\d{3})+$)/g;
+      return num.replace(reg, ',');
+    },
+    // 數組去重複
+    // Arr 數字 Arrays [aaaa,aaaa,aaaa,b,c,d] --> [aaaa,b,c,d]
+    unique: function(arr) {
+      var obj = {};
+      return arr.filter(ele => {
+        if (!obj[ele]) {
+          obj[ele] = true;
+          return true;
+        }
       })
-      options.svgElement.addEventListener('touchmove', function(e) {
-        e.preventDefault();
+    },
+    // 字符串去重
+    // Str 字串 Arrays [aa,aa,aa,aa] --> [a,a,a,a]
+    uniq: function(str) {
+      var obj = {},
+        len = str.length;
+      console.log(str.length)
+      for (var i = 0; i < len; i++) {
+        if (!obj[str[i]]) {
+          str += str[i];
+          obj[str[i]] = true;
+        }
+      }
+      return str.replace(/(\w)\1+/g, '$1')
+    },
+
+    isArray: function(obj) {
+      return Object.prototype.toString.call(obj) === '[object Array]';
+    },
+
+    isFunction: function(obj) {
+      return Object.prototype.toString.call(obj) === '[object Function]';
+    },
+
+    each: function(obj, callback) {
+      var length = obj.length;
+      var isObj = (length === undefined) || this.isFunction(obj);
+
+      if (isObj) {
+        for (var name in obj) {
+          if (callback.call(obj[name], obj[name], name) === false) {
+            break;
+          }
+        }
+      } else {
+        for (var i = 0, value = obj[0]; i < length && callback.call(obj[i], value, i) !== false; value = obj[++i]) {}
+      }
+      return obj;
+    },
+
+    makeArray: function(arrayLike) {
+      if (arrayLike.length != null) {
+        return Array.prototype.slice.call(arrayLike, 0)
+          .filter(function(ele) {
+            return ele !== undefined;
+          });
+      }
+      return [];
+    },
+  };
+
+  Global_Extend(Tu, Utils);
+
+  Tu.Global_Extend = Global_Extend;
+
+  Tu.Props = {
+    'for': 'htmlFor',
+    'class': 'className',
+    readonly: 'readOnly',
+    maxlength: 'maxLength',
+    cellspacing: 'cellSpacing',
+    rowspan: 'rowSpan',
+    colspan: 'colSpan',
+    tabindex: 'tabIndex',
+    usemap: 'useMap',
+    frameborder: 'frameBorder'
+  };
+
+  // 原生 Js 物件操作簡寫 Tu.func()
+  var Doms = {
+    // Storage
+    getStorageClass: function(gClass) {
+      console.log(this)
+      return document.getElementsByTagName('html')[0].classList.add(gClass);
+    },
+    // Storage
+    saveToStorage: function(sId) {
+      var fontSizeClassV = document.getElementById("" + sId + "").value;
+      console.log(fontSizeClassV)
+      return window.localStorage.setItem("fontSizeClass", fontSizeClassV);
+    },
+    // ID
+    Gid: function(id) {
+      return document.getElementById("" + id + "");
+    },
+    // Tag [0]
+    Gtag: function(tag, parentNode) {
+      var node = null; // 存放父節點
+      var temps = [];
+      if (parentNode != undefined) {
+        node = parentNode;
+      } else {
+        node = document;
+      }
+      var tags = node.getElementsByTagName(tag);
+      for (var i = 0; i < tags.length; i++) {
+        temps.push(tags[i]);
+      }
+      return temps;
+    },
+    // Gclass 不能用 是工具函式
+    Gclass: function(className, parentNode) {
+      var node = null; //存放父節點
+      var temps = [];
+      console.log(className)
+      if (parentNode != undefined) { //存在父節點時
+        node = parentNode;
+      } else { //不存在則默認document
+        node = document;
+      }
+      var all = node.getElementsByTagName('*');
+      for (var i = 0; i < all.length; i++) {
+        //遍曆所有節點，判斷是否有包含className
+        if ((new RegExp('(\\s|^)' + className + '(\\s|$)')).test(all[i].className)) {
+          temps.push(all[i]);
+          console.log(all)
+        }
+      }
+      console.log(temps)
+      return temps;
+    },
+    // QuerAll [0]
+    QuerAl: function(selector) {
+      return document.querySelectorAll("" + selector + "")
+    },
+    // Quer [0]
+    Quer: function(selector) {
+      return document.querySelector("" + selector + "")
+    },
+  };
+
+  Global_Extend(Tu, Doms);
+
+  // Mth 選擇器
+  Tu.Mth = Tu.prototype = {
+
+    getClass: function(className, parentNode) {
+      var node = null; //存放父節點
+      var temps = [];
+      if (parentNode != undefined) { //存在父節點時
+        node = parentNode;
+      } else { //不存在則默認document
+        node = document;
+      }
+      var all = node.getElementsByTagName('*');
+      for (var i = 0; i < all.length; i++) {
+        //遍曆所有節點，判斷是否有包含className
+        if ((new RegExp('(\\s|^)' + className + '(\\s|$)')).test(all[i].className)) {
+          temps.push(all[i]);
+        }
+      }
+      return temps;
+    },
+
+    elemChildren: function(node) {
+      var node = this[0];
+      var temp = {
+          'length': 0,
+          'push': Array.prototype.push,
+          'splice': Array.prototype.splice
+        },
+        child = node.childNodes; // 缓存所有子节点
+      // 遍历子节点
+      for (var i = 0; i < child.length; i++) {
+        var childItem = child[i]; //缓存单个子节点
+        // 通过nodeType的值筛选出元素节点
+        if (childItem.nodeType === 1) {
+          // 类数组的push添加元素的逻辑
+          // temp[temp['length']] = childItem;
+          // temp['length']++;
+          temp.push(childItem);
+        }
+      }
+      return temp[0];
+      // return this.init(temp);
+    },
+
+    init: function(args, node) {
+      var _self = this,
+        doc = document;
+
+      if (node && node[0]) {
+        node = node[0];
+      } else { // 否則，使用document
+        node = document;
+      }
+      // 創建一個數組，用來保存獲取的節點或節點數組
+      elements = [];
+      // 當參數是一個字符串，說明是常規 css 選擇器，不是this,或者function
+      if (typeof args == 'string') {
+        // Css 模擬，就是跟 Css 後代選擇器一樣
+        if (args.indexOf(' ') != -1) {
+          // 把節點拆分開並保存在數組裏
+          var elements = args.split(' ');
+          // 存放臨時節點對象的數組，解決被覆蓋問題
+          var childElements = [];
+          var node = []; //用來存放父節點用的
+          for (var i = 0; i < elements.length; i++) {
+            // 如果默認沒有父節點，就指定document
+            if (node.length == 0) node.push(document);
+            switch (elements[i].charAt(0)) {
+              // id
+              case '#':
+                // 先清空臨時節點數組
+                childElements = [];
+                childElements.push(Tu.Gid(elements[i].substring(1)));
+                node = childElements; // 保存到父節點
+                break;
+                // 類
+              case '.':
+                childElements = [];
+                // 遍曆父節點數組，匹配符合className的所有節點
+                for (var j = 0; j < node.length; j++) {
+                  var temps = Tu.Gclass(elements[i].substring(1), node[j]);
+                  for (var k = 0; k < temps.length; k++) {
+                    childElements.push(temps[k]);
+                  }
+                }
+                node = childElements;
+                break;
+                //標簽
+              default:
+                childElements = [];
+                for (var j = 0; j < node.length; j++) {
+                  var temps = Tu.Gtag(elements[i], node[j]);
+                  for (var k = 0; k < temps.length; k++) {
+                    childElements.push(temps[k]);
+                  }
+                }
+                node = childElements;
+
+            }
+          }
+          elements = childElements;
+        } else {
+          // Find模擬,就是說只是單一的選擇器
+          switch (args.charAt(0)) {
+            case '#':
+              elements.push(Tu.Gid(args.substring(1)));
+              break;
+            case '.':
+              elements = Tu.Gclass(args.substring(1));
+              break;
+            default:
+              elements = Tu.Gtag(args);
+          }
+        }
+      } else if (typeof args == 'Object') {
+        if (args != undefined) {
+
+          elements[0] = args;
+        }
+      } else if (typeof args == 'function') {
+        _self.ready(args);
+      }
+      console.log(elements.length);
+
+      _self.length = elements.length;
+      Tu.Global_Extend(_self, elements);
+      return this;
+    },
+
+    // children: function(tagName) {
+    //   var result = [];
+    //   var curEle = this[0];
+    //   var childList = Array.prototype.slice.call(curEle.childNodes);
+    //   console.log(childList)
+    //   tagName = tagName.toLowerCase();
+
+    //   // Array.prototype.slice.call(children);
+    //   for (var i = 0; i < childList.length; i += 1) {
+    //     var item = childList[i];
+    //     if (item.nodeType === 1) {
+    //       if (typeof tagName !== 'undefined') {
+    //         console.log(item)
+    //         //=> 保证比较時的统一性，全部转化为小写进行比较
+    //         if (item.tagName.toLowerCase() === tagName.toLowerCase()) {
+    //           result.push(item);
+    //         }
+    //       } else {
+    //         // console.log(item)
+    //         //=> 没有传标签名，默认返回全部儿子辈子元素
+    //         result.push(item);
+    //       }
+    //     }
+    //   }
+    //    // console.log(typeof this.init(result[0]), this[0])
+    //   return this.init(result)
+    // },
+    children: function(selector, log) {
+      // if (!el || !el.childNodes) {
+      //   return null;
+      // }
+      var el = this[0];
+      console.log(el)
+      var result = [],
+        i = 0,
+        l = el.childNodes.length;
+
+      for (var i; i < l; ++i) {
+        if (el.childNodes[i].nodeType == 1 && TuUtil.matches(el.childNodes[i], selector, log)) {
+          result.push(el.childNodes[i]);
+        }
+      }
+      console.log(result)
+      return result[0];
+    },
+
+    prev: function(curEle) {
+      var curEle = this;
+      // console.log(curEle.previousElementSibling);
+      var prev = curEle[0].previousElementSibling;
+      // return Tu.each(this, function(curEle) {
+      //   var curEle = this
+
+      //   console.log(curEle);
+      //   var pre = curEle.previousSibling;
+
+      //   while (pre && pre.nodeType !== 1) {    
+      //     console.log(pre)
+      //     pre = pre.previousSibling;  
+      //     console.log(pre)
+      //   }
+      console.log(prev)
+      return prev
+
+      // });
+      // return prev;
+    },
+
+    next: function(curEle) {
+      var curEle = this[0];
+      var next = curEle.nextElementSibling;
+      return this.init(next);
+    },
+
+
+    sibling: function(el) {
+
+    },
+
+    hide: function() {
+      Tu.each(this, function(element) {
+        if (typeof element !== 'undefined') {
+          element.style.display = 'none';
+        }
       });
     },
-    destroy: function() {
-      this.hammer.destroy()
-    }
+
+    show: function(display) {
+      Tu.each(this, function(element) {
+        if (typeof element !== 'undefined') {
+          element.style.display = (display ? display : 'block');
+        }
+      });
+    },
+
+    size: function() {
+      return this.length;
+    },
+
+    isEmpty: function() {
+      return this.length === 0;
+    },
+
+    each: function(callback) {
+      return Tu.each(this, callback);
+    },
+
+    html: function(cur, html) {
+      var cur = this[0];
+      console.log(cur);
+      // return this[0].innerHTML = html
+      // return this[0].innerHTML = html;
+      // return Tu.each(this, function(element, index) {
+      //   if (element.nodeType === 1) {
+
+      //     console.log(element);
+      //     element.innerHTML = html;
+      //   }
+      // });
+      if (html === undefined) {
+        return this[0] && this[0].nodeType === 1 ?
+          this[0].innerHTML : null;
+      } else {
+        return Tu.each(this, function(element, index) {
+          console.log(element)
+          if (element.nodeType === 1) {
+            element.innerHTML = html;
+          }
+        });
+      }
+
+    },
+    append: function(html) {
+      console.log(this)
+      return Tu.each(this, function(element) {
+        console.log(element)
+        element.insertAdjacentHTML('beforeend', html)
+      });
+
+    },
+
+    remove: function() {
+      return Tu.each(this, function(element) {
+        element.parentNode.removeChild(element);
+      });
+    },
+    attr: function(name, value) {
+      name = Tu.props[name] || name;
+      if (value !== undefined) {
+        return Tu.each(this, function(element) {
+          console.log(element.nodeType);
+          if (element.nodeType !== 3 && element.nodeType !== 8) {
+            element.setAttribute(name, value);
+          }
+        });
+
+      } else {
+        console.log(this);
+        return this[0].getAttribute(name);
+
+      }
+    },
+
+    hasAttr: function(name) {
+      return this[0].getAttribute(name) ? true : false;
+    },
+
+    removeAttr: function(name) {
+      this[0].removeAttribute(name);
+    },
+
+    val: function(value) {
+
+      if (value === undefined) {
+        return this[0] && this[0].nodeName === 'INPUT' ?
+          this[0].value : null;
+      } else {
+        return Tu.each(this, function(element) {
+          if (element.nodeName === 'INPUT') {
+            element.value = value;
+          }
+        });
+      }
+    },
+
+
+
+    isInViewport: function() {
+      var rect = this[0].getBoundingClientRect();
+      return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    },
+
+    toArray: function(arr) {
+      var ary = [];
+      console.log(arr)
+      for (var i = arr.length; i--; ary.unshift(arr[i]));
+      console.log(arr)
+      return ary;
+    },
   };
-  var svg_options = {
-    zoomEnabled: true,
-    controlIconsEnabled: true,
-    fit: true,
-    center: true,
-    minZoom: 0.6,
-    maxZoom: 10,
-    zoomScaleSensitivity: 0.1,
-    center: true,
-    customEventsHandler: eventsHandler
+
+  Tu.Mth.init.prototype = Tu.Mth;
+
+  global.Tu = Tu;
+
+})(this);
+
+
+document.addEventListener('DOMContentLoaded', function(el) {
+
+  if (window.localStorage) {
+    var fontSizeClass = window.localStorage.getItem("fontSizeClass");
+    console.log(fontSizeClass)
+    if (fontSizeClass != "") {
+      document.getElementById("fontSizeClass").value = fontSizeClass;
+    }
   }
-  // if ($('#taiwan_cost').length)
-  //   var costZoom = window.zoomTaiwan_cost = svgPanZoom('#taiwan_cost', svg_options);
-  // if ($('#taiwan_course').length)
-  //   var courseZoom = window.zoomTaiwan_course = svgPanZoom('#taiwan_course', svg_options);
-  // if ($('#taiwan_course1').length)
-  //   var courseZoom1 = window.zoomTaiwan_course = svgPanZoom('#taiwan_course1', svg_options);
-  
 
-  // $.TuCore.helpers.resize($(window), function() {
-  //   if ($('#taiwan_course').length) {
-  //     courseZoom.resize();
-  //     courseZoom.fit();
-  //     courseZoom.center();
-  //   }
-  //   if ($('#taiwan_course1').length) {
-  //     courseZoom1.resize();
-  //     courseZoom1.fit();
-  //     courseZoom1.center();
-  //   }
+  var fontBtnList = document.getElementById('fontBtns').addEventListener('click', {
+    handleEvent: function(event) {
+      var target = event.target;
+      event.stopImmediatePropagation();
+      event.preventDefault();
 
-  //   if ($('#taiwan_cost').length) {
-  //     costZoom.resize();
-  //     costZoom.fit();
-  //     costZoom.center();
-  //   }
-  // });
+      switch (target.id) {
+        case "scale_down":
+          $.TuCore.helpers.cFontSize('#scale_down', 'down');
+
+          break;
+        case "scale_default":
+          $.TuCore.helpers.cFontSize('#scale_default', 'default');
+
+          break;
+        case "scale_up":
+          $.TuCore.helpers.cFontSize('#scale_up', 'up');
+
+          break;
+      }
+    },
+
+  }, false);
 });
-
-
-if ($('#taiwan_course').length) {
-
-  $('#NewTaipei').tooltip({
-    title: '<h6>新北市</h6>' +
-      '<p>課程數量：146 筆</p>',
-    html: true,
-    placement: 'right',
-    container: 'body'
-  });
-  $('#Taipei').tooltip({
-    title: '<h6>台北市</h6>' +
-      '<p>課程數量：117 筆</p>',
-    html: true,
-    placement: 'right',
-    container: 'body'
-  });
-  $('#NewTaipei').tooltip({
-    title: '<h6>新北市</h6>' +
-      '<p>課程數量：91 筆</p>',
-    html: true,
-    placement: 'right',
-    container: 'body'
-  });
-  $('#Keelung').tooltip({
-    title: '<h6>基隆市</h6>' +
-      '<p>課程數量：96 筆</p>',
-    html: true,
-    placement: 'right',
-    container: 'body'
-  });
-  $('#Yilan').tooltip({
-    title: '<h6>宜蘭縣</h6>' +
-      '<p>課程數量：18 筆</p>',
-    html: true,
-    placement: 'right',
-    container: 'body'
-  });
-  $('#Hualien').tooltip({
-    title: '<h6>花蓮縣</h6>' +
-      '<p>課程數量：77 筆</p>',
-    html: true,
-    placement: 'right',
-    container: 'body'
-  });
-  $('#Taoyuan').tooltip({
-    title: '<h6>桃園市</h6>' +
-      '<p>課程數量：18 筆</p>',
-    html: true,
-    placement: 'right',
-    container: 'body'
-  });
-  $('#HsinchuCounty').tooltip({
-    title: '<h6>新竹縣</h6>' +
-      '<p>課程數量：52 筆</p>',
-    html: true,
-    placement: 'top',
-    container: 'body'
-  });
-  $('#HsinchuCity').tooltip({
-    title: '<h6>新竹市</h6>' +
-      '<p>課程數量：40 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#Miaoli').tooltip({
-    title: '<h6>苗栗縣</h6>' +
-      '<p>課程數量：91 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#Taichung').tooltip({
-    title: '<h6>台中市</h6>' +
-      '<p>課程數量：58 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#Nantou').tooltip({
-    title: '<h6>南投縣</h6>' +
-      '<p>課程數量：58 筆</p>',
-    html: true,
-    placement: 'top',
-    container: 'body'
-  });
-  $('#Changhua').tooltip({
-    title: '<h6>彰化縣</h6>' +
-      '<p>課程數量：24 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#Yunlin').tooltip({
-    title: '<h6>雲林縣</h6>' +
-      '<p>課程數量：66 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#ChiayiCounty').tooltip({
-    title: '<h6>嘉義縣</h6>' +
-      '<p>課程數量：39 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#ChiayiCity').tooltip({
-    title: '<h6>嘉義市</h6>' +
-      '<p>課程數量：96 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#Tainan').tooltip({
-    title: '<h6>台南市</h6>' +
-      '<p>課程數量：6 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#Kaohsiung').tooltip({
-    title: '<h6>高雄市</h6>' +
-      '<p>課程數量：49 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#Pingtung').tooltip({
-    title: '<h6>屏東縣</h6>' +
-      '<p>課程數量：72 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#Taitung').tooltip({
-    title: '<h6>台東縣</h6>' +
-      '<p>課程數量：28 筆</p>',
-    html: true,
-    placement: 'right',
-    container: 'body'
-  });
-}
-if ($('#taiwan_course1').length) {
-
-  $('#NewTaipei').tooltip({
-    title: '<h6>新北市</h6>' +
-      '<p>課程數量：146 筆</p>',
-    html: true,
-    placement: 'right',
-    container: 'body'
-  });
-  $('#Taipei').tooltip({
-    title: '<h6>台北市</h6>' +
-      '<p>課程數量：117 筆</p>',
-    html: true,
-    placement: 'right',
-    container: 'body'
-  });
-  $('#NewTaipei').tooltip({
-    title: '<h6>新北市</h6>' +
-      '<p>課程數量：91 筆</p>',
-    html: true,
-    placement: 'right',
-    container: 'body'
-  });
-  $('#Keelung').tooltip({
-    title: '<h6>基隆市</h6>' +
-      '<p>課程數量：96 筆</p>',
-    html: true,
-    placement: 'right',
-    container: 'body'
-  });
-  $('#Yilan').tooltip({
-    title: '<h6>宜蘭縣</h6>' +
-      '<p>課程數量：18 筆</p>',
-    html: true,
-    placement: 'right',
-    container: 'body'
-  });
-  $('#Hualien').tooltip({
-    title: '<h6>花蓮縣</h6>' +
-      '<p>課程數量：77 筆</p>',
-    html: true,
-    placement: 'right',
-    container: 'body'
-  });
-  $('#Taoyuan').tooltip({
-    title: '<h6>桃園市</h6>' +
-      '<p>課程數量：18 筆</p>',
-    html: true,
-    placement: 'right',
-    container: 'body'
-  });
-  $('#HsinchuCounty').tooltip({
-    title: '<h6>新竹縣</h6>' +
-      '<p>課程數量：52 筆</p>',
-    html: true,
-    placement: 'top',
-    container: 'body'
-  });
-  $('#HsinchuCity').tooltip({
-    title: '<h6>新竹市</h6>' +
-      '<p>課程數量：40 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#Miaoli').tooltip({
-    title: '<h6>苗栗縣</h6>' +
-      '<p>課程數量：91 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#Taichung').tooltip({
-    title: '<h6>台中市</h6>' +
-      '<p>課程數量：58 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#Nantou').tooltip({
-    title: '<h6>南投縣</h6>' +
-      '<p>課程數量：58 筆</p>',
-    html: true,
-    placement: 'top',
-    container: 'body'
-  });
-  $('#Changhua').tooltip({
-    title: '<h6>彰化縣</h6>' +
-      '<p>課程數量：24 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#Yunlin').tooltip({
-    title: '<h6>雲林縣</h6>' +
-      '<p>課程數量：66 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#ChiayiCounty').tooltip({
-    title: '<h6>嘉義縣</h6>' +
-      '<p>課程數量：39 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#ChiayiCity').tooltip({
-    title: '<h6>嘉義市</h6>' +
-      '<p>課程數量：96 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#Tainan').tooltip({
-    title: '<h6>台南市</h6>' +
-      '<p>課程數量：6 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#Kaohsiung').tooltip({
-    title: '<h6>高雄市</h6>' +
-      '<p>課程數量：49 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#Pingtung').tooltip({
-    title: '<h6>屏東縣</h6>' +
-      '<p>課程數量：72 筆</p>',
-    html: true,
-    placement: 'left',
-    container: 'body'
-  });
-  $('#Taitung').tooltip({
-    title: '<h6>台東縣</h6>' +
-      '<p>課程數量：28 筆</p>',
-    html: true,
-    placement: 'right',
-    container: 'body'
-  });
-}
-
-
-

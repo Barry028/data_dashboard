@@ -697,24 +697,108 @@
   <script src="js/echarts_inner.js"></script>
   <script src="js/echarts_Util.js"></script>
   <script>
-    var data = [];
-  var data1 = [];
-  var data2 = [];
-  var data3 = [];
-  var data4 = [];
-  for (let i = 0; i < 5; i++) {
-    data1.push(+(Math.random() * 200).toFixed(0));
-    data2.push(+(Math.random() * 400).toFixed(0));
-    data3.push(+(Math.random() * 230).toFixed(0));
-    data4.push(+(Math.random() * 400).toFixed(0));
-  }
+  // var data = [];
+  // var data1 = [];
+  // var data2 = [];
+  // var data3 = [];
+  // var data4 = [];
+  // for (let i = 0; i < 5; i++) {
+  //   data1.push(+(Math.random() * 200).toFixed(0));
+  //   data2.push(+(Math.random() * 400).toFixed(0));
+  //   data3.push(+(Math.random() * 230).toFixed(0));
+  //   data4.push(+(Math.random() * 400).toFixed(0));
+  // }
+  // let arr = [{
+  //   "type": 1,
+  //   "typeName": "Charts_v1",
+  //   "listContent": [{
+  //     "id": 1,
+  //     "content": "数量",
+  //     "resultCount": 5
+  //   }, {
+  //     "id": 2,
+  //     "content": "数量2",
+  //     "resultCount": 6
+  //   }],
+  //   "resultCount": [5, 6],
+  //   "content": ["数量", "数量2"],
+  //   "count": 11
+  // }, {
+  //   "type": 2,
+  //   "typeName": "Charts_v2",
+  //   "listContent": [{
+  //     "id": 1,
+  //     "content": "数量",
+  //     "resultCount": 7
+  //   }, {
+  //     "id": 2,
+  //     "content": "数量2",
+  //     "resultCount": 8
+  //   }],
+  //   "resultCount": [7, 8],
+  //   "content": ["数量", "数量2"],
+  //   "count": 15
+  // }];
 
+  // // "use strict";
+  // console.log(Tu(".js-go-to"))
 
-  console.log(data1)
-  var bardata = [
-    { "group": '類型1', "category": '1月', value: data1 },
-    { "group": '類型2', "category": '2月', value: data2 },
-  ];
+  // function echarts_buildArray(type, arr) {
+  //   this.name = [];
+  //   this.vaule = [];
+  //   this.type = type;
+
+  //   var ary = [];
+  //   var len = arr.length;
+  //   for (var i = 0; i < len; i++) {
+  //     ary.push(arr[i])
+  //   }
+  //   return {
+  //     name: ary,
+  //     vaules: [{
+  //       vaule: ary
+  //     }],
+  //   }
+  // };
+  // var aa = echarts_buildArray(1, data1);
+  // console.log(aa)
+
+  // const newArr = arr.map(function(value, index, data1) {
+
+  //   value.resultCount = [], value.content = [], value.count = ""
+  //   console.log(value.listContent);
+  //   console.log(value, index, data1);
+
+  //   value.listContent.map(function(value2, index2, data2) {
+  //     console.log(data2);
+  //     value.content.push(data2.resultCount);
+  //     value.resultCount.push(data2);
+  //     // arr.reduce(function(accumulator,currentValue,currentIndex,array) {
+
+  //     value.count = value2.resultCount.reduce(function(acc, cur) {
+  //       console.log(acc, cur);
+  //       return acc + cur;
+  //     });
+  //   });
+  //   value.push(index);
+  //   return value;
+  // }, []);
+  // console.log(newArr);
+
+  // var bardata = [
+  //   { "group": "男", "name": "1月", "value": data1[1] },
+  //   { "group": "女", "name": "1月", "value": "115" },
+  //   { "group": "男", "name": "2月", "value": "50" },
+  //   { "group": "女", "name": "2月", "value": "102" },
+  //   { "group": "男", "name": "3月", "value": "22" },
+  //   { "group": "女", "name": "3月", "value": "112" },
+  //   { "group": "男", "name": "4月", "value": "80" },
+  //   { "group": "女", "name": "4月", "value": "45" },
+  //   { "group": "男", "name": "5月", "value": "25" },
+  //   { "group": "女", "name": "5月", "value": "92" },
+  //   { "group": "男", "name": "6月", "value": "22" },
+  //   { "group": "女", "name": "6月", "value": "52" }
+  // ];
   // console.log(TuEcharts.echartsDataFormate.GroupFormate(bardata , 1))
   // var ddd = TuEcharts.echartsDataFormate.GroupFormate(bardata , 1);
 
@@ -735,8 +819,9 @@
   //   { group: '類型1', name: '6月', value: 22 },
   //   { group: '類型2', name: '6月', value: 52 }
   // ];
-  var option = TuEcharts.bar(bardata, "1", "青年參訓背景");
-  var initChart = new TuEcharts.renderChart(option, "youth_cicr");
+  // var option = TuEcharts.bar(bardata, 2, "青年參訓背景");
+  // var initChart = new TuEcharts.renderChart(option, "youth_cicr");
   </script>
+</body>
 
 </html>
