@@ -285,7 +285,7 @@
                 <span>在職訓練指標</span>
               </a>
             </li>
-                        <ul class="side-sub-menu">
+            <ul class="side-sub-menu">
               <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(縣市別、分署別)">
                 <a class="side-sub-menu-link" href="employment_pre_1.html">
                   <span>產業別開課占比</span>
@@ -551,14 +551,14 @@
                                 <font class="text-14 in-bk-mid ml-4">無障礙模式</font>
                               </div>
                               <div class="echart-container">
-                                <div id="youth" class="echart-inner"></div>
+                                <div id="youth_cicr" class="echart-inner"></div>
                               </div>
                             </div>
                           </div>
                         </div>
                         <div class="tab-pane " id="tabv21" role="tabpanel">
                           <div class="echart-container">
-                            <div id="youth_1" class="echart-inner"></div>
+                            <div id="youth_cicr_" class="echart-inner"></div>
                           </div>
                         </div>
                       </div>
@@ -567,7 +567,7 @@
                       <div class="row">
                         <div class="col-xl-6">
                           <div class="echart-container">
-                            <div id="employment_gender" class="echart-inner"></div>
+                            <div id="youth_cicr_gender" class="echart-inner"></div>
                           </div>
                         </div>
                         <div class="col-xl-6">
@@ -611,12 +611,12 @@
                         </div>
                         <div class="col-xl-6">
                           <div class="echart-container">
-                            <div id="employment_education" class="echart-inner"></div>
+                            <div id="youth_cicr_education" class="echart-inner"></div>
                           </div>
                         </div>
                         <div class="col-xl-6">
                           <div class="echart-container">
-                            <div id="employment_identity" class="echart-inner"></div>
+                            <div id="youth_cicr_identity" class="echart-inner"></div>
                           </div>
                         </div>
                       </div>
@@ -674,8 +674,6 @@
   <!-- echarts -->
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.3.2/dist/echarts.min.js"></script>
   <!-- echarts themes -->
-  <script src="vendor/echarts/theme/wda_data.js"></script>
-  <script src='vendor/echarts-liquidfill-master/dist/echarts-liquidfill.js'></script>
   <!-- Main.js -->
   <script src="js/core.js"></script>
   <!-- chartist -->
@@ -695,10 +693,50 @@
   <script src="js/components/Tu.toggle.js"></script>
   <script src="js/components/Tu.gotop.js"></script>
   <script src="js/colors.js"></script>
+  <script src="js/echarts_variables.js"></script>
   <script src="js/echarts_inner.js"></script>
-  <link rel="stylesheet" href="css/rSlider.min.css">
-  <script src="js/rSlider.min.js"></script>
+  <script src="js/echarts_Util.js"></script>
   <script>
+    var data = [];
+  var data1 = [];
+  var data2 = [];
+  var data3 = [];
+  var data4 = [];
+  for (let i = 0; i < 5; i++) {
+    data1.push(+(Math.random() * 200).toFixed(0));
+    data2.push(+(Math.random() * 400).toFixed(0));
+    data3.push(+(Math.random() * 230).toFixed(0));
+    data4.push(+(Math.random() * 400).toFixed(0));
+  }
+
+
+  console.log(data1)
+  var bardata = [
+    { "group": '類型1', "category": '1月', value: data1 },
+    { "group": '類型2', "category": '2月', value: data2 },
+  ];
+  // console.log(TuEcharts.echartsDataFormate.GroupFormate(bardata , 1))
+  // var ddd = TuEcharts.echartsDataFormate.GroupFormate(bardata , 1);
+
+  // var piedata = [{ name: '男生', value: 10 },
+  //   { name: '女生', value: 20 }
+  // ];
+  // var groupdata = [
+  //   { group: '類型1', name: '1月', value: 110 },
+  //   { group: '類型2', name: '1月', value: 115 },
+  //   { group: '類型1', name: '2月', value: 50 },
+  //   { group: '類型2', name: '2月', value: 102 },
+  //   { group: '類型1', name: '3月', value: 22 },
+  //   { group: '類型2', name: '3月', value: 112 },
+  //   { group: '類型1', name: '4月', value: 80 },
+  //   { group: '類型2', name: '4月', value: 45 },
+  //   { group: '類型1', name: '5月', value: 25 },
+  //   { group: '類型2', name: '5月', value: 92 },
+  //   { group: '類型1', name: '6月', value: 22 },
+  //   { group: '類型2', name: '6月', value: 52 }
+  // ];
+  var option = TuEcharts.bar(bardata, "1", "青年參訓背景");
+  var initChart = new TuEcharts.renderChart(option, "youth_cicr");
   </script>
 
 </html>
