@@ -24,29 +24,48 @@ $green:                   		#499894 !default;
 $teal: 					  		        #A3CCC9 !default;
 $cyan:                    		#7FC4DC !default;
 
-$hawthorn:				  		      #884C5E	!default;
-$paua:                        #302C4D !default;
-$lichen-blue:                 #5D89B4 !default;
-$lutos:                       #E2C1C0 !default;
-$dried-moss:                  #CCB97E !default;
-$volcanic-glass:              #615C61 !default;
-$plaza-taupe:                 #AEA393 !default;
-$white-sand:                  #DBD5D1 !default;
-$cloud-dancer:                #F0EEE9 !default;
-$deep-taupe:                  #7B6660 !default;
+$seafoam:               #dbf5f0                 !default;
+$ivory:                 #f4efdb                 !default;
+$granny:                #c1ffc1                 !default;
+$tiffany:               #a4e5e0                 !default;
+$similar:               #f5f2eb                 !default;
+$meteorite:             #332a7c                 !default;
+$water:                 #edeff6                 !default;
+$bright:                #eaeef6                 !default;
+$magnolia:              #f4f3fd                 !default;
+
+$hawthorn:              #884C5E                 !default;
+$paua:                  #302C4D                 !default;
+$lichen-blue:           #5D89B4                 !default;
+$lutos:                 #E2C1C0                 !default;
+$dried-moss:            #CCB97E                 !default;
+$volcanic-glass:        #615C61                 !default;
+$plaza-taupe:           #AEA393                 !default;
+$white-sand:            #DBD5D1                 !default;
+$cloud-dancer:          #F0EEE9                 !default;
+$deep-taupe:            #7B6660                 !default;
+
+$flash:                 #f2f3f5                 !default;
+$soap:                  #CBD4F4                 !default;
+$pale:                  #F7D9E3                 !default;
+$water:                 #CBF0F4                 !default;
 
 
 $dark: 					              #1F1F39 !default; 
 $grey: 					              #5A6473 !default;
 $lightgrey: 			      	    #9AA0A9 !default;
+
 $black:					              #121328 !default;
 $white:                       #fff    !default;
 $neutral:                     #1b1b26 !default;
+
 $light: 				              #B8B8D2 !default;
 $lighter: 				      	    #eaeaf2 !default;
 $lightest:  			      	    #f6f6fa !default;
+
 $default:				              #F5F5F6 !default;
 $default-dark:                #E4E4EB !default;
+
 $grey-light: 			      	    #e8e8f1 !default; 
 $grey-lighter:			   		    #f8f8fb !default;
 
@@ -168,6 +187,7 @@ $theme-colors: map-merge((
   "green":            $green,
   "teal":             $teal,
   "cyan":             $cyan,
+
   "hawthorn":         $hawthorn,
   "paua":             $paua,
   "lichen-blue":      $lichen-blue,
@@ -247,21 +267,21 @@ $element-colors:	map-merge(
 ), $element-colors );
 
 //== Brands colors
-$facebook:              #3b5998 !default;
-$twitter:               #00acee !default;
-$google-plus:           #dd4b39 !default;
-$instagram:             #e4405f !default;
-$pinterest:             #c8232c !default;
-$youtube:               #c4302b !default;
-$slack:                 #3aaf85 !default;
-$dribbble:              #ea4c89 !default;
-$github:                #222222 !default;
-$dropbox:               #1E90FF !default;
-$twitch:                #4B367C !default;
-$paypal:                #ecb32c !default;
-$behance:               #0057ff !default;
-$reddit:                #E84422 !default;
-$linkedin:              #0e76a8 !default;
+$facebook:              #3b5999                 !default;
+$twitter:               #1da1f2                 !default;
+$google-plus:           #dd4b39                 !default;
+$instagram:             #e4405f                 !default;
+$pinterest:             #bd081c                 !default;
+$youtube:               #cd201f                 !default;
+$slack:                 #3aaf85                 !default;
+$dribbble:              #ea4c89                 !default;
+$github:                #222222                 !default;
+$dropbox:               #1e90ff                 !default;
+$twitch:                #4b367c                 !default;
+$paypal:                #ecb32c                 !default;
+$behance:               #0057ff                 !default;
+$reddit:                #e84422                 !default;
+
 
 //== Brand Colors
 $brand-colors: ()!default;

@@ -1,5 +1,5 @@
 
-// ase 
+// ease 
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––
 @mixin ceaser-transition($properties: all, $duration: 500ms, $type: $ease, $delay: 0ms) {
     @if $ceaser-legacy {

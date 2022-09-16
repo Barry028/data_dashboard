@@ -393,13 +393,13 @@
                   </div>
                 </header>
                 <div class="dashboard-card-body text-0">
-                 <!--  <div class="map-container">
+                  <!--  <div class="map-container">
                     <div id="echarts_tw_county_map" class="map-wrap-inner">
                       <div class="mask mask_graph"></div>
                     </div>
                   </div> -->
                   <div class="map-container">
-                    <div id="echarts_tw_branch_map" class="map-wrap-inner">
+                    <div id="echarts_tw_county_map" class="map-wrap-inner">
                       <div class="mask mask_graph"></div>
                     </div>
                   </div>
@@ -495,7 +495,7 @@
     { group: '類型1', name: '6月', value: 22 },
     { group: '類型2', name: '6月', value: 52 }
   ];
-  var option = TuEcharts.pie(piedata, 4, "職訓分析圖");
+  var option = TuEcharts.bar(groupdata, 1, "職訓分析圖");
   var initChart = new TuEcharts.renderChart(option, "chartid1");
   </script>
   <!-- Charts Js -->

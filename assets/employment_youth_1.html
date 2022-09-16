@@ -762,6 +762,10 @@
   // };
   // var aa = echarts_buildArray(1, data1);
   // console.log(aa)
+  var dataWithJson = { name: 'BarrY', role: '帥哥' };
+  var strInHtml = $("main").html();
+  var newHtml = TurboFrame.stringBind(strInHtml, dataWithJson);
+  $("main").html(newHtml)
 
   // const newArr = arr.map(function(value, index, data1) {
 

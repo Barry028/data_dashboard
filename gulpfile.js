@@ -36,7 +36,7 @@ gulp.task('img', () => {
         quality: 10,
       }),
       imageminPngquant({
-        quality: [0.4, 0.6],
+        quality: [40, 60],
         speed: 1,
       }),
     ]))
@@ -49,29 +49,52 @@ gulp.task('svg', () => {
     .pipe(svgo())
     .pipe(gulp.dest('assets/dist/img'));
 });
+
 gulp.task('icons', () => {
   return gulp
     .src('assets/img/icons/**')
     .pipe(svgo())
     .pipe(gulp.dest('assets/dist/icons'));
 });
-gulp.task('webpimgs', () =>
 
-  gulp.src('assets/Ai/0801/**')
-  .pipe(imagemin([
-      imageminJpegtran({
-        quality: 10,
-      }),
-      imageminPngquant({
-        quality: [0.4, 0.6],
-        speed: 1,
-      }),
-    ]))
+
+
+
+gulp.task('svgCus', () => {
+  return gulp
+    .src('assets/AI/**')
+    .pipe(svgo())
+    .pipe(gulp.dest('assets/dist/'));
+});
+
+gulp.task('webpCus', () =>
+  gulp.src('assets/AI/*')
+  .pipe(webp())
   .on('error', (err) => {
     console.log(err);
   })
-  .pipe(gulp.dest('assets/Ai/dist/'))
+  .pipe(gulp.dest('assets/dist/'))
 );
+
+gulp.task('imgsCus', () =>
+  gulp.src('assets/AI/*')
+  .pipe(imagemin([
+    imageminJpegtran({
+      quality: 10,
+    }),
+    imageminPngquant({
+      quality: [0.4, 0.6],
+      speed: 1,
+    }),
+  ]))
+  .on('error', (err) => {
+    console.log(err);
+  })
+  .pipe(gulp.dest('assets/dist/'))
+);
+
+
+
 gulp.task('webp', () =>
   gulp.src('assets/img/**')
   .pipe(webp())
@@ -100,8 +123,8 @@ gulp.task('sass', () => {
     .pipe(postcss(plugins))
     .pipe(sourcemaps.write('.', {
       sourceRoot: '../scss/'
-        // 寫入Sourcemaps 到當前資料夾(以下下列 dest('assets/css')為基準點，
-        // SourceRoot：以匯出的資料夾為基準點找他原本的scss資料夾位置。
+      // 寫入Sourcemaps 到當前資料夾(以下下列 dest('assets/css')為基準點，
+      // SourceRoot：以匯出的資料夾為基準點找他原本的scss資料夾位置。
     }))
     .pipe(gulp.dest('assets/css'))
 });
