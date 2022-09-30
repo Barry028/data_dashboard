@@ -1,12 +1,12 @@
 /**
- * 为图形设置容器
+ * 為圖形設置容器
  */
 Array.prototype.setContainer = function(containerId) {
   var containerWidth;
   var containerHeight;
   var container = eval("document.getElementById('" + containerId + "')");
-  //以为需要用递归查找祖宗级父元素
-  /*   var ParentContainer = container.parentNode;//获取容器父元素
+  // 需要用遞歸查找祖宗級父元素
+  /*   var ParentContainer = container.parentNode;//獲取容器父元素
      function getParentContainer() {
          if(ParentContainer.clientWidth != 0 && ParentContainer.clientWidth != "undefined" && ParentContainer.clientWidth != null){
              return ParentContainer.clientWidth;
@@ -15,7 +15,7 @@ Array.prototype.setContainer = function(containerId) {
          getParentContainer();
      }
      var containerParent = getParentContainer();*/
-  var containerParent = container.parentNode.clientWidth; //获取容器父元素的宽度
+  var containerParent = container.parentNode.clientWidth; //獲取容器父元素的寬度
   if (containerParent == 0 || containerParent == "undefined" || containerParent == null) {
     containerParent = 600;
   }
@@ -37,13 +37,13 @@ Array.prototype.setContainer = function(containerId) {
       containerHeight = container.getAttribute("height").replace("px", "");
     }
   } else {
-    containerHeight = containerWidth * 0.618 || "400"; //黄金分割比例0.618
+    containerHeight = containerWidth * 0.618 || "400"; //黃金分割比例0.618
   }
   container.style.width = containerWidth + "px";
   container.style.height = containerHeight + "px";
 };
 /**
- * 判断是否为整数
+ * 判斷是否為整數
  * @param obj
  * @returns {Boolean}
  */
@@ -51,7 +51,7 @@ Array.prototype.isInteger = function(obj) {
   return obj % 1 === 0
 };
 /**
- * 检测数组是否存在
+ * 檢測數組是否存在
  * @param obj
  * @returns {Boolean}
  */
@@ -65,7 +65,7 @@ Array.prototype.contains = function(obj) {
   return false;
 };
 /**
- * 数组中最大值 最小值
+ * 數組中最大值 最小值
  * @param array
  * @returns
  */
@@ -167,38 +167,38 @@ var TuEcharts = {
      *
      */
     GroupFormate: function(data, type) {
-      //用于存储类型名称
+      // 用於存儲類型名稱
       var groups = new Array();
-      //用于存储data.name数据
+      // 用於存儲data.name數據
       var names = new Array();
-      //存储返回series数据 （一个或者多个）
+      // 存儲返回series數據 （一個或者多個）
       var series = new Array();
 
       for (var i = 0; i < data.length; i++) {
-        //判断data[i].group是否存在数租groups中
+        // 判斷data[i].group是否存在數租groups中
         if (!groups.contains(data[i].group)) {
-          //不存在则跳进 存放
+          // 不存在則跳進 存放
           groups.push(data[i].group);
         }
 
-        //判断name数据是否存在 数组names中
+        // 判斷name數據是否存在 數組names中
         if (!names.contains(data[i].name)) {
-          //不存在则跳进 存放
+          // 不存在則跳進 存放
           names.push(data[i].name);
         }
       }
 
-      //遍历分类
+      //遍歷分類
       for (var i = 0; i < groups.length; i++) {
-        //定义一个series中间变量
+        //定義一個series中間變量
         var temp_series = {};
-        //定义data.value数据存储
+        //定義data.value數據存儲
         var temp_data = new Array();
-        //遍历所有数据
+        //遍歷所有數據
         for (var j = 0; j < data.length; j++) {
-          //遍历data.name数据
+          //遍歷data.name數據
           for (var k = 0; k < names.length; k++) {
-            //判断所有分类中的所有数据含name数据分开
+            //判斷所有分類中的所有數據含name數據分開
             if (groups[i] == data[j].group && names[k] == data[j].name) {
               temp_data.push(data[j].value);
             }
@@ -214,38 +214,38 @@ var TuEcharts = {
     BarFormate: function(data, type) {
       switch (type) {
         case 1:
-          //用于存储类型名称
+          //用於存儲類型名稱
           var groups = new Array();
-          //用于存储data.name数据
+          //用於存儲data.name數據
           var names = new Array();
-          //存储返回series数据 （一个或者多个）
+          //存儲返回series數據 （一個或者多個）
           var series = new Array();
 
           for (var i = 0; i < data.length; i++) {
-            //判断data[i].group是否存在数租groups中
+            //判斷data[i].group是否存在數租groups中
             if (!groups.contains(data[i].group)) {
-              //不存在则跳进 存放
+              //不存在則跳進 存放
               groups.push(data[i].group);
             }
 
-            //判断name数据是否存在 数组names中
+            //判斷name數據是否存在 數組names中
             if (!names.contains(data[i].name)) {
-              //不存在则跳进 存放
+              //不存在則跳進 存放
               names.push(data[i].name);
             }
           }
 
-          //遍历分类
+          //遍歷分類
           for (var i = 0; i < groups.length; i++) {
-            //定义一个series中间变量
+            //定義一個series中間變量
             var temp_series = {};
-            //定义data.value数据存储
+            //定義data.value數據存儲
             var temp_data = new Array();
-            //遍历所有数据
+            //遍歷所有數據
             for (var j = 0; j < data.length; j++) {
-              //遍历data.name数据
+              //遍歷data.name數據
               for (var k = 0; k < names.length; k++) {
-                //判断所有分类中的所有数据含name数据分开
+                //判斷所有分類中的所有數據含name數據分開
                 if (groups[i] == data[j].group && names[k] == data[j].name) {
                   temp_data.push(data[j].value);
                 }
@@ -257,38 +257,38 @@ var TuEcharts = {
           }
           return { groups: groups, category: names, series: series };
         case 2:
-          //用于存储类型名称
+          //用於存儲類型名稱
           var groups = new Array();
-          //用于存储data.name数据
+          //用於存儲data.name數據
           var names = new Array();
-          //存储返回series数据 （一个或者多个）
+          //存儲返回series數據 （一個或者多個）
           var series = new Array();
 
           for (var i = 0; i < data.length; i++) {
-            //判断data[i].group是否存在数租groups中
+            //判斷data[i].group是否存在數租groups中
             if (!groups.contains(data[i].group)) {
-              //不存在则跳进 存放
+              //不存在則跳進 存放
               groups.push(data[i].group);
             }
 
-            //判断name数据是否存在 数组names中
+            //判斷name數據是否存在 數組names中
             if (!names.contains(data[i].name)) {
-              //不存在则跳进 存放
+              //不存在則跳進 存放
               names.push(data[i].name);
             }
           }
 
-          //遍历分类
+          //遍歷分類
           for (var i = 0; i < groups.length; i++) {
-            //定义一个series中间变量
+            //定義一個series中間變量
             var temp_series = {};
-            //定义data.value数据存储
+            //定義data.value數據存儲
             var temp_data = new Array();
-            //遍历所有数据
+            //遍歷所有數據
             for (var j = 0; j < data.length; j++) {
-              //遍历data.name数据
+              //遍歷data.name數據
               for (var k = 0; k < names.length; k++) {
-                //判断所有分类中的所有数据含name数据分开
+                //判斷所有分類中的所有數據含name數據分開
                 if (groups[i] == data[j].group && names[k] == data[j].name) {
                   temp_data.push(data[j].value);
                 }
@@ -300,38 +300,38 @@ var TuEcharts = {
           }
           return { groups: groups, category: names, series: series };
         case 3:
-          //用于存储类型名称
+          //用於存儲類型名稱
           var groups = new Array();
-          //用于存储data.name数据
+          //用於存儲data.name數據
           var names = new Array();
-          //存储返回series数据 （一个或者多个）
+          //存儲返回series數據 （一個或者多個）
           var series = new Array();
 
           for (var i = 0; i < data.length; i++) {
-            //判断data[i].group是否存在数租groups中
+            //判斷data[i].group是否存在數租groups中
             if (!groups.contains(data[i].group)) {
-              //不存在则跳进 存放
+              //不存在則跳進 存放
               groups.push(data[i].group);
             }
 
-            //判断name数据是否存在 数组names中
+            //判斷name數據是否存在 數組names中
             if (!names.contains(data[i].name)) {
-              //不存在则跳进 存放
+              //不存在則跳進 存放
               names.push(data[i].name);
             }
           }
 
-          //遍历分类
+          //遍歷分類
           for (var i = 0; i < groups.length; i++) {
-            //定义一个series中间变量
+            //定義一個series中間變量
             var temp_series = {};
-            //定义data.value数据存储
+            //定義data.value數據存儲
             var temp_data = new Array();
-            //遍历所有数据
+            //遍歷所有數據
             for (var j = 0; j < data.length; j++) {
-              //遍历data.name数据
+              //遍歷data.name數據
               for (var k = 0; k < names.length; k++) {
-                //判断所有分类中的所有数据含name数据分开
+                //判斷所有分類中的所有數據含name數據分開
                 if (groups[i] == data[j].group && names[k] == data[j].name) {
                   temp_data.push(data[j].value);
                 }
@@ -343,38 +343,38 @@ var TuEcharts = {
           }
           return { groups: groups, category: names, series: series };
         default:
-          //用于存储类型名称
+          //用於存儲類型名稱
           var groups = new Array();
-          //用于存储data.name数据
+          //用於存儲data.name數據
           var names = new Array();
-          //存储返回series数据 （一个或者多个）
+          //存儲返回series數據 （一個或者多個）
           var series = new Array();
 
           for (var i = 0; i < data.length; i++) {
-            //判断data[i].group是否存在数租groups中
+            //判斷data[i].group是否存在數租groups中
             if (!groups.contains(data[i].group)) {
-              //不存在则跳进 存放
+              //不存在則跳進 存放
               groups.push(data[i].group);
             }
 
-            //判断name数据是否存在 数组names中
+            //判斷name數據是否存在 數組names中
             if (!names.contains(data[i].name)) {
-              //不存在则跳进 存放
+              //不存在則跳進 存放
               names.push(data[i].name);
             }
           }
 
-          //遍历分类
+          //遍歷分類
           for (var i = 0; i < groups.length; i++) {
-            //定义一个series中间变量
+            //定義一個series中間變量
             var temp_series = {};
-            //定义data.value数据存储
+            //定義data.value數據存儲
             var temp_data = new Array();
-            //遍历所有数据
+            //遍歷所有數據
             for (var j = 0; j < data.length; j++) {
-              //遍历data.name数据
+              //遍歷data.name數據
               for (var k = 0; k < names.length; k++) {
-                //判断所有分类中的所有数据含name数据分开
+                //判斷所有分類中的所有數據含name數據分開
                 if (groups[i] == data[j].group && names[k] == data[j].name) {
                   temp_data.push(data[j].value);
                 }
@@ -392,38 +392,38 @@ var TuEcharts = {
     LineFormate: function(data, type) {
       switch (type) {
         case 1:
-          //用于存储类型名称
+          //用於存儲類型名稱
           var groups = new Array();
-          //用于存储data.name数据
+          //用於存儲data.name數據
           var names = new Array();
-          //存储返回series数据 （一个或者多个）
+          //存儲返回series數據 （一個或者多個）
           var series = new Array();
 
           for (var i = 0; i < data.length; i++) {
-            //判断data[i].group是否存在数租groups中
+            //判斷data[i].group是否存在數租groups中
             if (!groups.contains(data[i].group)) {
-              //不存在则跳进 存放
+              //不存在則跳進 存放
               groups.push(data[i].group);
             }
 
-            //判断name数据是否存在 数组names中
+            //判斷name數據是否存在 數組names中
             if (!names.contains(data[i].name)) {
-              //不存在则跳进 存放
+              //不存在則跳進 存放
               names.push(data[i].name);
             }
           }
 
-          //遍历分类
+          //遍歷分類
           for (var i = 0; i < groups.length; i++) {
-            //定义一个series中间变量
+            //定義一個series中間變量
             var temp_series = {};
-            //定义data.value数据存储
+            //定義data.value數據存儲
             var temp_data = new Array();
-            //遍历所有数据
+            //遍歷所有數據
             for (var j = 0; j < data.length; j++) {
-              //遍历data.name数据
+              //遍歷data.name數據
               for (var k = 0; k < names.length; k++) {
-                //判断所有分类中的所有数据含name数据分开
+                //判斷所有分類中的所有數據含name數據分開
                 if (groups[i] == data[j].group && names[k] == data[j].name) {
                   temp_data.push(data[j].value);
                 }
@@ -435,38 +435,38 @@ var TuEcharts = {
           }
           return { groups: groups, category: names, series: series };
         case 2:
-          //用于存储类型名称
+          //用於存儲類型名稱
           var groups = new Array();
-          //用于存储data.name数据
+          //用於存儲data.name數據
           var names = new Array();
-          //存储返回series数据 （一个或者多个）
+          //存儲返回series數據 （一個或者多個）
           var series = new Array();
 
           for (var i = 0; i < data.length; i++) {
-            //判断data[i].group是否存在数租groups中
+            //判斷data[i].group是否存在數租groups中
             if (!groups.contains(data[i].group)) {
-              //不存在则跳进 存放
+              //不存在則跳進 存放
               groups.push(data[i].group);
             }
 
-            //判断name数据是否存在 数组names中
+            //判斷name數據是否存在 數組names中
             if (!names.contains(data[i].name)) {
-              //不存在则跳进 存放
+              //不存在則跳進 存放
               names.push(data[i].name);
             }
           }
 
-          //遍历分类
+          //遍歷分類
           for (var i = 0; i < groups.length; i++) {
-            //定义一个series中间变量
+            //定義一個series中間變量
             var temp_series = {};
-            //定义data.value数据存储
+            //定義data.value數據存儲
             var temp_data = new Array();
-            //遍历所有数据
+            //遍歷所有數據
             for (var j = 0; j < data.length; j++) {
-              //遍历data.name数据
+              //遍歷data.name數據
               for (var k = 0; k < names.length; k++) {
-                //判断所有分类中的所有数据含name数据分开
+                //判斷所有分類中的所有數據含name數據分開
                 if (groups[i] == data[j].group && names[k] == data[j].name) {
                   temp_data.push(data[j].value);
                 }
@@ -478,38 +478,38 @@ var TuEcharts = {
           }
           return { groups: groups, category: names, series: series };
         case 3:
-          //用于存储类型名称
+          //用於存儲類型名稱
           var groups = new Array();
-          //用于存储data.name数据
+          //用於存儲data.name數據
           var names = new Array();
-          //存储返回series数据 （一个或者多个）
+          //存儲返回series數據 （一個或者多個）
           var series = new Array();
 
           for (var i = 0; i < data.length; i++) {
-            //判断data[i].group是否存在数租groups中
+            //判斷data[i].group是否存在數租groups中
             if (!groups.contains(data[i].group)) {
-              //不存在则跳进 存放
+              //不存在則跳進 存放
               groups.push(data[i].group);
             }
 
-            //判断name数据是否存在 数组names中
+            //判斷name數據是否存在 數組names中
             if (!names.contains(data[i].name)) {
-              //不存在则跳进 存放
+              //不存在則跳進 存放
               names.push(data[i].name);
             }
           }
 
-          //遍历分类
+          //遍歷分類
           for (var i = 0; i < groups.length; i++) {
-            //定义一个series中间变量
+            //定義一個series中間變量
             var temp_series = {};
-            //定义data.value数据存储
+            //定義data.value數據存儲
             var temp_data = new Array();
-            //遍历所有数据
+            //遍歷所有數據
             for (var j = 0; j < data.length; j++) {
-              //遍历data.name数据
+              //遍歷data.name數據
               for (var k = 0; k < names.length; k++) {
-                //判断所有分类中的所有数据含name数据分开
+                //判斷所有分類中的所有數據含name數據分開
                 if (groups[i] == data[j].group && names[k] == data[j].name) {
                   temp_data.push(data[j].value);
                 }
@@ -521,38 +521,38 @@ var TuEcharts = {
           }
           return { groups: groups, category: names, series: series };
         default:
-          //用于存储类型名称
+          //用於存儲類型名稱
           var groups = new Array();
-          //用于存储data.name数据
+          //用於存儲data.name數據
           var names = new Array();
-          //存储返回series数据 （一个或者多个）
+          //存儲返回series數據 （一個或者多個）
           var series = new Array();
 
           for (var i = 0; i < data.length; i++) {
-            //判断data[i].group是否存在数租groups中
+            //判斷data[i].group是否存在數租groups中
             if (!groups.contains(data[i].group)) {
-              //不存在则跳进 存放
+              //不存在則跳進 存放
               groups.push(data[i].group);
             }
 
-            //判断name数据是否存在 数组names中
+            //判斷name數據是否存在 數組names中
             if (!names.contains(data[i].name)) {
-              //不存在则跳进 存放
+              //不存在則跳進 存放
               names.push(data[i].name);
             }
           }
 
-          //遍历分类
+          //遍歷分類
           for (var i = 0; i < groups.length; i++) {
-            //定义一个series中间变量
+            //定義一個series中間變量
             var temp_series = {};
-            //定义data.value数据存储
+            //定義data.value數據存儲
             var temp_data = new Array();
-            //遍历所有数据
+            //遍歷所有數據
             for (var j = 0; j < data.length; j++) {
-              //遍历data.name数据
+              //遍歷data.name數據
               for (var k = 0; k < names.length; k++) {
-                //判断所有分类中的所有数据含name数据分开
+                //判斷所有分類中的所有數據含name數據分開
                 if (groups[i] == data[j].group && names[k] == data[j].name) {
                   temp_data.push(data[j].value);
                 }
@@ -567,27 +567,27 @@ var TuEcharts = {
 
     },
     /**
-     * 雷达图数据格式化
+     * 雷達圖數據格式化
      */
     RadarFormate: function(data) {
-      //用于存储类型名称
+      //用於存儲類型名稱
       var groups = new Array();
-      //用于存储data.name数据
+      //用於存儲data.name數據
       var names = new Array();
-      //存储最大值数组
+      //存儲最大值數組
       var indicators = new Array();
-      //定义data.value数据存储
+      //定義data.value數據存儲
       var temp_data = new Array();
       for (var i = 0; i < data.length; i++) {
-        //判断data[i].group是否存在数租groups中
+        //判斷data[i].group是否存在數租groups中
         if (!groups.contains(data[i].group)) {
-          //不存在则跳进 存放
+          //不存在則跳進 存放
           groups.push(data[i].group);
         }
 
-        //判断name数据是否存在 数组names中
+        //判斷name數據是否存在 數組names中
         if (!names.contains(data[i].name)) {
-          //不存在则跳进 存放
+          //不存在則跳進 存放
           names.push(data[i].name);
         }
       }
@@ -602,13 +602,13 @@ var TuEcharts = {
         }
         indicators.push({ name: names[i], max: Number(temp_maxValue.max() * 2 / 1.5).toFixed(2) })
       }
-      //遍历分类
+      //遍歷分類
       for (var i = 0; i < groups.length; i++) {
-        //定义一个series中间变量
+        //定義一個series中間變量
         var temp_series = {};
-        //定义datavalue数组
+        //定義datavalue數組
         var dataValues = new Array();
-        //遍历所有数据
+        //遍歷所有數據
         for (var j = 0; j < data.length; j++) {
           if (groups[i] == data[j].group) {
             dataValues.push(data[j].value);
@@ -620,37 +620,37 @@ var TuEcharts = {
       return { indicators: indicators, groups: groups, category: names, series: series };
     },
     /**
-     * 漏斗图数据格式化
+     * 漏斗圖數據格式化
      */
     FunnelFormate: function(data, type) {
-      //用于存储类型名称
+      //用於存儲類型名稱
       var groups = new Array();
-      //用于存储data.name数据
+      //用於存儲data.name數據
       var names = new Array();
-      //定义一个存放series的数组
+      //定義一個存放series的數組
       var series = new Array();
       for (var i = 0; i < data.length; i++) {
-        //判断data[i].group是否存在数租groups中
+        //判斷data[i].group是否存在數租groups中
         if (!groups.contains(data[i].group)) {
-          //不存在则跳进 存放
+          //不存在則跳進 存放
           groups.push(data[i].group);
         }
 
-        //判断name数据是否存在 数组names中
+        //判斷name數據是否存在 數組names中
         if (!names.contains(data[i].name)) {
-          //不存在则跳进 存放
+          //不存在則跳進 存放
           names.push(data[i].name);
         }
       }
       var width = parseInt(100 / groups.length);
-      //遍历分类
+      //遍歷分類
       for (var i = 0; i < groups.length; i++) {
-        //定义data.value数据存储
+        //定義data.value數據存儲
         var temp_data = new Array();
         var k = 0;
-        //遍历所有数据
+        //遍歷所有數據
         for (var j = 0; j < data.length; j++) {
-          //判断所有分类中的所有数据含name数据分开
+          //判斷所有分類中的所有數據含name數據分開
           if (groups[i] == data[j].group) {
             k++;
             temp_data.push({ value: k, name: data[j].name + ":" + data[j].value });
@@ -681,12 +681,12 @@ var TuEcharts = {
       return { groups: groups, category: names, series: series };
     },
     /**
-     * 仪表盘图数据格式化
+     * 儀錶盤圖數據格式化
      */
     GaugeFormate: function(data, type) {
       var temp_datas = [{ value: data.value, name: data.name }];
       var names = data.name;
-      //判断最大值和最小值几位数
+      //判斷最大值和最小值幾位數
       maxNum = Number(parseInt(data.value)).toString().length;
       minNum = Number(parseInt(data.value)).toString().length;
       if (minNum <= 2) {
@@ -706,55 +706,55 @@ var TuEcharts = {
         radius: '70%',
         startAngle: 180,
         endAngle: -0,
-        axisLine: { // 坐标轴线
-          lineStyle: { // 属性lineStyle控制线条样式
+        axisLine: { // 坐標軸線
+          lineStyle: { // 屬性lineStyle控制線條樣式
             color: [
               [0.09, 'lime'],
               [0.82, '#1e90ff'],
               [1, '#ff4500']
             ],
             width: 3,
-            shadowColor: '#fff', //默认透明
+            shadowColor: '#fff', //默認透明
             shadowBlur: 10
           }
         },
-        axisLabel: { // 坐标轴小标记
-          textStyle: { // 属性lineStyle控制线条样式
+        axisLabel: { // 坐標軸小標記
+          textStyle: { // 屬性lineStyle控制線條樣式
             fontWeight: 'bolder',
             color: '#444',
-            shadowColor: '#fff', //默认透明
+            shadowColor: '#fff', //默認透明
             shadowBlur: 10
           }
         },
-        axisTick: { // 坐标轴小标记
-          length: 15, // 属性length控制线长
-          lineStyle: { // 属性lineStyle控制线条样式
+        axisTick: { // 坐標軸小標記
+          length: 15, // 屬性length控制線長
+          lineStyle: { // 屬性lineStyle控制線條樣式
             color: 'auto',
-            shadowColor: '#fff', //默认透明
+            shadowColor: '#fff', //默認透明
             shadowBlur: 10
           }
         },
-        splitLine: { // 分隔线
-          length: 25, // 属性length控制线长
-          lineStyle: { // 属性lineStyle（详见lineStyle）控制线条样式
+        splitLine: { // 分隔線
+          length: 25, // 屬性length控制線長
+          lineStyle: { // 屬性lineStyle（詳見lineStyle）控制線條樣式
             width: 3,
             color: 'auto',
-            shadowColor: '#fff', //默认透明
+            shadowColor: '#fff', //默認透明
             shadowBlur: 10
           }
         },
-        pointer: { // 分隔线
-          shadowColor: '#fff', //默认透明
+        pointer: { // 分隔線
+          shadowColor: '#fff', //默認透明
           shadowBlur: 5
         },
         title: {
           offsetCenter: ['-10%', '30%'],
-          textStyle: { // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+          textStyle: { // 其餘屬性默認使用全局文本樣式，詳見TEXTSTYLE
             fontWeight: 'bolder',
             fontSize: 14,
             fontStyle: 'italic',
             color: '#',
-            shadowColor: '#fff', //默认透明
+            shadowColor: '#fff', //默認透明
             shadowBlur: 10
           }
         },
@@ -762,11 +762,11 @@ var TuEcharts = {
           backgroundColor: 'rgba(30,144,255,0.8)',
           borderWidth: 1,
           borderColor: '#fff',
-          shadowColor: '#fff', //默认透明
+          shadowColor: '#fff', //默認透明
           shadowBlur: 5,
           fontSize: 14,
-          offsetCenter: ['20%', '30%'], // x, y，单位px
-          textStyle: { // 其余属性默认使用全局文本样式，详见TEXTSTYLE
+          offsetCenter: ['20%', '30%'], // x, y，單位px
+          textStyle: { // 其餘屬性默認使用全局文本樣式，詳見TEXTSTYLE
             fontWeight: 'bolder',
             color: '#fff'
           }
@@ -1063,10 +1063,12 @@ var TuEcharts = {
   bar: function(data, type, title) {
     var datas = TuEcharts.echartsDataFormate.BarFormate(data, type);
     var option = {
-      //标题
+      //標題
       title: {
-        text: title || "", //标题
-        x: 'center', //位置默认居中
+        left: "center",
+        top: '16px',
+        text: title || "", //標題
+        x: 'center', //位置默認居中
       },
       //提示
       tooltip: {
@@ -1074,22 +1076,22 @@ var TuEcharts = {
         trigger: 'item',
         formatter: "{a} <br/>{b} : {c}"
       },
-      //组建
+      //組建
       legend: {
         orient: 'vertical', //垂直：vertical； 水平 horizontal
-        left: 'left', //位置默认左
+        left: 'left', //位置默認左
         data: datas.groups
       },
-      //水平坐标
+      //水平坐標
       xAxis: [{
         type: 'category',
         data: datas.category
       }],
-      //垂直坐标
+      //垂直坐標
       yAxis: [{
         type: 'value'
       }],
-      //series数据
+      //series數據
       series: datas.series
     };
     return option;
@@ -1185,7 +1187,7 @@ var TuEcharts = {
     return option;
   },
   /**
-   * 漏鬥圖
+   * 漏斗圖
    * @param title ： 標題<br>
    * @param subtext ：副標題<br>
    * @param data : json 數據
@@ -1376,7 +1378,7 @@ var TuEcharts = {
     "legendTextColor": 'rgba(31, 31, 57,1)',
     "axes": [{
       "type": "all",
-      "name": "通用坐标轴",
+      "name": "通用坐標軸",
       "axisLineShow": true,
       "axisLineColor": "rgba(90, 100, 115,1)",
       "axisTickShow": true,
@@ -1412,7 +1414,7 @@ var TuEcharts = {
       ]
     }, {
       "type": "value",
-      "name": "数值坐标轴",
+      "name": "數值坐標軸",
       "axisLineShow": true,
       "axisLineColor": "rgba(90, 100, 115,1)",
       "axisTickShow": true,
@@ -1430,7 +1432,7 @@ var TuEcharts = {
       ]
     }, {
       "type": "log",
-      "name": "对数坐标轴",
+      "name": "對數坐標軸",
       "axisLineShow": true,
       "axisLineColor": "rgba(90, 100, 115,1)",
       "axisTickShow": true,
@@ -1448,7 +1450,7 @@ var TuEcharts = {
       ]
     }, {
       "type": "time",
-      "name": "时间坐标轴",
+      "name": "時間坐標軸",
       "axisLineShow": true,
       "axisLineColor": "rgba(90, 100, 115,1)",
       "axisTickShow": true,
