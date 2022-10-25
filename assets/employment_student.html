@@ -42,7 +42,7 @@
     <div class="container-fluid">
       <div class="header-group">
         <div class="header-group-lt">
-          <a href="index_v1.html" class="header-logo">
+          <a href="javascript:;" class="header-logo" id="F">
             <img src="img/logo-primary.svg" title="勞動力發展署" alt="職業訓練視覺化分析平台" class="logo-img">
           </a>
         </div>
@@ -659,7 +659,13 @@
   <script src="js/colors.js"></script>
   <script src="js/echarts_inner.js"></script>
   <script>
-
+    popupWindow('asds','inner_1.html')
+      $.TuCore.components.modal.init('#F', {
+        title: '新北市課程區域分佈',
+        drag: true,
+        size: 'modal-xl',
+        body: ''
+      });
   </script>
 
 </html>

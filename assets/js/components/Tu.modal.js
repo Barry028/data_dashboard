@@ -1,9 +1,15 @@
+
 /**
  * Modal markup helper-wrapper.
  *
  * @author Barry
  * @version 1.0.0
- *
+ * $.TuCore.components.modal.init('#F', {
+  title: '新北市課程區域分佈',
+  drag: true,
+  size: 'modal-xl',
+  body: ''
+  });
  */
 ;
 (function($) {
@@ -13,12 +19,10 @@
     _baseConfig: {
       size: 'modal-lg',
       center: true,
-      animation: 'fade',
+      animation: 'fade', // fade slideRight slideLeft slideBottom zoomIn zoomOut flip
       drag: true,
       scrollable: false,
-      // fade slideRight slideLeft slideBottom zoomIn zoomOut flip
-      backdrop: 'true',
-      // static true false
+      backdrop: 'true', // static true false
       title: 'Modal Title',
       closeButton: true,
       header: true,
@@ -37,13 +41,17 @@
         text: '確定',
         class: 'btn btn--primary',
         submit: false,
-        handler: function(modal) {}
-      }, ],
+        handler: function(modal) {
+
+        }
+      }],
       autoFocus: true,
       created: function() {},
       appended: function() {},
       onFormSubmit: function() {},
-      modal: {},
+      modal: {
+
+      },
     },
 
     /**

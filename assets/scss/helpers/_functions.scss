@@ -2,6 +2,11 @@
 //
 //  Function
 // –––––––––––––––––––––––––––––––––––––––––––––––––––––––––
+
+@function PxRem($px) {
+  @return $px / 16px * 1rem;
+}
+
 @function sqrt($r) {
     $x0: 1;
     $x1: $x0;

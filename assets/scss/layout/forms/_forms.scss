@@ -1,10 +1,44 @@
 //
 //  Layout -> Forms 
 // --------------------------------------------------
+$transition: $transition-base;
+.t-input-icon {
+  position: relative;
+
+  // width: 100%;
+
+  .t-form-control {
+    padding-left: 3rem;
+    width: 100%;
+    text-align: left;
+    text-align-last: left;
+
+
+  &:focus {
+    + i {
+      color: $primary;
+    }
+  }
+  }
+
+  > i {
+    font-size: 1rem;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $lightgrey;
+  }
+
+
+}
+
 .t-form-control {
   background-color: $white;
   border: 2px solid $border;
+
   @include border-radius($input-btn-radius);
+
   font-size: $input-btn-font-size;
   padding: $input-btn-padding-y $input-btn-padding-x;
   text-align: left;
@@ -17,6 +51,7 @@
     // line-height: 1;
     // padding: .75rem .875rem;
   }
+
 
   &:focus {
     border-color: rgba($primary, 0.66);
@@ -121,7 +156,9 @@
 
   @at-root select#{&} {
     appearance: none;
+
     @include svg-bg-icon(arrow-bottom, $primary, right 1rem center, 0.625rem 50%);
+
     cursor: pointer;
     padding-right: 2.5rem;
     user-select: none;
@@ -130,61 +167,67 @@
       display: none;
     }
   }
-
 }
-  // textarea {
-  //   appearance: none;
-  //   position: relative;
-  //   background-color: $dark--neu-background;
-  //   border: 2px solid rgba($white, 0);
-  //   border-radius: 12px;
-  //   box-shadow: $dark--neu-shadows;
-  //   color: rgba($white, 0.72);
-  //   font-size: 1.125rem;
-  //   height: calc(100% + 4px);
-  //   width: 100%;
-  //   outline: 0 solid rgba($primary-100, 0.08);
-  //   padding: 1rem 1.5rem;
-  //   transition: all 0.125s ease-in-out;
 
-  //   &:focus {
-  //     background-color: $dark--neu-background-focus;
-  //     box-shadow: $dark--neu-shadows-focus;
-  //     outline: 4px solid rgba($primary-100, 0.02);
-  //     outline-offset: 0;
-  //   }
+// textarea {
+//   appearance: none;
+//   position: relative;
+//   background-color: $dark--neu-background;
+//   border: 2px solid rgba($white, 0);
+//   border-radius: 12px;
+//   box-shadow: $dark--neu-shadows;
+//   color: rgba($white, 0.72);
+//   font-size: 1.125rem;
+//   height: calc(100% + 4px);
+//   width: 100%;
+//   outline: 0 solid rgba($primary-100, 0.08);
+//   padding: 1rem 1.5rem;
+//   transition: all 0.125s ease-in-out;
 
-  //   &[disabled],
-  //   &[readonly] {
-  //     background-color: $dark--neu-background-disabled;
-  //     opacity: 0.66;
-  //     box-shadow: $dark--neu-shadows-focus-disabled;
-  //     border: 2px solid rgba($white, 0.02);
-  //   }
+//   &:focus {
+//     background-color: $dark--neu-background-focus;
+//     box-shadow: $dark--neu-shadows-focus;
+//     outline: 4px solid rgba($primary-100, 0.02);
+//     outline-offset: 0;
+//   }
 
-  //   &::placeholder {
-  //     color: $dark--neu-placeholder;
-  //   }
+//   &[disabled],
+//   &[readonly] {
+//     background-color: $dark--neu-background-disabled;
+//     opacity: 0.66;
+//     box-shadow: $dark--neu-shadows-focus-disabled;
+//     border: 2px solid rgba($white, 0.02);
+//   }
 
-  //   &[type="number"] {
-  //     appearance: textfield;
+//   &::placeholder {
+//     color: $dark--neu-placeholder;
+//   }
 
-  //     &::-webkit-outer-spin-button,
-  //     &::-webkit-inner-spin-button {
-  //       appearance: none;
-  //       margin: 0;
-  //     }
+//   &[type="number"] {
+//     appearance: textfield;
 
-  //     &:hover,
-  //     &:focus {
-  //       appearance: number-input;
-  //     }
-  //   }
-  // }
+//     &::-webkit-outer-spin-button,
+//     &::-webkit-inner-spin-button {
+//       appearance: none;
+//       margin: 0;
+//     }
+
+//     &:hover,
+//     &:focus {
+//       appearance: number-input;
+//     }
+//   }
+// }
 
 .t-form {
+
+
   &-group {
     margin-bottom: 1.5rem;
+
+     label {
+      margin-bottom: 0.5rem;
+    }
   }
 
   &-check {
@@ -223,9 +266,8 @@
 
 .was-validated {
   .form-control {
-
-    &:valid~.valid-tooltip,
-    &:invalid~.invalid-tooltip {
+    &:valid ~ .valid-tooltip,
+    &:invalid ~ .invalid-tooltip {
       display: inline-block;
     }
 

@@ -1364,37 +1364,37 @@
 })(this);
 
 
-document.addEventListener('DOMContentLoaded', function(el) {
+// document.addEventListener('DOMContentLoaded', function(el) {
 
-  if (window.localStorage) {
-    var fontSizeClass = window.localStorage.getItem("fontSizeClass");
-    console.log(fontSizeClass)
-    if (fontSizeClass != "") {
-      document.getElementById("fontSizeClass").value = fontSizeClass;
-    }
-  }
+//   if (window.localStorage) {
+//     var fontSizeClass = window.localStorage.getItem("fontSizeClass");
+//     console.log(fontSizeClass)
+//     if (fontSizeClass != "") {
+//       document.getElementById("fontSizeClass").value = fontSizeClass;
+//     }
+//   }
 
-  var fontBtnList = document.getElementById('fontBtns').addEventListener('click', {
-    handleEvent: function(event) {
-      var target = event.target;
-      event.stopImmediatePropagation();
-      event.preventDefault();
+//   var fontBtnList = document.getElementById('fontBtns').addEventListener('click', {
+//     handleEvent: function(event) {
+//       var target = event.target;
+//       event.stopImmediatePropagation();
+//       event.preventDefault();
 
-      switch (target.id) {
-        case "scale_down":
-          $.TuCore.helpers.cFontSize('#scale_down', 'down');
+//       switch (target.id) {
+//         case "scale_down":
+//           $.TuCore.helpers.cFontSize('#scale_down', 'down');
 
-          break;
-        case "scale_default":
-          $.TuCore.helpers.cFontSize('#scale_default', 'default');
+//           break;
+//         case "scale_default":
+//           $.TuCore.helpers.cFontSize('#scale_default', 'default');
 
-          break;
-        case "scale_up":
-          $.TuCore.helpers.cFontSize('#scale_up', 'up');
+//           break;
+//         case "scale_up":
+//           $.TuCore.helpers.cFontSize('#scale_up', 'up');
 
-          break;
-      }
-    },
+//           break;
+//       }
+//     },
 
-  }, false);
-});
+//   }, false);
+// });

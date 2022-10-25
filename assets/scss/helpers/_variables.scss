@@ -301,7 +301,7 @@ $brand-colors: map-merge(
 	"behance":      $behance,
 	"reddit" :      $reddit,
 	"github":       $github,
-	"linkedin":     $linkedin,
+	// "linkedin":     $linkedin,
 ), $brand-colors);
 
 // #009EF7; #E4E6EF; #1BC5BD;  #7239EA; #FFC700; #F1416C; #181C32;
@@ -1422,6 +1422,19 @@ $toast-blur:                         10px                 !default;
 $toast-min-width:                    10rem                !default;
 $toast-max-width:                    20rem                !default;
 
+
+$font-size:                                                  1rem                      !default;
+$font-size-base:                                             $font-size                !default;
+$font-size-root:                                             null                      !default;
+$font-weight-lighter:           lighter                   !default;
+$font-weight-light:             300                       !default;
+$font-weight-normal:            400                       !default;
+$font-weight-medium:            500                       !default;
+$font-weight-semibold:          600                       !default;
+$font-weight-semi-bold:         600                       !default;
+$font-weight-bold:              700                       !default;
+$font-weight-bolder:            bolder                    !default;
+$font-weight-base:              $font-weight-normal       !default;
 
 
 $linear: "0.250, 0.250, 0.750, 0.750" !default;
