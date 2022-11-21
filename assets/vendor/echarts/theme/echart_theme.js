@@ -259,5 +259,5 @@
     "datazoomLabelColor": "#8d949e"
   };
 
-  echarts.registerTheme('wda_data', theme);
+  echarts.registerTheme('echart_theme', theme);
 });

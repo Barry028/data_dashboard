@@ -252,16 +252,16 @@ if ($('#user_backgrounds').length) {
         }
       },
       legend: {
-        data: ['自辦', '產投', '區域據點', '企訓']
+        data: ['死因統計', '醫療機構現況及醫院醫療服務量統計', '國民醫療保健支出統計', '健康平均餘命']
       },
       xAxis: [{
         type: 'category',
-        data: branch,
+        data: ['死因統計', '醫療機構現況及醫院醫療服務量統計', '國民醫療保健支出統計', '健康平均餘命' , ],
         axisPointer: {
           type: 'shadow'
         },
         axisLabel: {
-          fontSize: 18,
+          fontSize: 16,
           fontWeight: 'bolder',
           top: '12',
           color: tu_dark,
@@ -279,7 +279,7 @@ if ($('#user_backgrounds').length) {
         }
       }],
       series: [{
-        name: '自辦',
+        name: '死因統計',
         type: 'bar',
         tooltip: {
           valueFormatter: function(value) {
@@ -299,7 +299,7 @@ if ($('#user_backgrounds').length) {
           textBorderColor: "#fff"
         },
       }, {
-        name: '產投',
+        name: '醫療機構現況及醫院醫療服務量統計',
         type: 'bar',
         tooltip: {
           valueFormatter: function(value) {
@@ -319,7 +319,7 @@ if ($('#user_backgrounds').length) {
           textBorderColor: "#fff"
         },
       }, {
-        name: '區域據點',
+        name: '國民醫療保健支出統計',
         type: 'bar',
         tooltip: {
           valueFormatter: function(value) {
@@ -339,7 +339,7 @@ if ($('#user_backgrounds').length) {
           textBorderColor: "#fff"
         },
       }, {
-        name: '企訓',
+        name: '健康平均餘命',
         type: 'bar',
         tooltip: {
           valueFormatter: function(value) {

@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW" class="">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,maximum-scale=1.0,user-scalable=no">
+  <meta charset="UTF-8">
+  <title>勞動力發展署 - 職業訓練視覺化分析平台</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
+  <!-- Animate  -->
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+  <!-- iCon  -->
+  <link rel="stylesheet" type="text/css" href="vendor/iCons/turbo_icon_blur-v1.0/style.css">
+  <!-- CSS  -->
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+  <!--[if lte IE 9]>
+    <script src="vender/IE_Supports/html5shiv/dist/html5shiv.min.js"></script>
+    <script src="vender/IE_Supports/respond/dest/respond.min.js"></script>
+    <script src="vender/IE_Supports/Placeholders/dist/placeholders.jquery.min.js"></script>
+    <script src="vender/IE_Supports/Placeholders/dist/placeholders.prototype.min.js"></script>
+    <script src="vender/IE_Supports/Placeholders/dist/placeholders.yui3.min.js"></script>
+    <![endif]-->
+  <script>
+    (function(d) {
+    var config = {
+    kitId: 'ufg8zbw',
+    scriptTimeout: 3000,
+    async: true
+    },
+    h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+    </script>
+  <style>
+  </style>
+</head>
+
+<body id="index">
+  <!-- HEADER -->
+  <header class="backend-header" id="Header">
+    <div class="container-fluid">
+      <div class="header-group">
+        <div class="header-group-lt">
+          <a href="index_v1.html" class="header-logo">
+            <img src="img/logo-primary.svg" title="勞動力發展署" alt="職業訓練視覺化分析平台" class="logo-img">
+          </a>
+        </div>
+        <div class="header-group-rt">
+          <ul class="header-tools">
+            <li class="header-tools-item">
+              <time id="current_time" class="current-time t-visibility-hidden">
+                <div class="calendar-inner">
+                  <div class="calendar-header">
+                    <font id="mon_ch"></font>
+                  </div>
+                  <div class="calendar-content">
+                    <font id="date"></font>
+                  </div>
+                </div>
+                <div class="clock-inner">
+                  <div class="clock-lt">
+                    <font id="mon" class="clock-month"></font>
+                    <font id="year" class="clock-year"></font>
+                    <font id="day" class="clock-day"></font>
+                  </div>
+                  <div class="clock-rt">
+                    <font id="hour" class="clock-hour"></font>
+                    <font id="min" class="clock-min"></font>
+                    <font id="sec" class="clock-sec"></font>
+                  </div>
+                </div>
+              </time>
+            </li>
+            <li class="header-tools-item">
+              <div class="dropdown dropdown-user-menu" data-toggle="tooltip" data-html="true" data-placement="left" title="勞動力發展署<br>訓練發展組 歐陽光亮">
+                <button class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div class="avatar-container">
+                    <div class="avatar-img" data-bg-img-src="dist/img/3d_avatars/3d-male-001.webp"></div>
+                  </div>
+                  <div class="user-description">
+                    <div class="user-description-unit">勞動力發展署</div>
+                    <div class="user-description-txts">訓練發展組 歐陽光亮</div>
+                  </div>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-lock-1 dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">密碼變更</font>
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-profile dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">個人資料</font>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">
+                    <i class="tub-logout dropdown-item-icon" aria-hidden="true">
+                      <font></font>
+                      <font></font>
+                    </i>
+                    <font class="dropdown-item-text">登出系統</font>
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- SIDE MEUN -->
+  <aside class="side-bar-menu" id="SideBar">
+    <h2 class="side-main-title">
+      <font class="side-main-title-inner">功能選單</font>
+      <big>MEUN</big>
+      <input id="BurGerMenu" type="checkbox" class="toggle-input">
+      <label id="BurGer" for="BurGerMenu" class="toggle-menu">
+        <span></span>
+      </label>
+    </h2>
+    <nav class="side-main-menu">
+      <ul class="js-scrollbar">
+        <li class="side-main-list-item active">
+          <a class="side-main-list-link" href="index_v1.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁</span>
+            <label class="badge t-badge-secondary">v4</label>
+          </a>
+        </li>
+        <!-- <li class="side-main-list-item ">
+          <a class="side-main-list-link" href="index_v2.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v2</span>
+            <label class="badge t-badge-tertiary">v2</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v2-1.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v2-1</span>
+            <label class="badge t-badge-tertiary">v2-1</label>
+          </a>
+        </li>
+        <li class="side-main-list-item ">
+          <a class="side-main-list-link" href="index_v3.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v3</span>
+            <label class="badge t-badge-quaternary">v3</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v4.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v4</span>
+            <label class="badge t-badge-primary">v4</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v5.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v5</span>
+            <label class="badge t-badge-lightgrey">v5</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v6.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v6</span>
+            <label class="badge t-badge-lightgrey">v6</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v7.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v7</span>
+            <label class="badge t-badge-lightgrey">v7</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v8.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v8</span>
+            <label class="badge t-badge-lightgrey">v8</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v9.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v9</span>
+            <label class="badge t-badge-lightgrey">v9</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v10.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v10</span>
+            <label class="badge t-badge-lightgrey">v10</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v11.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v11</span>
+            <label class="badge t-badge-lightgrey">v11</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v12.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v12</span>
+            <label class="badge t-badge-lightgrey">v12</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v13.html">
+            <i class="tub-home-hashtag" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>首頁 v13</span>
+            <label class="badge t-badge-lightgrey">v13</label>
+          </a>
+        </li> -->
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v14.html">
+            <i class="tub-chart" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>整合性指標</span>
+            <label class="badge t-badge-warning">New</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v14.html">
+            <i class="tub-chart-1" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>職前訓練指標</span>
+            <label class="badge t-badge-warning">New</label>
+          </a>
+        </li>
+        <li class="side-main-list-item">
+          <a class="side-main-list-link" href="index_v14.html">
+            <i class="tub-chart-2" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>在職訓練指標</span>
+            <label class="badge t-badge-tertiary">Add</label>
+          </a>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-civic-cvc" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>青年職訓指標</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item" data-sub="true">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>職前訓練指標</span>
+              </a>
+            </li>
+            <ul class="side-sub-menu">
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(性別、年齡、學歷、身分別)">
+                <a class="side-sub-menu-link" href="employment_before_1.html">
+                  <span>參訓學員背景分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(報名、甄試、開訓、結訓、就業、結訓率、就業率)">
+                <a class="side-sub-menu-link" href="employment_before_2.html">
+                  <span>分署職訓執行情形</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(各計畫參訓人數、開課班數)">
+                <a class="side-sub-menu-link" href="employment_before_3.html">
+                  <span>職前計畫執行情形</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(產業別、地區別)">
+                <a class="side-sub-menu-link" href="employment_before_4.html">
+                  <span>重點產業別參訓職類分布趨勢</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(地區別、薪資級距)">
+                <a class="side-sub-menu-link" href="employment_before_5.html">
+                  <span>課程報名趨勢</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、職類別)">
+                <a class="side-sub-menu-link" href="employment_before_6.html">
+                  <span>學員訓後薪資水準分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(地區別、薪資級距)">
+                <a class="side-sub-menu-link" href="employment_before_7.html">
+                  <span>學員訓後就業關聯性</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、職類別)">
+                <a class="side-sub-menu-link" href="employment_before_8.html">
+                  <span>學員訓後薪資水準分析</span>
+                </a>
+              </li>
+            </ul>
+            <li class="side-sub-menu-item" data-sub="true">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>在職訓練指標</span>
+              </a>
+            </li>
+            <ul class="side-sub-menu">
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(縣市別、分署別)">
+                <a class="side-sub-menu-link" href="employment_pre_1.html">
+                  <span>產業別開課占比</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(性別、年齡、學歷、身分別)">
+                <a class="side-sub-menu-link" href="employment_pre_2.html">
+                  <span>參訓背景</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(級距別、分署別、縣市別))">
+                <a class="side-sub-menu-link" href="employment_pre_3.html">
+                  <span>參訓者薪資落點分布</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(一年度更新一次)">
+                <a class="side-sub-menu-link" href="employment_pre_4.html">
+                  <span>訓練單位屬性分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(投保公司行業別)">
+                <a class="side-sub-menu-link" href="employment_pre_5.html">
+                  <span>參訓者任職產業分布</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、縣市別、計畫別)">
+                <a class="side-sub-menu-link" href="employment_pre_6.html">
+                  <span>訓練單位屬性分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別、縣市別、結訓率)">
+                <a class="side-sub-menu-link" href="employment_pre_7.html">
+                  <span>重點產業別課程佔比分析</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(年齡別、區域別、學歷別)">
+                <a class="side-sub-menu-link" href="employment_pre_8.html">
+                  <span>參訓學員年度產投計畫經費運用情形占比</span>
+                </a>
+              </li>
+            </ul>
+            <li class="side-sub-menu-item" data-sub="true">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>青年職訓指標</span>
+              </a>
+            </li>
+            <ul class="side-sub-menu">
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(性別、年齡、學制別、身分別)">
+                <a class="side-sub-menu-link" href="employment_youth_1.html">
+                  <span>參訓背景</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(計畫別、縣市別、分署別)">
+                <a class="side-sub-menu-link" href="employment_youth_2.html">
+                  <span>廠商行業別分布情形</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別)">
+                <a class="side-sub-menu-link" href="employment_youth_3.html">
+                  <span>青年訓後薪資落點</span>
+                </a>
+              </li>
+              <li class="side-sub-menu-item" data-toggle="tooltip" data-placement="right" title="(分署別)">
+                <a class="side-sub-menu-link" href="employment_youth_4.html">
+                  <span>學員訓後就業關聯性</span>
+                </a>
+              </li>
+            </ul>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-user-edit" aria-hidden="true">
+              <font></font>
+              <font></font>
+              <font></font>
+            </i>
+            <span>個人化設定</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>儀表板設定</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>個人資料維護</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="side-main-list-item" data-sub="true">
+          <a href="javascript:;" class="side-main-list-link">
+            <i class="tub-setting-2" aria-hidden="true">
+              <font></font>
+              <font></font>
+            </i>
+            <span>系統管理</span>
+          </a>
+          <ul class="side-sub-menu">
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>帳號設定</span>
+              </a>
+            </li>
+            <li class="side-sub-menu-item">
+              <a class="side-sub-menu-link" href="javascript:;">
+                <span>使用紀錄歷程</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <figure class="custom-setting-card">
+        <div class="mask mask-circle"></div>
+        <div class="custom-setting-card-inner">
+          <figcaption class="custom-setting-card-img">
+            <div class="custom-setting-card-img-container"></div>
+          </figcaption>
+          <div class="custom-setting-card-title">
+            自行縮放您的網站尺寸設定！
+          </div>
+          <div class="custom-setting-card-btns" id="fontBtns">
+            <button id="scale_down" class="custom-setting-btn btn btn--white btn--xxs">縮小</button>
+            <button id="scale_default" class="custom-setting-btn btn btn--white btn--xxs">恢復預設</button>
+            <button id="scale_up" class="custom-setting-btn btn btn--white btn--xxs">放大</button>
+          </div>
+        </div>
+      </figure>
+    </nav>
+  </aside>
+  <!-- MAIN CONTENT -->
+  <article class="main-content" id="MainContent">
+    <div class="backend-page-content">
+      <div class="backend-page-header">
+        <div class="mask mask-datas"></div>
+        <div class="lottie lottie-bg" data-animation-path="https://assets7.lottiefiles.com/packages/lf20_qwATcU.json" data-anim-loop="true" data-name="cahrt1"></div>
+        <div class="backend-page-header-cnt">
+          <h2 class="backend-page-title">111 年度職業訓練業務執行績效儀表板</h2>
+        </div>
+      </div>
+      <div class="backend-page-body">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-xl-12">
+              <div class="tu-card-list">
+                <section class="tu-card" style="background-image: url('img/cardbg/card-bg-1@2x.jpg')">
+                  <div class="tu-card-inner">
+                    <div class="tu-card-icon">
+                      <svg id="map" xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
+                        <path id="Vector" d="M0,0H88V88H0Z" transform="translate(0)" fill="none" opacity="0" />
+                        <path id="Vector-2" data-name="Vector" d="M46.86,21.56c-3.483,2.567-8.067,3.887-13.53,3.887H2.6A20.274,20.274,0,0,1,0,25.3L25.3,0Z" transform="translate(26.033 55.22)" fill="#fff" opacity="0.4" />
+                        <path id="Vector-3" data-name="Vector" d="M25.447,2.6V33.33c0,5.463-1.32,10.047-3.887,13.53L0,25.3,25.3,0A20.274,20.274,0,0,1,25.447,2.6Z" transform="translate(55.22 26.033)" fill="#fff" opacity="0.4" />
+                        <path id="Vector-4" data-name="Vector" d="M47.887,44l21.56,21.56a15.066,15.066,0,0,1-3.887,3.887L44,47.887l-25.3,25.3a21.912,21.912,0,0,1-6.417-1.357C4.437,68.97,0,62,0,52.03V21.3C0,7.957,7.957,0,21.3,0H52.03C62,0,68.97,4.437,71.83,12.283A21.912,21.912,0,0,1,73.187,18.7Z" transform="translate(7.333 7.333)" fill="#fff" opacity="0.4" />
+                        <path id="Vector-5" data-name="Vector" d="M35.6,31.717l21.56,21.56a15.066,15.066,0,0,1-3.887,3.887L31.717,35.6,6.417,60.9A21.912,21.912,0,0,1,0,59.547l1.43-1.43L59.547,0A21.913,21.913,0,0,1,60.9,6.417Z" transform="translate(19.617 19.617)" fill="#fff" />
+                        <path id="Vector-6" data-name="Vector" d="M23.212,8.8C21.819,2.75,16.466.037,11.772,0,7.079,0,1.726,2.713.332,8.763-1.208,15.473,2.9,21.083,6.6,24.6a7.413,7.413,0,0,0,5.17,2.053,7.579,7.579,0,0,0,5.17-2.053C20.646,21.083,24.752,15.473,23.212,8.8Zm-11.33,5.72a3.667,3.667,0,0,1,0-7.333h.037a3.667,3.667,0,1,1-.037,7.333Z" transform="translate(21.668 20.277)" fill="#fff" />
+                      </svg>
+                    </div>
+                    <div class="tu-card-txt">
+                      求才需求數與訓練人數比較
+                    </div>
+                  </div>
+                </section>
+                <section class="tu-card" style="background-image: url('img/cardbg/card-bg-2@2x.jpg')">
+                  <div class="tu-card-inner">
+                    <div class="tu-card-icon">
+                      <svg id="favorite-chart" xmlns="http://www.w3.org/2000/svg" width="88" height="87.642" viewBox="0 0 88 87.642">
+                        <path id="Vector" d="M0,0H88V87.642H0Z" fill="none" opacity="0" />
+                        <path id="Vector-2" data-name="Vector" d="M73.333,21.217v26.84a13.068,13.068,0,0,0-3.557-1.1l-1.137-.183-.953-1.972c-2.017-4.09-5.317-6.464-9.02-6.464s-7,2.374-9.02,6.464l-.99,1.972-1.1.183c-4.363.73-7.517,3.141-8.653,6.573C37.8,57,38.94,60.8,42.057,63.942l1.137,1.132-.11.438a12.8,12.8,0,0,0,.257,7.523H21.3C7.957,73.035,0,65.111,0,51.818v-30.6C0,7.924,7.957,0,21.3,0H52.03C65.377,0,73.333,7.924,73.333,21.217Z" transform="translate(7.333 7.304)" fill="#fff" opacity="0.4" />
+                        <path id="Vector-3" data-name="Vector" d="M18.773,3.424,19.946,5.8A5.206,5.206,0,0,0,23.283,8.28l1.577.256c4.8.8,5.9,4.309,2.493,7.742l-1.467,1.461a5.142,5.142,0,0,0-1.21,4.273l.183.876c1.32,5.77-1.76,8-6.783,4.966L17.013,27.2a5.075,5.075,0,0,0-4.693,0l-1.063.657c-5.06,3.031-8.1.8-6.783-4.966l.183-.876a5.176,5.176,0,0,0-1.21-4.273L1.98,16.278C-1.43,12.809-.33,9.339,4.473,8.536L6.05,8.28A5.118,5.118,0,0,0,9.386,5.8L10.56,3.424C12.833-1.141,16.5-1.141,18.773,3.424Z" transform="translate(51.334 51.134)" fill="#fff" />
+                        <path id="Vector_Stroke_" data-name="Vector (Stroke)" d="M38.682.574a2.731,2.731,0,0,1,.489,3.843l-8.486,10.9a6.477,6.477,0,0,1-9.009,1.089l-.019-.015-6.7-5.249a.933.933,0,0,0-1.305.169h0L4.929,22.6A2.746,2.746,0,0,1,.571,19.253L9.3,7.966a6.449,6.449,0,0,1,9.028-1.15l.019.015,6.7,5.249a.962.962,0,0,0,1.319-.15L34.823,1.061A2.758,2.758,0,0,1,38.682.574Z" transform="translate(20.46 28.337)" fill="#fff" />
+                      </svg>
+                    </div>
+                    <div class="tu-card-txt">
+                      求職需求數與
+                      訓練人數比較
+                    </div>
+                  </div>
+                </section>
+                <section class="tu-card" style="background-image: url('img/cardbg/card-bg-3@2x.jpg')">
+                  <div class="tu-card-inner">
+                    <div class="tu-card-icon"><svg id="briefcase" xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
+                        <path id="Vector" d="M69.986,19.1c-3.117-3.447-8.323-5.17-15.877-5.17h-.88v-.147c0-6.16,0-13.787-13.787-13.787H33.869C20.083,0,20.083,7.663,20.083,13.787v.183H19.2c-7.59,0-12.76,1.723-15.877,5.17C-.3,23.173-.194,28.6.173,32.3l.037.257.367,3.85a.8.8,0,0,0,.183.147c1.21.807,2.457,1.613,3.777,2.347.513.33,1.063.623,1.613.917a62.94,62.94,0,0,0,20.167,6.893c.33,3.447,1.833,7.48,9.863,7.48s9.607-4,9.863-7.553a61.705,61.705,0,0,0,21.23-7.627c.22-.11.367-.22.55-.33a46.821,46.821,0,0,0,4.8-3.117.442.442,0,0,0,.183-.183l.147-1.32.183-1.723c.037-.22.037-.4.073-.66C73.506,27.977,73.433,22.917,69.986,19.1ZM40.653,44.22c0,3.887,0,4.473-4.51,4.473s-4.51-.7-4.51-4.437v-4.62h9.02ZM25.326,13.933v-.147c0-6.233,0-8.543,8.543-8.543h5.573c8.543,0,8.543,2.347,8.543,8.543v.183H25.326Z" transform="translate(7.344 6.49)" fill="#fff" />
+                        <path id="Vector-2" data-name="Vector" d="M67.247,3.3l-.55.33a62.47,62.47,0,0,1-21.23,7.627c-.293,3.52-1.833,7.553-9.863,7.553s-9.57-4-9.863-7.48A61.213,61.213,0,0,1,5.573,4.437c-.55-.293-1.1-.587-1.613-.917C2.64,2.787,1.393,1.98.183,1.173A.8.8,0,0,1,0,1.027L2.237,24.9c.77,7.3,3.777,14.813,19.91,14.813h27.94c16.133,0,19.14-7.517,19.91-14.85L72.307,0a.442.442,0,0,1-.183.183A45.691,45.691,0,0,1,67.247,3.3Z" transform="translate(7.92 41.8)" fill="#fff" opacity="0.4" />
+                        <path id="Vector-3" data-name="Vector" d="M0,0H88V88H0Z" fill="none" opacity="0" />
+                      </svg>
+                    </div>
+                    <div class="tu-card-txt">
+                      各產業薪資與
+                      訓後就業薪資比較
+                    </div>
+                  </div>
+                </section>
+                <section class="tu-card" style="background-image: url('img/cardbg/card-bg-4@2x.jpg')">
+                  <div class="tu-card-inner">
+                      <div class="tu-card-icon">
+                        <svg id="award" xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
+                          <path id="Vector" d="M50.783,10.716l-.513-.293-5.1-2.933L34.65,1.4a12.217,12.217,0,0,0-11.367,0L12.76,7.489l-5.1,2.97L7,10.826c-6.563,4.4-7,5.207-7,12.283v16.9C0,47.089.44,47.9,7.15,52.406l16.133,9.313a11.26,11.26,0,0,0,5.683,1.393,11.356,11.356,0,0,0,5.683-1.393L50.93,52.3c6.563-4.4,7-5.207,7-12.283v-16.9C57.933,16.033,57.493,15.226,50.783,10.716Z" transform="translate(15.033 17.554)" fill="#fff" opacity="0.4" />
+                          <path id="Vector-2" data-name="Vector" d="M0,20.68l5.1-2.97,10.047-5.793.477-.293a12.216,12.216,0,0,1,11.367,0l.477.293L37.51,17.71l5.1,2.933V12.8c0-8.25-4.547-12.8-12.8-12.8H12.76C4.51,0,0,4.547,0,12.8Z" transform="translate(22.697 7.333)" fill="#fff" />
+                          <path id="Vector-3" data-name="Vector" d="M21.6,10.532l-2.273,2.787a2.755,2.755,0,0,0-.587,1.76l.22,3.593c.147,2.2-1.43,3.337-3.483,2.53l-3.337-1.32a3.374,3.374,0,0,0-1.907,0L6.9,21.2c-2.053.807-3.63-.33-3.483-2.53l.22-3.593a2.755,2.755,0,0,0-.587-1.76L.772,10.532c-1.43-1.687-.807-3.557,1.32-4.107l3.483-.88a2.911,2.911,0,0,0,1.5-1.137L9.022,1.4c1.21-1.87,3.117-1.87,4.327,0l1.943,3.007a2.911,2.911,0,0,0,1.5,1.137l3.483.88C22.405,6.976,23.029,8.846,21.6,10.532Z" transform="translate(32.815 38.381)" fill="#fff" />
+                          <path id="Vector-4" data-name="Vector" d="M0,0H88V88H0Z" transform="translate(0 0)" fill="none" opacity="0" />
+                        </svg>
+                      </div>
+                      
+                      <div class="tu-card-txt">
+                        量能之供需情形
+                      </div>
+                    </div>
+
+                </section>
+                <section class="tu-card" style="background-image: url('img/cardbg/card-bg-5@2x.jpg')">
+                  <div class="tu-card-inner">
+                    <div class="tu-card-icon">
+                      <svg id="award" xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
+                        <path id="Vector" d="M50.783,10.716l-.513-.293-5.1-2.933L34.65,1.4a12.217,12.217,0,0,0-11.367,0L12.76,7.489l-5.1,2.97L7,10.826c-6.563,4.4-7,5.207-7,12.283v16.9C0,47.089.44,47.9,7.15,52.406l16.133,9.313a11.26,11.26,0,0,0,5.683,1.393,11.356,11.356,0,0,0,5.683-1.393L50.93,52.3c6.563-4.4,7-5.207,7-12.283v-16.9C57.933,16.033,57.493,15.226,50.783,10.716Z" transform="translate(15.033 17.554)" fill="#fff" opacity="0.4" />
+                        <path id="Vector-2" data-name="Vector" d="M0,20.68l5.1-2.97,10.047-5.793.477-.293a12.216,12.216,0,0,1,11.367,0l.477.293L37.51,17.71l5.1,2.933V12.8c0-8.25-4.547-12.8-12.8-12.8H12.76C4.51,0,0,4.547,0,12.8Z" transform="translate(22.697 7.333)" fill="#fff" />
+                        <path id="Vector-3" data-name="Vector" d="M21.6,10.532l-2.273,2.787a2.755,2.755,0,0,0-.587,1.76l.22,3.593c.147,2.2-1.43,3.337-3.483,2.53l-3.337-1.32a3.374,3.374,0,0,0-1.907,0L6.9,21.2c-2.053.807-3.63-.33-3.483-2.53l.22-3.593a2.755,2.755,0,0,0-.587-1.76L.772,10.532c-1.43-1.687-.807-3.557,1.32-4.107l3.483-.88a2.911,2.911,0,0,0,1.5-1.137L9.022,1.4c1.21-1.87,3.117-1.87,4.327,0l1.943,3.007a2.911,2.911,0,0,0,1.5,1.137l3.483.88C22.405,6.976,23.029,8.846,21.6,10.532Z" transform="translate(32.815 38.381)" fill="#fff" />
+                        <path id="Vector-4" data-name="Vector" d="M0,0H88V88H0Z" transform="translate(0 0)" fill="none" opacity="0" />
+                      </svg>
+                    </div>
+                    <div class="tu-card-txt">
+                      求才需求數與訓練人數比較
+                    </div>
+                  </div>
+                </section>
+                <section class="tu-card" style="background-image: url('img/cardbg/card-bg-6@2x.jpg')">
+                  <div class="tu-card-inner">
+                    <div class="tu-card-icon"><svg id="chart-square" xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
+                        <path id="Vector" d="M0,0H88V88H0Z" fill="none" opacity="0" />
+                        <path id="Vector-2" data-name="Vector" d="M51.993,0H21.3C7.957,0,0,7.957,0,21.3v30.69C0,65.34,7.957,73.3,21.3,73.3h30.69c13.347,0,21.3-7.957,21.3-21.3V21.3C73.3,7.957,65.34,0,51.993,0Z" transform="translate(7.37 7.333)" fill="#fff" opacity="0.4" />
+                        <g id="Group" transform="translate(23.173 24.2)">
+                          <path id="Vector-3" data-name="Vector" d="M13.9,0H4.18A4.178,4.178,0,0,0,0,4.18V22.953H13.9V0Z" transform="translate(0 16.684)" fill="#fff" />
+                          <path id="Vector-4" data-name="Vector" d="M9.753,0H4.18A4.178,4.178,0,0,0,0,4.18V39.6H13.9V4.18A4.147,4.147,0,0,0,9.753,0Z" transform="translate(13.86 0)" fill="#fff" opacity="0.4" />
+                          <path id="Vector-5" data-name="Vector" d="M9.717,0H0V16.684H13.9V4.18A4.226,4.226,0,0,0,9.717,0Z" transform="translate(27.793 22.917)" fill="#fff" />
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="tu-card-txt">
+                      熱門課程之
+                      供需情形 </div>
+                  </div>
+                </section>
+                <section class="tu-card" style="background-image: url('img/cardbg/card-bg-7@2x.jpg')">
+                  <div class="tu-card-inner">
+                    <div class="tu-card-icon">
+                      <svg id="dollar-square" xmlns="http://www.w3.org/2000/svg" width="88" height="88" viewBox="0 0 88 88">
+                        <path id="Vector" d="M52.03,0H21.3C7.957,0,0,7.957,0,21.3v30.69c0,13.383,7.957,21.34,21.3,21.34h30.69c13.347,0,21.3-7.957,21.3-21.3V21.3C73.333,7.957,65.377,0,52.03,0Z" transform="translate(7.333 7.333)" fill="#fff" opacity="0.4" />
+                        <path id="Vector-2" data-name="Vector" d="M0,0H88V88H0Z" fill="none" opacity="0" />
+                        <path id="Path_256353" data-name="Path 256353" d="M-12.8,14.16h4.4v-28h-4.4ZM3.4,3.72v4c0,2-.88,2.72-2.28,2.72s-2.28-.72-2.28-2.72V-7.4c0-2,.88-2.76,2.28-2.76S3.4-9.4,3.4-7.4v3H7.56V-7.12c0-4.48-2.24-7.04-6.56-7.04S-5.56-11.6-5.56-7.12V7.44c0,4.48,2.24,7.04,6.56,7.04s6.56-2.56,6.56-7.04V3.72ZM20-13.84H13.56l-4.48,28h4.04l.76-5.08h5.4l.76,5.08h4.44ZM16.56-8.88,18.68,5.28H14.44ZM33-13.84H26.52v28h4.4V3.64H33c4.4,0,6.56-2.44,6.56-6.92V-6.92C39.56-11.4,37.4-13.84,33-13.84Zm0,4c1.4,0,2.16.64,2.16,2.64V-3c0,2-.76,2.64-2.16,2.64H30.92V-9.84Z" transform="translate(31.2 43.84)" fill="#fff" />
+                      </svg>
+                    </div>
+                    <div class="tu-card-txt">
+                      求職需求數與
+                      訓練人數比較
+                    </div>
+                  </div>
+                </section>
+                <section class="tu-card" style="background-image: url('img/cardbg/card-bg-8@2x.jpg')">
+                  <div class="tu-card-inner">
+                    <div class="tu-card-icon"><svg xmlns="http://www.w3.org/2000/svg" width="88" height="87.642" viewBox="0 0 88 87.642">
+                        <g id="dollar-square" opacity="0.995">
+                          <path id="Vector" d="M52.03,0H21.3C7.957,0,0,7.924,0,21.217V51.782C0,65.111,7.957,73.035,21.3,73.035h30.69c13.347,0,21.3-7.924,21.3-21.217v-30.6C73.333,7.924,65.377,0,52.03,0Z" transform="translate(7.333 7.304)" fill="#fff" opacity="0.4" />
+                          <path id="Vector-2" data-name="Vector" d="M23.283,24.649l-5.537-1.935V10.334h1.32a5.6,5.6,0,0,1,5.39,5.77,2.75,2.75,0,0,0,5.5,0A11.076,11.076,0,0,0,19.067,4.857h-1.32V2.739a2.75,2.75,0,0,0-5.5,0V4.857H9.863A10.037,10.037,0,0,0,0,15.009c0,6.537,3.813,8.618,6.71,9.641l5.537,1.935V38.928h-1.32a5.6,5.6,0,0,1-5.39-5.77,2.764,2.764,0,0,0-2.75-2.739,2.764,2.764,0,0,0-2.75,2.739,11.076,11.076,0,0,0,10.89,11.247h1.32V46.56a2.75,2.75,0,0,0,5.5,0V44.442H20.13A10.037,10.037,0,0,0,29.993,34.29C29.957,27.717,26.143,25.635,23.283,24.649ZM8.543,19.5c-1.87-.657-3.007-1.278-3.007-4.455A4.513,4.513,0,0,1,9.9,10.371h2.383V20.815ZM20.13,38.964H17.747V28.52l3.7,1.278c1.87.657,3.007,1.278,3.007,4.455A4.541,4.541,0,0,1,20.13,38.964Z" transform="translate(29.003 19.172)" fill="#fff" />
+                          <path id="Vector-3" data-name="Vector" d="M0,0H88V87.642H0Z" transform="translate(0 0)" fill="none" opacity="0" />
+                        </g>
+                      </svg>
+                    </div>
+                    <div class="tu-card-txt">
+                      經費
+                      執行情形
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="backend-page-footer">
+      <div class="container-fluid">
+        <div class="brand-wda-logo-grey w-32 h-32 in-bk-mid"></div>
+        <div class="in-bk-mid ml-8">
+          勞動力發展署版權所有 Wda Co., Ltd., wda All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </article>
+  <!-- <ul class="fixed-rt-tool">
+      <li class="fixed-rt-tool-item">
+        <button>
+        setting
+        </button>
+      </li>
+      <li class="fixed-rt-tool-item">
+      </li>
+    </ul> -->
+  <a class="js-go-to" href="javascript:;" data-type="fixed" data-position='{"bottom": 16, "right": 16 }' data-offset-top="100" data-compensation="#Header" data-show-effect="zoomIn" data-hide-effect="zoomOut">
+    <i class="tub-arrow-up">
+      <font></font>
+      <font></font>
+    </i>
+  </a>
+  <!-- <div id="loader">
+      <div class="loader-cnt">
+        <div id="lottie_load"></div>
+      </div>
+    </div> -->
+  <form action="" method="get" id="themes">
+    <input type="hidden" id="fontSizeClass">
+  </form>
+  <!-- JQuery -->
+  <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="vendor/jquery-migrate/dist/jquery-migrate.min.js"></script>
+  <!-- Bootstrap  -->
+  <script src="vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Appear -->
+  <script src="vendor/appear/appear.js"></script>
+  <!-- Circles -->
+  <script src="vendor/circles-js/circles.min.js"></script>
+  <!-- Chartist -->
+  <script src="vendor/chartist/chartist.min.js"></script>
+  <!-- mCustomScrollbar -->
+  <script src="vendor/malihu-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+  <!-- Lottie -->
+  <script src="vendor/lottie-web/5.7.13/lottie.min.js"></script>
+  <!-- Svg  Zoom -->
+  <script src="vendor/svg-pan-zoom/dist/svg-pan-zoom.min.js"></script>
+  <!-- Hammer -->
+  <script src="vendor/hammerjs/hammer.min.js"></script>
+  <!-- eCharts -->
+  <script src="vendor/echarts/dist/echarts.min.js"></script>
+  <!-- eCharts Themes -->
+  <script src="vendor/echarts/theme/wda_data.js"></script>
+  <!-- eCharts liquidfill -->
+  <script src="vendor/echarts-liquidfill/dist/echarts-liquidfill.min.js"></script>
+  <!-- Main.js -->
+  <script src="js/core.js"></script>
+  <!-- Custom Plugins -->
+  <script src="js/echarts_variables.js"></script>
+  <script src="js/echarts_maps.js"></script> <!-- Custom Plugins -->
+  <!-- Chartist -->
+  <script src="js/charts/Tu.chartist-area.js"></script>
+  <script src="js/charts/Tu.chartist-bar.js"></script>
+  <script src="js/charts/Tu.chartist-pie.js"></script>
+  <script src="js/charts/Tu.chartist-donut.js"></script>
+  <!-- Circles -->
+  <script src="js/charts/Tu.circles.js"></script>
+  <!-- Counter -->
+  <script src="js/components/Tu.counter.js"></script>
+  <script src="js/components/Tu.dropdown.js"></script>
+  <script src="js/components/Tu.modal.js"></script>
+  <!-- Scrollbar Setting -->
+  <script src="js/components/Tu.scrollbar.js"></script>
+  <script src="js/components/Tu.toggle.js"></script>
+  <script src="js/components/Tu.gotop.js"></script>
+  <!--   <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js" type="text/javascript" charset="utf-8" async defer></script> -->
+  <script type="text/javascript">
+  </script>
+  <!--   <script src="js/colors.js"></script> -->
+  <!--   <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script> -->
+  <!--   <script src="js/d3_map.js"></script>
+    -->
+  <script type="text/javascript">
+  // letidth = 800;
+  // let height = 600;
+  // const projection = d3.geoMercator()
+  //   .center([123, 24])
+  //   .scale(5000);
+  // const svg = d3.select("#tabv2").select(".wrap").append("svg")
+  //   .attr("width", width)
+  //   .attr("height", height);
+  // const path = d3.geoPath()
+  //   .projection(projection);
+  // const g = svg.append("g");
+  // d3.select(".wrap").append("div").classed("wrap-item", true);
+  // d3.json("map_test/Taiwan_N/COUNTY_MOI_1090820_topo.json")
+  //   .then(function(topology) {
+  //     console.log(topology);
+  //     const makeColor = d3.scaleSequential(t => d3.hsl(t * 360, .8, .9).formatRgb()).domain([0, 30]);
+  //     g.selectAll("path")
+  //       .data(
+  //         topojson
+  //         .feature(topology, topology.objects.COUNTY_MOI_1090820)
+  //         .features
+  //       )
+  //       .join("path")
+  //       .style('fill', (d, i) => {
+  //         return makeColor(i);
+  //       })
+  //       .style("stroke", "gray")
+  //       .style("stroke-width", ".25")
+  //       .style("stroke-opacity", ".5")
+  //       .attr("d", path);
+  //   })
+  //   .then(function() {
+  //     d3.json("farm-product-map.json").then(function(product) {
+  //       g.selectAll("circle")
+  //         .data(product)
+  //         .join("circle")
+  //         .attr("cx", function(d) {
+  //           // console.log(d);
+  //           // console.log(projection([d.Longitude,d.Latitude]));
+  //           console.log(projection([d.Longitude, d.Latitude]));
+  //           return projection([d.Longitude, d.Latitude])[0];
+  //         })
+  //         .attr("cy", function(d) {
+  //           return projection([d.Longitude, d.Latitude])[1];
+  //         })
+  //         .attr("r", 1)
+  //         .style("fill", "lightgreen")
+  //     })
+  //   });
+  var ntpTable = '';
+  $.TuCore.components.modal.init('#NewTaipei', {
+    title: '新北市課程區域分佈',
+    drag: true,
+    size: 'modal-xl',
+    body: '<div class="modal-map-cnt">' +
+      '  <h6 class="map-title">新北市 <big>146</big> 筆</h6>' +
+      '  <div class="modal-map-lt">' +
+      '    <div class="mask mask_graph"></div>' +
+      '      <img id="Map_of_NewTaipei" src="img/Map_of_NewTaipei.svg" alt="新北市">' +
+      '    </div>' +
+      '    <div class="modal-map-rt js-tab-placeholder">' +
+      '      <ul class="card-list"></ul>' + ntpTable + '' +
+      '    </div>' +
+      '  </div>',
+    created: function(modal) {
+      modal.on('shown.bs.modal', function() {
+        function modalGetData(selector, sheetname) {
+          var sheetid = '1YMIyUd0KEhwR758slr_qFmcAzThqaS5EI25iKQ0T0Nw',
+            sheetno = 2,
+            sheetname = 'newTp',
+            googleAPIKey = 'AIzaSyDJP6nfQSxT-tRqPR6z_hyqBnn11LDskcU',
+            dataurl = 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetid + '/values/' + sheetname + '?alt=json&key=' + googleAPIKey + '';
+          fetch(dataurl)
+            .then(res => res.json())
+            .then(res => {
+              var data = res.values;
+              Array.prototype.forEach.call(data, d => {
+                var item = `
+  <li class="card-list-item">
+    <span class="card-list-item-marker"></span>
+    <h6 class="card-list-item-name">${d[3]}</h6>
+    <p class="card-list-item-val">
+    <strong class="text-secondary">${d[7]}</strong> 門 課程</p>
+  </li>`;
+                document.querySelector('.card-list').insertAdjacentHTML('beforeend', item);
+              })
+            })
+        };
+        if (!$('.card-list-item').length)
+          setTimeout(function() {
+            modal.find('.modal-map-rt').removeClass('js-tab-placeholder');
+            modalGetData();
+          }, 1500);
+      });
+    },
+  });
+  // $.TuCore.components.modal.init('#Taipei', {
+  //   title: '台北市課程區域分佈',
+  //   size: 'modal-xl',
+  //   body: '<div class="modal-map-cnt">' +
+  //     '  <div class="modal-map-lt">' +
+  //     '    <img src="img/Map_of_TaipeiCity.svg" alt="台北市">' +
+  //     '  </div>' +
+  //     '  <div class="modal-map-rt">' + ntpTable + '' +
+  //     '  </div>' +
+  //     '</div>',
+  //   created: function(modal ,id) {
+  //     $(modal).on('shown.bs.modal', function() {
+  //       function modalGetData(selector, sheetname) {
+  //         var ntpTable = '';
+  //         var ntpTable = '';
+  //         var sheetid = '1YMIyUd0KEhwR758slr_qFmcAzThqaS5EI25iKQ0T0Nw',
+  //           sheetno = 2,
+  //           sheetname = 'tp',
+  //           googleAPIKey = 'AIzaSyDJP6nfQSxT-tRqPR6z_hyqBnn11LDskcU',
+  //           dataurl = 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetid + '/values/' + sheetname + '?alt=json&key=' + googleAPIKey + '';
+  //         fetch(dataurl)
+  //           .then(res => res.json())
+  //           .then(res => {
+  //             var data = res.values;
+  //             console.log(data);
+  //             data.shift();
+  //             Array.prototype.forEach.call(data, d => {
+  //               var Card = `
+  //             <div class="card">
+  //               <div class="text-center">
+  //                 <h4>${d[3]}</h4>
+  //                 <p>${d[7]} 門課程</p>
+  //               </div>
+  //             </div>`;
+  //               document.querySelector('.modal-map-rt').insertAdjacentHTML('beforeend', Card);
+  //             })
+  //           })
+  //       };
+  //       modalGetData();
+  //     });
+  //   },
+  // });
+  </script>
+</body>
+
+</html>

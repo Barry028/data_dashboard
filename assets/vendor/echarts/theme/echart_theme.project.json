@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "themeName": "Wda_data",
+    "themeName": "echart_theme",
     "theme": {
         "seriesCnt": "6",
         "backgroundColor": "#f9f9fb",
