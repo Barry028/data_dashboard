@@ -1,6 +1,6 @@
-if ($('#echarts_tw_county_map').length) {
-    (function echarts_tw_county_map() {
-      var chartDom = document.getElementById('echarts_tw_county_map');
+  if ($('#echarts_tw_branch_map').length) {
+    (function echarts_tw_branch_map() {
+      var chartDom = document.getElementById('echarts_tw_branch_map');
       var myChart = echarts.init(chartDom, 'wda_data', {
         renderer: 'svg',
         useDirtyRect: true,
@@ -11,6 +11,8 @@ if ($('#echarts_tw_county_map').length) {
       var ROOT_PATH = 'https://assets.codepen.io/2845599';
 
       var nameMap = 'taiwan';
+
+
       // 中心點
       var geoCoordMap = {
         "基隆市": [121.7081, 25.10898],
@@ -105,7 +107,7 @@ if ($('#echarts_tw_county_map').length) {
         value: [66, getRandom(0, 1000)]
       }];
 
-      console.log(data);
+      // console.log(data);
 
       var dataMax = ArrayMax(data);
       var dataMin = ArrayMin(data);
@@ -129,16 +131,20 @@ if ($('#echarts_tw_county_map').length) {
       };
 
       dataNew = convertData(data);
-      console.log(dataNew);
+      // console.log(dataNew);
       // $.get(ROOT_PATH + '/branch.json', function(taiwanJson) {
-      $.get(ROOT_PATH + '/TaiwanCountry.json', function(taiwanJson) {
+      $.get(ROOT_PATH + '/branch.json', function(taiwanJson) {
+
         // 選到縣市中文
         echarts.registerMap('taiwan', taiwanJson, {
           mapName: "台灣地圖",
         });
 
         var mapFeatures = echarts.getMap(nameMap).geoJson.features;
+        // console.log(mapFeatures)
         // myChart.hideLoading();
+        // 
+        // 
 
         option = {
           title: {
@@ -394,12 +400,13 @@ if ($('#echarts_tw_county_map').length) {
               }]
             },
             data: data,
-          }, {
+          }, 
+          {
             name: '課堂數量',
             type: 'scatter',
             coordinateSystem: 'geo',
             symbolSize: function(val) {
-              console.log(val)
+              // console.log(val)
               return val[3] / 20; // val[0] 經度；[1] 緯度；[2] 人數；[3]課堂數
             },
             label: {
@@ -415,7 +422,7 @@ if ($('#echarts_tw_county_map').length) {
                 textBorderType: 'solid',
                 textBorderDashOffset: 0,
                 formatter(value) {
-                  console.log(value.value[3])
+                  // console.log(value.value[3])
                   return value.value[3] + ' 堂'
                 },
               },
@@ -444,7 +451,7 @@ if ($('#echarts_tw_county_map').length) {
               return b.value[3] - a.value[3];
             }).slice(0, 5),
             symbolSize: function(val) {
-              console.log(val)
+              // console.log(val)
               return val[3] / 15;
             },
             showEffectOn: 'render',
@@ -472,7 +479,7 @@ if ($('#echarts_tw_county_map').length) {
               return b.value[3] - a.value[3];
             }).slice(0, 5),
             symbolSize: function(val) {
-              console.log(val)
+              // console.log(val)
               return val[3] / 15;
             },
             showEffectOn: 'render',
@@ -487,7 +494,8 @@ if ($('#echarts_tw_county_map').length) {
               }
             },
             zlevel: 0,
-          }]
+          }
+          ]
         };
         if (option && typeof option === 'object') {
           myChart.setOption(option);
